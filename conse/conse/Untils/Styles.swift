@@ -21,17 +21,24 @@ extension UIView {
         self.layer.masksToBounds = true
     }
     
-    /** Agreaga un borde inferior  a la vista que lo este lamando
+    /**
+     Agreaga un borde inferior  a la vista que lo este lamando
      
-     - Parameter padding: (Optional) value for rigth and left padding
+     - Parameter margin: (Optional) value for rigth and left margin
+     - Parameter padding: (Optional) value for rigth and left padding as width screen porcentage
      */
-    func underline(width: CGFloat, padding: CGFloat? = nil){
+    func underline(margin: CGFloat? = nil, padding: CGFloat? = nil) {
         let border = CALayer()
         let borderWidth = CGFloat(1.0)
         let padding = self.frame.size.width * (padding ?? 0)
+        let width = UIScreen.main.bounds.width - ((margin ?? 0) * 2)
         
         border.borderColor = UIColor.gray.cgColor
-        border.frame = CGRect(x: ConseValues.defaultPositionX + padding, y: self.frame.size.height - borderWidth, width:  width - (padding * 2), height: self.frame.size.height)
+        border.frame = CGRect(x: ConseValues.defaultPositionX + padding,
+                              y: self.frame.size.height - borderWidth,
+                              width:  width - (padding * 2),
+                              height: self.frame.size.height)
+        
         border.borderWidth = borderWidth
         
         self.layer.addSublayer(border)

@@ -15,6 +15,15 @@ class RegisterViewController: UIViewController {
     // Buttons
     @IBOutlet weak var btn_next: UIButton!
     
+    // Checkbox
+    @IBOutlet weak var check_beneficiary: UIImageView!
+    @IBOutlet weak var check_terms: UIImageView!
+    
+    @IBOutlet weak var checkNCR: UIView!
+    @IBOutlet weak var checkTerms: UIView!
+    
+    @IBOutlet weak var cnt_beneficiaryData: UIView!
+    
     // Scroll
     @IBOutlet weak var scroll: UIScrollView!
     
@@ -47,12 +56,27 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var tf_lastname: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     @IBOutlet weak var tf_confirmPassword: UITextField!
+    
+    // Constraits
+    @IBOutlet weak var constraints_NRC_Height: NSLayoutConstraint!
+    
+    // MARK: - propeties
+    var isBeneficiaryNCR: Bool = false
+    var acceptedTerms: Bool = false
 
      // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addStyles()
+        setBeneficiaryState()
+        
+        // Add gesture
+        let tapBeneficiary = UITapGestureRecognizer(target: self, action: #selector(self.tappedBeficiary))
+        checkNCR.addGestureRecognizer(tapBeneficiary)
+        
+        let tapTerms = UITapGestureRecognizer(target: self, action: #selector(self.tappedTerms))
+        checkTerms.addGestureRecognizer(tapTerms)
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,9 +86,9 @@ class RegisterViewController: UIViewController {
 
     // set content height to scroll
     override func viewDidLayoutSubviews() {
-        
+
         var contentRect = CGRect.zero
-        
+
         for view in scroll.subviews {
             contentRect = contentRect.union(view.frame)
         }
@@ -75,35 +99,55 @@ class RegisterViewController: UIViewController {
     // MARK: - private functions
     private func addStyles(){
         
-        btn_next.rounder()
+        btn_next.imageView?.contentMode = .scaleAspectFit
         
-        let underlineWidth = UIScreen.main.bounds.width - ((ConseValues.margin + ConseValues.innerMargin) * 2)
+        let underlineWidth = (ConseValues.margin + ConseValues.innerMargin)
         
-        selector_birthday.underline(width: underlineWidth)
-        selector_gender.underline(width: underlineWidth)
-        selector_dni_type.underline(width: underlineWidth)
-        selector_ethnic_group.underline(width: underlineWidth)
-        selector_geo_state.underline(width: underlineWidth)
-        selector_geo_city.underline(width: underlineWidth)
-        selector_condition.underline(width: underlineWidth)
-        selector_profile.underline(width: underlineWidth)
+        selector_birthday.underline(margin: underlineWidth)
+        selector_gender.underline(margin: underlineWidth)
+        selector_dni_type.underline(margin: underlineWidth)
+        selector_ethnic_group.underline(margin: underlineWidth)
+        selector_geo_state.underline(margin: underlineWidth)
+        selector_geo_city.underline(margin: underlineWidth)
+        selector_condition.underline(margin: underlineWidth)
+        selector_profile.underline(margin: underlineWidth)
         
-        tf_dni_number.underline(width: underlineWidth)
-        tf_email.underline(width: underlineWidth)
-        tf_name.underline(width: underlineWidth)
-        tf_lastname.underline(width: underlineWidth)
-        tf_password.underline(width: underlineWidth)
-        tf_confirmPassword.underline(width: underlineWidth)
+        tf_dni_number.underline(margin: underlineWidth)
+        tf_email.underline(margin: underlineWidth)
+        tf_name.underline(margin: underlineWidth)
+        tf_lastname.underline(margin: underlineWidth)
+        tf_password.underline(margin: underlineWidth)
+        tf_confirmPassword.underline(margin: underlineWidth)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setBeneficiaryState() {
+        
+        cnt_beneficiaryData.isHidden = !isBeneficiaryNCR
+        constraints_NRC_Height.constant = hiddenView(view: .NCR_DATA, state: !isBeneficiaryNCR)
+        check_beneficiary.image = isBeneficiaryNCR ? #imageLiteral(resourceName: "checkboxselec") : #imageLiteral(resourceName: "checkbox")
+        
+        if isBeneficiaryNCR && scroll.contentSize.height <= 510 {
+            scroll.contentSize.height += ConseValues.dataNCRHeight
+        }
+        if !isBeneficiaryNCR && scroll.contentSize.height > 800 {
+            scroll.contentSize.height -= ConseValues.dataNCRHeight
+        }
     }
-    */
+    
+    @objc func tappedBeficiary(gestureRecognizer: UITapGestureRecognizer){
+        isBeneficiaryNCR = !isBeneficiaryNCR
+        setBeneficiaryState()
+    }
+    
+    @objc func tappedTerms (gestureRecognizer: UITapGestureRecognizer){
+        acceptedTerms = !acceptedTerms
+        check_terms.image = acceptedTerms ? #imageLiteral(resourceName: "checkboxselec") : #imageLiteral(resourceName: "checkbox")
+    }
+    
+    // MARK: - Action
+    @IBAction func next (_ sender: UIButton){
+        let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
+        present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+    }
 
 }

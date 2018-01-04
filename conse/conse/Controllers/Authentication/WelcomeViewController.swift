@@ -11,12 +11,12 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var btn_alet: UIButton!
     @IBOutlet weak var btn_login: UIButton!
     @IBOutlet weak var btn_register: UIButton!
     
     @IBOutlet weak var img_nrc_logo: UIImageView!
     @IBOutlet weak var img_conse_logo: UIImageView!
-    @IBOutlet weak var img_alert_button: UIImageView!
     
     @IBOutlet weak var scroll: UIScrollView!
     
@@ -46,17 +46,13 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - private functions
     private func addStyles(){
-        btn_register.rounder()
+        btn_register.imageView?.contentMode = .scaleAspectFit
+        btn_alet.imageView?.contentMode = .scaleAspectFit
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Actions
+    @IBAction func alert(_ sender: UIButton){
+        
     }
-    */
 
 }

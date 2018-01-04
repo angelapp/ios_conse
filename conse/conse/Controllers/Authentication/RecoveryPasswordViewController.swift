@@ -9,11 +9,19 @@
 import UIKit
 
 class RecoveryPasswordViewController: UIViewController {
-
+    
+    // MARK: - Outlets
+    @IBOutlet weak var btn_alert: UIButton!
+    @IBOutlet weak var btn_send: UIButton!
+    @IBOutlet weak var img_logo: UIImageView!
+    @IBOutlet weak var scroll: UIScrollView!
+    @IBOutlet weak var tf_email: UITextField!
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        addStyles()
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +29,28 @@ class RecoveryPasswordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // set content height to scroll
+    override func viewDidLayoutSubviews() {
+        
+        var contentRect = CGRect.zero
+        
+        for view in scroll.subviews {
+            contentRect = contentRect.union(view.frame)
+        }
+        
+        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
     }
-    */
-
+    
+    // MARK: - Private functions
+    private func addStyles() {
+        
+        btn_send.imageView?.contentMode = .scaleAspectFit
+        btn_alert.imageView?.contentMode = .scaleAspectFit
+        tf_email.underline(margin: ConseValues.margin)
+    }
+    
+    // MARK: - actions
+    @IBAction func send(_ sender: UIButton){
+        
+    }
 }
