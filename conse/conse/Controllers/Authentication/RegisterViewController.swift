@@ -96,9 +96,18 @@ class RegisterViewController: UIViewController {
         scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.barTintColor = Colors().getColor(from: ConseColors.yellow.rawValue)
+        self.navigationController?.navigationBar.tintColor = UIColor.white
+    }
+    
     // MARK: - private functions
     private func addStyles(){
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.groupTableViewBackground
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
+        setBackTitle(forViewController: self, title: blankSpace)
         btn_next.imageView?.contentMode = .scaleAspectFit
         
         let underlineWidth = (ConseValues.margin + ConseValues.innerMargin)

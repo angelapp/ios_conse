@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sQ3-ZP-eMi">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -21,15 +21,43 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="conse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nP2-gF-Vxs">
+                                <rect key="frame" x="98" y="366" width="125" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="KHM-Lc-YBM"/>
+                                    <constraint firstAttribute="height" constant="50" id="XmQ-9n-fI5"/>
+                                </constraints>
+                                <state key="normal" image="btn_alertainternas"/>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TmS-0E-WCW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
+                                <connections>
+                                    <segue destination="hdi-jM-mWB" kind="embed" id="qmH-II-Blc"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TmS-0E-WCW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="0x3-JN-gZC"/>
+                            <constraint firstItem="nP2-gF-Vxs" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="AIK-sa-0Ix"/>
+                            <constraint firstItem="nP2-gF-Vxs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RHU-IZ-lA4"/>
+                            <constraint firstItem="nP2-gF-Vxs" firstAttribute="top" secondItem="TmS-0E-WCW" secondAttribute="bottom" constant="8" id="YC1-xA-7rb"/>
+                            <constraint firstItem="TmS-0E-WCW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hmt-2d-VLO"/>
+                            <constraint firstItem="TmS-0E-WCW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="qEV-Qc-NOc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="cLX-NC-DL8">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="UEk-Cq-0VK"/>
+                        <barButtonItem key="rightBarButtonItem" title="Progreso" id="ADt-ez-o8k"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="885"/>
+            <point key="canvasLocation" x="753.75" y="895"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MZ4-9M-fqM">
@@ -300,8 +328,41 @@
             </objects>
             <point key="canvasLocation" x="1524" y="25"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="p6y-Fs-5RV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sQ3-ZP-eMi" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="fJ7-ms-ImP">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="AGN-4B-eaw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Spx-lX-RBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-107" y="895"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ogg-Gy-yjV">
+            <objects>
+                <viewController id="hdi-jM-mWB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2MN-Gk-pxS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mMK-pX-xSO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1596" y="819"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="btn_alertainternas" width="141" height="70"/>
         <image name="btn_siestoyseguro" width="284" height="120"/>
         <image name="btn_siestoysegurohover" width="284" height="120"/>
         <image name="icon_campana" width="107" height="69"/>

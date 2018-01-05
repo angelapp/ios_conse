@@ -14,6 +14,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var btn_alet: UIButton!
     @IBOutlet weak var btn_login: UIButton!
     @IBOutlet weak var btn_register: UIButton!
+    @IBOutlet weak var btn_videoTutorial: UIButton!
     
     @IBOutlet weak var img_nrc_logo: UIImageView!
     @IBOutlet weak var img_conse_logo: UIImageView!
@@ -48,6 +49,7 @@ class WelcomeViewController: UIViewController {
     private func addStyles(){
         btn_register.imageView?.contentMode = .scaleAspectFit
         btn_alet.imageView?.contentMode = .scaleAspectFit
+        btn_videoTutorial.imageView?.contentMode = .scaleAspectFit
     }
     
     // MARK: - Actions

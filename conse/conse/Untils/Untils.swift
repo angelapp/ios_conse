@@ -34,3 +34,11 @@ func setBackTitle(forViewController vc: UIViewController, title: String){
     
     vc.navigationItem.backBarButtonItem = backItem
 }
+
+func printDebugMessage(tag: String) {
+    #if DEBUG
+        print("\(debugFlag) \(tag)")
+    #else
+        return
+    #endif
+}

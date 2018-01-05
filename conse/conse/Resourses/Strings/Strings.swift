@@ -8,6 +8,13 @@
 
 import Foundation
 
+let appName = "Conse"
+let debugFlag = "♻️ \(appName)_Debug: "
+
+let blankSpace = " "
+let nullString = ""
+let titleTextColor = "titleTextColor"
+
 struct Strings {
     
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
