@@ -328,6 +328,63 @@
             </objects>
             <point key="canvasLocation" x="1524" y="25"/>
         </scene>
+        <!--Loader View Controller-->
+        <scene sceneID="fhi-wW-1zz">
+            <objects>
+                <viewController storyboardIdentifier="loaderVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GoO-ao-dAi" customClass="LoaderViewController" customModule="conse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1pP-KJ-9Pu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iVO-EV-XQZ">
+                                <rect key="frame" x="40" y="176" width="240" height="128"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CR9-MK-VYw">
+                                        <rect key="frame" x="98" y="20" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="fQ4-id-17A"/>
+                                            <constraint firstAttribute="height" constant="45" id="rFq-S4-W4V"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obteniendo configuración de la aplicación" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CR5-9q-63c">
+                                        <rect key="frame" x="24" y="70" width="192" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Exv-ro-cgm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="CR9-MK-VYw" firstAttribute="top" secondItem="iVO-EV-XQZ" secondAttribute="top" constant="20" id="57G-kG-jbg"/>
+                                    <constraint firstAttribute="bottom" secondItem="CR5-9q-63c" secondAttribute="bottom" constant="8" id="BwD-RJ-r1R"/>
+                                    <constraint firstAttribute="height" constant="128" id="YCw-Qk-583"/>
+                                    <constraint firstAttribute="trailing" secondItem="CR5-9q-63c" secondAttribute="trailing" constant="24" id="e5a-Nh-xqt"/>
+                                    <constraint firstItem="CR5-9q-63c" firstAttribute="leading" secondItem="iVO-EV-XQZ" secondAttribute="leading" constant="24" id="sRY-mz-FyX"/>
+                                    <constraint firstItem="CR9-MK-VYw" firstAttribute="centerX" secondItem="iVO-EV-XQZ" secondAttribute="centerX" id="t5i-sT-iCH"/>
+                                    <constraint firstAttribute="width" constant="240" id="vHA-fT-g5i"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70400791949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="iVO-EV-XQZ" firstAttribute="centerY" secondItem="1pP-KJ-9Pu" secondAttribute="centerY" id="ETw-Eb-huS"/>
+                            <constraint firstItem="iVO-EV-XQZ" firstAttribute="centerX" secondItem="1pP-KJ-9Pu" secondAttribute="centerX" id="YEn-ym-1hN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="96f-1C-tDe"/>
+                    </view>
+                    <connections>
+                        <outlet property="loader" destination="CR9-MK-VYw" id="5LO-9g-bew"/>
+                        <outlet property="loaderBackground" destination="iVO-EV-XQZ" id="zkS-y9-5tU"/>
+                        <outlet property="loaderLabel" destination="CR5-9q-63c" id="j6a-AR-eAb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fJb-jx-4Qm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2287.5" y="25"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="p6y-Fs-5RV">
             <objects>
@@ -354,6 +411,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="358"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="PaR-8o-4GK"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mMK-pX-xSO" userLabel="First Responder" sceneMemberID="firstResponder"/>

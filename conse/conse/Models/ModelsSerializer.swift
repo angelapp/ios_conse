@@ -344,7 +344,7 @@ class ApplicationConfiguration: Mappable {
         psw_regular_expression <- map[JSONKeys.psw_regular_expression]
         psw_error_recomendation <- map[JSONKeys.psw_error_recomendation]
         
-        document_type_Array <- map[JSONKeys.document_by_type]
+        document_type_Array <- map[JSONKeys.document_type_list]
         gender_Array <- map[JSONKeys.gender_list]
         state_Array <- map[JSONKeys.state_list]
         city_Array <- map[JSONKeys.city_list]

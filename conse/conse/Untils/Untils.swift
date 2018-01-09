@@ -42,3 +42,19 @@ func printDebugMessage(tag: String) {
         return
     #endif
 }
+
+extension UIViewController {
+    
+    func showLoader(withMessage msn:String!) {
+        
+        guard msn != nil else { return }
+        
+        let sb = UIStoryboard(name: StoryboardsId.main, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.loader) as! LoaderViewController
+        
+        nextVC.loaderText = msn
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
+    }
+}

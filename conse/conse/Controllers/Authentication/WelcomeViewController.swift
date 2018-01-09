@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class WelcomeViewController: UIViewController {
 
@@ -26,6 +27,7 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         addStyles()
+        getConfiguration()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,8 +54,42 @@ class WelcomeViewController: UIViewController {
         btn_videoTutorial.imageView?.contentMode = .scaleAspectFit
     }
     
+    private func getConfiguration() {
+        
+        self.showLoader(withMessage: Strings.loader_configApp)
+        let headers: [[String:String]] = []
+        
+        Network.buildRequest(urlApi: NetworkGET.APP_CONFIGURATION, json: nullString, extraHeaders: headers, method: .methodGET, completion: {(response) in
+            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed, !message.isEmpty {
+                    print(message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(let objReceiver):
+                
+                let config = Mapper<ApplicationConfiguration>().map(JSON: objReceiver as! [String: Any])
+                AplicationRuntime.sharedManager.setAppConfig(config: config!)
+                
+                break
+                
+            default:
+                break
+            }
+        })
+    }
+    
     // MARK: - Actions
-    @IBAction func alert(_ sender: UIButton){
+    @IBAction func alert(_ sender: UIButton) {
         
     }
 

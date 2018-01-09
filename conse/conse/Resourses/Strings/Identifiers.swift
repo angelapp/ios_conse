@@ -23,6 +23,7 @@ struct StoryboardsId {
 /// View controllers Identifiers
 struct ViewControllersId {
     static let configAlert = "ConfigAlertVC"
+    static let loader = "loaderVC"
     static let login = "loginVC"
     static let recoveryPass = "recoveryPasswordVC"
     static let register = "registerVC"

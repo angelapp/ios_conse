@@ -26,6 +26,8 @@
 		6B2545711FFED5D800235827 /* ColorsString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2545701FFED5D800235827 /* ColorsString.swift */; };
 		6B2545731FFEDBE500235827 /* ModelsSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2545721FFEDBE500235827 /* ModelsSerializer.swift */; };
 		6B2545751FFEDCD300235827 /* DictionaryKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2545741FFEDCD300235827 /* DictionaryKeys.swift */; };
+		6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */; };
+		6B9222D7200414B100D8B779 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9222D6200414B000D8B779 /* LoaderViewController.swift */; };
 		6BF8A7961FFD0BCD0094764D /* Untils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF8A7951FFD0BCD0094764D /* Untils.swift */; };
 		6BF8A7991FFD3C7D0094764D /* ConfigAlertButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF8A7981FFD3C7D0094764D /* ConfigAlertButtonViewController.swift */; };
 		6BF8A79C1FFD3D0C0094764D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF8A79B1FFD3D0C0094764D /* Strings.swift */; };
@@ -88,6 +90,8 @@
 		6B2545701FFED5D800235827 /* ColorsString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsString.swift; sourceTree = "<group>"; };
 		6B2545721FFEDBE500235827 /* ModelsSerializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsSerializer.swift; sourceTree = "<group>"; };
 		6B2545741FFEDCD300235827 /* DictionaryKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryKeys.swift; sourceTree = "<group>"; };
+		6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplicationRuntime.swift; sourceTree = "<group>"; };
+		6B9222D6200414B000D8B779 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		6BF8A7951FFD0BCD0094764D /* Untils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Untils.swift; sourceTree = "<group>"; };
 		6BF8A7981FFD3C7D0094764D /* ConfigAlertButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigAlertButtonViewController.swift; sourceTree = "<group>"; };
 		6BF8A79B1FFD3D0C0094764D /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 		46260A1A1FFBE99300A3706C /* Untils */ = {
 			isa = PBXGroup;
 			children = (
+				6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */,
 				6B1F5AA41FFC459E00DA650D /* Styles.swift */,
 				6BF8A7951FFD0BCD0094764D /* Untils.swift */,
 			);
@@ -241,6 +246,7 @@
 				6BF8A7A41FFD6ED60094764D /* Cells */,
 				6B1F5A9B1FFBF07500DA650D /* Authentication */,
 				6BF8A7971FFD3C2B0094764D /* ConfigApp */,
+				6B9222D5200414B000D8B779 /* Popups */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -293,6 +299,14 @@
 				6B2545701FFED5D800235827 /* ColorsString.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		6B9222D5200414B000D8B779 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				6B9222D6200414B000D8B779 /* LoaderViewController.swift */,
+			);
+			path = Popups;
 			sourceTree = "<group>";
 		};
 		6BF8A7971FFD3C2B0094764D /* ConfigApp */ = {
@@ -638,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B9222D7200414B100D8B779 /* LoaderViewController.swift in Sources */,
 				6B25456C1FFECB1800235827 /* VideoTutorialViewController.swift in Sources */,
 				6B2545731FFEDBE500235827 /* ModelsSerializer.swift in Sources */,
 				6BF8A7A61FFD6F080094764D /* ContactsTableViewCell.swift in Sources */,
@@ -660,6 +675,7 @@
 				6B1F5AA31FFBF0FE00DA650D /* RecoveryPasswordViewController.swift in Sources */,
 				6BF8A7A11FFD603C0094764D /* Identifiers.swift in Sources */,
 				462609E91FFBE70000A3706C /* AppDelegate.swift in Sources */,
+				6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

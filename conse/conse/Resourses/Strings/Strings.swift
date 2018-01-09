@@ -17,6 +17,9 @@ let titleTextColor = "titleTextColor"
 
 struct Strings {
     
+    static let loader_configApp = "Obteniendo configuración de la aplicación"
+    static let loader_loading = "Cargando..."
+    
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
     
     static let body_AlertConfig = "Selecciona tres contactos de confianza a quienes les llegarán las alertas en caso de que te encuentres en una situación de peligro"
@@ -27,4 +30,8 @@ struct Strings {
     
     static let title_AlertConfig = "Configura el botón de alerta"
     static let title_AlertTest = "Haz una prueba de funcionamiento"
+}
+
+struct observerName {
+    static let stop_loader = "stopLoader"
 }
