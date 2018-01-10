@@ -82,7 +82,7 @@ class OrganizationType: Mappable {
 
 // MARK: - User authenticated models
 
-/// User Model fro register
+/// User Model for register
 class RegisterUserProfileModel : Mappable {
 
     var first_name: String!

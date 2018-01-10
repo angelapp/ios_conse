@@ -20,7 +20,7 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
 
         videoPlayer.delegate = self
-        getVideo(forID: "RmHqOSrkZnk")
+        getVideo(forID: AplicationRuntime.sharedManager.getvideoID())
         
         setBackTitle(forViewController: self, title: blankSpace)
         btn_next.imageView?.contentMode = .scaleAspectFit
@@ -33,7 +33,7 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
     
     // MARK: - Private function
     func getVideo(forID id: String) -> Void {
-        let url = URL(string: "https://www.youtube.com/embed/\(id)")
+        let url = URL(string: String(format: Strings.youtubeEmbedFormat, id))
         videoPlayer.loadRequest(URLRequest(url: url!))
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class RecoveryPasswordViewController: UIViewController {
     
@@ -49,8 +50,72 @@ class RecoveryPasswordViewController: UIViewController {
         tf_email.underline(margin: ConseValues.margin)
     }
     
+    private func dismissVC() {
+        tf_email.text? = nullString
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func showMessage(withMessage msn:String, title:String? = nullString) {
+        
+        let alert = UIAlertController(title: title, message: msn, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: Strings.button_accept, style: .cancel) {(_) in
+            alert.dismiss(animated: false, completion: nil)
+            self.dismissVC()
+        }
+        alert.addAction(cancel)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Request function
+    /// Se envia correo del usuario para recuperar la contraseña
+    func sendRecoveryPost(email: RegisterUserProfileModel) {
+        
+        //self.showLoader(withMessage: Strings.loader_loading)
+        
+        let json = Mapper().toJSONString(email, prettyPrint: true)
+        let headers:[[String:String]] = []
+        
+        Network.buildRequest(urlApi: NetworkPOST.PASSWORD_RECOVERY, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+            
+            // NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed {
+                    printDebugMessage(tag: message)
+                    self.showErrorMessage(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(let objReceiver):
+                
+                let resp = objReceiver as! [String: Any]
+                self.showMessage(withMessage: resp[JSONKeys.detail] as! String)
+                
+                break
+                
+            default:
+                break
+            }
+        })
+    }
+    
     // MARK: - actions
     @IBAction func send(_ sender: UIButton){
         
+        guard Validations.isValidData(fromField: tf_email, controller: self),
+        Validations.isValidEmail(email: tf_email.text!, controller: self) else {
+            return
+        }
+        
+        let username = RegisterUserProfileModel()
+        username.email = tf_email.text
+        
+        sendRecoveryPost(email: username)
     }
 }

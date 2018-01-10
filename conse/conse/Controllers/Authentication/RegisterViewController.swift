@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -33,8 +34,12 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var checkNCR: UIView!
     @IBOutlet weak var checkTerms: UIView!
     
+    // Conteiners
     @IBOutlet weak var cnt_beneficiaryData: UIView!
     @IBOutlet weak var cnt_pickers: UIView!
+    
+    // labels
+    @IBOutlet weak var lbl_terms: UILabel!
     
     // Scroll
     @IBOutlet weak var scroll: UIScrollView!
@@ -75,6 +80,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var constraints_NRC_Height: NSLayoutConstraint!
     
     // MARK: - propeties
+    
+    // tags para cargar información en el picker
     private let genderTag: Int = 1
     private let documentTag: Int = 2
     private let ethnicTag: Int = 3
@@ -83,9 +90,11 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     private let conditionTag: Int = 6
     private let profileTag: Int = 7
     
+    // booleanos para determinar estado de los checkbox
     var isBeneficiaryNCR: Bool = false
     var acceptedTerms: Bool = false
     
+    // listas para los spinners
     var genderList: Array<Gender> = []
     var ethnicGroupList: Array<EthnicGroup> = []
     var stateList: Array<State> = []
@@ -93,6 +102,16 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var conditionList: Array<Condition> = []
     var profileList: Array<Role> = []
     var documentTypeList: Array<DocumentType> = []
+    
+    // variables para guardar los id de los elementos seleccionados
+    var pickerDate: Date!
+    var actualCityID: Int!
+    var conditionID: Int!
+    var documentTypeID: Int!
+    var ethniGroupID: Int!
+    var genderID: Int!
+    var originCityID: Int!
+    var roleID: Int!
 
      // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -125,6 +144,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
     }
     
+    // change navbor whe this controller disappear
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.barTintColor = Colors().getColor(from: ConseColors.yellow.rawValue)
         self.navigationController?.navigationBar.tintColor = UIColor.white
@@ -133,14 +153,18 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // MARK: - private functions
     private func addStyles(){
         
+        // change navbar color
         self.navigationController?.navigationBar.barTintColor = UIColor.groupTableViewBackground
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
         setBackTitle(forViewController: self, title: blankSpace)
         btn_next.imageView?.contentMode = .scaleAspectFit
+        picker_birthday.maximumDate = Date()
         
+        // width of under line
         let underlineWidth = (ConseValues.margin + ConseValues.innerMargin)
         
+        // set underline for views
         selector_birthday.underline(margin: underlineWidth)
         selector_gender.underline(margin: underlineWidth)
         selector_dni_type.underline(margin: underlineWidth)
@@ -156,22 +180,43 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         tf_lastname.underline(margin: underlineWidth)
         tf_password.underline(margin: underlineWidth)
         tf_confirmPassword.underline(margin: underlineWidth)
+        
+        // Set styles to terms and conditions copy
+        let termsLabel = String(format: Strings.body_Checkbox_AcceptTerms, Strings.terms_Copy)
+        let termsRange = (termsLabel as NSString).range(of: Strings.terms_Copy)
+        let termsAttributed = NSMutableAttributedString(string: termsLabel)
+        let underlineAttribute = [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
+        let colorAttribute = [NSAttributedStringKey.foregroundColor: Colors().getColor(from: ConseColors.salmon.rawValue)]
+        
+        termsAttributed.addAttributes(underlineAttribute, range: termsRange)
+        termsAttributed.addAttributes(colorAttribute, range: termsRange)
+        
+        lbl_terms.attributedText = termsAttributed
+        
+        // Add tapGesture for make terms link
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction))
+        lbl_terms.isUserInteractionEnabled = true
+        lbl_terms.addGestureRecognizer(tap)
     }
     
+    /// Change state of beneficiaryNRC and update form for show or hidden fields
     private func setBeneficiaryState() {
-        
         cnt_beneficiaryData.isHidden = !isBeneficiaryNCR
         constraints_NRC_Height.constant = hiddenView(view: .NCR_DATA, state: !isBeneficiaryNCR)
         check_beneficiary.image = isBeneficiaryNCR ? #imageLiteral(resourceName: "checkboxselec") : #imageLiteral(resourceName: "checkbox")
         
+        // Show NCR data form
         if isBeneficiaryNCR && scroll.contentSize.height <= 510 {
             scroll.contentSize.height += ConseValues.dataNCRHeight
         }
+        
+        // Hidden NCR data form
         if !isBeneficiaryNCR && scroll.contentSize.height > 800 {
             scroll.contentSize.height -= ConseValues.dataNCRHeight
         }
     }
     
+    /// Get list from appConfig (Runtime)
     private func loadList() {
         genderList = AplicationRuntime.sharedManager.getGenderList()
         documentTypeList = AplicationRuntime.sharedManager.getDocumentTypeList()
@@ -181,14 +226,19 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         profileList = AplicationRuntime.sharedManager.getRoleList()
     }
     
-    private func showPicker() {
+    /// Show picker view
+    private func showPicker(isDatePicker: Bool) {
         cnt_pickers.isHidden = false
         view.endEditing(true)
         
-        picker_birthday.isHidden = true
-        picker.isHidden = false
+        btn_pickerConfirm.isHidden = !isDatePicker
+        btn_pickerCancel.isHidden = isDatePicker
+        
+        picker_birthday.isHidden = !isDatePicker
+        picker.isHidden = isDatePicker
     }
     
+    /// Hidden picker view
     private func hiddenPicker() {
         picker_birthday.isHidden = true
         picker.isHidden = true
@@ -213,6 +263,74 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @objc func tappedTerms (gestureRecognizer: UITapGestureRecognizer){
         acceptedTerms = !acceptedTerms
         check_terms.image = acceptedTerms ? #imageLiteral(resourceName: "checkboxselec") : #imageLiteral(resourceName: "checkbox")
+    }
+    
+    // Lanza navegador con los términos y condiciones
+    @objc func tapFunction(sender: UITapGestureRecognizer) {
+        
+        let termsLabel = lbl_terms.text!
+        let termsRange = (termsLabel as NSString).range(of: Strings.terms_Copy)
+        
+        if sender.didTapAttributedTextInLabel(label: lbl_terms, inRange: termsRange) {
+            let stringURL = AplicationRuntime.sharedManager.getURLTerms()
+            let webURL = stringURL.contains(Strings.hasHTTPProtocol) ? stringURL : Strings.httpProtocol + stringURL
+            
+            if let url = URL(string: webURL), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                }
+                else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+    }
+    
+    // MARK: - Request function
+    /// Se envia los datos del usuario para registarlo
+    func sendRegisterPost(registerModel: RegisterUserProfileModel){
+        
+        //self.showLoader(withMessage: Strings.loader_loading)
+        
+        let json = Mapper().toJSONString(registerModel, prettyPrint: true)
+        let headers:[[String:String]] = []
+        
+        Network.buildRequest(urlApi: NetworkPOST.USER_PROFILE, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+            
+           // NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed {
+                    printDebugMessage(tag: message)
+                    self.showErrorMessage(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(let objReceiver):
+                
+                let user = Mapper<RegisterUserResponse>().map(JSON: objReceiver as! [String: Any])
+                let stateModel = StatesModel()
+                stateModel.wasLoggedAtSomeTime = true
+                
+                StorageFunctions.saveDataInLocal(user: user)
+                StorageFunctions.saveStates(states: stateModel)
+                AplicationRuntime.sharedManager.setUserData(user: user)
+                
+                let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
+                self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                
+                break
+                
+            default:
+                break
+            }
+        })
     }
     
     //MARK: - UIPicker DataSource and Delegate
@@ -307,30 +425,37 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         case genderTag:
             promt_gender.text = genderList[row].name
+            genderID = genderList[row].id
             break
         
         case documentTag:
             promt_dni_type.text = documentTypeList[row].name
+            documentTypeID = documentTypeList[row].id
             break
             
         case ethnicTag:
             promt_ethnic_group.text = ethnicGroupList[row].name
+            ethniGroupID = ethnicGroupList[row].id
             break
             
         case stateTag:
             promt_geo_state.text = stateList[row].name
+            actualCityID = stateList[row].id
             break
             
         case cityTag:
             promt_geo_city.text = cityList[row].name
+            originCityID = cityList[row].id
             break
             
         case conditionTag:
             promt_condition.text = conditionList[row].name
+            conditionID = conditionList[row].id
             break
             
         case profileTag:
             promt_profile.text = profileList[row].name
+            roleID = profileList[row].id
             break
             
         default:
@@ -346,11 +471,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     // MARK: - Action
+    /// Carga el picker con la información que se debe mostar
     @IBAction func selectorButtons(_ sender: UIButton) {
         
         switch sender {
             
         case btn_birthday:
+            showPicker(isDatePicker: true)
             return
             
         case btn_gender:
@@ -370,7 +497,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             break
             
         case btn_geo_city:
-            guard promt_geo_state.text != nil, promt_geo_state.text != "Seleccione" else { return }
+            guard promt_geo_state.text != nil, promt_geo_state.text?.lowercased() != Strings.texfiled_placeholder.lowercased() else { return }
             cityList = AplicationRuntime.sharedManager.getCityList(forState: promt_geo_state.text!)
             picker.tag = cityTag
             break
@@ -388,25 +515,96 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         
         picker.reloadAllComponents()
-        showPicker()
+        showPicker(isDatePicker: false)
     }
     
     @IBAction func pickerButtons(_ sender: UIButton) {
         
-        switch sender {
-            
-        case btn_pickerCancel:
-            hiddenPicker()
-            break
-            
-        default:
-            break
-        }
+        if sender == btn_pickerConfirm {setBirthday(picker_birthday)}
+        hiddenPicker()
     }
     
-    @IBAction func next (_ sender: UIButton){
-        let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
-        present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+    /// Actualiza el campo de fecha de nacimiento cada vez que se actualiza el picker
+    @IBAction func setBirthday(_ sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateTimeFormat.commonDateFormat
+        promt_birthday.text = formatter.string(from: sender.date)
+        promt_birthday.textColor = UIColor.black
+        pickerDate = sender.date
     }
-
+    
+    /// Realiza las validaciones y contruye el modelo de datos para enviar al servidor
+    @IBAction func next (_ sender: UIButton) {
+        
+        // Se valida que todos los campos esten completos
+        guard Validations.isValidData(fromField: tf_name, controller: self),
+            Validations.isValidData(fromField: tf_lastname, controller: self),
+            Validations.isValidData(fromField: tf_email, controller: self),
+            Validations.isValidData(fromField: tf_password, controller: self),
+            Validations.isValidData(fromField: tf_confirmPassword, controller: self),
+            Validations.isValidData(fromField: promt_gender, controller: self),
+            Validations.isValidDate(birthDate: promt_birthday.text, controller: self) else {
+                return
+        }
+        
+        // Se validan los formatos
+        guard Validations.isValidEmail(email: tf_email.text!, controller: self),
+            Validations.isValidPass(pass: tf_password.text!, controller: self) else {
+            return
+        }
+        
+        // Se validan las contraseñas
+        guard  tf_password.text! == tf_confirmPassword.text else {
+            self.showErrorMessage(withMessage: Strings.error_message_passNotMatch)
+            return
+        }
+        
+        // Se verifica que accepte los terminos
+        guard acceptedTerms else {
+            self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+            return
+        }
+        
+        // Si es beneficiario conse valida que todos los campos esten llenos
+        if isBeneficiaryNCR {
+            
+            guard Validations.isValidData(fromField: tf_dni_number, controller: self),
+                Validations.isValidData(fromField: promt_dni_type, controller: self),
+                Validations.isValidData(fromField: promt_ethnic_group, controller: self),
+                Validations.isValidData(fromField: promt_geo_state, controller: self),
+                Validations.isValidData(fromField: promt_geo_city, controller: self),
+                Validations.isValidData(fromField: promt_condition, controller: self),
+                Validations.isValidData(fromField: promt_profile, controller: self)
+                else {
+                    return
+            }
+        }
+        
+        // Obtiene la fecha y le da el formato del servidor
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateTimeFormat.sendDateFormat
+        let dateToSend: String = formatter.string(from: pickerDate)
+        
+        // Crea el modelo para enviar al servidor
+        let newUSR = RegisterUserProfileModel()
+        newUSR.first_name = tf_name.text
+        newUSR.last_name = tf_lastname.text
+        newUSR.email =  tf_email.text
+        newUSR.password = tf_password.text
+        newUSR.birthdate = dateToSend
+        newUSR.isNRCBeneficiary = isBeneficiaryNCR
+        newUSR.gender = genderID
+        
+        if isBeneficiaryNCR {
+            newUSR.document_number = tf_dni_number.text
+            newUSR.actual_city = actualCityID
+            newUSR.condition = conditionID
+            newUSR.document_type = documentTypeID
+            newUSR.ethnic_group = ethniGroupID
+            newUSR.origin_city = originCityID
+            newUSR.role = roleID
+        }
+        
+        sendRegisterPost(registerModel: newUSR)
+    }
 }

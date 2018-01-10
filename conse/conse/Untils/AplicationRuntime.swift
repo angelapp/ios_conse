@@ -12,6 +12,9 @@ class AplicationRuntime {
     
     // MARK: - Private properties
     var appConfig: ApplicationConfiguration!
+    var userData: RegisterUserResponse!
+    
+    var token: String!
     
     // MARK: - Singleton instance
     class var sharedManager: AplicationRuntime {
@@ -28,8 +31,16 @@ class AplicationRuntime {
         self.appConfig = config
     }
     
-    // getters for - Spinners
+    public func setUserData(user: RegisterUserResponse!) {
+        self.userData = user
+        self.token = user.token
+    }
     
+    public func setToken(token: String){
+        self.token = token
+    }
+    
+    // getters for - Spinners
     public func getDocumentTypeList() -> Array<DocumentType> {
         guard appConfig != nil, appConfig.document_type_Array != nil else {
             return []
@@ -90,6 +101,32 @@ class AplicationRuntime {
     }
     
     // getters for validations
+    public func getPswRegex() -> String {
+        guard appConfig != nil, appConfig.psw_regular_expression != nil else {
+            return nullString
+        }
+        return appConfig.psw_regular_expression
+    }
     
+    public func getPswErrorMessage() -> String {
+        guard appConfig != nil, appConfig.psw_error_recomendation != nil else {
+            return nullString
+        }
+        return appConfig.psw_error_recomendation
+    }
     
+    // urls
+    public func getURLTerms() -> String {
+        guard appConfig != nil, appConfig.terms_condition_url != nil else {
+            return nullString
+        }
+        return appConfig.terms_condition_url
+    }
+    
+    public func getvideoID() -> String {
+        guard appConfig != nil, appConfig.video_tutorial_id != nil else {
+            return nullString
+        }
+        return appConfig.video_tutorial_id
+    }
 }

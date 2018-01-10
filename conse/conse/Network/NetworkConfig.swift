@@ -115,10 +115,27 @@ class Network: NSObject {
                 
             default:
                 result = false
-                message =  NetworkErrorMessage.defaultRequestError
+                message =  JSONResponse != nil ? getErrorMSN(json: JSONResponse! as! [String : Any]) : nullString
                 completion(ResponseCallback.succeeded(succeed: result, message: message))
                 break
             }
+        }
+    }
+    
+    /**
+     Función para obtener el mensaje de error
+     
+     - Parameter json: Respuesta del servidor parseada como [String:Any]
+     - Returns: Detalle del error
+     */
+    class func getErrorMSN(json: [String:Any]) -> String {
+        
+        if json[JSONKeys.detail] != nil {
+            return json[JSONKeys.detail] as! String
+        }
+            
+        else {
+            return NetworkErrorMessage.msnDefaultError
         }
     }
 }

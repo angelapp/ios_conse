@@ -29,3 +29,11 @@ struct ViewControllersId {
     static let register = "registerVC"
     static let welcome = "welcomeVC"
 }
+
+/// Observer name's
+struct observerName {
+    static let stop_loader = "stopLoader"
+}
+
+/// Sedge Identifiers
+

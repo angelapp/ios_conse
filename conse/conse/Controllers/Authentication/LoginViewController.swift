@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class LoginViewController: UIViewController {
     
@@ -55,12 +56,69 @@ class LoginViewController: UIViewController {
         tf_password.underline(margin: ConseValues.margin)
     }
     
+    // MARK: - Request function
+    /// Se envia los datos del usuario para loggin
+    func sendLogginPost(userToAuth: RegisterUserProfileModel) {
+        
+        //self.showLoader(withMessage: Strings.loader_loading)
+        
+        let json = Mapper().toJSONString(userToAuth, prettyPrint: true)
+        let headers:[[String:String]] = []
+        
+        Network.buildRequest(urlApi: NetworkPOST.USER_LOGGIN, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+            
+            // NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed {
+                    printDebugMessage(tag: message)
+                    self.showErrorMessage(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(let objReceiver):
+                
+                let user = Mapper<RegisterUserResponse>().map(JSON: objReceiver as! [String: Any])
+                let stateModel = StatesModel()
+                stateModel.wasLoggedAtSomeTime = true
+                
+                StorageFunctions.saveDataInLocal(user: user)
+                StorageFunctions.saveStates(states: stateModel)
+                AplicationRuntime.sharedManager.setUserData(user: user)
+                
+                let sb = UIStoryboard(name: StoryboardsId.main, bundle: nil)
+                self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                
+                break
+                
+            default:
+                break
+            }
+        })
+    }
+    
     // MARK: - Actions
     @IBAction func send (_ sender: UIButton){
         
         switch sender {
             
         case btn_loggin:
+            
+            guard Validations.isValidData(fromField: tf_email, controller: self),
+                Validations.isValidData(fromField: tf_password, controller: self),
+                Validations.isValidEmail(email: tf_email.text!, controller: self) else { return }
+            
+            let user = RegisterUserProfileModel()
+            user.email = tf_email.text
+            user.password = tf_password.text
+            
+            sendLogginPost(userToAuth: user)
             break
             
         default:

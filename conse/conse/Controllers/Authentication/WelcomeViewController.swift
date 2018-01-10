@@ -22,10 +22,19 @@ class WelcomeViewController: UIViewController {
     
     @IBOutlet weak var scroll: UIScrollView!
     
+    @IBOutlet weak var alertButton_heightConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
+    var userData: UserModel!
+    var states: StatesModel!
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userData = StorageFunctions.getUser()
+        states = StorageFunctions.getStates()
+        
         addStyles()
         getConfiguration()
     }
@@ -52,6 +61,11 @@ class WelcomeViewController: UIViewController {
         btn_register.imageView?.contentMode = .scaleAspectFit
         btn_alet.imageView?.contentMode = .scaleAspectFit
         btn_videoTutorial.imageView?.contentMode = .scaleAspectFit
+        
+        btn_videoTutorial.isHidden = (states != nil && states.wasLoggedAtSomeTime)
+        btn_alet.isHidden = !(states != nil && states.wasLoggedAtSomeTime)
+        
+        alertButton_heightConstraint.constant = btn_alet.isHidden ? 0 : 50
     }
     
     private func getConfiguration() {
@@ -79,6 +93,13 @@ class WelcomeViewController: UIViewController {
                 
                 let config = Mapper<ApplicationConfiguration>().map(JSON: objReceiver as! [String: Any])
                 AplicationRuntime.sharedManager.setAppConfig(config: config!)
+                
+                if self.userData != nil {
+                    AplicationRuntime.sharedManager.setToken(token: (self.userData.token)!)
+                    
+                    let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
+                    self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                }
                 
                 break
                 

@@ -15,3 +15,13 @@ class ContactModel {
     init() {
     }
 }
+
+class UserModel {
+    var username: String!
+    var token: String!
+    var id: Int!
+}
+
+class StatesModel {
+    var wasLoggedAtSomeTime: Bool!
+}

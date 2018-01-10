@@ -10,7 +10,18 @@ import Foundation
 
 /// Claves para los diccionarios
 struct DicKeys{
-    
+    static let date = "date"
+    static let email = "email"
+    static let id = "id"
+    static let name = "name"
+    static let phone = "phone"
+    static let states = "states"
+    static let time = "time"
+    static let title = "title"
+    static let token = "token"
+    static let user = "user"
+    static let username = "username"
+    static let wasLoggedAtSomeTime = "wasLoggedAtSomeTime"
 }
 
 /// Claves para los serializadores JSON

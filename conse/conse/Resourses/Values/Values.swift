@@ -18,7 +18,7 @@ struct ConseValues {
     static let innerMargin: CGFloat = 8.0
     
     static let notHeight: CGFloat = 0.0
-    static let dataNCRHeight: CGFloat = 388.0
+    static let dataNCRHeight: CGFloat = 397.0
 }
 
 enum IdView : Int {
