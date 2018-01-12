@@ -6,6 +6,7 @@
 //  Copyright © 2018 NRC. All rights reserved.
 //
 
+import AlamofireImage
 import Foundation
 import UIKit
 
@@ -33,6 +34,45 @@ func setBackTitle(forViewController vc: UIViewController, title: String){
     backItem.title = title
     
     vc.navigationItem.backBarButtonItem = backItem
+}
+
+/// Descargar la imagen y la carga al imageView
+func downloadImage(imgView: UIImageView, urlImage: String!) {
+    
+    if urlImage != nil, let dowloadURL = NSURL(string: urlImage) {
+        imgView.af_setImage(withURL: dowloadURL as URL)
+    }
+}
+
+/// Resalta en el texto la palabra de entrada
+func addBoldWord(forText text: String, toWord word: String, fontSize size: CGFloat) -> NSAttributedString {
+    
+    let range = (text as NSString).range(of: word)
+    let attributeText = NSMutableAttributedString(string: text)
+    let boldFontAttribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size)]
+    
+    attributeText.addAttributes(boldFontAttribute, range: range)
+    
+    return attributeText
+}
+
+/// Escala la imagen dentro del botón con AspectFit
+func setAspectFitToButton(buttons: UIButton...){
+    for button in buttons {
+        button.imageView?.contentMode = .scaleAspectFit
+    }
+}
+
+/// convierte JSONString en diccionario
+func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+        do {
+            return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    return nil
 }
 
 func printDebugMessage(tag: String) {
@@ -99,7 +139,7 @@ extension UIViewController {
         
         guard msn != nil else { return }
         
-        let sb = UIStoryboard(name: StoryboardsId.main, bundle: nil)
+        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
         let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.loader) as! LoaderViewController
         
         nextVC.loaderText = msn
@@ -116,6 +156,20 @@ extension UIViewController {
         }
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func makeCallEmergency(toEmergencyLine line: String){
+        let number = line.components(separatedBy: .whitespaces).joined()
+        if let url = URL(string: String(format: Formats.callFormat, number)), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+        else {
+            showErrorMessage(withMessage: Strings.error_message_notAvailableAction)
+        }
     }
 }
 
@@ -156,5 +210,33 @@ extension UITapGestureRecognizer {
                                                             fractionOfDistanceBetweenInsertionPoints: nil)
         
         return NSLocationInRange(indexOfCharacter, targetRange)
+    }
+}
+
+extension UIImage {
+    
+    // Combiana las imagenes de entrada para generar una única imagen
+    class func combine(images: UIImage...) -> UIImage {
+        var contextSize = CGSize.zero
+        
+        for image in images {
+            contextSize.width = max(contextSize.width, image.size.width)
+            contextSize.height = max(contextSize.height, image.size.height)
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(contextSize, false, UIScreen.main.scale)
+        
+        for image in images {
+            let originX = (contextSize.width - image.size.width) / 2
+            let originY = (contextSize.height - image.size.height) / 2
+            
+            image.draw(in: CGRect(x: originX, y: originY, width: image.size.width, height: image.size.height))
+        }
+        
+        let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return combinedImage!
     }
 }

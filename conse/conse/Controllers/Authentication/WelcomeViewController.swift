@@ -27,6 +27,8 @@ class WelcomeViewController: UIViewController {
     // MARK: - Properties
     var userData: UserModel!
     var states: StatesModel!
+    var contacts: Array<ContactModel>!
+    var avatar: UIImage!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,6 +36,8 @@ class WelcomeViewController: UIViewController {
 
         userData = StorageFunctions.getUser()
         states = StorageFunctions.getStates()
+        contacts = StorageFunctions.getContactList()
+        avatar = StorageFunctions.loadAvatarImage()
         
         addStyles()
         getConfiguration()
@@ -68,6 +72,11 @@ class WelcomeViewController: UIViewController {
         alertButton_heightConstraint.constant = btn_alet.isHidden ? 0 : 50
     }
     
+    private func startConse(inScreen name: String){
+        let sb = UIStoryboard(name: name, bundle: nil)
+        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+    }
+    
     private func getConfiguration() {
         
         self.showLoader(withMessage: Strings.loader_configApp)
@@ -97,8 +106,20 @@ class WelcomeViewController: UIViewController {
                 if self.userData != nil {
                     AplicationRuntime.sharedManager.setToken(token: (self.userData.token)!)
                     
-                    let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
-                    self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                    if self.contacts != nil && self.contacts.count > 0 {
+                        AplicationRuntime.sharedManager.setTrustedConctacs(list: self.contacts)
+                        
+                        if self.avatar != nil {
+                            AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
+                            self.startConse(inScreen: StoryboardsId.main)
+                        }
+                        else {
+                            self.startConse(inScreen: StoryboardsId.configAlert)
+                        }
+                    }
+                    else {
+                        self.startConse(inScreen: StoryboardsId.configAlert)
+                    }
                 }
                 
                 break
@@ -111,7 +132,11 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func alert(_ sender: UIButton) {
+        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.emergencyCallPopup) as! EmergencyCallPopupViewController
         
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
     }
-
 }

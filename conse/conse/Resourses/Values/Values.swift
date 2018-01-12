@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+let SKIN_GRID = 0
+let HAIR_GRID = 1
+let EYES_GRID = 2
+let MOUTH_GRID = 3
+let ACCESSORIES_GRID = 4
+
 struct ConseValues {
     
     static let defaultPositionX: CGFloat = 0.0
@@ -21,7 +27,34 @@ struct ConseValues {
     static let dataNCRHeight: CGFloat = 397.0
 }
 
+enum AvatarGenderIDs: Int {
+    case male = 1
+    case female
+}
+enum AvatarPiecesIDs: Int {
+    case Accessories = 1
+    case Hair
+    case Skin
+    case Eyes
+    case Mouth
+}
+
 enum IdView : Int {
     case NCR_DATA
     case CITY_SELECTOR
+}
+
+enum ViewControllerTag : Int {
+    case configAlert
+    case choiceAvatar
+    case emergencyCallPopup
+    case letStart
+    case loader
+    case login
+    case makeAvatar
+    case recoveryPass
+    case register
+    case sendAlertPopup
+    case testAlert
+    case welcome
 }

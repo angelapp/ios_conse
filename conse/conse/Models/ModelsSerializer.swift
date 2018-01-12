@@ -696,22 +696,22 @@ class AvatarPiece: Mappable {
         description <- map[JSONKeys.description]
         icon <- map[JSONKeys.icon]
     }
+}
+
+class UserAvatar: Mappable {
     
-    class UserAvatar: Mappable {
-        
-        var user: Int!
-        var avatar_piece: Int!
-        
-        //inicializador vacio
-        init() {
-        }
-        
-        required init?(map: Map) {
-        }
-        
-        func mapping(map: Map) {
-            user <- map[JSONKeys.user]
-            avatar_piece <- map[JSONKeys.avatar_piece]
-        }
+    var user: Int!
+    var avatar_piece: Int!
+    
+    //inicializador vacio
+    init() {
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        user <- map[JSONKeys.user]
+        avatar_piece <- map[JSONKeys.avatar_piece]
     }
 }

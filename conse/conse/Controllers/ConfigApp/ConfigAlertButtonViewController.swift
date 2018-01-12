@@ -32,6 +32,8 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        contactList = AplicationRuntime.sharedManager.getTrustedContact()
+        
         addStyles()
         fillView()
     }
@@ -44,8 +46,8 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - private functions
     private func addStyles() {
         
-        btn_addContact.imageView?.contentMode = .scaleAspectFit
-        btn_next.imageView?.contentMode = .scaleAspectFit
+        setBackTitle(forViewController: self, title: blankSpace)
+        setAspectFitToButton(buttons: btn_addContact, btn_next)
     }
     
     private func fillView() {
@@ -61,6 +63,7 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
             btn_addContact.isHidden = true
         }
         
+        btn_next.isHidden = (contactList.count < 1) ? true : false
         table_contacts.isHidden = !lbl_boby.isHidden
     }
     
@@ -74,8 +77,8 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
         if position != nil {
             contactList[position!] = newContact
         }
+        // Add contact to list
         else {
-            // Add contact to list
             if contactList.count < 3 {
                 contactList.append(newContact)
             }
@@ -142,7 +145,7 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
         cell.btn_edit_contact.imageView?.contentMode = .scaleAspectFit
         
         cell.tag = indexPath.row
-        cell.addGestureRecognizer(selected)
+        cell.btn_edit_contact.addGestureRecognizer(selected)
         
         return cell
     }
@@ -164,7 +167,7 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
     
     func contactPicker(_ picker: CNContactPickerViewController, didSelect contact: CNContact) {
         
-        let fullName = "\(contact.givenName) \(contact.familyName)"
+        let fullName =  String(format: Strings.fullname_format, contact.givenName, contact.familyName)
         
         var phoneNo = Strings.error_message_notAvailable
         if !contact.phoneNumbers.isEmpty {
@@ -188,6 +191,11 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
             break
             
         default:
+            let list = ContactListModel()
+            list.contacList = contactList
+            
+            StorageFunctions.saveContactList(list: list)
+            performSegue(withIdentifier: segueID.savedContacs, sender: self)
             break
         }
     }

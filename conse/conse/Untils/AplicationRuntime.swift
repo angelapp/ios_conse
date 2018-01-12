@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class AplicationRuntime {
     
@@ -14,7 +15,11 @@ class AplicationRuntime {
     var appConfig: ApplicationConfiguration!
     var userData: RegisterUserResponse!
     
+    var avatarGenderID: Int!
     var token: String!
+    
+    var avatarImage: UIImage!
+    var trustedContacts: Array<ContactModel>!
     
     // MARK: - Singleton instance
     class var sharedManager: AplicationRuntime {
@@ -38,6 +43,18 @@ class AplicationRuntime {
     
     public func setToken(token: String){
         self.token = token
+    }
+    
+    public func setAvatarGenderID(id: Int){
+        self.avatarGenderID = id
+    }
+    
+    public func setAvatarImage(img: UIImage) {
+        self.avatarImage = img
+    }
+    
+    public func setTrustedConctacs(list: Array<ContactModel>) {
+        self.trustedContacts = list
     }
     
     // getters for - Spinners
@@ -128,5 +145,35 @@ class AplicationRuntime {
             return nullString
         }
         return appConfig.video_tutorial_id
+    }
+    
+    // avatar
+    public func getAvatarImage() -> UIImage! {
+        return self.avatarImage
+    }
+    
+    public func getAvatarGenderID() -> Int {
+        return self.avatarGenderID
+    }
+    
+    public func getPiecesList(forPart part: AvatarPiecesIDs) -> Array<AvatarPiece> {
+        
+        guard appConfig != nil, appConfig.avatar_pieces_Array != nil, self.avatarGenderID != nil else {
+            return []
+        }
+        
+        var piecesList: Array<AvatarPiece> = []
+        
+        for pieces in appConfig.avatar_pieces_Array {
+            if pieces.gender == self.avatarGenderID && pieces.body_part == part.rawValue {
+                piecesList.append(pieces)
+            }
+        }
+        
+        return piecesList
+    }
+    
+    public func getTrustedContact() -> Array<ContactModel>! {
+        return self.trustedContacts
     }
 }

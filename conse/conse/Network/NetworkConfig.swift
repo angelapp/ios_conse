@@ -102,7 +102,7 @@ class Network: NSObject {
             var message = nullString
             
             switch resp.statusCode {
-            case NetworkCodes.successful:
+            case NetworkCodes.successful, NetworkCodes.created:
                 result = true
                 completion(ResponseCallback.succeededObject(result: JSONResponse as AnyObject))
                 break

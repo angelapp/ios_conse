@@ -74,3 +74,19 @@ extension StatesPreferences {
         return states
     }
 }
+
+// Extensión de ContactPreferences para agregar los metodos de Archivar o Desarchivar
+extension ContactPreferences {
+    
+    /// Archiva la lista de contactos
+    class func archive(list: [String:Any]) -> Data! {
+        return NSKeyedArchiver.archivedData(withRootObject: list)
+    }
+    
+    /// Desarchiva la lista
+    /// - Returns: diccionario con lista de contactos
+    class func unarchive (data: Data) -> [String:Any]! {
+        guard let list = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else {return nil}
+        return list
+    }
+}

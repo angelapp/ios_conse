@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import ObjectMapper
 
 class StorageFunctions: NSObject {
     
@@ -42,6 +44,19 @@ class StorageFunctions: NSObject {
         }
     }
     
+    /// Guarda la lista de contactos
+    class func saveContactList(list: ContactListModel) {
+        
+        let json = Mapper().toJSONString(list, prettyPrint: true)
+        
+        let storage = StorageConfig.share
+        let saveDate = ContactPreferences(jsonContacts: json!)
+        let strRepresentation = saveDate.dictionary()
+        if let data = ContactPreferences.archive(list: strRepresentation) {
+            storage.saveParameterFromKey(key: DicKeys.contactList, value: data as AnyObject)
+        }
+    }
+    
     /// Get storage states
     class func getStates() -> StatesModel! {
         let storage = StorageConfig.share
@@ -58,5 +73,32 @@ class StorageFunctions: NSObject {
         guard let dic = UserPreferences.unarchive(data: data) else { return nil}
         let user = UserPreferences.initUser(fromDic: dic)
         return user
+    }
+    
+    /// Get local list data
+    class func getContactList() -> Array<ContactModel>! {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: DicKeys.contactList) as! Data! else { return nil }
+        guard let dic = ContactPreferences.unarchive(data: data) else { return nil }
+        let json = ContactPreferences.initContactList(fromDic: dic) as String!
+        let contactList = Mapper<ContactListModel>().map(JSON: convertToDictionary(text: json!)!)
+        return contactList?.contacList
+    }
+    
+    /// Save image as data
+    class func saveAvatarImage(image: UIImage) {
+        let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
+        UserDefaults.standard.set(imageData, forKey: DicKeys.avatarImg)
+    }
+    
+    /// Load data and return image
+    class func loadAvatarImage() -> UIImage! {
+        if let data = UserDefaults.standard.object(forKey: DicKeys.avatarImg) as! NSData! {
+            return UIImage(data: data as Data)
+        }
+        else {
+            return nil
+            
+        }
     }
 }

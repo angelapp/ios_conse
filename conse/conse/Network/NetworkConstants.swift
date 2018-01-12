@@ -29,6 +29,7 @@ enum NetworkRestMethods: String {
 struct NetworkCodes {
     static let internalServerError = 500
     static let successful = 200
+    static let created = 201
     static let notFound = 404
 }
 

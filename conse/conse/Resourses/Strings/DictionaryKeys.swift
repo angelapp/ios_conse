@@ -10,6 +10,8 @@ import Foundation
 
 /// Claves para los diccionarios
 struct DicKeys{
+    static let avatarImg = "AvatarImage"
+    static let contactList = "ContactList"
     static let date = "date"
     static let email = "email"
     static let id = "id"
@@ -46,6 +48,7 @@ struct JSONKeys {
     static let code = "code"
     static let condition = "condition"
     static let condition_list = "condition_list"
+    static let contact_emergency_List = "contact_list"
     static let contact_form_type_list = "contact_form_type_list"
     static let contact_phone = "contact_phone"
     static let country = "country"
@@ -73,6 +76,7 @@ struct JSONKeys {
     //MARK: - F
     static let file = "file"
     static let first_name = "first_name"
+    static let full_name = "full_name"
     
     //MARK: - G
     static let gender = "gender"
@@ -101,6 +105,7 @@ struct JSONKeys {
     
     //MARK: - N
     static let name = "name"
+    static let number = "number"
     
     //MARK: - O
     static let organization_by_type = "organization_by_type"

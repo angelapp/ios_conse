@@ -7,10 +7,47 @@
 //
 
 import Foundation
+import ObjectMapper
 
-class ContactModel {
+class ContactModel: Mappable {
     var fullName: String!
     var number: String!
+    
+    init() {
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        fullName <- map[JSONKeys.full_name]
+        number <- map[JSONKeys.number]
+    }
+}
+
+class ContactListModel: Mappable {
+    
+    var contacList: Array<ContactModel>!
+    
+    init() {
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        contacList <- map[JSONKeys.contact_emergency_List]
+    }
+}
+
+class MyAvatarPieces {
+    
+    var skinID: Int!
+    var hairID: Int!
+    var eyesID: Int!
+    var mouthID: Int!
+    var accID: Int!
+    var genderID: Int!
     
     init() {
     }

@@ -101,3 +101,41 @@ class StatesPreferences: NSObject {
         return state
     }
 }
+
+/// Modelo de datos para tener en local los contactos de confianza
+class ContactPreferences: NSObject {
+    
+    var jsonContact: String!
+    
+    /// Inicializa el modelo para almacenar en local apartir del modelo de datos
+    /// - Parameter states: estados
+    
+    convenience init(jsonContacts: String) {
+        self.init()
+        self.jsonContact = jsonContacts
+    }
+    
+    ///Codifica los datos del modelo y lo asocia a una clave
+    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
+    func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.jsonContact as String, forKey: DicKeys.contactList)
+    }
+    
+    /// Crea un diccionario con los datos del modelo
+    /// - Returns: EL diccionario de datos del modelo
+    func dictionary() -> [String:Any] {
+        var myDic = [String:Any]()
+        
+        myDic[DicKeys.contactList] = self.jsonContact
+        
+        return myDic
+    }
+    
+    /// Crea un modelo de datos a aprtir de un diccionario de datos
+    /// - Parameter dic: Diccionario de datos
+    /// - Returns: Modelo de datos
+    class func initContactList(fromDic dic: [String: Any]) -> String {
+        let json = dic[DicKeys.contactList] as! String
+        return json
+    }
+}
