@@ -105,6 +105,7 @@ class WelcomeViewController: UIViewController {
                 
                 if self.userData != nil {
                     AplicationRuntime.sharedManager.setToken(token: (self.userData.token)!)
+                    AplicationRuntime.sharedManager.setUserID(id: self.userData.id)
                     
                     if self.contacts != nil && self.contacts.count > 0 {
                         AplicationRuntime.sharedManager.setTrustedConctacs(list: self.contacts)

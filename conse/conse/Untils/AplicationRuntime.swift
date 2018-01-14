@@ -12,14 +12,17 @@ import UIKit
 class AplicationRuntime {
     
     // MARK: - Private properties
-    var appConfig: ApplicationConfiguration!
-    var userData: RegisterUserResponse!
+    private var appConfig: ApplicationConfiguration!
+    private var userData: RegisterUserResponse!
     
     var avatarGenderID: Int!
     var token: String!
+    var userID: Int!
     
     var avatarImage: UIImage!
     var trustedContacts: Array<ContactModel>!
+    
+    weak var mainDelegate: MainProtocol?
     
     // MARK: - Singleton instance
     class var sharedManager: AplicationRuntime {
@@ -38,14 +41,19 @@ class AplicationRuntime {
     
     public func setUserData(user: RegisterUserResponse!) {
         self.userData = user
-        self.token = user.token
+        self.token = user?.token ?? nil
+        self.userID = user?.user?.id ?? nil
     }
     
-    public func setToken(token: String){
+    public func setToken(token: String) {
         self.token = token
     }
     
-    public func setAvatarGenderID(id: Int){
+    public func setUserID(id: Int) {
+        self.userID = id
+    }
+    
+    public func setAvatarGenderID(id: Int) {
         self.avatarGenderID = id
     }
     
@@ -117,6 +125,13 @@ class AplicationRuntime {
         return appConfig.role_Array
     }
     
+    public func getContactFormTypeList() -> Array<ContactFormType> {
+        guard appConfig != nil, appConfig.contact_form_type_Array != nil else {
+            return []
+        }
+        return appConfig.contact_form_type_Array
+    }
+    
     // getters for validations
     public func getPswRegex() -> String {
         guard appConfig != nil, appConfig.psw_regular_expression != nil else {
@@ -174,6 +189,7 @@ class AplicationRuntime {
     }
     
     public func getTrustedContact() -> Array<ContactModel>! {
+        guard self.trustedContacts != nil else { return [] }
         return self.trustedContacts
     }
 }

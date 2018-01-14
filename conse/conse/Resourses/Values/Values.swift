@@ -39,22 +39,31 @@ enum AvatarPiecesIDs: Int {
     case Mouth
 }
 
-enum IdView : Int {
-    case NCR_DATA
-    case CITY_SELECTOR
-}
-
 enum ViewControllerTag : Int {
+    case aboutUs
     case configAlert
-    case choiceAvatar
+    case contactUs
+    case choiceAvatarGender
+    case documentBank
     case emergencyCallPopup
+    case leftMenu
     case letStart
     case loader
     case login
+    case main
     case makeAvatar
+    case myCourses
     case recoveryPass
     case register
+    case rigthProgressPopup
     case sendAlertPopup
+    case swMenu
     case testAlert
     case welcome
+}
+
+
+enum IdView : Int {
+    case NCR_DATA
+    case CITY_SELECTOR
 }

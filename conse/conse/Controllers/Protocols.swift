@@ -15,3 +15,7 @@ protocol TestAlertProtocol: class {
 protocol CallEmergencyProtocol: class {
     func closePopup()
 }
+
+protocol MainProtocol: class {
+    func addToContainer(viewControllerID id: ViewControllerTag)
+}

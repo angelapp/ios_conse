@@ -13,6 +13,7 @@ let debugFlag = "♻️ \(appName)_Debug: "
 
 let blankSpace = " "
 let nullString = ""
+let jumpLine = "\n"
 let titleTextColor = "titleTextColor"
 
 struct Strings {
@@ -23,6 +24,9 @@ struct Strings {
     static let body_Checkbox_AcceptTerms = "Acepto los %@ del NRC"
     static let button_accept = "Aceptar"
     
+    static let copy_contactusMessageType = "Tipo de mensaje"
+    static let copy_contactusMessage = "Tu mensaje"
+    static let copy_contactusTitle = "CONTÁCTENOS"
     static let copy_letStartMessage = "Hola soy tu Conse y voy a estar acompañándote en este recorrido. Traigo mucha información y herramientas que me gustaría compartir contigo"
     static let copy_letStartTitle = "¡Iniciemos!"
     static let copy_testAlerthelp = "MANTÉN PULSADO EL BOTÓN PARA ENVIAR"
@@ -53,6 +57,8 @@ struct Strings {
     
     static let loader_configApp = "Obteniendo configuración de la aplicación"
     static let loader_loading = "Cargando..."
+    
+    static let placeholder_yourMessage = "Escribe aquí tu mensaje"
     
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
     static let texfiled_placeholder = "Seleccione"

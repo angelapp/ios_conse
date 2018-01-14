@@ -29,6 +29,14 @@
 		6B3C45C020066EFE002C4454 /* StorageFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C45BF20066EFE002C4454 /* StorageFunctions.swift */; };
 		6B3C45C2200670C7002C4454 /* StorageModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C45C1200670C7002C4454 /* StorageModels.swift */; };
 		6B3C45C4200672FE002C4454 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B3C45C3200672FE002C4454 /* Storage.swift */; };
+		6B79E37220093BA0004990E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37120093BA0004990E9 /* MainViewController.swift */; };
+		6B79E37420093C47004990E9 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37320093C47004990E9 /* LeftMenuViewController.swift */; };
+		6B79E37620093C72004990E9 /* RigthProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37520093C72004990E9 /* RigthProgressViewController.swift */; };
+		6B79E37820093E2C004990E9 /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37720093E2C004990E9 /* MyCoursesViewController.swift */; };
+		6B79E37A20093E66004990E9 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37920093E66004990E9 /* ContactUsViewController.swift */; };
+		6B79E37C20093F4A004990E9 /* DocumentBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37B20093F4A004990E9 /* DocumentBankViewController.swift */; };
+		6B79E37E2009494D004990E9 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37D2009494D004990E9 /* AboutUsViewController.swift */; };
+		6B79E38220094E35004990E9 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E38120094E35004990E9 /* SWRevealViewController.m */; };
 		6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */; };
 		6B9222D7200414B100D8B779 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9222D6200414B000D8B779 /* LoaderViewController.swift */; };
 		6BF14C152006E5880045E262 /* SendAlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */; };
@@ -103,6 +111,16 @@
 		6B3C45BF20066EFE002C4454 /* StorageFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFunctions.swift; sourceTree = "<group>"; };
 		6B3C45C1200670C7002C4454 /* StorageModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageModels.swift; sourceTree = "<group>"; };
 		6B3C45C3200672FE002C4454 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		6B79E37120093BA0004990E9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6B79E37320093C47004990E9 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
+		6B79E37520093C72004990E9 /* RigthProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigthProgressViewController.swift; sourceTree = "<group>"; };
+		6B79E37720093E2C004990E9 /* MyCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
+		6B79E37920093E66004990E9 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
+		6B79E37B20093F4A004990E9 /* DocumentBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBankViewController.swift; sourceTree = "<group>"; };
+		6B79E37D2009494D004990E9 /* AboutUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		6B79E37F20094E34004990E9 /* conse-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "conse-Bridging-Header.h"; sourceTree = "<group>"; };
+		6B79E38020094E35004990E9 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		6B79E38120094E35004990E9 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplicationRuntime.swift; sourceTree = "<group>"; };
 		6B9222D6200414B000D8B779 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
 		6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAlertPopupViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +274,9 @@
 				6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */,
 				6B1F5AA41FFC459E00DA650D /* Styles.swift */,
 				6BF8A7951FFD0BCD0094764D /* Untils.swift */,
+				6B79E37F20094E34004990E9 /* conse-Bridging-Header.h */,
+				6B79E38020094E35004990E9 /* SWRevealViewController.h */,
+				6B79E38120094E35004990E9 /* SWRevealViewController.m */,
 			);
 			path = Untils;
 			sourceTree = "<group>";
@@ -268,6 +289,7 @@
 				6BF8A7A41FFD6ED60094764D /* Cells */,
 				6B1F5A9B1FFBF07500DA650D /* Authentication */,
 				6BF8A7971FFD3C2B0094764D /* ConfigApp */,
+				6B79E37020093B69004990E9 /* Main */,
 				6B9222D5200414B000D8B779 /* Popups */,
 			);
 			path = Controllers;
@@ -335,11 +357,25 @@
 			path = conse/Storage;
 			sourceTree = SOURCE_ROOT;
 		};
+		6B79E37020093B69004990E9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6B79E37D2009494D004990E9 /* AboutUsViewController.swift */,
+				6B79E37920093E66004990E9 /* ContactUsViewController.swift */,
+				6B79E37B20093F4A004990E9 /* DocumentBankViewController.swift */,
+				6B79E37320093C47004990E9 /* LeftMenuViewController.swift */,
+				6B79E37120093BA0004990E9 /* MainViewController.swift */,
+				6B79E37720093E2C004990E9 /* MyCoursesViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		6B9222D5200414B000D8B779 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
 				6BF14C2120084F190045E262 /* EmergencyCallPopupViewController.swift */,
 				6B9222D6200414B000D8B779 /* LoaderViewController.swift */,
+				6B79E37520093C72004990E9 /* RigthProgressViewController.swift */,
 				6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */,
 			);
 			path = Popups;
@@ -465,6 +501,7 @@
 				TargetAttributes = {
 					462609E41FFBE70000A3706C = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					462609F81FFBE70000A3706C = {
@@ -692,13 +729,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B79E37E2009494D004990E9 /* AboutUsViewController.swift in Sources */,
 				6B9222D7200414B100D8B779 /* LoaderViewController.swift in Sources */,
+				6B79E38220094E35004990E9 /* SWRevealViewController.m in Sources */,
 				6B25456C1FFECB1800235827 /* VideoTutorialViewController.swift in Sources */,
 				6B2545731FFEDBE500235827 /* ModelsSerializer.swift in Sources */,
 				6BF8A7A61FFD6F080094764D /* ContactsTableViewCell.swift in Sources */,
 				6B1F5A9F1FFBF0AD00DA650D /* LoginViewController.swift in Sources */,
 				6BF8A7A31FFD67740094764D /* Models.swift in Sources */,
 				6BF8A79C1FFD3D0C0094764D /* Strings.swift in Sources */,
+				6B79E37220093BA0004990E9 /* MainViewController.swift in Sources */,
 				6B1F5AAA1FFC467000DA650D /* Values.swift in Sources */,
 				6B2545711FFED5D800235827 /* ColorsString.swift in Sources */,
 				6BF14C2020081EF40045E262 /* LetStartViewController.swift in Sources */,
@@ -710,18 +750,23 @@
 				6B3C45C4200672FE002C4454 /* Storage.swift in Sources */,
 				6BF8A7A81FFDA4760094764D /* TestAlertViewController.swift in Sources */,
 				6BF14C1E2007A2CF0045E262 /* MakeYourAvatarViewController.swift in Sources */,
+				6B79E37420093C47004990E9 /* LeftMenuViewController.swift in Sources */,
 				6BF8ADB31FFE9DD20074EA88 /* NetworkConstants.swift in Sources */,
 				6BF14C2220084F190045E262 /* EmergencyCallPopupViewController.swift in Sources */,
 				6BF14C1C20079D400045E262 /* ChoiceAvatarGenderViewController.swift in Sources */,
 				6B1F5AA11FFBF0E900DA650D /* RegisterViewController.swift in Sources */,
 				6B25456F1FFED58F00235827 /* Colors.swift in Sources */,
+				6B79E37A20093E66004990E9 /* ContactUsViewController.swift in Sources */,
+				6B79E37820093E2C004990E9 /* MyCoursesViewController.swift in Sources */,
 				6B1F5A9D1FFBF09E00DA650D /* WelcomeViewController.swift in Sources */,
+				6B79E37620093C72004990E9 /* RigthProgressViewController.swift in Sources */,
 				462609EB1FFBE70000A3706C /* ViewController.swift in Sources */,
 				6BF8A7991FFD3C7D0094764D /* ConfigAlertButtonViewController.swift in Sources */,
 				6B1F5AA31FFBF0FE00DA650D /* RecoveryPasswordViewController.swift in Sources */,
 				6BF8A7A11FFD603C0094764D /* Identifiers.swift in Sources */,
 				6BF14C1A2006FA770045E262 /* Protocols.swift in Sources */,
 				462609E91FFBE70000A3706C /* AppDelegate.swift in Sources */,
+				6B79E37C20093F4A004990E9 /* DocumentBankViewController.swift in Sources */,
 				6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */,
 				6BF14C152006E5880045E262 /* SendAlertPopupViewController.swift in Sources */,
 				6B3C45C2200670C7002C4454 /* StorageModels.swift in Sources */,
@@ -915,11 +960,14 @@
 			baseConfigurationReference = F7D90A22DE3351B14ECBEB2A /* Pods-conse.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = conse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = conse.nrc.org.co.conse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "conse/Untils/conse-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -930,11 +978,13 @@
 			baseConfigurationReference = 185C26FE7402BE12681F9236 /* Pods-conse.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = conse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = conse.nrc.org.co.conse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "conse/Untils/conse-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
