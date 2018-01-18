@@ -63,6 +63,11 @@ struct NetworkConfig {
     static let headerValue = "value"
 }
 
+/// Formatos para complementar las URL
+struct NetworkURLComplement {
+    static let update_profile = "%d/"
+}
+
 /// Mensajes de error
 struct NetworkErrorMessage {
     static let createRequestError = "Error creating request"
@@ -71,13 +76,13 @@ struct NetworkErrorMessage {
     static let msnDefaultError = "¡Comprueba tu conexión a internet he inténtalo de nuevo!"
     static let nilResponseError = "Error response is nil"
     static let notConexionError = "Reviza tu conexión a internet he inténtalo de nuevo"
-    static let notFoundError = "Parece que hubo algún problema, comunicate con nuestras lineas de atención"
+    static let notFoundError = "Acción no encontrada"
     static let parsingResultError = "Error parsing result"
 }
 
 /// String para establecer el 'EndPoint' de los métodos POST
 struct NetworkPOST {
-    static let USER_PROFILE = "create_user/"
+    static let CREATE_USER = "create_user/"
     static let CONTACT_FORM = "contact_form/"
     static let AVATAR_LIST = "user_avatar/"
     static let USER_PROGRESS_LIST = "user_progress/"

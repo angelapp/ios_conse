@@ -18,4 +18,11 @@ protocol CallEmergencyProtocol: class {
 
 protocol MainProtocol: class {
     func addToContainer(viewControllerID id: ViewControllerTag)
+    func removeOfContainer()
+    func showMessageInMain(withMessage msn: String)
+}
+
+protocol VBGProtocol: class {
+    func nextPage()
+    func previusPage()
 }

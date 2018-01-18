@@ -11,8 +11,13 @@ import UIKit
 class MyCoursesViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var btn_vbg: UIButton!
+    @IBOutlet weak var btn_plc: UIButton!
+    
+    @IBOutlet weak var lbl_title: UILabel!
     
     // MARK: - Properties
+    weak var mainDelegate: MainProtocol?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,12 +31,18 @@ class MyCoursesViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Private Functions
-    
-    
-    // MARK: - Public Functions (Access by protocols)
-    
-    
     // MARK: - Actions
-
+    @IBAction func selectCourse(_ sender: UIButton) {
+        
+        switch sender {
+            
+        case btn_vbg:
+            mainDelegate?.addToContainer(viewControllerID: .courseVBG)
+            break
+            
+        default:
+            mainDelegate?.addToContainer(viewControllerID: .coursePLC)
+            break
+        }
+    }
 }

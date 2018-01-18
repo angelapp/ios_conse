@@ -21,8 +21,13 @@ class MainViewController: UIViewController, MainProtocol {
     var logView: [ViewControllerTag]! = []
     
     // Controllers that are managed by this controller
+    var aboutNRCVC: AboutUsViewController!
     var contactFormVC: ContactUsViewController!
-    
+    var documentBankVC: DocumentBankViewController!
+    var editProfileVC: RegisterViewController!
+    var myCourseVC: MyCoursesViewController!
+    var plcCourseVC: PLCCourseViewController!
+    var vbgCourseVC: VBGCourseViewController!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -30,6 +35,11 @@ class MainViewController: UIViewController, MainProtocol {
 
         // Set delegae to runtime
         AplicationRuntime.sharedManager.mainDelegate = self
+        
+        // Load Course Progress
+        if let progress = StorageFunctions.getProgress() {
+            AplicationRuntime.sharedManager.setProgress(progress: progress)
+        }
         
         //Se agrega accion al boton menu
         btn_menu.target = revealViewController()
@@ -51,11 +61,56 @@ class MainViewController: UIViewController, MainProtocol {
     }
     
     // MARK: - Private Functions
-    
     /** init child viewControllers */
     private func initChildView() {
+        aboutNRCVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs) as! AboutUsViewController
         contactFormVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.contactUs) as! ContactUsViewController
+        documentBankVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.documentBank) as! DocumentBankViewController
+        myCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.myCourses) as! MyCoursesViewController
+        plcCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.coursePLC) as! PLCCourseViewController
+        vbgCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.courseVBG) as! VBGCourseViewController
+        
+        let sb = UIStoryboard(name: StoryboardsId.auth, bundle: nil)
+        editProfileVC = sb.instantiateViewController(withIdentifier: ViewControllersId.register) as! RegisterViewController
+        
+        addToContainer(viewControllerID: .myCourses)
     }
+    
+    /** Return: viewController, add delegates and properties as appropriate */
+    private func getViewController(viewControllerID id: ViewControllerTag) -> UIViewController {
+        
+        switch id {
+            
+        case .aboutUs:
+            return aboutNRCVC
+            
+        case .contactUs:
+            return contactFormVC
+            
+        case .documentBank:
+            return documentBankVC
+            
+        case .myCourses:
+            myCourseVC.mainDelegate = self
+            return myCourseVC
+            
+        case .courseVBG:
+            return vbgCourseVC
+            
+        case .coursePLC:
+            return plcCourseVC
+            
+        case .editProfile:
+            editProfileVC.formType = .editProfile
+            editProfileVC.mainDelegate = self
+            return editProfileVC
+            
+        default:
+            return contactFormVC
+        }
+    }
+    
+    // MARK: - Public Functions (Access by protocols)
     
     /** Add a view controller as container child */
     func addToContainer(viewControllerID id: ViewControllerTag) {
@@ -83,7 +138,7 @@ class MainViewController: UIViewController, MainProtocol {
     }
     
     /** Remove of container and the reference log */
-    private func removeOfContainer(viewController vc: UIViewController){
+    func removeOfContainer() {
         
         // Delete child from parent
         let vc = self.childViewControllers.last
@@ -97,22 +152,10 @@ class MainViewController: UIViewController, MainProtocol {
         logView.remove(at: indexOF!)
     }
     
-    /** Return: viewController, add delegates and properties as appropriate */
-    private func getViewController(viewControllerID id: ViewControllerTag) -> UIViewController {
-        
-        switch id {
-            
-        case .contactUs:
-            return contactFormVC
-            
-        default:
-            return contactFormVC
-        }
+    /** Usa el protocolo para mostar mensajes en el main */
+    func showMessageInMain(withMessage msn: String) {
+        self.showErrorMessage(withMessage: msn)
     }
-    
-    
-    // MARK: - Public Functions (Access by protocols)
-    
     
     // MARK: - Actions
 }

@@ -54,6 +54,7 @@ class MyAvatarPieces {
 }
 
 class UserModel {
+    var jsonProfile: String!
     var username: String!
     var token: String!
     var id: Int!
@@ -61,4 +62,25 @@ class UserModel {
 
 class StatesModel {
     var wasLoggedAtSomeTime: Bool!
+}
+
+class FormatsBankItem {
+    
+    var label: String!
+    var doc_name: String!
+    
+    init(label: String, doc: String) {
+        self.doc_name = doc
+        self.label = label
+    }
+}
+
+/** Modelo para mantener el indice de la pág actual de los cursos */
+class CoursesProgress {
+    
+    var VBG_INDEX: Int! // Indice de pág para el curso Violencia Basada en Genero
+    var PLC_INDEX: Int! // Indice de pág para el curso Protección Lideres Comunitarios
+    
+    init() {
+    }
 }

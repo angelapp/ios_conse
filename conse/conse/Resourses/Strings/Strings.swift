@@ -24,11 +24,16 @@ struct Strings {
     static let body_Checkbox_AcceptTerms = "Acepto los %@ del NRC"
     static let button_accept = "Aceptar"
     
+    static let copy_aboutusTitle = ""
+    static let copy_aboutusTitle_tab1 = "QUIENES SOMOS"
+    static let copy_aboutusTitle_tab2 = "QUE HACEMOS"
+    static let copy_aboutusTitle_tab3 = "DONDE TRABAJAMOS"
     static let copy_contactusMessageType = "Tipo de mensaje"
     static let copy_contactusMessage = "Tu mensaje"
     static let copy_contactusTitle = "CONTÁCTENOS"
     static let copy_letStartMessage = "Hola soy tu Conse y voy a estar acompañándote en este recorrido. Traigo mucha información y herramientas que me gustaría compartir contigo"
     static let copy_letStartTitle = "¡Iniciemos!"
+    static let copy_profileTitle = "Completa tu perfil"
     static let copy_testAlerthelp = "MANTÉN PULSADO EL BOTÓN PARA ENVIAR"
     static let copy_testAlertMessage = "Ahora eres mi contacto de emergencia. \nEsta es una prueba"
     static let copy_testAlertTitle = "¿Estás seguro de enviar esta alerta?"
@@ -58,15 +63,15 @@ struct Strings {
     static let loader_configApp = "Obteniendo configuración de la aplicación"
     static let loader_loading = "Cargando..."
     
+    static let message_ok_contact = "Se ha enviado tu mensaje"
+    static let message_ok_update = "Información actualizada"
+    
     static let placeholder_yourMessage = "Escribe aquí tu mensaje"
     
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
     static let texfiled_placeholder = "Seleccione"
     static let title_AlertConfig = "Configura el botón de alerta"
     static let title_AlertTest = "Haz una prueba de funcionamiento"
-    
-    static let vbg_course_start_tittle = "Atención y Prevención \n de Violencia \n Basada en Género"
-    static let vbg_course_start_message = "Recibe la bienvenida al curso, prepárate para conocer la respuesta a preguntas como: ¿Qué es violencia de género?, ¿Todas las violencias son iguales?, ¿Dónde puedo encontrar ayuda? ¡Adelante! ¡Inicia el recorrido y resuelve tus dudas!"
     
     static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }

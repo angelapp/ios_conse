@@ -25,7 +25,7 @@ class WelcomeViewController: UIViewController {
     @IBOutlet weak var alertButton_heightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
-    var userData: UserModel!
+    var userData: RegisterUserResponse!
     var states: StatesModel!
     var contacts: Array<ContactModel>!
     var avatar: UIImage!
@@ -104,8 +104,7 @@ class WelcomeViewController: UIViewController {
                 AplicationRuntime.sharedManager.setAppConfig(config: config!)
                 
                 if self.userData != nil {
-                    AplicationRuntime.sharedManager.setToken(token: (self.userData.token)!)
-                    AplicationRuntime.sharedManager.setUserID(id: self.userData.id)
+                    AplicationRuntime.sharedManager.setUserData(user: self.userData)
                     
                     if self.contacts != nil && self.contacts.count > 0 {
                         AplicationRuntime.sharedManager.setTrustedConctacs(list: self.contacts)

@@ -25,6 +25,8 @@ struct ConseValues {
     
     static let notHeight: CGFloat = 0.0
     static let dataNCRHeight: CGFloat = 397.0
+    static let conseUser_Height: CGFloat = 150.0
+    static let conseUserProfile_Heigth: CGFloat = 74.0
 }
 
 enum AvatarGenderIDs: Int {
@@ -41,18 +43,27 @@ enum AvatarPiecesIDs: Int {
 
 enum ViewControllerTag : Int {
     case aboutUs
+    case aboutUs_tab1
+    case aboutUs_tab2
+    case aboutUs_tab3
     case configAlert
     case contactUs
     case choiceAvatarGender
+    case courseVBG
+    case coursePLC
     case documentBank
+    case editProfile
     case emergencyCallPopup
+    case formatBank
     case leftMenu
+    case legal
     case letStart
     case loader
     case login
     case main
     case makeAvatar
     case myCourses
+    case protectionShield
     case recoveryPass
     case register
     case rigthProgressPopup
@@ -61,7 +72,6 @@ enum ViewControllerTag : Int {
     case testAlert
     case welcome
 }
-
 
 enum IdView : Int {
     case NCR_DATA

@@ -14,11 +14,9 @@ class AplicationRuntime {
     // MARK: - Private properties
     private var appConfig: ApplicationConfiguration!
     private var userData: RegisterUserResponse!
-    
+    private var progress: CoursesProgress!
+
     var avatarGenderID: Int!
-    var token: String!
-    var userID: Int!
-    
     var avatarImage: UIImage!
     var trustedContacts: Array<ContactModel>!
     
@@ -34,23 +32,13 @@ class AplicationRuntime {
     
     // MARK: - Getters and Setters
     
-    // SET App Configuration
+    // MARK: - SET App Configuration
     public func setAppConfig(config: ApplicationConfiguration){
         self.appConfig = config
     }
     
     public func setUserData(user: RegisterUserResponse!) {
         self.userData = user
-        self.token = user?.token ?? nil
-        self.userID = user?.user?.id ?? nil
-    }
-    
-    public func setToken(token: String) {
-        self.token = token
-    }
-    
-    public func setUserID(id: Int) {
-        self.userID = id
     }
     
     public func setAvatarGenderID(id: Int) {
@@ -65,7 +53,20 @@ class AplicationRuntime {
         self.trustedContacts = list
     }
     
-    // getters for - Spinners
+    public func setProgress(progress: CoursesProgress) {
+        self.progress = progress
+    }
+    
+    public func setProgress(forCourse id: CourseIDs, progress: Int) {
+        if self.progress == nil { self.progress = CoursesProgress() }
+        
+        if id == .VBG { self.progress.VBG_INDEX = progress }
+        else { self.progress.PLC_INDEX = progress }
+        
+        StorageFunctions.saveProgress(progress: self.progress)
+    }
+    
+    // MARK: - getters for - Spinners
     public func getDocumentTypeList() -> Array<DocumentType> {
         guard appConfig != nil, appConfig.document_type_Array != nil else {
             return []
@@ -132,7 +133,7 @@ class AplicationRuntime {
         return appConfig.contact_form_type_Array
     }
     
-    // getters for validations
+    // MARK: - Getters for validations
     public func getPswRegex() -> String {
         guard appConfig != nil, appConfig.psw_regular_expression != nil else {
             return nullString
@@ -147,7 +148,7 @@ class AplicationRuntime {
         return appConfig.psw_error_recomendation
     }
     
-    // urls
+    // MARK: - urls
     public func getURLTerms() -> String {
         guard appConfig != nil, appConfig.terms_condition_url != nil else {
             return nullString
@@ -162,7 +163,7 @@ class AplicationRuntime {
         return appConfig.video_tutorial_id
     }
     
-    // avatar
+    // MARK: - Avatar
     public func getAvatarImage() -> UIImage! {
         return self.avatarImage
     }
@@ -188,8 +189,42 @@ class AplicationRuntime {
         return piecesList
     }
     
+    // MARK: - USER DATA
     public func getTrustedContact() -> Array<ContactModel>! {
         guard self.trustedContacts != nil else { return [] }
         return self.trustedContacts
+    }
+    
+    public func getUser() -> UserSerializer! {
+        guard let user = userData?.user else { return nil }
+        return user
+    }
+    
+    public func getUserID() -> Int! {
+        guard let id = userData?.user?.id else { return nil }
+        return id
+    }
+    
+    public func getUserProfile() -> ProfileSerializer! {
+        guard let profile = userData?.profile else { return nil }
+        return profile
+    }
+    
+    public func getUserToken() -> String {
+        guard let token = userData?.token else { return nullString }
+        return token
+    }
+    
+    public func getIndex(forCourse id: CourseIDs) -> Int {
+        guard progress != nil else { return 0 }
+        
+        switch id {
+            
+        case .VBG:
+            return progress.VBG_INDEX != nil ? progress.VBG_INDEX : 0
+            
+        default:
+            return progress.PLC_INDEX != nil ? progress.PLC_INDEX : 0
+        }
     }
 }

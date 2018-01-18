@@ -39,6 +39,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var cnt_pickers: UIView!
     
     // labels
+    @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_terms: UILabel!
     
     // Scroll
@@ -78,6 +79,9 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     // Constraits
     @IBOutlet weak var constraints_NRC_Height: NSLayoutConstraint!
+    @IBOutlet weak var constraints_register_height: NSLayoutConstraint!
+    @IBOutlet weak var constraints_terms_height: NSLayoutConstraint!
+    @IBOutlet weak var constraints_userConse_Height: NSLayoutConstraint!
     
     // MARK: - propeties
     
@@ -89,6 +93,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     private let cityTag: Int = 5
     private let conditionTag: Int = 6
     private let profileTag: Int = 7
+    
+    weak var mainDelegate: MainProtocol?
+    
+    // flag (Register profile or Edit profile) default Register
+    var formType: ViewControllerTag = .register
+    var profile: ProfileSerializer!
+    var user: UserSerializer!
     
     // booleanos para determinar estado de los checkbox
     var isBeneficiaryNCR: Bool = false
@@ -118,7 +129,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         super.viewDidLoad()
 
         addStyles()
-        loadList()
+        loadData()
+        fillView()
         addGestureToViews()
         setBeneficiaryState()
         
@@ -146,16 +158,21 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     // change navbor whe this controller disappear
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.barTintColor = Colors().getColor(from: ConseColors.yellow.rawValue)
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        if formType == .register {
+            self.navigationController?.navigationBar.barTintColor = Colors().getColor(from: ConseColors.yellow.rawValue)
+            self.navigationController?.navigationBar.tintColor = UIColor.white
+            
+        }
     }
     
     // MARK: - private functions
     private func addStyles(){
         
         // change navbar color
-        self.navigationController?.navigationBar.barTintColor = UIColor.groupTableViewBackground
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        if formType == .register {
+            self.navigationController?.navigationBar.barTintColor = UIColor.groupTableViewBackground
+            self.navigationController?.navigationBar.tintColor = UIColor.black
+        }
         
         setBackTitle(forViewController: self, title: blankSpace)
         btn_next.imageView?.contentMode = .scaleAspectFit
@@ -199,6 +216,59 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         lbl_terms.addGestureRecognizer(tap)
     }
     
+    /// Llena la vista, deacuerdo al tag (Register or EditProfile)
+    private func fillView() {
+        checkTerms.isHidden = formType != .register
+        lbl_title.text = formType == .register ? nullString : Strings.copy_profileTitle
+        tf_email.isEnabled = formType == .register
+        tf_password.isHidden = formType != .register
+        tf_confirmPassword.isHidden = formType != .register
+        
+        constraints_register_height.constant = formType == .register ? 120.0 : 68.0
+        constraints_terms_height.constant = formType == .register ? 52.0 : 0.0
+        constraints_userConse_Height.constant = formType == .register ? ConseValues.conseUser_Height : ConseValues.conseUserProfile_Heigth
+        
+        // Se llenan los campos si el formulario es de editar perfil
+        if formType == .editProfile {
+            
+            if user != nil {
+                tf_email.text = user.email
+                tf_name.text = user.first_name
+                tf_lastname.text = user.last_name
+            }
+            
+            // Si hay datos de perfil se precargan
+            if profile != nil {
+                promt_birthday.text = profile.birthdate
+                promt_birthday.textColor = UIColor.black
+                genderID = profile.gender.id
+                promt_gender.text = profile.gender.name
+                isBeneficiaryNCR = profile.isNRCBeneficiary
+            
+                if isBeneficiaryNCR {
+                    documentTypeID = profile.document_type.id
+                    promt_dni_type.text = profile.document_type.name
+                    tf_dni_number.text = profile.document_number
+                    
+                    ethniGroupID = profile.ethnic_group.id
+                    promt_ethnic_group.text = profile.ethnic_group.name
+                    
+                    actualCityID = Int(profile.origin_city.name)
+//                    promt_geo_state.text = profile.origin_city.state
+                    
+                    originCityID = profile.origin_city.id
+                    promt_geo_city.text = profile.origin_city.name
+                    
+                    conditionID = profile.condition.id
+                    promt_condition.text = profile.condition.name
+                    
+                    roleID = profile.role.id
+                    promt_profile.text = profile.role.name
+                }
+            }
+        }
+    }
+    
     /// Change state of beneficiaryNRC and update form for show or hidden fields
     private func setBeneficiaryState() {
         cnt_beneficiaryData.isHidden = !isBeneficiaryNCR
@@ -217,13 +287,18 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     /// Get list from appConfig (Runtime)
-    private func loadList() {
+    private func loadData() {
         genderList = AplicationRuntime.sharedManager.getGenderList()
         documentTypeList = AplicationRuntime.sharedManager.getDocumentTypeList()
         ethnicGroupList = AplicationRuntime.sharedManager.getEthnicList()
         stateList = AplicationRuntime.sharedManager.getStateList()
         conditionList = AplicationRuntime.sharedManager.getConditionList()
         profileList = AplicationRuntime.sharedManager.getRoleList()
+        
+        if formType == .editProfile {
+            profile = AplicationRuntime.sharedManager.getUserProfile()
+            user = AplicationRuntime.sharedManager.getUser()
+        }
     }
     
     /// Show picker view
@@ -287,15 +362,103 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     // MARK: - Request function
+    /// Realiza las validaciones de acuerdo al tipo de formulario (Registro o edición de perfil )
+    private func prepareRequest(forViewController id: ViewControllerTag) {
+        
+        // Se valida que todos los campos esten completos
+        guard Validations.isValidData(fromField: tf_name, controller: self),
+            Validations.isValidData(fromField: tf_lastname, controller: self),
+            Validations.isValidData(fromField: promt_gender, controller: self),
+            Validations.isValidDate(birthDate: promt_birthday.text, controller: self) else {
+                return
+        }
+        
+        // Campos que solo se validan si el usuario se esat registrando
+        if id == .register {
+            guard Validations.isValidData(fromField: tf_email, controller: self),
+                Validations.isValidData(fromField: tf_password, controller: self),
+                Validations.isValidData(fromField: tf_confirmPassword, controller: self) else {
+                    return
+            }
+            
+            // Se validan los formatos
+            guard Validations.isValidEmail(email: tf_email.text!, controller: self),
+                Validations.isValidPass(pass: tf_password.text!, controller: self) else {
+                    return
+            }
+            
+            // Se validan las contraseñas
+            guard  tf_password.text! == tf_confirmPassword.text else {
+                self.showErrorMessage(withMessage: Strings.error_message_passNotMatch)
+                return
+            }
+            
+            // Se verifica que accepte los terminos
+            guard acceptedTerms else {
+                self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+                return
+            }
+        }
+        
+        // Si es beneficiario conse valida que todos los campos esten llenos
+        if isBeneficiaryNCR {
+            
+            guard Validations.isValidData(fromField: tf_dni_number, controller: self),
+                Validations.isValidData(fromField: promt_dni_type, controller: self),
+                Validations.isValidData(fromField: promt_ethnic_group, controller: self),
+                Validations.isValidData(fromField: promt_geo_state, controller: self),
+                Validations.isValidData(fromField: promt_geo_city, controller: self),
+                Validations.isValidData(fromField: promt_condition, controller: self),
+                Validations.isValidData(fromField: promt_profile, controller: self)
+                else {
+                    return
+            }
+        }
+        
+        // Crea el modelo para enviar al servidor
+        let newUSR = RegisterUserProfileModel()
+        newUSR.first_name = tf_name.text
+        newUSR.last_name = tf_lastname.text
+        newUSR.email =  tf_email.text
+        newUSR.password = tf_password.text
+        newUSR.birthdate = promt_birthday.text
+        newUSR.isNRCBeneficiary = isBeneficiaryNCR
+        newUSR.gender = genderID
+        
+        if isBeneficiaryNCR {
+            newUSR.document_number = tf_dni_number.text
+            newUSR.actual_city = actualCityID
+            newUSR.condition = conditionID
+            newUSR.document_type = documentTypeID
+            newUSR.ethnic_group = ethniGroupID
+            newUSR.origin_city = originCityID
+            newUSR.role = roleID
+        }
+        
+        sendRequest(formModel: newUSR)
+    }
+    
     /// Se envia los datos del usuario para registarlo
-    func sendRegisterPost(registerModel: RegisterUserProfileModel){
+    func sendRequest(formModel: RegisterUserProfileModel){
         
         //self.showLoader(withMessage: Strings.loader_loading)
         
-        let json = Mapper().toJSONString(registerModel, prettyPrint: true)
-        let headers:[[String:String]] = []
+        let json = Mapper().toJSONString(formModel, prettyPrint: true)
+        var headers:[[String:String]] = []
         
-        Network.buildRequest(urlApi: NetworkPOST.USER_PROFILE, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+        var apiURL = NetworkPOST.CREATE_USER
+        var method: NetworkRestMethods = .methodPOST
+        
+        if (formType == .editProfile){
+            let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
+            
+            apiURL = NetworkPUT.USER_PROFILE_EDIT + String(format: NetworkURLComplement.update_profile, profile.id)
+            method = .methodPUT
+            headers.append([NetworkConfig.headerName: NetworkConfig.headerAuthorization,
+                            NetworkConfig.headerValue: token])
+        }
+        
+        Network.buildRequest(urlApi: apiURL, json: json, extraHeaders: headers, method: method, completion: { (response) in
             
            // NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
             
@@ -322,8 +485,14 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 StorageFunctions.saveStates(states: stateModel)
                 AplicationRuntime.sharedManager.setUserData(user: user)
                 
-                let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
-                self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                if self.formType == .editProfile {
+                    self.mainDelegate?.removeOfContainer()
+                    self.mainDelegate?.showMessageInMain(withMessage: Strings.message_ok_update)
+                }
+                else {
+                    let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
+                    self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                }
                 
                 break
                 
@@ -519,8 +688,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @IBAction func pickerButtons(_ sender: UIButton) {
-        
-        if sender == btn_pickerConfirm {setBirthday(picker_birthday)}
+        if sender == btn_pickerConfirm { setBirthday(picker_birthday) }
         hiddenPicker()
     }
     
@@ -535,76 +703,6 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     /// Realiza las validaciones y contruye el modelo de datos para enviar al servidor
     @IBAction func next (_ sender: UIButton) {
-        
-        // Se valida que todos los campos esten completos
-        guard Validations.isValidData(fromField: tf_name, controller: self),
-            Validations.isValidData(fromField: tf_lastname, controller: self),
-            Validations.isValidData(fromField: tf_email, controller: self),
-            Validations.isValidData(fromField: tf_password, controller: self),
-            Validations.isValidData(fromField: tf_confirmPassword, controller: self),
-            Validations.isValidData(fromField: promt_gender, controller: self),
-            Validations.isValidDate(birthDate: promt_birthday.text, controller: self) else {
-                return
-        }
-        
-        // Se validan los formatos
-        guard Validations.isValidEmail(email: tf_email.text!, controller: self),
-            Validations.isValidPass(pass: tf_password.text!, controller: self) else {
-            return
-        }
-        
-        // Se validan las contraseñas
-        guard  tf_password.text! == tf_confirmPassword.text else {
-            self.showErrorMessage(withMessage: Strings.error_message_passNotMatch)
-            return
-        }
-        
-        // Se verifica que accepte los terminos
-        guard acceptedTerms else {
-            self.showErrorMessage(withMessage: Strings.error_message_requieredData)
-            return
-        }
-        
-        // Si es beneficiario conse valida que todos los campos esten llenos
-        if isBeneficiaryNCR {
-            
-            guard Validations.isValidData(fromField: tf_dni_number, controller: self),
-                Validations.isValidData(fromField: promt_dni_type, controller: self),
-                Validations.isValidData(fromField: promt_ethnic_group, controller: self),
-                Validations.isValidData(fromField: promt_geo_state, controller: self),
-                Validations.isValidData(fromField: promt_geo_city, controller: self),
-                Validations.isValidData(fromField: promt_condition, controller: self),
-                Validations.isValidData(fromField: promt_profile, controller: self)
-                else {
-                    return
-            }
-        }
-        
-        // Obtiene la fecha y le da el formato del servidor
-        let formatter = DateFormatter()
-        formatter.dateFormat = DateTimeFormat.sendDateFormat
-        let dateToSend: String = formatter.string(from: pickerDate)
-        
-        // Crea el modelo para enviar al servidor
-        let newUSR = RegisterUserProfileModel()
-        newUSR.first_name = tf_name.text
-        newUSR.last_name = tf_lastname.text
-        newUSR.email =  tf_email.text
-        newUSR.password = tf_password.text
-        newUSR.birthdate = dateToSend
-        newUSR.isNRCBeneficiary = isBeneficiaryNCR
-        newUSR.gender = genderID
-        
-        if isBeneficiaryNCR {
-            newUSR.document_number = tf_dni_number.text
-            newUSR.actual_city = actualCityID
-            newUSR.condition = conditionID
-            newUSR.document_type = documentTypeID
-            newUSR.ethnic_group = ethniGroupID
-            newUSR.origin_city = originCityID
-            newUSR.role = roleID
-        }
-        
-        sendRegisterPost(registerModel: newUSR)
+        prepareRequest(forViewController: formType)
     }
 }

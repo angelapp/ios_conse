@@ -67,12 +67,16 @@ class LeftMenuViewController: UIViewController {
         switch sender {
             
         case btn_docs:
+            mainDelegate?.addToContainer(viewControllerID: .documentBank)
+            self.revealViewController().revealToggle(animated: true)
             break
             
         case btn_routes:
             break
             
         case btn_courses:
+            mainDelegate?.addToContainer(viewControllerID: .myCourses)
+            self.revealViewController().revealToggle(animated: true)
             break
             
         case btn_analyze:
@@ -87,9 +91,13 @@ class LeftMenuViewController: UIViewController {
             break
             
         case btn_aboutNRC:
+            mainDelegate?.addToContainer(viewControllerID: .aboutUs)
+            self.revealViewController().revealToggle(animated: true)
             break
             
         case btn_editProfile:
+            mainDelegate?.addToContainer(viewControllerID: .editProfile)
+            self.revealViewController().revealToggle(animated: true)
             break
             
         default:

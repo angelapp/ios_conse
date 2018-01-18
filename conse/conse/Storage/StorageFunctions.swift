@@ -20,14 +20,11 @@ class StorageFunctions: NSObject {
     class func saveDataInLocal(user: RegisterUserResponse!) {
         
         // get data to save
-        let dataToSave = UserModel()
-        dataToSave.id = user.user.id
-        dataToSave.token = user.token
-        dataToSave.username = user.user.username
+        let jsonUserData = Mapper().toJSONString(user, prettyPrint: true)
         
         // Save data in local
         let storage = StorageConfig.share
-        let saveData = UserPreferences(user: dataToSave)
+        let saveData = UserPreferences(user: jsonUserData)
         let strRepresentation = saveData.dictionary()
         if let data = UserPreferences.archive(user: strRepresentation) {
             storage.saveParameterFromKey(key: DicKeys.user, value: data as AnyObject)
@@ -57,6 +54,25 @@ class StorageFunctions: NSObject {
         }
     }
     
+    /// Guarda en local, los indices del progreso del curso
+    class func saveProgress(progress: CoursesProgress) {
+        let storage = StorageConfig.share
+        let saveDate = ProgressPreferences(indices: progress)
+        let strRepresentation = saveDate.dictionary()
+        if let data = ProgressPreferences.archive(progress: strRepresentation) {
+            storage.saveParameterFromKey(key: DicKeys.progess, value: data as AnyObject)
+        }
+    }
+    
+    /// Get storage progress
+    class func getProgress() -> CoursesProgress! {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: DicKeys.progess) as! Data! else { return nil}
+        guard let dic = ProgressPreferences.unarchive(data: data) else { return nil}
+        let progress = ProgressPreferences.initProgress(fromDic: dic)
+        return progress
+    }
+    
     /// Get storage states
     class func getStates() -> StatesModel! {
         let storage = StorageConfig.share
@@ -67,11 +83,12 @@ class StorageFunctions: NSObject {
     }
     
     /// Get local storage data
-    class func getUser() -> UserModel! {
+    class func getUser() -> RegisterUserResponse! {
         let storage = StorageConfig.share
         guard let data = storage.getParameterFromKey(key: DicKeys.user) as! Data! else { return nil}
         guard let dic = UserPreferences.unarchive(data: data) else { return nil}
-        let user = UserPreferences.initUser(fromDic: dic)
+        let userJSON = UserPreferences.initUser(fromDic: dic) as String!
+        let user = Mapper<RegisterUserResponse>().map(JSON: convertToDictionary(text: userJSON!)!)
         return user
     }
     

@@ -45,15 +45,30 @@ func downloadImage(imgView: UIImageView, urlImage: String!) {
 }
 
 /// Resalta en el texto la palabra de entrada
-func addBoldWord(forText text: String, toWord word: String, fontSize size: CGFloat) -> NSAttributedString {
+func addBoldWord(forText text: String, toWord words: String..., fontSize size: CGFloat) -> NSAttributedString {
     
-    let range = (text as NSString).range(of: word)
     let attributeText = NSMutableAttributedString(string: text)
     let boldFontAttribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size)]
     
-    attributeText.addAttributes(boldFontAttribute, range: range)
+    for word in words {
+        let range = (text as NSString).range(of: word)
+        attributeText.addAttributes(boldFontAttribute, range: range)
+    }
     
     return attributeText
+}
+
+func addLinkStyle(forText text: String) -> NSAttributedString {
+    
+    let range = (text as NSString).range(of: text)
+    let textAttributed = NSMutableAttributedString(string: text)
+    let underlineAttribute = [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
+    let colorAttribute = [NSAttributedStringKey.foregroundColor: Colors().getColor(from: ConseColors.salmon.rawValue)]
+    
+    textAttributed.addAttributes(underlineAttribute, range: range)
+    textAttributed.addAttributes(colorAttribute, range: range)
+    
+    return textAttributed
 }
 
 /// Escala la imagen dentro del botón con AspectFit
@@ -238,5 +253,16 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return combinedImage!
+    }
+}
+
+extension String {
+    func htmlAttributedString() -> NSAttributedString? {
+        guard let data = self.data(using: String.Encoding.utf16, allowLossyConversion: false) else { return nil }
+        guard let html = try? NSMutableAttributedString(
+            data: data,
+            options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
+            documentAttributes: nil) else { return nil }
+        return html
     }
 }

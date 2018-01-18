@@ -17,12 +17,16 @@ struct DicKeys{
     static let id = "id"
     static let name = "name"
     static let phone = "phone"
+    static let plcProgess = "plcProgess"
+    static let progess = "progess"
     static let states = "states"
     static let time = "time"
     static let title = "title"
     static let token = "token"
     static let user = "user"
+    static let userJSON = "userJSON"
     static let username = "username"
+    static let vbgProgess = "vbgProgess"
     static let wasLoggedAtSomeTime = "wasLoggedAtSomeTime"
 }
 

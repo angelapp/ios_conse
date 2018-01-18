@@ -197,7 +197,7 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
         let form = ContactForm()
         form.detail = message
         form.message_type = messageTypeID
-        form.user = AplicationRuntime.sharedManager.userID
+        form.user = AplicationRuntime.sharedManager.getUserID()
         
         sendRequest(contactForm: form)
     }
@@ -205,7 +205,7 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
     private func sendRequest(contactForm: ContactForm) {
         
         let json = Mapper().toJSONString(contactForm, prettyPrint: true)
-        let token = NetworkConfig.token + AplicationRuntime.sharedManager.token
+        let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
         
         var headers: [[String:String]] = []
         headers.append([NetworkConfig.headerName: NetworkConfig.headerAuthorization,
@@ -228,11 +228,13 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 
             case .succeededObject(let objReceiver):
                 
-                _ = Mapper<SimpleResponseModel>().map(JSON: objReceiver as! [String: Any])
+                _ = Mapper<ContactForm>().map(JSON: objReceiver as! [String: Any])
                 
                 self.lbl_promtMesaggeType.text = Strings.texfiled_placeholder
                 self.tv_message.text = Strings.placeholder_yourMessage
                 self.tv_message.textColor = .lightGray
+                
+                self.mainDelegate?.showMessageInMain(withMessage: Strings.message_ok_contact)
                 
                 break
                 
