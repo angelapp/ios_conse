@@ -230,7 +230,7 @@ class Document: Mappable {
     var date: String!
     var code: String!
     var url: String!
-    var extension_num: String!
+    var file_ext: String!
     var icon: String!
     var file: String!
     
@@ -248,7 +248,7 @@ class Document: Mappable {
         date <- map[JSONKeys.date]
         code <- map[JSONKeys.code]
         url <- map[JSONKeys.url]
-        extension_num <- map[JSONKeys.extension_num]
+        file_ext <- map[JSONKeys.file_ext]
         icon <- map[JSONKeys.icon]
         file <- map[JSONKeys.file]
     }

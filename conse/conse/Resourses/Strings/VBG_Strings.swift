@@ -83,7 +83,10 @@ struct VBG_COURSE {
     
     // Module 1 - Page 7
     static let M1P7T1 = M1P1T1
-    static let M1P7T3 = "¡Buenísimo! Has finalizado tu primer módulo de formación, responde al siguiente crucigrama y recibiras tu primer reconocimiento."
+    static let M1P7T2 = "¡Buenísimo! Has finalizado tu primer módulo de formación, responde al siguiente crucigrama y recibiras tu primer reconocimiento."
+    static let M1CWT1 = "Completa el crucigrama. Pulsa sobre el ícono para ver la pista y escribe a continuación tu respuesta"
+    static let COMPLETE_MOD1_TITLE = "¡Buen trabajo!"
+    static let COMPLETE_MOD1_MESSAGE = "¡Es un honor concederte el titulo de Consejera Conocedora!"
     
     // Module 2 - Page 1
     static let M2P1T1 = "Módulo 2"
@@ -96,6 +99,163 @@ struct VBG_COURSE {
     static let M2P2T1 = M2P1T1
     static let M2P2T2 = "¡Muy bien! ¡Has explorado todo el contenido! Realiza la siguiente prueba y consigue el titulo de Consejera Experta"
     
+    static let COMPLETE_MOD2_TITLE = "¡Excelente!"
+    static let COMPLETE_MOD2_MESSAGE = "Ahora debo llamarte Consejera Experta. ¡Buen trabajo!"
+    
     // Module 3 - Page 1
     
 }
+
+struct VGB_CROSSWORD {
+    static let HELP_1 = "Cuando la violencia se manifiesta mediante insultos, ataques verbales, chantajes o celos extremos, es:"
+    static let HELP_2 = "Cuando la violencia se manifiesta a través del uso de la fuerza, como golpes, ahogamientos o empujones, es violencia:  "
+    static let HELP_3 = "Que te obliguen a tener algún tipo de comportamiento sexual no deseado, es violencia: "
+    static let HELP_4 = "La violencia que se manifiesta a través del control del dinero e inasistencia alimentaria, es: "
+    static let HELP_5 = "Cuando la violencia proviene del esposo, compañero permanente, padre, madre, abuelos o nietos; se le llama violencia en la: "
+    static let HELP_6 = "Cuando la violencia la realiza algún integrante de un grupo armado, se denomina violencia en el Conflicto:"
+    
+    static let clue_1 = "psicologica"
+    static let clue_2 = "fisica"
+    static let clue_3 = "sexual"
+    static let clue_4 = "economica"
+    static let clue_5 = "familia"
+    static let clue_6 = "armado"
+}
+
+struct VGB_ERROR_RES {
+    
+    static let MOD1 = "No has acertado en todas las respuestas, pero no te desanimes ¡Que sea un motivo para lograrlo en tu próximo intento!"
+    static let MOD2 = "Nunca olvides que tienes derecho a decidir voluntariamente si quieres ser confrontada con el agresor o agresores y a manifestar tu intención de conciliar. \n\r Recuerda que tienes el derecho a la reserva de tu intimidad, de tus datos personales, y los de tus familiares y personas allegadas. \n\r Aunque te equivoques sigues aprendiendo"
+    
+    static let MOD4_Q1 = "Recuerda que si la violencia proviene del esposo, el compañero permanente, los padres, abuelos o nietos se denomina violencia en la familia"
+    static let MOD4_Q2 = "Recuerda que la violencia física se manifiesta a través del uso de la fuerza, como golpes, ahogamientos, empujones."
+    static let MOD4_Q3 = "Marca el número 155 para comunicarte con la línea de orientación a las mujeres víctimas de violencia, desde tu teléfono fijo o celular, de manera gratuita, durante las 24 horas del día, todos los días de la semana."
+    static let MOD4_Q4 = "Nunca olvides que tienes derecho a una atención integral, oportuna, especializada y de calidad, a decidir voluntariamente si quieres ser confrontada con el agresor o agresores y a manifestar tu intención de no conciliar. También tienes el derecho a la reserva de tu intimidad, de tus datos personales, y los de tus familiares y personas allegadas."
+    static let MOD4_Q5 = "Recuerda acudir a la Comisaría de Familia, ante un Juez Civil o Promiscuo Municipal, cuando has sido víctima de hechos violentos en el contexto familiar"
+    static let MOD4_Q6 = "Recuerda, si lo necesitas, la Defensoría del Pueblo tiene la obligación de brindarte de manera gratuita servicios de orientación, asesoría y/o representación judicial."
+    static let MOD4_Q7 = "Recuerda que si eres víctima de desplazamiento forzado tienes derecho a atención médica y psicológica de emergencia, apoyo a procesos de retorno y a transporte y alojamiento transitorio"
+    static let MOD4_Q8 = "Ten presente que si una entidad estatal no cumple con sus funciones o no protege tus derechos, puedes denunciarlo ante Ministerio Público que está conformado por la Procuraduría General de la Nación, la Defensoría del Pueblo y Personerías."
+}
+
+enum AUDIO_FEMALE: String {
+    case AUD_1 = "audio_1.mp3"
+    case AUD_2 = "audio_2.mp3"
+    case AUD_3 = "audio_3.mp3"
+    case AUD_4 = "audio_4.mp3"
+    case AUD_5 = "audio_5.mp3"
+    case AUD_6 = "audio_6.mp3"
+    case AUD_7 = "audio_7.mp3"
+    case AUD_8 = "audio_8.mp3"
+    case AUD_9 = "audio_9.mp3"
+}
+
+enum AUDIO_MALE: String {
+    case AUD_1 = "audio_1_m.mp3"
+    case AUD_2 = "audio_2_m.mp3"
+    case AUD_3 = "audio_3_m.mp3"
+    case AUD_4 = "audio_4_m.mp3"
+    case AUD_5 = "audio_5_m.mp3"
+    case AUD_6 = "audio_6_m.mp3"
+    case AUD_7 = "audio_7_m.mp3"
+    case AUD_8 = "audio_8_m.mp3"
+    case AUD_9 = "audio_9_m.mp3"
+}
+
+func validateCrossword(word: UITextField..., option: Int) -> Bool {
+    var resp = nullString
+    
+    for letter in word {
+        resp = resp + letter.text!
+    }
+    
+    printDebugMessage(tag: "checking word: " + resp)
+    
+    switch option {
+        
+    case 1:
+       return resp.uppercased() == VGB_CROSSWORD.clue_1.uppercased()
+        
+    case 2:
+        return resp.uppercased() == VGB_CROSSWORD.clue_2.uppercased()
+        
+    case 3:
+        return resp.uppercased() == VGB_CROSSWORD.clue_3.uppercased()
+        
+    case 4:
+        return resp.uppercased() == VGB_CROSSWORD.clue_4.uppercased()
+        
+    case 5:
+        return resp.uppercased() == VGB_CROSSWORD.clue_5.uppercased()
+        
+    default:
+        return resp.uppercased() == VGB_CROSSWORD.clue_6.uppercased()
+    }
+}
+
+func getAudioName(forAudio id: AUDIO_ID) -> String {
+    let avatar_gender = AplicationRuntime.sharedManager.avatarGenderID ?? 0
+    
+    if avatar_gender == AvatarGenderIDs.male.rawValue {
+        
+        switch id {
+        case .AUD_1:
+            return AUDIO_MALE.AUD_1.rawValue
+            
+        case .AUD_2:
+            return AUDIO_MALE.AUD_2.rawValue
+            
+        case .AUD_3:
+            return AUDIO_MALE.AUD_3.rawValue
+            
+        case .AUD_4:
+            return AUDIO_MALE.AUD_4.rawValue
+            
+        case .AUD_5:
+            return AUDIO_MALE.AUD_5.rawValue
+            
+        case .AUD_6:
+            return AUDIO_MALE.AUD_6.rawValue
+            
+        case .AUD_7:
+            return AUDIO_MALE.AUD_7.rawValue
+            
+        case .AUD_8:
+            return AUDIO_MALE.AUD_8.rawValue
+            
+        default:
+            return AUDIO_MALE.AUD_9.rawValue
+        }
+    }
+    else {
+        switch id {
+        case .AUD_1:
+            return AUDIO_FEMALE.AUD_1.rawValue
+            
+        case .AUD_2:
+            return AUDIO_FEMALE.AUD_2.rawValue
+            
+        case .AUD_3:
+            return AUDIO_FEMALE.AUD_3.rawValue
+            
+        case .AUD_4:
+            return AUDIO_FEMALE.AUD_4.rawValue
+            
+        case .AUD_5:
+            return AUDIO_FEMALE.AUD_5.rawValue
+            
+        case .AUD_6:
+            return AUDIO_FEMALE.AUD_6.rawValue
+            
+        case .AUD_7:
+            return AUDIO_FEMALE.AUD_7.rawValue
+            
+        case .AUD_8:
+            return AUDIO_FEMALE.AUD_8.rawValue
+            
+        default:
+            return AUDIO_FEMALE.AUD_9.rawValue
+        }
+    }
+}
+
+

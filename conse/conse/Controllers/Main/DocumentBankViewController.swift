@@ -53,6 +53,26 @@ class DocumentBankViewController: UIViewController {
         tab_shield = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.protectionShield) as! ProtectionShieldViewController
     }
     
+    private func openSettings() {
+        let alertController = UIAlertController (title: Strings.error_title_notInternetConection,
+                                                 message: Strings.error_message_notIntenertConection,
+                                                 preferredStyle: .alert)
+
+        let settingsAction = UIAlertAction(title: Strings.button_settings, style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: URL_GENERAL_SETTINGS) else { return }
+            
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: nil)
+            }
+        }
+        let cancelAction = UIAlertAction(title: Strings.button_cancel, style: .default, handler: nil)
+        
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     private func showTab(tab: UIViewController) {
         
         if container.subviews.count > 0 {
@@ -87,6 +107,13 @@ class DocumentBankViewController: UIViewController {
             break
             
         case legalIndex:
+            
+            guard ConnectionCheck.isConnectedToNetwork() else {
+                segmentTabs.selectedSegmentIndex = formatsIndex
+                openSettings()
+                return
+            }
+            
             showTab(tab: tab_legal)
             break
             

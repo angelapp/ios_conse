@@ -40,6 +40,7 @@ struct CellsId {
     static let VBG_M1P5 = "VBG_M1P5_CELL"
     static let VBG_M1P6 = "VBG_M1P6_CELL"
     static let VBG_M1P7 = "VBG_M1P7_CELL"
+    static let VBG_M1TEST = "VBG_CROSSWORD_CELL"  // Test Modulo 1 (Crucigrama)
 }
 
 /// Storyboards Identifiers
@@ -61,7 +62,9 @@ struct ViewControllersId {
     static let courseVBG = "courseVBGVC"
     static let coursePLC = "coursePLCVC"
     static let choiceAvatarGender = "choiceAvatarGenderVC"
+    static let crosswordHelpPopup = "crosswordHelpPopup"
     static let documentBank = "documentBankVC"
+    static let downloadPopup = "downloadPopupVC"
     static let emergencyCallPopup = "emergencyCallPopupVC"
     static let formatBank = "formatBankVC"
     static let leftMenu = "leftMenuVC"

@@ -66,12 +66,12 @@ class StatesModel {
 
 class FormatsBankItem {
     
-    var label: String!
-    var doc_name: String!
+    var name: String!
+    var file: String!
     
-    init(label: String, doc: String) {
-        self.doc_name = doc
-        self.label = label
+    init(name: String, file: String) {
+        self.file = file
+        self.name = name
     }
 }
 

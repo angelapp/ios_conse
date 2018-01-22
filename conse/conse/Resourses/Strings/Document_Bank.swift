@@ -28,12 +28,12 @@ func getFormatList() -> Array<FormatsBankItem>! {
     
     var list: Array<FormatsBankItem>! = []
     
-    list.append(FormatsBankItem(label: DocBank_Formats.label_ATutela, doc: DocBank_Formats.doc_ATutela))
-    list.append(FormatsBankItem(label: DocBank_Formats.label_DP_Alcadias, doc: DocBank_Formats.doc_DP_Alcadias))
-    list.append(FormatsBankItem(label: DocBank_Formats.label_DP_UNP, doc: DocBank_Formats.doc_DP_UNP))
-    list.append(FormatsBankItem(label: DocBank_Formats.label_UNP_rutaPC, doc: DocBank_Formats.label_UNP_rutaPC))
-    list.append(FormatsBankItem(label: DocBank_Formats.label_UNP_PI, doc: DocBank_Formats.doc_UNP_PI))
-    list.append(FormatsBankItem(label: DocBank_Formats.label_recursoRepApe, doc: DocBank_Formats.doc_recursoRepApe))
+    list.append(FormatsBankItem(name: DocBank_Formats.label_ATutela, file: DocBank_Formats.doc_ATutela))
+    list.append(FormatsBankItem(name: DocBank_Formats.label_DP_Alcadias, file: DocBank_Formats.doc_DP_Alcadias))
+    list.append(FormatsBankItem(name: DocBank_Formats.label_DP_UNP, file: DocBank_Formats.doc_DP_UNP))
+    list.append(FormatsBankItem(name: DocBank_Formats.label_UNP_rutaPC, file: DocBank_Formats.label_UNP_rutaPC))
+    list.append(FormatsBankItem(name: DocBank_Formats.label_UNP_PI, file: DocBank_Formats.doc_UNP_PI))
+    list.append(FormatsBankItem(name: DocBank_Formats.label_recursoRepApe, file: DocBank_Formats.doc_recursoRepApe))
     
     return list
 }

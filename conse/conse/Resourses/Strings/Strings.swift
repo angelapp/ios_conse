@@ -16,6 +16,9 @@ let nullString = ""
 let jumpLine = "\n"
 let titleTextColor = "titleTextColor"
 
+let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
+let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
+
 struct Strings {
     
     static let birthday_placeholder = "DÍA/MES/AÑO"
@@ -23,6 +26,8 @@ struct Strings {
     static let body_Checkbox_Beneficiary = "Soy beneficiario de los programas NRC"
     static let body_Checkbox_AcceptTerms = "Acepto los %@ del NRC"
     static let button_accept = "Aceptar"
+    static let button_cancel = "CANCELAR"
+    static let button_settings = "CONFIGURACIÓN"
     
     static let copy_aboutusTitle = ""
     static let copy_aboutusTitle_tab1 = "QUIENES SOMOS"
@@ -31,6 +36,8 @@ struct Strings {
     static let copy_contactusMessageType = "Tipo de mensaje"
     static let copy_contactusMessage = "Tu mensaje"
     static let copy_contactusTitle = "CONTÁCTENOS"
+    static let copy_download = "Descargar"
+    static let copy_downloading = "Descargando..."
     static let copy_letStartMessage = "Hola soy tu Conse y voy a estar acompañándote en este recorrido. Traigo mucha información y herramientas que me gustaría compartir contigo"
     static let copy_letStartTitle = "¡Iniciemos!"
     static let copy_profileTitle = "Completa tu perfil"
@@ -42,16 +49,19 @@ struct Strings {
     static let error_message_invalidEmail = "Correo no valido"
     static let error_message_notAvailable = "El contacto no tiene número telefónico"
     static let error_message_notAvailableAction = "Este dispositivo no puede realizar esta acción"
+    static let error_message_notIntenertConection = "Debes teber una conexión activa a internet"
     static let error_message_passNotMatch = "Las contraseñas no coinciden"
     static let error_message_requieredField = "Debe diligenciar este campo"
     static let error_message_requieredData = "Debe completar información"
     
+    static let error_title_notInternetConection = "No hay conexión a internet"
+    
     static let emergency_line_123 = "123"
-    static let emergency_line_123_message = "Línea nacional de atención de emergencias \(emergency_line_123)"
+    static let emergency_line_123_message = "Línea nacional de atención de emergencias " + emergency_line_123
     static let emergency_line_141 = "141"
-    static let emergency_line_141_message = "Línea de orientación del ICBF si la violencia es contra niños, niñas y adolescentes \(emergency_line_141)"
+    static let emergency_line_141_message = "Línea de orientación del ICBF si la violencia es contra niños, niñas y adolescentes " + emergency_line_141
     static let emergency_line_155 = "155"
-    static let emergency_line_155_message = "Línea de orientación a las mujeres vícitmas de violencia \(emergency_line_155)"
+    static let emergency_line_155_message = "Línea de orientación a las mujeres vícitmas de violencia " + emergency_line_155
     static let emergency_SMS = "Estoy en PELIGRO, necesito ayuda URGENTE"
     static let emergency_SMS_test = "Ahora eres mi contacto de emergencia. Esta es una prueba"
     
@@ -100,5 +110,7 @@ struct Formats {
     static let matchesFormat = "SELF MATCHES %@"
     
     static let testAlertMessage = "%@ http://maps.google.com/?q=%@,%@"
-    static let callFormat = "tel://@%"
+    static let callFormat = "tel://%@"
+    static let legalHeaderFormat = "%@ - %@"
+    static let successDownload = "El archivo: %@ fue descragado exitosamente"
 }

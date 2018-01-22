@@ -132,11 +132,6 @@ class WelcomeViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func alert(_ sender: UIButton) {
-        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.emergencyCallPopup) as! EmergencyCallPopupViewController
-        
-        nextVC.modalPresentationStyle = .overCurrentContext
-        nextVC.modalTransitionStyle = .crossDissolve
-        present(nextVC, animated: true, completion: nil)
+        self.showCallEmergency()
     }
 }

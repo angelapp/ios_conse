@@ -129,6 +129,60 @@ class Network: NSObject {
     }
     
     /**
+     Función para descargar archivos
+     
+     - Parameter file: URL del archivo a descargar
+     */
+    class func download(file:String, completion: @escaping (ResponseCallback) -> ()) {
+        
+        let destination = DownloadRequest.suggestedDownloadDestination()
+        
+        Alamofire.download(file, to: destination).validate().responseData { response in
+            
+            guard response.response != nil else {
+                completion(ResponseCallback.succeeded(succeed: false, message: NetworkErrorMessage.notConexionError))
+                return
+            }
+            
+            guard let resp = response.response else {
+                completion(ResponseCallback.error(error: CustomError.NoData(description: NetworkErrorMessage.nilResponseError)))
+                return
+            }
+            
+            printDebugMessage(tag: String(resp.statusCode))
+            
+            var result: Bool = false
+            var message = nullString
+            
+            switch resp.statusCode {
+                
+            case NetworkCodes.successful:
+                let msn = response.result.error == nil ? String(format: Formats.successDownload, response.destinationURL!.lastPathComponent) : NetworkErrorMessage.fileExistsError
+                completion(ResponseCallback.succeeded(succeed: true, message: msn))
+                break
+                
+            case NetworkCodes.internalServerError:
+                result = false
+                message = NetworkErrorMessage.internalServerError
+                completion(ResponseCallback.succeeded(succeed: result, message: message))
+                break
+                
+            case NetworkCodes.notFound:
+                result = false
+                message = NetworkErrorMessage.notFoundError
+                completion(ResponseCallback.succeeded(succeed: result, message: message))
+                break
+                
+            default:
+                result = false
+                message =  NetworkErrorMessage.downloadError
+                completion(ResponseCallback.succeeded(succeed: result, message: message))
+                break
+            }
+        }
+    }
+    
+    /**
      Función para obtener el mensaje de error
      
      - Parameter json: Respuesta del servidor parseada como [String:Any]
@@ -144,4 +198,5 @@ class Network: NSObject {
             return NetworkErrorMessage.msnDefaultError
         }
     }
+
 }

@@ -13,6 +13,12 @@ enum CourseIDs: Int {
     case PLC = 2
 }
 
+enum AudioAction: Int {
+    case play
+    case pause
+    case stop
+}
+
 /// Indices para el curso *Violencia Basada en Genero*
 enum VBG_INDEX: Int {
     case M0P0 // Página de bienvenida al curso
@@ -23,6 +29,9 @@ enum VBG_INDEX: Int {
     case M1P3
     case M1P4
     case M1P5
+    case M1P6
+    case M1P7
+    case M1TEST // Crucigrama
 }
 
 /// Indices para el curso *Protección Lideres Comunitarios*
@@ -34,4 +43,16 @@ enum PLC_INDEX: Int {
     case M1P4
     case M1P5
     case M1P6
+}
+
+enum AUDIO_ID: Int {
+    case AUD_1
+    case AUD_2
+    case AUD_3
+    case AUD_4
+    case AUD_5
+    case AUD_6
+    case AUD_7
+    case AUD_8
+    case AUD_9
 }

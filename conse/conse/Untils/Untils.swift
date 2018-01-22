@@ -9,6 +9,7 @@
 import AlamofireImage
 import Foundation
 import UIKit
+import ObjectMapper
 
 func hiddenView(view id: IdView, state: Bool) -> CGFloat {
     
@@ -88,6 +89,22 @@ func convertToDictionary(text: String) -> [String: Any]? {
         }
     }
     return nil
+}
+
+/**
+ Mapea los elementos de un array genérico a un modelo de tipo Notificación
+ - Parameter tempArray: Arreglo temporal que debe ser transformado
+ - Returns: Arreglo casteado
+ */
+func arrayTransform(from tempArray: Array<Any>) -> Array<DocumentTextType> {
+    var arrayModel: Array<DocumentTextType> =  []
+    
+    for value in tempArray {
+        let model = Mapper<DocumentTextType>().map(JSON: value as! [String: Any])
+        arrayModel.append(model!)
+    }
+    
+    return arrayModel
 }
 
 func printDebugMessage(tag: String) {
@@ -171,6 +188,15 @@ extension UIViewController {
         }
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+    }
+    
+    func showCallEmergency() {
+        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.emergencyCallPopup) as! EmergencyCallPopupViewController
+        
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
     }
     
     func makeCallEmergency(toEmergencyLine line: String){

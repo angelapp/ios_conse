@@ -227,4 +227,17 @@ class AplicationRuntime {
             return progress.PLC_INDEX != nil ? progress.PLC_INDEX : 0
         }
     }
+    
+    public func getCourseName(forID id: Int!) -> String {
+        
+        guard appConfig != nil, appConfig.course_Array != nil, id != nil else {
+            return nullString
+        }
+        
+        for course in appConfig.course_Array {
+            if course.id == id { return course.name }
+        }
+        
+        return nullString
+    }
 }

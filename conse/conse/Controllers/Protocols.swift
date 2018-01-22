@@ -25,4 +25,6 @@ protocol MainProtocol: class {
 protocol VBGProtocol: class {
     func nextPage()
     func previusPage()
+    func audioManager(audioID id: AUDIO_ID, play: Bool)
+    func showPopupHelp(title: String, text: String)
 }

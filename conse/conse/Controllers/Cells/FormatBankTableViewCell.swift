@@ -29,7 +29,7 @@ class FormatBankTableViewCell: UITableViewCell {
     }
     
     func fillCell() {
-        lbl_title.text = item.label
+        lbl_title.text = item.name
     }
     
     @IBAction func actionButtons(_ sender: UIButton) {

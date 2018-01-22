@@ -75,10 +75,10 @@ struct JSONKeys {
     static let emergency_message = "emergency_message"
     static let ethnic_group = "ethnic_group"
     static let ethnic_group_list = "ethnic_group_list"
-    static let extension_num = "extension"
     
     //MARK: - F
     static let file = "file"
+    static let file_ext = "extension"
     static let first_name = "first_name"
     static let full_name = "full_name"
     

@@ -158,4 +158,7 @@ class MainViewController: UIViewController, MainProtocol {
     }
     
     // MARK: - Actions
+    @IBAction func buttonAction(_ sender: UIButton) {
+        self.showCallEmergency()
+    }
 }

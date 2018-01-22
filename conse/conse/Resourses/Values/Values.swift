@@ -49,9 +49,11 @@ enum ViewControllerTag : Int {
     case configAlert
     case contactUs
     case choiceAvatarGender
+    case crosswordHelpPopup
     case courseVBG
     case coursePLC
     case documentBank
+    case downloadPopup
     case editProfile
     case emergencyCallPopup
     case formatBank
