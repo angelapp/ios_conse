@@ -23,6 +23,12 @@ class ShieldBodyTableViewCell: UITableViewCell {
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_twitter: UILabel!
 
+    @IBOutlet weak var constraint_telephone: NSLayoutConstraint!
+    @IBOutlet weak var constraint_address: NSLayoutConstraint!
+    @IBOutlet weak var constraint_mobile: NSLayoutConstraint!
+    @IBOutlet weak var constraint_email: NSLayoutConstraint!
+    @IBOutlet weak var constraint_twitter: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

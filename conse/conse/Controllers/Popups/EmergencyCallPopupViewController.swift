@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmergencyCallPopupViewController: UIViewController, CallEmergencyProtocol {
+class EmergencyCallPopupViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_123: UIButton!
@@ -22,12 +22,19 @@ class EmergencyCallPopupViewController: UIViewController, CallEmergencyProtocol 
     @IBOutlet weak var lbl_line_155: UILabel!
     
     // MARK: - Properties
+    weak var logginDelegate: LogginProtocol?
+    weak var mainDelegate: MainProtocol?
+    weak var recoveryDelegate: RecoveryProtocol?
+    weak var welcomeDelegate: WelcomeProtocol?
+    
+    var senderVC: ViewControllerTag = .main
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         addStyles()
+        mainDelegate = AplicationRuntime.sharedManager.mainDelegate
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +56,29 @@ class EmergencyCallPopupViewController: UIViewController, CallEmergencyProtocol 
         lbl_line_155.attributedText = addBoldWord(forText: Strings.emergency_line_155_message, toWord: Strings.emergency_line_155, fontSize: lbl_line_155.font.pointSize)
     }
     
-    func closePopup() {
-        self.dismiss(animated: true, completion: nil)
+    private func launchSendAlert() {
+        switch senderVC {
+        
+        case .welcome:
+            self.dismiss(animated: true, completion: nil)
+            welcomeDelegate?.showAlertSender()
+            break
+            
+        case .login:
+            self.dismiss(animated: true, completion: nil)
+            logginDelegate?.showAlertSender()
+            break
+            
+        case .recoveryPass:
+            self.dismiss(animated: true, completion: nil)
+            recoveryDelegate?.showAlertSender()
+            break
+        
+        default:
+            self.dismiss(animated: true, completion: nil)
+            mainDelegate?.showAlertSender()
+            break
+        }
     }
 
     // MARK: - Actions
@@ -71,19 +99,11 @@ class EmergencyCallPopupViewController: UIViewController, CallEmergencyProtocol 
             break
             
         case btn_SMS:
-            let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.sendAlertPopup) as! SendAlertPopupViewController
-            
-            nextVC.alertMessage = Strings.emergency_SMS
-            nextVC.launchVC = .emergencyCallPopup
-            nextVC.callEmergencyDelegate = self
-            nextVC.modalPresentationStyle = .overCurrentContext
-            nextVC.modalTransitionStyle = .crossDissolve
-            present(nextVC, animated: true, completion: nil)
+            launchSendAlert()
             break
             
         default:
-            closePopup()
+            self.dismiss(animated: true, completion: nil)
             break
         }
     }

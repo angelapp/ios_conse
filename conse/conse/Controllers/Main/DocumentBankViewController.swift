@@ -23,6 +23,7 @@ class DocumentBankViewController: UIViewController {
     var tab_formats: FormatBankViewController!
     var tab_legal: LegalViewController!
     var tab_shield: ProtectionShieldViewController!
+    var mainDelegate: MainProtocol?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -51,26 +52,6 @@ class DocumentBankViewController: UIViewController {
         tab_formats = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.formatBank) as! FormatBankViewController
         tab_legal = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.legal) as! LegalViewController
         tab_shield = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.protectionShield) as! ProtectionShieldViewController
-    }
-    
-    private func openSettings() {
-        let alertController = UIAlertController (title: Strings.error_title_notInternetConection,
-                                                 message: Strings.error_message_notIntenertConection,
-                                                 preferredStyle: .alert)
-
-        let settingsAction = UIAlertAction(title: Strings.button_settings, style: .default) { (_) -> Void in
-            guard let settingsUrl = URL(string: URL_GENERAL_SETTINGS) else { return }
-            
-            if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, completionHandler: nil)
-            }
-        }
-        let cancelAction = UIAlertAction(title: Strings.button_cancel, style: .default, handler: nil)
-        
-        alertController.addAction(settingsAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
     }
     
     private func showTab(tab: UIViewController) {
@@ -110,7 +91,7 @@ class DocumentBankViewController: UIViewController {
             
             guard ConnectionCheck.isConnectedToNetwork() else {
                 segmentTabs.selectedSegmentIndex = formatsIndex
-                openSettings()
+                mainDelegate?.openSettingsPopup(title: Strings.error_title_notInternetConection, message: Strings.error_message_notIntenertConection, settings: URL_GENERAL_SETTINGS)
                 return
             }
             

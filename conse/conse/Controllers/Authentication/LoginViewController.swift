@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_alert: UIButton!
@@ -54,6 +54,9 @@ class LoginViewController: UIViewController {
         btn_loggin.imageView?.contentMode = .scaleAspectFit
         tf_email.underline(margin: ConseValues.margin)
         tf_password.underline(margin: ConseValues.margin)
+        
+        tf_email.delegate = self
+        tf_password.delegate = self
     }
     
     // MARK: - Request function

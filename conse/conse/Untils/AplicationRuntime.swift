@@ -195,6 +195,17 @@ class AplicationRuntime {
         return self.trustedContacts
     }
     
+    public func getContactsNumber() -> Array<String> {
+        guard self.trustedContacts != nil else { return [] }
+        
+        var arrayNumbers: Array<String> = []
+        for contact in self.trustedContacts {
+            arrayNumbers.append(contact.number.digits)
+        }
+        
+        return arrayNumbers
+    }
+    
     public func getUser() -> UserSerializer! {
         guard let user = userData?.user else { return nil }
         return user

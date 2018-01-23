@@ -46,6 +46,7 @@ enum ViewControllerTag : Int {
     case aboutUs_tab1
     case aboutUs_tab2
     case aboutUs_tab3
+    case community
     case configAlert
     case contactUs
     case choiceAvatarGender

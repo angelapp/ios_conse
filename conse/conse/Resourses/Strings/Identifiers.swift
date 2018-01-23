@@ -24,6 +24,8 @@ struct CellsId {
     static let aboutWhere2 = "aboutWhere2Cell"
     
     static let contact = "contactCell"
+    static let communityBody = "communitylBodyCell"
+    static let communityHeader = "communityHeaderCell"
     static let formatBank = "formatBankCell"
     static let legalBody = "legalBodyCell"
     static let legalHeader = "legalHeaderCell"
@@ -57,6 +59,7 @@ struct ViewControllersId {
     static let aboutUs_tab1 = "aboutusTab1VC"
     static let aboutUs_tab2 = "aboutusTab2VC"
     static let aboutUs_tab3 = "aboutusTab3VC"
+    static let community = "myCommunityVC"
     static let configAlert = "ConfigAlertVC"
     static let contactUs = "contactUsVC"
     static let courseVBG = "courseVBGVC"

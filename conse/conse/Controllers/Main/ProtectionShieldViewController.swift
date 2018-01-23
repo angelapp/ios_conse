@@ -7,18 +7,43 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ProtectionShieldViewController: UIViewController {
+class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Outlets
+    @IBOutlet weak var lbl_location: UILabel!
+    @IBOutlet weak var table_shield: UITableView!
     
     // MARK: - Properties
+    // Used to start getting the users location
+    let locationManager = CLLocationManager()
+    
+    var sections: Array<OrganizationType> = []
+    var expandedSections : NSMutableSet = []
+    var mainDelegate: MainProtocol?
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        mainDelegate = AplicationRuntime.sharedManager.mainDelegate
+        
+        self.table_shield.delegate = self
+        self.table_shield.dataSource = self
+        
+        // For use when the app is open & in the background
+        locationManager.requestAlwaysAuthorization()
+        
+        // For use when the app is open
+        //locationManager.requestWhenInUseAuthorization()
+        
+        // If location services is enabled get the users location
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
+            locationManager.startUpdatingLocation()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,10 +52,225 @@ class ProtectionShieldViewController: UIViewController {
     }
     
     // MARK: - Private Functions
+    //Determina la sección de la tabla que fue seleccionada para mostrar el contenido
+    @objc func sectionTapped(_ sender: UIButton) {
+        let section = sender.tag
+        let shouldExpand = !expandedSections.contains(section)
+        if (shouldExpand) {
+            expandedSections.removeAllObjects()
+            expandedSections.add(section)
+            
+        } else {
+            expandedSections.removeAllObjects()
+        }
+        self.table_shield.reloadData()
+        viewDidLayoutSubviews()
+    }
     
+    // Reverse geocoder
+    func fetchCountryAndCity(location: CLLocation, completion: @escaping (String, String) -> ()) {
+        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
+            if let error = error {
+                print(error)
+            } else if let state = placemarks?.first?.administrativeArea,
+                let city = placemarks?.first?.locality {
+                completion(state, city)
+            }
+        }
+    }
     
-    // MARK: - Public Functions (Access by protocols)
+    // MARK: - REQUEST
+    func downloadDocuments(lat: Double, lng: Double) {
+        
+        var urlComplement = nullString
+        if lat != 0, lng != 0 { urlComplement = String(format: Formats.shieldURLComplement, String(lat), String(lng)) }
+        
+        let json = nullString
+        let url = NetworkGET.SHIELDS + urlComplement
+        let headers:[[String:String]] = []
+        
+        Network.buildRequest(urlApi: url, json: json, extraHeaders: headers, method: .methodGET, completion: { (response) in
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed, !message.isEmpty {
+                    self.mainDelegate?.showMessageInMain(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(let result):
+                
+                //Transform object receiver to expected model
+                self.sections = []
+                let phoneLibrary: Array<OrganizationType> = arrayTransform(from: result as! Array<Any>)
+                
+                for phone in phoneLibrary {
+                    if phone.organization_by_type != nil, phone.organization_by_type.count > 0 {
+                        self.sections.append(phone)
+                    }
+                }
+                
+                self.table_shield.reloadData()
+                break
+                
+            default:
+                break
+            }
+        })
+    }
     
+    // MARK: - Location delegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            //stop updating location
+            locationManager.stopUpdatingLocation()
+            
+            // Print out the location
+            fetchCountryAndCity(location: location) { state, city in
+                self.lbl_location.text = String(format: Formats.legalHeaderFormat, city, state)
+            }
+            
+            // Download documents
+            downloadDocuments(lat: location.coordinate.latitude, lng: location.coordinate.longitude)
+            print(location.coordinate)
+        }
+    }
+    
+    // If we have been deined access give the user the option to change it
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if(status == CLAuthorizationStatus.denied) {
+            mainDelegate?.openSettingsPopup(title: Strings.error_message_locationDisabled,
+                                            message: Strings.error_message_locationDisabled, settings: UIApplicationOpenSettingsURLString)
+        }
+    }
+    
+    //MARK: TableView DataSource and Delegate
+    
+    // Número de secciones
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    // Encabezado de las secciones
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellsId.shieldHeader) as! ShieldHeaderTableViewCell
+        
+        cell.lbl_title.text = sections[section].name
+        cell.btn_openClose.addTarget(self, action: #selector(sectionTapped), for: .touchUpInside)
+        cell.btn_openClose.tag = section
+        cell.btn_openClose.isSelected = expandedSections.contains(section)
+        
+        return cell
+    }
+    
+    // Space between sections
+    
+    //Número de filas por sección
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if(expandedSections.contains(section)) {
+            return sections[section].organization_by_type.count
+        } else {
+            return 0
+        }
+    }
+    
+    // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    // Tamaño estimado del header y de las celdas
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 64
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
+    }
+    
+    // pintado de la tabla
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellsId.shieldBody) as! ShieldBodyTableViewCell
+        
+        let item = sections[indexPath.section].organization_by_type[indexPath.row]
+        
+        // NAME
+        if item.name != nil, !item.name.isEmpty { cell.lbl_title.text = item.name }
+        else { cell.lbl_title.text = nullString }
+       
+        // PHONE
+        if (item.phone != nil && !item.phone.isEmpty) {
+            cell.lbl_phone.text = item.phone
+            cell.img_phone.image = #imageLiteral(resourceName: "ic_tel")
+            cell.constraint_telephone.constant = 21
+        }
+        else {
+            cell.lbl_phone.text = nullString
+            cell.img_phone.image = nil
+            cell.constraint_telephone.constant = 21
+        }
+        
+        // ADDRESS
+        if (item.address != nil && !item.address.isEmpty) {
+            cell.lbl_address.text = item.address
+            cell.constraint_address.constant = 21
+            cell.img_address.image = #imageLiteral(resourceName: "ic_direccion")
+        }
+        else {
+            cell.constraint_address.constant = 0
+            cell.lbl_address.text = nullString
+            cell.img_address.image = nil
+        }
+        
+        // MOBILE PHONE
+        if (item.mobile_phone != nil && !item.mobile_phone.isEmpty) {
+            cell.lbl_mobile.text = item.mobile_phone
+            cell.constraint_mobile.constant = 21
+            cell.img_mobile.image = #imageLiteral(resourceName: "ic_celular")
+        }
+        else {
+            cell.constraint_mobile.constant = 0
+            cell.lbl_mobile.text = nullString
+            cell.img_mobile.image = nil
+        }
+        
+        // EMAIL
+        if (item.email != nil && !item.email.isEmpty) {
+            cell.constraint_email.constant = 21
+            cell.lbl_email.text = item.email
+            cell.img_email.image = #imageLiteral(resourceName: "ic_correo")
+        }
+        else {
+            cell.constraint_email.constant = 0
+            cell.lbl_email.text = nullString
+            cell.img_email.image = nil
+        }
+        
+        // TWITTER
+        if (item.twitter != nil && !item.twitter.isEmpty) {
+            cell.constraint_twitter.constant = 21
+            cell.lbl_twitter.text = item.twitter
+            cell.img_twitter.image = #imageLiteral(resourceName: "ic_twitter")
+        }
+        else {
+            cell.constraint_twitter.constant = 0
+            cell.lbl_twitter.text = nullString
+            cell.img_twitter.image = nil
+        }
+        
+        return cell
+    }
     
     // MARK: - Actions
 

@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class RecoveryPasswordViewController: UIViewController {
+class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_alert: UIButton!
@@ -48,6 +48,7 @@ class RecoveryPasswordViewController: UIViewController {
         btn_send.imageView?.contentMode = .scaleAspectFit
         btn_alert.imageView?.contentMode = .scaleAspectFit
         tf_email.underline(margin: ConseValues.margin)
+        tf_email.delegate = self
     }
     
     private func dismissVC() {

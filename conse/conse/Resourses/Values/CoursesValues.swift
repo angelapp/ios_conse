@@ -19,6 +19,11 @@ enum AudioAction: Int {
     case stop
 }
 
+enum FileActions: Int {
+    case open
+    case share
+}
+
 /// Indices para el curso *Violencia Basada en Genero*
 enum VBG_INDEX: Int {
     case M0P0 // Página de bienvenida al curso

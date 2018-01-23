@@ -101,6 +101,7 @@
 		6B6620F4201118D0007DAF2C /* audio_9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B6620CA201118CF007DAF2C /* audio_9.mp3 */; };
 		6B6620F5201118D0007DAF2C /* audio_9_m.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B6620CB201118CF007DAF2C /* audio_9_m.mp3 */; };
 		6B6AD2CE20155AA200FB541C /* DownloadPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B6AD2CD20155AA200FB541C /* DownloadPopupViewController.swift */; };
+		6B7681F32016A7380084251C /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7681F22016A7380084251C /* MessageComposer.swift */; };
 		6B79E37220093BA0004990E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37120093BA0004990E9 /* MainViewController.swift */; };
 		6B79E37420093C47004990E9 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37320093C47004990E9 /* LeftMenuViewController.swift */; };
 		6B79E37620093C72004990E9 /* RigthProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37520093C72004990E9 /* RigthProgressViewController.swift */; };
@@ -111,6 +112,11 @@
 		6B79E38220094E35004990E9 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E38120094E35004990E9 /* SWRevealViewController.m */; };
 		6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */; };
 		6B9222D7200414B100D8B779 /* LoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9222D6200414B000D8B779 /* LoaderViewController.swift */; };
+		6B96468B20179876002ADD3D /* CommunityHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96468A20179876002ADD3D /* CommunityHeaderTableViewCell.swift */; };
+		6B96468D20179886002ADD3D /* CommunityBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96468C20179886002ADD3D /* CommunityBodyTableViewCell.swift */; };
+		6B96468F201799C5002ADD3D /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96468E201799C5002ADD3D /* CommunityViewController.swift */; };
+		6B9646922017BC2E002ADD3D /* auditoria_lideres.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6B9646902017BC2E002ADD3D /* auditoria_lideres.pdf */; };
+		6B9646932017BC2E002ADD3D /* auditoria_vbg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6B9646912017BC2E002ADD3D /* auditoria_vbg.pdf */; };
 		6BF14C152006E5880045E262 /* SendAlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */; };
 		6BF14C182006F22C0045E262 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF14C162006F22C0045E262 /* Popup.storyboard */; };
 		6BF14C1A2006FA770045E262 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF14C192006FA770045E262 /* Protocols.swift */; };
@@ -255,6 +261,7 @@
 		6B6620CA201118CF007DAF2C /* audio_9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_9.mp3; sourceTree = "<group>"; };
 		6B6620CB201118CF007DAF2C /* audio_9_m.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_9_m.mp3; sourceTree = "<group>"; };
 		6B6AD2CD20155AA200FB541C /* DownloadPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPopupViewController.swift; sourceTree = "<group>"; };
+		6B7681F22016A7380084251C /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		6B79E37120093BA0004990E9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6B79E37320093C47004990E9 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
 		6B79E37520093C72004990E9 /* RigthProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigthProgressViewController.swift; sourceTree = "<group>"; };
@@ -267,6 +274,11 @@
 		6B79E38120094E35004990E9 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplicationRuntime.swift; sourceTree = "<group>"; };
 		6B9222D6200414B000D8B779 /* LoaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderViewController.swift; sourceTree = "<group>"; };
+		6B96468A20179876002ADD3D /* CommunityHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		6B96468C20179886002ADD3D /* CommunityBodyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityBodyTableViewCell.swift; sourceTree = "<group>"; };
+		6B96468E201799C5002ADD3D /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		6B9646902017BC2E002ADD3D /* auditoria_lideres.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = auditoria_lideres.pdf; sourceTree = "<group>"; };
+		6B9646912017BC2E002ADD3D /* auditoria_vbg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = auditoria_vbg.pdf; sourceTree = "<group>"; };
 		6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAlertPopupViewController.swift; sourceTree = "<group>"; };
 		6BF14C172006F22C0045E262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popup.storyboard; sourceTree = "<group>"; };
 		6BF14C192006FA770045E262 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -419,6 +431,7 @@
 			isa = PBXGroup;
 			children = (
 				6B9222CF2003DBF700D8B779 /* AplicationRuntime.swift */,
+				6B7681F22016A7380084251C /* MessageComposer.swift */,
 				6B1F5AA41FFC459E00DA650D /* Styles.swift */,
 				6BF8A7951FFD0BCD0094764D /* Untils.swift */,
 				6B79E37F20094E34004990E9 /* conse-Bridging-Header.h */,
@@ -498,6 +511,8 @@
 			isa = PBXGroup;
 			children = (
 				6B33A38D200D920800971A1E /* accion_de_tutela.docx */,
+				6B9646902017BC2E002ADD3D /* auditoria_lideres.pdf */,
+				6B9646912017BC2E002ADD3D /* auditoria_vbg.pdf */,
 				6B33A38E200D920800971A1E /* derecho_de_peticion_alcaldias_y_gobernaciones.docx */,
 				6B33A38F200D920800971A1E /* derecho_de_peticion_unp.docx */,
 				6B33A390200D920800971A1E /* formulario_inscripcion_unp_para_ruta_proteccion_colectiva.pdf */,
@@ -575,6 +590,7 @@
 				6B33A3AF200EB27900971A1E /* AboutUsTab2ViewController.swift */,
 				6B33A3B1200EB28B00971A1E /* AboutUsTab3ViewController.swift */,
 				6B79E37920093E66004990E9 /* ContactUsViewController.swift */,
+				6B96468E201799C5002ADD3D /* CommunityViewController.swift */,
 				6B79E37B20093F4A004990E9 /* DocumentBankViewController.swift */,
 				6B33A399200E888700971A1E /* FormatBankViewController.swift */,
 				6B79E37320093C47004990E9 /* LeftMenuViewController.swift */,
@@ -633,6 +649,8 @@
 				6B33A3B5200ED6A200971A1E /* AboutNRC2TableViewCell.swift */,
 				6B33A3B7200ED6B500971A1E /* AboutNRC3TableViewCell.swift */,
 				6BF8A7A51FFD6F080094764D /* ContactsTableViewCell.swift */,
+				6B96468A20179876002ADD3D /* CommunityHeaderTableViewCell.swift */,
+				6B96468C20179886002ADD3D /* CommunityBodyTableViewCell.swift */,
 				6B33A39F200E900E00971A1E /* FormatBankTableViewCell.swift */,
 				6B33A3A1200E902B00971A1E /* LegalBodyTableViewCell.swift */,
 				6B33A3A3200E904700971A1E /* LegalHeaderTableViewCell.swift */,
@@ -669,6 +687,7 @@
 				462609E31FFBE70000A3706C /* Resources */,
 				51F3DC08284C5961F9C5254D /* [CP] Embed Pods Frameworks */,
 				2A8C9C5AE70C389E93425631 /* [CP] Copy Pods Resources */,
+				6B96468920178539002ADD3D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -806,12 +825,14 @@
 				6B1F5A9A1FFBEF0F00DA650D /* Authentication.storyboard in Resources */,
 				6B6620EE201118D0007DAF2C /* audio_6.mp3 in Resources */,
 				6B6620D5201118D0007DAF2C /* audio_14.mp3 in Resources */,
+				6B9646932017BC2E002ADD3D /* auditoria_vbg.pdf in Resources */,
 				6B6620D4201118D0007DAF2C /* audio_13_m.mp3 in Resources */,
 				6B6620E5201118D0007DAF2C /* audio_21.mp3 in Resources */,
 				6B33A398200D920800971A1E /* recurso_de_reposicion_y_apelacion.docx in Resources */,
 				6B6620D0201118D0007DAF2C /* audio_11_m.mp3 in Resources */,
 				6B6620E6201118D0007DAF2C /* audio_21_m.mp3 in Resources */,
 				6B6620CF201118D0007DAF2C /* audio_11.mp3 in Resources */,
+				6B9646922017BC2E002ADD3D /* auditoria_lideres.pdf in Resources */,
 				6B33A396200D920800971A1E /* formulario_inscripcion_unp_para_ruta_proteccion_colectiva.pdf in Resources */,
 				6B6620EA201118D0007DAF2C /* audio_4.mp3 in Resources */,
 				6B6620D9201118D0007DAF2C /* audio_16.mp3 in Resources */,
@@ -920,6 +941,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-conse/Pods-conse-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6B96468920178539002ADD3D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9dfca2a3c511dbb0e808c88a7c61c538006cdee4 6430ea034e956588f0718e29a005e6beaba0540cdb291d35287af7b7b8799eb";
 		};
 		841CFB03B582E0C928491E44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1030,6 +1064,7 @@
 				6B33A3A2200E902B00971A1E /* LegalBodyTableViewCell.swift in Sources */,
 				6B2545711FFED5D800235827 /* ColorsString.swift in Sources */,
 				6BF14C2020081EF40045E262 /* LetStartViewController.swift in Sources */,
+				6B7681F32016A7380084251C /* MessageComposer.swift in Sources */,
 				6B3C45C020066EFE002C4454 /* StorageFunctions.swift in Sources */,
 				6BF8ADB41FFE9DD20074EA88 /* NetworkConfig.swift in Sources */,
 				6B2545751FFEDCD300235827 /* DictionaryKeys.swift in Sources */,
@@ -1043,6 +1078,7 @@
 				6B35D9862012CA1900556C58 /* CheckConnection.swift in Sources */,
 				6BF14C1E2007A2CF0045E262 /* MakeYourAvatarViewController.swift in Sources */,
 				6B33A3BA200FA3D200971A1E /* Document_Bank.swift in Sources */,
+				6B96468D20179886002ADD3D /* CommunityBodyTableViewCell.swift in Sources */,
 				6B79E37420093C47004990E9 /* LeftMenuViewController.swift in Sources */,
 				6BF8ADB31FFE9DD20074EA88 /* NetworkConstants.swift in Sources */,
 				6BF14C2220084F190045E262 /* EmergencyCallPopupViewController.swift in Sources */,
@@ -1051,6 +1087,7 @@
 				6B33A3B8200ED6B500971A1E /* AboutNRC3TableViewCell.swift in Sources */,
 				6B25456F1FFED58F00235827 /* Colors.swift in Sources */,
 				6B79E37A20093E66004990E9 /* ContactUsViewController.swift in Sources */,
+				6B96468B20179876002ADD3D /* CommunityHeaderTableViewCell.swift in Sources */,
 				6B79E37820093E2C004990E9 /* MyCoursesViewController.swift in Sources */,
 				6B1F5A9D1FFBF09E00DA650D /* WelcomeViewController.swift in Sources */,
 				6B79E37620093C72004990E9 /* RigthProgressViewController.swift in Sources */,
@@ -1071,6 +1108,7 @@
 				6B33A3B6200ED6A200971A1E /* AboutNRC2TableViewCell.swift in Sources */,
 				6B33A3B4200ED61B00971A1E /* AboutNRC1TableViewCell.swift in Sources */,
 				6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */,
+				6B96468F201799C5002ADD3D /* CommunityViewController.swift in Sources */,
 				6BF14C152006E5880045E262 /* SendAlertPopupViewController.swift in Sources */,
 				6B3C45C2200670C7002C4454 /* StorageModels.swift in Sources */,
 				6B33A3A4200E904700971A1E /* LegalHeaderTableViewCell.swift in Sources */,
@@ -1266,9 +1304,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3GBQML2D7Z;
 				INFOPLIST_FILE = conse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = conse.nrc.org.co.conse;
+				PRODUCT_BUNDLE_IDENTIFIER = conse.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "conse/Untils/conse-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1284,9 +1323,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3GBQML2D7Z;
 				INFOPLIST_FILE = conse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = conse.nrc.org.co.conse;
+				PRODUCT_BUNDLE_IDENTIFIER = conse.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "conse/Untils/conse-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;

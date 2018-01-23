@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FormatBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FormatBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, FormatBankProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var table_formats: UITableView!
@@ -30,8 +30,22 @@ class FormatBankViewController: UIViewController, UITableViewDelegate, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Private Functions
-    
+    // MARK: - Functions
+    func openShareDocument(documentName: String, fileExt: String, action: FileActions) {
+        guard let pdf = Bundle.main.url(forResource: documentName, withExtension: fileExt, subdirectory: nil, localization: nil) else { return }
+        
+        if action == .open {
+            let documentInteractionController = UIDocumentInteractionController(url: pdf)
+            documentInteractionController.delegate = self
+            documentInteractionController.presentPreview(animated: true)
+        }
+        
+        if action == .share {
+            let objectsToShare = [pdf]
+            let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+            self.present(activityVC, animated: true, completion: nil)
+        }
+    }
     
     // MARK: - TableView delegate and datasource
     
@@ -61,9 +75,15 @@ class FormatBankViewController: UIViewController, UITableViewDelegate, UITableVi
         let cell = tableView.dequeueReusableCell(withIdentifier: CellsId.formatBank) as! FormatBankTableViewCell
         
         cell.item = listFormats[indexPath.row]
+        cell.formatBankDelegate = self
         cell.fillCell()
         
         return cell
+    }
+    
+    // MARK:  - UIDocumentInteractionController delegates
+    func documentInteractionControllerViewControllerForPreview(_ controller: UIDocumentInteractionController) -> UIViewController {
+        return self
     }
     
     

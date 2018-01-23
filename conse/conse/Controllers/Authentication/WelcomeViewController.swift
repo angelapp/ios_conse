@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController: UIViewController, WelcomeProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_alet: UIButton!
@@ -130,8 +130,20 @@ class WelcomeViewController: UIViewController {
         })
     }
     
+    func showAlertSender(){
+        self.showSMSEmergency(wellcomeDelegate: self, senderVC: .welcome)
+    }
+    /** Usa el protocolo para mostar mensajes */
+    func showMessage(withMessage msn: String) {
+        self.showErrorMessage(withMessage: msn)
+    }
+    
+    func openSettingsPopup(title: String, message: String, settings: String) {
+        self.showSettingsPopup(title: title, message: message, settings: settings)
+    }
+    
     // MARK: - Actions
     @IBAction func alert(_ sender: UIButton) {
-        self.showCallEmergency()
+        self.showCallEmergency(wellcomeDelegate: self, senderVC: .welcome)
     }
 }

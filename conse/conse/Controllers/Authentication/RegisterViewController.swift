@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // MARK: - Outlets
     
@@ -197,6 +197,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         tf_lastname.underline(margin: underlineWidth)
         tf_password.underline(margin: underlineWidth)
         tf_confirmPassword.underline(margin: underlineWidth)
+        
+        tf_dni_number.delegate = self
+        tf_email.delegate = self
+        tf_name.delegate = self
+        tf_lastname.delegate = self
+        tf_password.delegate = self
+        tf_confirmPassword.delegate = self
         
         // Set styles to terms and conditions copy
         let termsLabel = String(format: Strings.body_Checkbox_AcceptTerms, Strings.terms_Copy)

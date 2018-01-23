@@ -25,6 +25,7 @@ class MainViewController: UIViewController, MainProtocol {
     var contactFormVC: ContactUsViewController!
     var documentBankVC: DocumentBankViewController!
     var editProfileVC: RegisterViewController!
+    var myCommunityVC: CommunityViewController!
     var myCourseVC: MyCoursesViewController!
     var plcCourseVC: PLCCourseViewController!
     var vbgCourseVC: VBGCourseViewController!
@@ -66,6 +67,7 @@ class MainViewController: UIViewController, MainProtocol {
         aboutNRCVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs) as! AboutUsViewController
         contactFormVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.contactUs) as! ContactUsViewController
         documentBankVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.documentBank) as! DocumentBankViewController
+        myCommunityVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.community) as! CommunityViewController
         myCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.myCourses) as! MyCoursesViewController
         plcCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.coursePLC) as! PLCCourseViewController
         vbgCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.courseVBG) as! VBGCourseViewController
@@ -83,6 +85,9 @@ class MainViewController: UIViewController, MainProtocol {
             
         case .aboutUs:
             return aboutNRCVC
+            
+        case .community:
+            return myCommunityVC
             
         case .contactUs:
             return contactFormVC
@@ -152,13 +157,20 @@ class MainViewController: UIViewController, MainProtocol {
         logView.remove(at: indexOF!)
     }
     
+    func showAlertSender(){
+        self.showSMSEmergency(senderVC: .main)
+    }
     /** Usa el protocolo para mostar mensajes en el main */
     func showMessageInMain(withMessage msn: String) {
         self.showErrorMessage(withMessage: msn)
     }
     
+    func openSettingsPopup(title: String, message: String, settings: String) {
+        self.showSettingsPopup(title: title, message: message, settings: settings)
+    }
+    
     // MARK: - Actions
     @IBAction func buttonAction(_ sender: UIButton) {
-        self.showCallEmergency()
+        self.showCallEmergency(senderVC: .main)
     }
 }

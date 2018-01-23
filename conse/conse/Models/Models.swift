@@ -68,10 +68,31 @@ class FormatsBankItem {
     
     var name: String!
     var file: String!
+    var ext: String!
     
-    init(name: String, file: String) {
+    init(name: String, file: String, ext: String) {
         self.file = file
         self.name = name
+        self.ext = ext
+    }
+}
+
+class MyCommunityItem {
+    
+    var title: String!
+    var objective: String!
+    var note: String!
+    var downloadCopy: String!
+    var file: String!
+    var ext: String!
+    
+    init(title: String, objective: String, note: String, downloadCopy: String, file: String, ext: String) {
+        self.title = title
+        self.objective = objective
+        self.note = note
+        self.downloadCopy = downloadCopy
+        self.file = file
+        self.ext = ext
     }
 }
 

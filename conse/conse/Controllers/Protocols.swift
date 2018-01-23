@@ -8,18 +8,39 @@
 
 import Foundation
 
+protocol WelcomeProtocol: class {
+    func showAlertSender()
+    func showMessage(withMessage msn: String)
+    func openSettingsPopup(title: String, message: String, settings: String)
+}
+
+protocol LogginProtocol: class {
+    func showAlertSender()
+    func showMessage(withMessage msn: String)
+    func openSettingsPopup(title: String, message: String, settings: String)
+}
+
+protocol RecoveryProtocol: class {
+    func showAlertSender()
+    func showMessage(withMessage msn: String)
+    func openSettingsPopup(title: String, message: String, settings: String)
+}
+
+/// Protocol de la parte de configuración para enviar un mensaje de prueba
 protocol TestAlertProtocol: class {
     func startStepTwo()
 }
 
-protocol CallEmergencyProtocol: class {
-    func closePopup()
+protocol SendAlertProtocol: class {
+    
 }
 
 protocol MainProtocol: class {
     func addToContainer(viewControllerID id: ViewControllerTag)
     func removeOfContainer()
+    func showAlertSender()
     func showMessageInMain(withMessage msn: String)
+    func openSettingsPopup(title: String, message: String, settings: String)
 }
 
 protocol VBGProtocol: class {
@@ -27,4 +48,12 @@ protocol VBGProtocol: class {
     func previusPage()
     func audioManager(audioID id: AUDIO_ID, play: Bool)
     func showPopupHelp(title: String, text: String)
+}
+
+protocol FormatBankProtocol: class {
+    func openShareDocument(documentName: String, fileExt: String, action: FileActions)
+}
+
+protocol CommunityProtocol: class {
+    func openShareDocument(documentName: String, fileExt: String, action: FileActions)
 }

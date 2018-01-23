@@ -47,6 +47,7 @@ struct Strings {
     
     static let error_message_avatarIncomplete = "¡Falta seleccionar una parte del ávatar!"
     static let error_message_invalidEmail = "Correo no valido"
+    static let error_message_locationDisabled = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
     static let error_message_notAvailable = "El contacto no tiene número telefónico"
     static let error_message_notAvailableAction = "Este dispositivo no puede realizar esta acción"
     static let error_message_notIntenertConection = "Debes teber una conexión activa a internet"
@@ -54,6 +55,7 @@ struct Strings {
     static let error_message_requieredField = "Debe diligenciar este campo"
     static let error_message_requieredData = "Debe completar información"
     
+    static let error_title_locationDisabled = "Geolocalización desactivada"
     static let error_title_notInternetConection = "No hay conexión a internet"
     
     static let emergency_line_123 = "123"
@@ -109,8 +111,9 @@ struct Formats {
     static let phoneRegEx = "^\\d{10}$"
     static let matchesFormat = "SELF MATCHES %@"
     
-    static let testAlertMessage = "%@ http://maps.google.com/?q=%@,%@"
     static let callFormat = "tel://%@"
     static let legalHeaderFormat = "%@ - %@"
+    static let shieldURLComplement = "?latitude=%@&longitude=%@"
     static let successDownload = "El archivo: %@ fue descragado exitosamente"
+    static let testAlertMessage = "%@ http://maps.google.com/?q=%@,%@" // Message, Latitute, Longitude
 }

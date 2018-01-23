@@ -12,6 +12,7 @@ class FormatBankTableViewCell: UITableViewCell {
     
     var item: FormatsBankItem!
     var parent: UIViewController!
+    var formatBankDelegate: FormatBankProtocol?
 
     @IBOutlet weak var btn_download: UIButton!
     @IBOutlet weak var btn_share: UIButton!
@@ -37,11 +38,12 @@ class FormatBankTableViewCell: UITableViewCell {
         switch sender {
             
         case btn_share:
+            formatBankDelegate?.openShareDocument(documentName: item.file, fileExt: item.ext, action: .share)
             printDebugMessage(tag: "sharing...")
-            
             break
             
         default:
+            formatBankDelegate?.openShareDocument(documentName: item.file, fileExt: item.ext, action: .open)
             printDebugMessage(tag: "opennig...")
             break
         }

@@ -80,6 +80,8 @@ class LeftMenuViewController: UIViewController {
             break
             
         case btn_analyze:
+            mainDelegate?.addToContainer(viewControllerID: .community)
+            self.revealViewController().revealToggle(animated: true)
             break
             
         case btn_news:

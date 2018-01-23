@@ -107,6 +107,17 @@ func arrayTransform(from tempArray: Array<Any>) -> Array<DocumentTextType> {
     return arrayModel
 }
 
+func arrayTransform(from tempArray: Array<Any>) -> Array<OrganizationType> {
+    var arrayModel: Array<OrganizationType> =  []
+    
+    for value in tempArray {
+        let model = Mapper<OrganizationType>().map(JSON: value as! [String: Any])
+        arrayModel.append(model!)
+    }
+    
+    return arrayModel
+}
+
 func printDebugMessage(tag: String) {
     #if DEBUG
         print("\(debugFlag) \(tag)")
@@ -180,6 +191,7 @@ extension UIViewController {
         present(nextVC, animated: true, completion: nil)
     }
     
+    /// Show Alert with message
     func showErrorMessage(withMessage msn:String, title:String? = nullString) {
         
         let alert = UIAlertController(title: title, message: msn, preferredStyle: .alert)
@@ -190,10 +202,49 @@ extension UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    func showCallEmergency() {
+    /// Show Alert for open settings
+    /// - Paramenter seting: string with setting path
+    func showSettingsPopup(title: String, message: String, settings: String) {
+        let alertController = UIAlertController (title: title, message: message, preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: Strings.button_settings, style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: settings) else { return }
+            
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                UIApplication.shared.open(settingsUrl, completionHandler: nil)
+            }
+        }
+        let cancelAction = UIAlertAction(title: Strings.button_cancel, style: .default, handler: nil)
+        
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showCallEmergency(wellcomeDelegate: WelcomeProtocol? = nil, logginDelegate: LogginProtocol? = nil, recoveryDelegate: RecoveryProtocol? = nil, senderVC: ViewControllerTag) {
         let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
         let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.emergencyCallPopup) as! EmergencyCallPopupViewController
         
+        nextVC.senderVC = senderVC
+        nextVC.logginDelegate = logginDelegate
+        nextVC.recoveryDelegate = recoveryDelegate
+        nextVC.welcomeDelegate = wellcomeDelegate
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
+    }
+    
+    func showSMSEmergency(wellcomeDelegate: WelcomeProtocol? = nil, logginDelegate: LogginProtocol? = nil, recoveryDelegate: RecoveryProtocol? = nil,
+                          testAlertDelegate: TestAlertProtocol? = nil, senderVC: ViewControllerTag) {
+        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.sendAlertPopup) as! SendAlertPopupViewController
+        
+        nextVC.launchVC = senderVC
+        nextVC.logginDelegate = logginDelegate
+        nextVC.recoveryDelegate = recoveryDelegate
+        nextVC.testAlertDelegate = testAlertDelegate
+        nextVC.welcomeDelegate = wellcomeDelegate
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true, completion: nil)
@@ -283,6 +334,12 @@ extension UIImage {
 }
 
 extension String {
+    
+    var digits: String {
+        return components(separatedBy: CharacterSet.decimalDigits.inverted)
+            .joined()
+    }
+    
     func htmlAttributedString() -> NSAttributedString? {
         guard let data = self.data(using: String.Encoding.utf16, allowLossyConversion: false) else { return nil }
         guard let html = try? NSMutableAttributedString(
