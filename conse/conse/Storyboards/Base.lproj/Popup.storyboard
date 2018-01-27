@@ -243,7 +243,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tvj-yu-wBb">
                                 <rect key="frame" x="16" y="32" width="289" height="417"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uS6-ZT-KcR">
                                         <rect key="frame" x="0.0" y="0.0" width="289" height="351"/>
@@ -562,12 +562,77 @@
             </objects>
             <point key="canvasLocation" x="3886.875" y="25"/>
         </scene>
+        <!--Courses Messages Popup View Controller-->
+        <scene sceneID="TSP-5b-Qpp">
+            <objects>
+                <viewController storyboardIdentifier="courseMessagePopupVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R2b-50-TZ3" customClass="CoursesMessagesPopupViewController" customModule="conse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cro-KE-9AZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VH-dh-aIN">
+                                <rect key="frame" x="20" y="253.5" width="280" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_admiracion" translatesAutoresizingMaskIntoConstraints="NO" id="WUF-0y-w4a">
+                                <rect key="frame" x="115" y="147.5" width="90" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="DsX-B2-6nm"/>
+                                    <constraint firstAttribute="height" constant="90" id="cjy-TQ-99Y"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-il-aJD">
+                                <rect key="frame" x="60" y="279.5" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0Md-Bk-LaJ"/>
+                                    <constraint firstAttribute="width" constant="200" id="e9s-5b-dsk"/>
+                                </constraints>
+                                <state key="normal" image="btn_intentar"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="self.imageView.contentMode">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="dissmisMessage:" destination="R2b-50-TZ3" eventType="touchUpInside" id="gxr-bB-VBQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70400791949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1VH-dh-aIN" firstAttribute="top" secondItem="WUF-0y-w4a" secondAttribute="bottom" constant="16" id="3I7-qj-3yS"/>
+                            <constraint firstItem="1VH-dh-aIN" firstAttribute="leading" secondItem="R5f-Gp-Q20" secondAttribute="leading" constant="20" id="76h-Kv-0RH"/>
+                            <constraint firstItem="R5f-Gp-Q20" firstAttribute="trailing" secondItem="1VH-dh-aIN" secondAttribute="trailing" constant="20" id="EPA-iS-zbT"/>
+                            <constraint firstItem="wAg-il-aJD" firstAttribute="top" secondItem="1VH-dh-aIN" secondAttribute="bottom" constant="8" id="IVy-pq-6b3"/>
+                            <constraint firstItem="WUF-0y-w4a" firstAttribute="centerX" secondItem="cro-KE-9AZ" secondAttribute="centerX" id="Myd-kk-qXh"/>
+                            <constraint firstItem="R5f-Gp-Q20" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wAg-il-aJD" secondAttribute="bottom" constant="8" id="RHF-o1-ABv"/>
+                            <constraint firstItem="1VH-dh-aIN" firstAttribute="centerX" secondItem="cro-KE-9AZ" secondAttribute="centerX" id="dWT-38-mUR"/>
+                            <constraint firstItem="WUF-0y-w4a" firstAttribute="top" relation="greaterThanOrEqual" secondItem="R5f-Gp-Q20" secondAttribute="top" id="f6h-cN-F6r"/>
+                            <constraint firstItem="wAg-il-aJD" firstAttribute="centerX" secondItem="cro-KE-9AZ" secondAttribute="centerX" id="hsv-vX-zfM"/>
+                            <constraint firstItem="1VH-dh-aIN" firstAttribute="centerY" secondItem="cro-KE-9AZ" secondAttribute="centerY" constant="22" id="sCN-yS-Zll"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R5f-Gp-Q20"/>
+                    </view>
+                    <connections>
+                        <outlet property="btn_tryNext" destination="wAg-il-aJD" id="H1a-Q4-MjR"/>
+                        <outlet property="img_icon" destination="WUF-0y-w4a" id="y8b-mh-90j"/>
+                        <outlet property="lbl_message" destination="1VH-dh-aIN" id="wUf-m6-iCK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5oe-Hk-EqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4561.875" y="25"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="btn_intentar" width="293" height="80"/>
         <image name="btn_siestoyseguro" width="284" height="120"/>
         <image name="btn_siestoysegurohover" width="284" height="120"/>
         <image name="descargar" width="120" height="120"/>
         <image name="descargar_hover" width="120" height="120"/>
+        <image name="icon_admiracion" width="484" height="484"/>
         <image name="icon_campana" width="107" height="69"/>
         <image name="icon_enviaralerta" width="328" height="328"/>
         <image name="icon_telefono" width="66" height="66"/>

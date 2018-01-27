@@ -117,6 +117,7 @@
 		6B96468F201799C5002ADD3D /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B96468E201799C5002ADD3D /* CommunityViewController.swift */; };
 		6B9646922017BC2E002ADD3D /* auditoria_lideres.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6B9646902017BC2E002ADD3D /* auditoria_lideres.pdf */; };
 		6B9646932017BC2E002ADD3D /* auditoria_vbg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6B9646912017BC2E002ADD3D /* auditoria_vbg.pdf */; };
+		6B9646952017FC27002ADD3D /* CoursesMessagesPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9646942017FC27002ADD3D /* CoursesMessagesPopupViewController.swift */; };
 		6BF14C152006E5880045E262 /* SendAlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */; };
 		6BF14C182006F22C0045E262 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF14C162006F22C0045E262 /* Popup.storyboard */; };
 		6BF14C1A2006FA770045E262 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF14C192006FA770045E262 /* Protocols.swift */; };
@@ -279,6 +280,7 @@
 		6B96468E201799C5002ADD3D /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		6B9646902017BC2E002ADD3D /* auditoria_lideres.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = auditoria_lideres.pdf; sourceTree = "<group>"; };
 		6B9646912017BC2E002ADD3D /* auditoria_vbg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = auditoria_vbg.pdf; sourceTree = "<group>"; };
+		6B9646942017FC27002ADD3D /* CoursesMessagesPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesMessagesPopupViewController.swift; sourceTree = "<group>"; };
 		6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAlertPopupViewController.swift; sourceTree = "<group>"; };
 		6BF14C172006F22C0045E262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popup.storyboard; sourceTree = "<group>"; };
 		6BF14C192006FA770045E262 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -607,6 +609,7 @@
 		6B9222D5200414B000D8B779 /* Popups */ = {
 			isa = PBXGroup;
 			children = (
+				6B9646942017FC27002ADD3D /* CoursesMessagesPopupViewController.swift */,
 				6B35D9832012741300556C58 /* CrosswordHelpViewController.swift */,
 				6B6AD2CD20155AA200FB541C /* DownloadPopupViewController.swift */,
 				6BF14C2120084F190045E262 /* EmergencyCallPopupViewController.swift */,
@@ -1105,6 +1108,7 @@
 				6B33A39E200E893700971A1E /* ProtectionShieldViewController.swift in Sources */,
 				6B33A39A200E888700971A1E /* FormatBankViewController.swift in Sources */,
 				6B79E37C20093F4A004990E9 /* DocumentBankViewController.swift in Sources */,
+				6B9646952017FC27002ADD3D /* CoursesMessagesPopupViewController.swift in Sources */,
 				6B33A3B6200ED6A200971A1E /* AboutNRC2TableViewCell.swift in Sources */,
 				6B33A3B4200ED61B00971A1E /* AboutNRC1TableViewCell.swift in Sources */,
 				6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */,

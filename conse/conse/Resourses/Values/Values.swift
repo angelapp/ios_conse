@@ -51,6 +51,7 @@ enum ViewControllerTag : Int {
     case contactUs
     case choiceAvatarGender
     case crosswordHelpPopup
+    case courseMessagePopup
     case courseVBG
     case coursePLC
     case documentBank
@@ -74,6 +75,11 @@ enum ViewControllerTag : Int {
     case swMenu
     case testAlert
     case welcome
+}
+
+enum TypeMessage: Int {
+    case failed
+    case success
 }
 
 enum IdView : Int {

@@ -88,6 +88,13 @@ struct Strings {
     static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }
 
+struct ImageName {
+    static let next = "btn_siguiente"
+    static let nextHover = "btn_siguiente_hover"
+    static let tryAgain = "btn_intentar"
+    static let tryAgainHover = "btn_intentar_hover"
+}
+
 // MARK: - Formats
 
 /// Formatos de fecha

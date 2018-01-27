@@ -31,10 +31,6 @@ protocol TestAlertProtocol: class {
     func startStepTwo()
 }
 
-protocol SendAlertProtocol: class {
-    
-}
-
 protocol MainProtocol: class {
     func addToContainer(viewControllerID id: ViewControllerTag)
     func removeOfContainer()
@@ -48,6 +44,7 @@ protocol VBGProtocol: class {
     func previusPage()
     func audioManager(audioID id: AUDIO_ID, play: Bool)
     func showPopupHelp(title: String, text: String)
+    func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
 }
 
 protocol FormatBankProtocol: class {
