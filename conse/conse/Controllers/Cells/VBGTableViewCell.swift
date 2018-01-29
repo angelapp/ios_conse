@@ -222,32 +222,32 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_22_LBL4: UILabel!
     @IBOutlet weak var VBG_22_AUD: UIButton!
     @IBOutlet weak var VBG_22_AVATAR: UIImageView!
-    
+
     @IBOutlet weak var VBG_23_LBL1: UILabel!
-    
+
     @IBOutlet weak var VBG_24_LBL1: UILabel!
     @IBOutlet weak var VBG_24_LBL2: UILabel!
     @IBOutlet weak var VBG_24_LBL3: UILabel!
     @IBOutlet weak var VBG_24_LBL4: UILabel!
     @IBOutlet weak var VBG_24_AUD: UIButton!
     @IBOutlet weak var VBG_24_AVATAR: UIImageView!
-    
+
     @IBOutlet weak var VBG_25_LBL1: UILabel!
     @IBOutlet weak var VBG_26_LBL1: UILabel!
     @IBOutlet weak var VBG_27_LBL1: UILabel!
-    
+
     @IBOutlet weak var VBG_28_LBL1: UILabel!
     @IBOutlet weak var VBG_28_LBL2: UILabel!
     @IBOutlet weak var VBG_28_LBL3: UILabel!
     @IBOutlet weak var VBG_28_LBL4: UILabel!
     @IBOutlet weak var VBG_28_AUD: UIButton!
     @IBOutlet weak var VBG_28_AVATAR: UIImageView!
-    
+
     @IBOutlet weak var VBG_29_LBL1: UILabel!
-    
+
     @IBOutlet weak var VBG_30_LBL1: UILabel!
     @IBOutlet weak var VBG_30_LBL2: UILabel!
-    
+
     @IBOutlet weak var VBG_31_LBL1: UILabel!
     @IBOutlet weak var VBG_31_LBL2: UILabel!
     @IBOutlet weak var VBG_31_LBL3: UILabel!
@@ -257,7 +257,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_31_BTN1: UIButton!
     @IBOutlet weak var VBG_31_BTN2: UIButton!
     @IBOutlet weak var VBG_31_BTN3: UIButton!
-    
+
     @IBOutlet weak var VBG_32_LBL1: UILabel!
     @IBOutlet weak var VBG_32_LBL2: UILabel!
     @IBOutlet weak var VBG_32_OPT_1: UILabel!
@@ -268,7 +268,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_32_BTN2: UIButton!
     @IBOutlet weak var VBG_32_BTN3: UIButton!
     @IBOutlet weak var VBG_32_BTN4: UIButton!
-    
+
     @IBOutlet weak var VBG_33_LBL1: UILabel!
     @IBOutlet weak var VBG_33_LBL2: UILabel!
     @IBOutlet weak var VBG_33_OPT_1: UILabel!
@@ -277,7 +277,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_33_BTN1: UIButton!
     @IBOutlet weak var VBG_33_BTN2: UIButton!
     @IBOutlet weak var VBG_33_BTN3: UIButton!
-    
+
     @IBOutlet weak var VBG_34_LBL1: UILabel!
     @IBOutlet weak var VBG_34_LBL2: UILabel!
     @IBOutlet weak var VBG_34_OPT_1: UILabel!
@@ -288,27 +288,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_34_BTN2: UIButton!
     @IBOutlet weak var VBG_34_BTN3: UIButton!
     @IBOutlet weak var VBG_34_BTN4: UIButton!
-    
+
     @IBOutlet weak var VBG_35_LBL1: UILabel!
     @IBOutlet weak var VBG_35_LBL2: UILabel!
     @IBOutlet weak var VBG_35_LBL3: UILabel!
     @IBOutlet weak var VBG_35_HEIGHT: NSLayoutConstraint!
-    
+
     // Module 4
     @IBOutlet weak var VBG_36_LBL1: UILabel!
     @IBOutlet weak var VBG_36_LBL2: UILabel!
     @IBOutlet weak var VBG_36_LBL3: UILabel!
-    
+
     @IBOutlet weak var VBG_37_LBL1: UILabel!
     @IBOutlet weak var VBG_37_LBL2: UILabel!
     @IBOutlet weak var VBG_37_LBL3: UILabel!
-    
+
     @IBOutlet weak var VBG_38_LBL1: UILabel!
     @IBOutlet weak var VBG_38_LBL2: UILabel!
     @IBOutlet weak var VBG_38_LBL3: UILabel!
     @IBOutlet weak var VBG_38_LBL4: UILabel!
     @IBOutlet weak var VBG_38_AUD: UIButton!
-    
+
     @IBOutlet weak var VBG_39_LBL1: UILabel!
     @IBOutlet weak var VBG_39_LBL2: UILabel!
     @IBOutlet weak var VBG_39_LBL3: UILabel!
@@ -318,13 +318,13 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_39_AUD1: UIButton!
     @IBOutlet weak var VBG_39_AUD2: UIButton!
     @IBOutlet weak var VBG_39_AUD3: UIButton!
-    
+
     @IBOutlet weak var VBG_40_LBL1: UILabel!
     @IBOutlet weak var VBG_40_LBL2: UILabel!
     @IBOutlet weak var VBG_40_LBL3: UILabel!
     @IBOutlet weak var VBG_40_AUD: UIButton!
     @IBOutlet weak var VBG_40_AVATAR: UIImageView!
-    
+
     @IBOutlet weak var VBG_41_LBL1: UILabel!
     @IBOutlet weak var VBG_41_LBL2: UILabel!
     @IBOutlet weak var VBG_41_LBL3: UILabel!
@@ -334,29 +334,30 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_41_LBL7: UILabel!
     @IBOutlet weak var VBG_41_LBL8: UILabel!
     @IBOutlet weak var VBG_41_LBL9: UILabel!
-    
+
     @IBOutlet weak var VBG_42_LBL1: UILabel!
     @IBOutlet weak var VBG_42_LBL2: UILabel!
     @IBOutlet weak var VBG_42_LBL3: UILabel!
     @IBOutlet weak var VBG_42_LBL4: UILabel!
     @IBOutlet weak var VBG_42_LBL5: UILabel!
-    
+
     @IBOutlet weak var VBG_43_LBL1: UILabel!
     @IBOutlet weak var VBG_43_LBL2: UILabel!
     @IBOutlet weak var VBG_43_LBL3: UILabel!
     @IBOutlet weak var VBG_43_LBL4: UILabel!
     @IBOutlet weak var VBG_43_LBL5: UILabel!
-    
+
     @IBOutlet weak var VBG_44_LBL1: UILabel!
     @IBOutlet weak var VBG_44_LBL2: UILabel!
     @IBOutlet weak var VBG_44_LBL3: UILabel!
     @IBOutlet weak var VBG_44_AUD: UIButton!
-    
+
     @IBOutlet weak var VBG_45_LBL1: UILabel!
     @IBOutlet weak var VBG_45_LBL2: UILabel!
-    
+
     @IBOutlet weak var VBG_46_LBL1: UILabel!
-    
+    @IBOutlet weak var VBG_46_VIDEO: UIWebView!
+
     // Q1
     @IBOutlet weak var VBG_47_LBL1: UILabel!
     @IBOutlet weak var VBG_47_LBL2: UILabel!
@@ -369,7 +370,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_47_BTN2: UIButton!
     @IBOutlet weak var VBG_47_BTN3: UIButton!
     @IBOutlet weak var VBG_47_BTN4: UIButton!
-    
+
     // Q2
     @IBOutlet weak var VBG_48_LBL1: UILabel!
     @IBOutlet weak var VBG_48_LBL2: UILabel!
@@ -381,12 +382,12 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_48_BTN2: UIButton!
     @IBOutlet weak var VBG_48_BTN3: UIButton!
     @IBOutlet weak var VBG_48_BTN4: UIButton!
-    
+
     // Q3
     @IBOutlet weak var VBG_49_LBL1: UILabel!
     @IBOutlet weak var VBG_49_LBL2: UILabel!
     @IBOutlet weak var VBG_49_INPUT: UITextField!
-    
+
     // Q4
     @IBOutlet weak var VBG_50_LBL1: UILabel!
     @IBOutlet weak var VBG_50_LBL2: UILabel!
@@ -398,7 +399,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_50_BTN2: UIButton!
     @IBOutlet weak var VBG_50_BTN3: UIButton!
     @IBOutlet weak var VBG_50_BTN4: UIButton!
-    
+
     // Q5
     @IBOutlet weak var VBG_51_LBL1: UILabel!
     @IBOutlet weak var VBG_51_LBL2: UILabel!
@@ -408,7 +409,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_51_BTN1: UIButton!
     @IBOutlet weak var VBG_51_BTN2: UIButton!
     @IBOutlet weak var VBG_51_BTN3: UIButton!
-    
+
     // Q6
     @IBOutlet weak var VBG_52_LBL1: UILabel!
     @IBOutlet weak var VBG_52_LBL2: UILabel!
@@ -418,7 +419,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_52_BTN1: UIButton!
     @IBOutlet weak var VBG_52_BTN2: UIButton!
     @IBOutlet weak var VBG_52_BTN3: UIButton!
-    
+
     // Q7
     @IBOutlet weak var VBG_53_LBL1: UILabel!
     @IBOutlet weak var VBG_53_LBL2: UILabel!
@@ -430,7 +431,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_53_BTN2: UIButton!
     @IBOutlet weak var VBG_53_BTN3: UIButton!
     @IBOutlet weak var VBG_53_BTN4: UIButton!
-    
+
     // Q8
     @IBOutlet weak var VBG_54_LBL1: UILabel!
     @IBOutlet weak var VBG_54_LBL2: UILabel!
@@ -442,7 +443,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_54_BTN2: UIButton!
     @IBOutlet weak var VBG_54_BTN3: UIButton!
     @IBOutlet weak var VBG_54_BTN4: UIButton!
-    
+
     @IBOutlet weak var VBG_55_LBL1: UILabel!
     @IBOutlet weak var VBG_55_LBL2: UILabel!
     @IBOutlet weak var VBG_55_LBL3: UILabel!
@@ -677,11 +678,11 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_22_LBL4.text = VBG_COURSE.VBG_22_T4
         VBG_22_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
-    
+
     func fill_VBG_23() {
         VBG_23_LBL1.text = VBG_COURSE.VBG_23_T1
     }
-    
+
     func fill_VBG_24() {
         VBG_24_LBL1.text = VBG_COURSE.VBG_24_T1
         VBG_24_LBL2.text = VBG_COURSE.VBG_24_T2
@@ -689,19 +690,19 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_24_LBL4.text = VBG_COURSE.VBG_24_T4
         VBG_24_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
-    
+
     func fill_VBG_25() {
         VBG_25_LBL1.text = VBG_COURSE.VBG_25_T1
     }
-    
+
     func fill_VBG_26() {
         VBG_26_LBL1.text = VBG_COURSE.VBG_26_T1
     }
-    
+
     func fill_VBG_27() {
         VBG_26_LBL1.text = VBG_COURSE.VBG_27_T1
     }
-    
+
     func fill_VBG_28() {
         VBG_28_LBL1.text = VBG_COURSE.VBG_28_T1
         VBG_28_LBL2.text = VBG_COURSE.VBG_28_T2
@@ -709,16 +710,16 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_28_LBL4.text = VBG_COURSE.VBG_28_T4
         VBG_28_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
-    
+
     func fill_VBG_29() {
         VBG_29_LBL1.text = VBG_COURSE.VBG_29_T1
     }
-    
+
     func fill_VBG_30() {
         VBG_30_LBL1.text = VBG_COURSE.VBG_30_T1
         VBG_30_LBL2.text = VBG_COURSE.VBG_30_T2
     }
-    
+
     func fill_VBG_31() {
         VBG_31_LBL1.text = VBG_COURSE.VBG_31_T1
         VBG_31_LBL2.text = VBG_COURSE.VBG_31_T2
@@ -726,13 +727,13 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_31_OPT_1.text = VBG_COURSE.VBG_31_OPT1
         VBG_31_OPT_2.text = VBG_COURSE.VBG_31_OPT2
         VBG_31_OPT_3.text = VBG_COURSE.VBG_31_OPT3
-        
+
         // set tag for identify correct option
         VBG_31_BTN1.tag = CORRECT_OPTION
         VBG_31_BTN2.tag = CORRECT_OPTION
-        VBG_31_BTN3.tag = CORRECT_OPTION
+        VBG_31_BTN3.tag = WRONG_OPTION
     }
-    
+
     func fill_VBG_32() {
         VBG_32_LBL1.text = VBG_COURSE.VBG_32_T1
         VBG_32_LBL2.text = VBG_COURSE.VBG_32_T2
@@ -740,27 +741,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_32_OPT_2.text = VBG_COURSE.VBG_32_OPT2
         VBG_32_OPT_3.text = VBG_COURSE.VBG_32_OPT3
         VBG_32_OPT_4.text = VBG_COURSE.VBG_32_OPT4
-        
+
         // set tag for identify correct option
         VBG_32_BTN1.tag = CORRECT_OPTION
-        VBG_32_BTN2.tag = CORRECT_OPTION
+        VBG_32_BTN2.tag = WRONG_OPTION
         VBG_32_BTN3.tag = CORRECT_OPTION
         VBG_32_BTN4.tag = CORRECT_OPTION
     }
-    
+
     func fill_VBG_33() {
         VBG_33_LBL1.text = VBG_COURSE.VBG_33_T1
         VBG_33_LBL2.text = VBG_COURSE.VBG_33_T2
         VBG_33_OPT_1.text = VBG_COURSE.VBG_33_OPT1
         VBG_33_OPT_2.text = VBG_COURSE.VBG_33_OPT2
         VBG_33_OPT_3.text = VBG_COURSE.VBG_33_OPT3
-        
+
         // set tag for identify correct option
-        VBG_33_BTN1.tag = CORRECT_OPTION
+        VBG_33_BTN1.tag = WRONG_OPTION
         VBG_33_BTN2.tag = CORRECT_OPTION
         VBG_33_BTN3.tag = CORRECT_OPTION
     }
-    
+
     func fill_VBG_34() {
         VBG_34_LBL1.text = VBG_COURSE.VBG_34_T1
         VBG_34_LBL2.text = VBG_COURSE.VBG_34_T2
@@ -768,41 +769,41 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_34_OPT_2.text = VBG_COURSE.VBG_34_OPT2
         VBG_34_OPT_3.text = VBG_COURSE.VBG_34_OPT3
         VBG_34_OPT_4.text = VBG_COURSE.VBG_34_OPT4
-        
+
         // set tag for identify correct option
         VBG_34_BTN1.tag = CORRECT_OPTION
-        VBG_34_BTN2.tag = CORRECT_OPTION
+        VBG_34_BTN2.tag = WRONG_OPTION
         VBG_34_BTN3.tag = CORRECT_OPTION
         VBG_34_BTN4.tag = CORRECT_OPTION
     }
-    
+
     func fill_VBG_35(height: CGFloat) {
         VBG_35_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
         VBG_35_LBL1.text = VBG_COURSE.VBG_35_T1
         VBG_35_LBL2.text = VBG_COURSE.VBG_35_T2
         VBG_35_LBL3.text = VBG_COURSE.VBG_35_T3
     }
-    
+
     // Modulo 4
     func fill_VBG_36() {
         VBG_36_LBL1.text = VBG_COURSE.VBG_36_T1
         VBG_36_LBL2.text = VBG_COURSE.VBG_36_T2
         VBG_36_LBL3.text = VBG_COURSE.VBG_36_T3
     }
-    
+
     func fill_VBG_37() {
         VBG_37_LBL1.text = VBG_COURSE.VBG_37_T1
         VBG_37_LBL2.text = VBG_COURSE.VBG_37_T2
         VBG_37_LBL3.text = VBG_COURSE.VBG_37_T3
     }
-    
+
     func fill_VBG_38() {
         VBG_38_LBL1.text = VBG_COURSE.VBG_38_T1
         VBG_38_LBL2.text = VBG_COURSE.VBG_38_T2
         VBG_38_LBL3.text = VBG_COURSE.VBG_38_T3
         VBG_38_LBL4.text = VBG_COURSE.VBG_38_T4
     }
-    
+
     func fill_VBG_39() {
         VBG_39_LBL1.text = VBG_COURSE.VBG_39_T1
         VBG_39_LBL2.text = VBG_COURSE.VBG_39_T2
@@ -811,14 +812,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_39_LBL5.text = VBG_COURSE.VBG_39_T5
         VBG_39_LBL6.text = VBG_COURSE.VBG_39_T6
     }
-    
+
     func fill_VBG_40() {
         VBG_40_LBL1.text = VBG_COURSE.VBG_40_T1
         VBG_40_LBL2.text = VBG_COURSE.VBG_40_T2
         VBG_40_LBL3.text = VBG_COURSE.VBG_40_T3
         VBG_40_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
-    
+
     func fill_VBG_41() {
         VBG_41_LBL1.text = VBG_COURSE.VBG_41_T1
         VBG_41_LBL2.text = VBG_COURSE.VBG_41_T2
@@ -830,7 +831,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_41_LBL8.text = VBG_COURSE.VBG_41_T8
         VBG_41_LBL9.text = VBG_COURSE.VBG_41_T9
     }
-    
+
     func fill_VBG_42() {
         VBG_42_LBL1.text = VBG_COURSE.VBG_42_T1
         VBG_42_LBL2.text = VBG_COURSE.VBG_42_T2
@@ -838,7 +839,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_42_LBL4.text = VBG_COURSE.VBG_42_T4
         VBG_42_LBL5.text = VBG_COURSE.VBG_42_T5
     }
-    
+
     func fill_VBG_43() {
         VBG_43_LBL1.text = VBG_COURSE.VBG_43_T1
         VBG_43_LBL2.attributedText = addBoldWord(forText: VBG_COURSE.VBG_43_T2, toWord: VBG_COURSE.VBG_43_T2_inBOLD, fontSize: VBG_43_LBL2.font.pointSize)
@@ -846,22 +847,22 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_43_LBL4.attributedText = addBoldWord(forText: VBG_COURSE.VBG_43_T4, toWord: VBG_COURSE.VBG_43_T4_inBOLD, fontSize: VBG_43_LBL4.font.pointSize)
         VBG_43_LBL5.attributedText = addBoldWord(forText: VBG_COURSE.VBG_43_T5, toWord: VBG_COURSE.VBG_43_T5_inBOLD, fontSize: VBG_43_LBL5.font.pointSize)
     }
-    
+
     func fill_VBG_44() {
         VBG_44_LBL1.text = VBG_COURSE.VBG_44_T1
         VBG_44_LBL2.text = VBG_COURSE.VBG_44_T2
         VBG_44_LBL3.text = VBG_COURSE.VBG_44_T3
     }
-    
+
     func fill_VBG_45() {
         VBG_45_LBL1.text = VBG_COURSE.VBG_45_T1
         VBG_45_LBL2.text = VBG_COURSE.VBG_45_T2
     }
-    
+
     func fill_VBG_46() {
         VBG_46_LBL1.text = VBG_COURSE.VBG_46_T1
     }
-    
+
     func fill_VBG_47() {
         VBG_47_LBL1.text = VBG_COURSE.VBG_47_T1
         VBG_47_LBL2.text = VBG_COURSE.VBG_47_T2
@@ -870,9 +871,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_47_OPT_2.text = VBG_COURSE.VBG_47_OPT2
         VBG_47_OPT_3.text = VBG_COURSE.VBG_47_OPT3
         VBG_47_OPT_4.text = VBG_COURSE.VBG_47_OPT4
-
+        
+        // set tag for identify correct option
+        VBG_47_BTN1.tag = CORRECT_OPTION
+        VBG_47_BTN2.tag = WRONG_OPTION
+        VBG_47_BTN3.tag = WRONG_OPTION
+        VBG_47_BTN4.tag = WRONG_OPTION
     }
-    
+
     func fill_VBG_48() {
         VBG_48_LBL1.text = VBG_COURSE.VBG_48_T1
         VBG_48_LBL2.text = VBG_COURSE.VBG_48_T2
@@ -880,14 +886,20 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_48_OPT_2.text = VBG_COURSE.VBG_48_OPT2
         VBG_48_OPT_3.text = VBG_COURSE.VBG_48_OPT3
         VBG_48_OPT_4.text = VBG_COURSE.VBG_48_OPT4
+        
+        // set tag for identify correct option
+        VBG_48_BTN1.tag = WRONG_OPTION
+        VBG_48_BTN2.tag = WRONG_OPTION
+        VBG_48_BTN3.tag = WRONG_OPTION
+        VBG_48_BTN4.tag = CORRECT_OPTION
     }
-    
+
     func fill_VBG_49() {
         VBG_49_LBL1.text = VBG_COURSE.VBG_49_T1
         VBG_49_LBL2.text = VBG_COURSE.VBG_49_T2
         VBG_49_INPUT.text = nullString
     }
-    
+
     func fill_VBG_50() {
         VBG_50_LBL1.text = VBG_COURSE.VBG_50_T1
         VBG_50_LBL2.text = VBG_COURSE.VBG_50_T2
@@ -895,24 +907,40 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_50_OPT_2.text = VBG_COURSE.VBG_50_OPT2
         VBG_50_OPT_3.text = VBG_COURSE.VBG_50_OPT3
         VBG_50_OPT_4.text = VBG_COURSE.VBG_50_OPT4
+        
+        // set tag for identify correct option
+        VBG_50_BTN1.tag = CORRECT_OPTION
+        VBG_50_BTN2.tag = WRONG_OPTION
+        VBG_50_BTN3.tag = CORRECT_OPTION
+        VBG_50_BTN4.tag = CORRECT_OPTION
     }
-    
+
     func fill_VBG_51() {
         VBG_51_LBL1.text = VBG_COURSE.VBG_51_T1
         VBG_51_LBL2.text = VBG_COURSE.VBG_51_T2
         VBG_51_OPT_1.text = VBG_COURSE.VBG_51_OPT1
         VBG_51_OPT_2.text = VBG_COURSE.VBG_51_OPT2
         VBG_51_OPT_3.text = VBG_COURSE.VBG_51_OPT3
+        
+        // set tag for identify correct option
+        VBG_51_BTN1.tag = CORRECT_OPTION
+        VBG_51_BTN2.tag = CORRECT_OPTION
+        VBG_51_BTN3.tag = WRONG_OPTION
     }
-    
+
     func fill_VBG_52() {
         VBG_52_LBL1.text = VBG_COURSE.VBG_52_T1
         VBG_52_LBL2.text = VBG_COURSE.VBG_52_T2
         VBG_52_OPT_1.text = VBG_COURSE.VBG_52_OPT1
         VBG_52_OPT_2.text = VBG_COURSE.VBG_52_OPT2
         VBG_52_OPT_3.text = VBG_COURSE.VBG_52_OPT3
+        
+        // set tag for identify correct option
+        VBG_52_BTN1.tag = WRONG_OPTION
+        VBG_52_BTN2.tag = CORRECT_OPTION
+        VBG_52_BTN3.tag = CORRECT_OPTION
     }
-    
+
     func fill_VBG_53() {
         VBG_53_LBL1.text = VBG_COURSE.VBG_53_T1
         VBG_53_LBL2.text = VBG_COURSE.VBG_53_T2
@@ -920,8 +948,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_53_OPT_2.text = VBG_COURSE.VBG_53_OPT2
         VBG_53_OPT_3.text = VBG_COURSE.VBG_53_OPT3
         VBG_53_OPT_4.text = VBG_COURSE.VBG_53_OPT4
+        
+        // set tag for identify correct option
+        VBG_53_BTN1.tag = CORRECT_OPTION
+        VBG_53_BTN2.tag = CORRECT_OPTION
+        VBG_53_BTN3.tag = CORRECT_OPTION
+        VBG_53_BTN4.tag = WRONG_OPTION
     }
-    
+
     func fill_VBG_54() {
         VBG_54_LBL1.text = VBG_COURSE.VBG_54_T1
         VBG_54_LBL2.text = VBG_COURSE.VBG_54_T2
@@ -929,8 +963,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_54_OPT_2.text = VBG_COURSE.VBG_54_OPT2
         VBG_54_OPT_3.text = VBG_COURSE.VBG_54_OPT3
         VBG_54_OPT_4.text = VBG_COURSE.VBG_54_OPT4
+        
+        // set tag for identify correct option
+        VBG_54_BTN1.tag = CORRECT_OPTION
+        VBG_54_BTN2.tag = WRONG_OPTION
+        VBG_54_BTN3.tag = CORRECT_OPTION
+        VBG_54_BTN4.tag = CORRECT_OPTION
     }
-    
+
     func fill_VBG_55(height: CGFloat) {
         VBG_55_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
         VBG_55_LBL1.text = VBG_COURSE.VBG_55_T1
@@ -943,14 +983,13 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         vbgDelegate?.previusPage()
     }
     
-    @IBAction func nextPage(_ sender: UIButton) {
+    @IBAction func nextPage(_ sender: UIButton?) {
         vbgDelegate?.nextPage()
     }
     
-    @IBAction func changeButtonState (_ sender: UIButton) {
+    @IBAction func changeButtonState(_ sender: UIButton){
         sender.isSelected = !sender.isSelected
     }
-    
     // Cambia el estado del boton que este reproduciendo el audio y actualiza los demás
     private func updateButtonsState(sender: UIButton, buttons: [UIButton]) {
         if sender.isSelected {
@@ -983,35 +1022,23 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         sender.isSelected = !sender.isSelected
         
-        switch sender {
+        if VBG_13_AUD != nil && VBG_13_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_10, play: sender.isSelected) }
+        
+        if VBG_18_AUD != nil && VBG_18_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_11, play: sender.isSelected) }
+        
+        if VBG_20_AUD != nil && VBG_20_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_12, play: sender.isSelected) }
             
-        case VBG_13_AUD:
-            vbgDelegate?.audioManager(audioID: .AUD_10, play: sender.isSelected)
-            break
-            
-        case VBG_18_AUD:
-            vbgDelegate?.audioManager(audioID: .AUD_11, play: sender.isSelected)
-            break
-            
-        case VBG_20_AUD:
-            vbgDelegate?.audioManager(audioID: .AUD_12, play: sender.isSelected)
-            break
-            
-        case VBG_22_AUD:
-            vbgDelegate?.audioManager(audioID: .AUD_13, play: sender.isSelected)
-            break
-            
-        case VBG_24_AUD:
-            vbgDelegate?.audioManager(audioID: .AUD_14, play: sender.isSelected)
-            break
-            
-        case VBG_28_AUD:
-            vbgDelegate?.audioManager(audioID: .AUD_11, play: sender.isSelected)
-            break
-            
-        default:
-            break
-        }
+        if VBG_22_AUD != nil && VBG_22_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_13, play: sender.isSelected) }
+        
+        if VBG_24_AUD != nil && VBG_24_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_14, play: sender.isSelected) }
+        
+        if VBG_28_AUD != nil && VBG_28_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_15, play: sender.isSelected) }
+        
+        if VBG_38_AUD != nil && VBG_38_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_16, play: sender.isSelected) }
+        
+//        if VBG_40_AUD != nil && VBG_40_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_20, play: sender.isSelected) }
+//
+//        if VBG_44_AUD != nil && VBG_44_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_21, play: sender.isSelected) }
     }
     
     // MARK: - Module 1 Functions
@@ -1192,27 +1219,84 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
                 return
         }
         
-        nextPage(M1_CROSSWORD_BTN_N)
+        nextPage(nil)
     }
     
     // MARK: Module 2 Functions
     @IBAction func checkModule2Test(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_15_BTN1, VBG_15_BTN2, VBG_15_BTN3, VBG_15_BTN4, VBG_15_BTN5) ? nextPage(M1_CROSSWORD_BTN_N) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD2, inbold: nil, type: .failed)
+        checkingQuestionary(options: VBG_15_BTN1, VBG_15_BTN2, VBG_15_BTN3, VBG_15_BTN4, VBG_15_BTN5) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD2, inbold: nil, type: .failed)
     }
     
     // MARK: Module 3 Functions
     @IBAction func checkModule3Question1(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_31_BTN1, VBG_31_BTN2, VBG_31_BTN3) ? nextPage(M1_CROSSWORD_BTN_N) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q1, inbold: nil, type: .failed)
+        checkingQuestionary(options: VBG_31_BTN1, VBG_31_BTN2, VBG_31_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q1, inbold: nil, type: .failed)
     }
     
     @IBAction func checkModule3Question2(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_32_BTN1, VBG_32_BTN2, VBG_32_BTN3, VBG_32_BTN4) ? nextPage(M1_CROSSWORD_BTN_N) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q2, inbold: nil, type: .failed)
+        checkingQuestionary(options: VBG_32_BTN1, VBG_32_BTN2, VBG_32_BTN3, VBG_32_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q2, inbold: nil, type: .failed)
     }
     
     @IBAction func checkModule3Question3(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_33_BTN1, VBG_33_BTN2, VBG_33_BTN3) ? nextPage(M1_CROSSWORD_BTN_N) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q3, inbold: nil, type: .failed)
+        checkingQuestionary(options: VBG_33_BTN1, VBG_33_BTN2, VBG_33_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q3, inbold: nil, type: .failed)
     }
+    
     @IBAction func checkModule3Question4(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_34_BTN1, VBG_34_BTN2, VBG_34_BTN3, VBG_34_BTN4) ? nextPage(M1_CROSSWORD_BTN_N) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q4, inbold: nil, type: .failed)
+        checkingQuestionary(options: VBG_34_BTN1, VBG_34_BTN2, VBG_34_BTN3, VBG_34_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q4, inbold: nil, type: .failed)
+    }
+    
+    // MARK: Module 4 Functions
+    // Reproduce o pausa los audios de "Conflicto armado, Medias"
+    @IBAction func playAudio_VBG39(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+     
+        switch sender {
+     
+         case VBG_39_AUD1:
+            vbgDelegate?.audioManager(audioID: .AUD_17, play: sender.isSelected)
+            break
+     
+         case VBG_39_AUD2:
+            vbgDelegate?.audioManager(audioID: .AUD_18, play: sender.isSelected)
+            break
+     
+         default:
+            vbgDelegate?.audioManager(audioID: .AUD_19, play: sender.isSelected)
+            break
+         }
+     
+         updateButtonsState(sender: sender, buttons: [VBG_39_AUD1, VBG_39_AUD2, VBG_39_AUD3])
+    }
+    
+    @IBAction func checkModule4Question1(_ sender: UIButton) {
+        checkingQuestionary(options: VBG_47_BTN1, VBG_47_BTN2, VBG_47_BTN3, VBG_47_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q1, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checkModule4Question2(_ sender: UIButton) {
+        checkingQuestionary(options: VBG_48_BTN1, VBG_48_BTN2, VBG_48_BTN3, VBG_48_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q2, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checkModule4Question3(_ sender: UIButton) {
+        VBG_49_INPUT.text == Strings.emergency_line_155 ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q3, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checkModule4Question4(_ sender: UIButton) {
+        checkingQuestionary(options: VBG_50_BTN1, VBG_50_BTN2, VBG_50_BTN3, VBG_50_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q4, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checkModule4Question5(_ sender: UIButton) {
+        checkingQuestionary(options: VBG_51_BTN1, VBG_51_BTN2, VBG_51_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q5, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checkModule4Question6(_ sender: UIButton) {
+        checkingQuestionary(options: VBG_52_BTN1, VBG_52_BTN2, VBG_52_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q6, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checkModule4Question7(_ sender: UIButton) {
+        checkingQuestionary(options: VBG_53_BTN1, VBG_53_BTN2, VBG_53_BTN3, VBG_53_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q7, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checkModule4Question8(_ sender: UIButton) {
+        checkingQuestionary(options: VBG_54_BTN1, VBG_54_BTN2, VBG_54_BTN3, VBG_54_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q8, inbold: nil, type: .failed)
     }
 }
