@@ -336,6 +336,7 @@
 		462609DC1FFBE70000A3706C = {
 			isa = PBXGroup;
 			children = (
+				6B2F5A91202027D600FD66ED /* New Group */,
 				462609E71FFBE70000A3706C /* conse */,
 				462609FC1FFBE70000A3706C /* conseTests */,
 				46260A071FFBE70000A3706C /* conseUITests */,
@@ -507,6 +508,13 @@
 				6B2545701FFED5D800235827 /* ColorsString.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		6B2F5A91202027D600FD66ED /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		6B33A38C200D920800971A1E /* Documents */ = {

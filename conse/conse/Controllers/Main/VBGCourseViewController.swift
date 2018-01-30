@@ -16,7 +16,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
     
     // MARK: - Properties
     var ncrAudio: AVAudioPlayer?
-    
+    var mainDelegate: MainProtocol?
     var isPlaying = nullString
     let maxPageIndex: Int = 55
     var currentIndex: Int = 0
@@ -26,6 +26,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
         super.viewDidLoad()
 
         currentIndex = AplicationRuntime.sharedManager.getIndex(forCourse: .VBG)
+        mainDelegate = AplicationRuntime.sharedManager.mainDelegate
 //        if currentIndex == VBG_INDEX.M1COMPLET.rawValue { currentIndex += 1 }
         
         vbg_table.delegate = self
@@ -85,6 +86,10 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
         reloadTable()
     }
     
+    func goCourses(){
+        mainDelegate?.addToContainer(viewControllerID: .myCourses)
+    }
+    
     func audioManager(audioID id: AUDIO_ID, play: Bool) {
         let audioName = getAudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
@@ -128,8 +133,9 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
     }
     
     private func reloadTable() {
+        let indexPath = IndexPath(row: 0, section: 0)
+        vbg_table.scrollToRow(at: indexPath, at: .top, animated: true)
         vbg_table.reloadData()
-        vbg_table.setContentOffset(.zero, animated: true)
     }
     
     // MARK: - AVAudioPlayer Delegate
@@ -520,7 +526,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_46, for: indexPath) as! VBGTableViewCell
 
             cell.vbgDelegate = self
-            cell.fill_VBG_47()
+            cell.fill_VBG_46()
 
             return cell
         }

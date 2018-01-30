@@ -13,7 +13,8 @@ import MessageUI
 class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     
     var messageBody = nullString
-    var textMessageRecipients: Array<String> = []// for pre-populating the recipients list
+    var textMessageRecipients: [String] = []// for pre-populating the recipients list
+    weak var sendAlertDelegate: SendAlertProtocol?
     
     // A wrapper function to indicate whether or not a text message can be sent from the user's device
     func canSendText() -> Bool {
@@ -21,8 +22,9 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     }
     
     // Functions for set recipients
-    func messageRecipientes(message: String, contactList: Array<String>) {
+    func messageRecipientes(message: String, contactList: Array<String>, sendDelegate: SendAlertProtocol) {
         messageBody = message
+        sendAlertDelegate = sendDelegate
         textMessageRecipients = contactList
     }
     
@@ -30,13 +32,16 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     func configuredMessageComposeViewController() -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
-        messageComposeVC.recipients = textMessageRecipients
+        printDebugMessage(tag: "list \(textMessageRecipients)")
+        messageComposeVC.recipients = textMessageRecipients//["3204292282","3132133300"]
         messageComposeVC.body = messageBody
         return messageComposeVC
     }
     
     // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-        controller.dismiss(animated: true, completion: nil)
+        controller.dismiss(animated: true, completion: {
+            self.sendAlertDelegate?.dismissPopup(error: false)
+        })
     }
 }

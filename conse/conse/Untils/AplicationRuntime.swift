@@ -200,7 +200,7 @@ class AplicationRuntime {
         
         var arrayNumbers: Array<String> = []
         for contact in self.trustedContacts {
-            arrayNumbers.append(contact.number.digits)
+            arrayNumbers.append(contact.number)
         }
         
         return arrayNumbers

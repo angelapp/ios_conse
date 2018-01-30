@@ -144,7 +144,7 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
         cell.lbl_contact_number.text = contactList[indexPath.row].number
         cell.btn_edit_contact.imageView?.contentMode = .scaleAspectFit
         
-        cell.tag = indexPath.row
+        cell.btn_edit_contact.tag = indexPath.row
         cell.btn_edit_contact.addGestureRecognizer(selected)
         
         return cell
@@ -195,6 +195,7 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
             list.contacList = contactList
             
             StorageFunctions.saveContactList(list: list)
+            AplicationRuntime.sharedManager.setTrustedConctacs(list: contactList)
             performSegue(withIdentifier: segueID.savedContacs, sender: self)
             break
         }

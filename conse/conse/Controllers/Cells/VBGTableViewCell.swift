@@ -351,6 +351,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var VBG_44_LBL2: UILabel!
     @IBOutlet weak var VBG_44_LBL3: UILabel!
     @IBOutlet weak var VBG_44_AUD: UIButton!
+    @IBOutlet weak var VBG_44_AVATAR: UIImageView!
 
     @IBOutlet weak var VBG_45_LBL1: UILabel!
     @IBOutlet weak var VBG_45_LBL2: UILabel!
@@ -700,7 +701,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_VBG_27() {
-        VBG_26_LBL1.text = VBG_COURSE.VBG_27_T1
+        VBG_27_LBL1.text = VBG_COURSE.VBG_27_T1
     }
 
     func fill_VBG_28() {
@@ -852,6 +853,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         VBG_44_LBL1.text = VBG_COURSE.VBG_44_T1
         VBG_44_LBL2.text = VBG_COURSE.VBG_44_T2
         VBG_44_LBL3.text = VBG_COURSE.VBG_44_T3
+        VBG_44_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
 
     func fill_VBG_45() {
@@ -966,9 +968,9 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         // set tag for identify correct option
         VBG_54_BTN1.tag = CORRECT_OPTION
-        VBG_54_BTN2.tag = WRONG_OPTION
+        VBG_54_BTN2.tag = CORRECT_OPTION
         VBG_54_BTN3.tag = CORRECT_OPTION
-        VBG_54_BTN4.tag = CORRECT_OPTION
+        VBG_54_BTN4.tag = WRONG_OPTION
     }
 
     func fill_VBG_55(height: CGFloat) {
@@ -985,6 +987,10 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func nextPage(_ sender: UIButton?) {
         vbgDelegate?.nextPage()
+    }
+    
+    @IBAction func endCourse(_ sender: UIButton) {
+        vbgDelegate?.goCourses()
     }
     
     @IBAction func changeButtonState(_ sender: UIButton){
@@ -1036,9 +1042,9 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         if VBG_38_AUD != nil && VBG_38_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_16, play: sender.isSelected) }
         
-//        if VBG_40_AUD != nil && VBG_40_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_20, play: sender.isSelected) }
-//
-//        if VBG_44_AUD != nil && VBG_44_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_21, play: sender.isSelected) }
+        if VBG_40_AUD != nil && VBG_40_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_20, play: sender.isSelected) }
+
+        if VBG_44_AUD != nil && VBG_44_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_21, play: sender.isSelected) }
     }
     
     // MARK: - Module 1 Functions

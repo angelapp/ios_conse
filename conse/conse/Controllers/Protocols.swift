@@ -31,6 +31,10 @@ protocol TestAlertProtocol: class {
     func startStepTwo()
 }
 
+protocol SendAlertProtocol: class {
+    func dismissPopup(error: Bool)
+}
+
 protocol MainProtocol: class {
     func addToContainer(viewControllerID id: ViewControllerTag)
     func removeOfContainer()
@@ -42,6 +46,7 @@ protocol MainProtocol: class {
 protocol VBGProtocol: class {
     func nextPage()
     func previusPage()
+    func goCourses()
     func audioManager(audioID id: AUDIO_ID, play: Bool)
     func showPopupHelp(title: String, text: String)
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)

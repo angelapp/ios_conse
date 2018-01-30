@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class SendAlertPopupViewController: UIViewController, CLLocationManagerDelegate {
+class SendAlertPopupViewController: UIViewController, CLLocationManagerDelegate, SendAlertProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_sendAlert: UIButton!
@@ -63,7 +63,7 @@ class SendAlertPopupViewController: UIViewController, CLLocationManagerDelegate 
     }
     
     // MARK: - Private Functions
-    private func dismissPopup(error: Bool) {
+    func dismissPopup(error: Bool) {
         testAlertDelegate?.startStepTwo()
         cancelAction(btn_cancelAlert)
         
@@ -108,7 +108,7 @@ class SendAlertPopupViewController: UIViewController, CLLocationManagerDelegate 
         case btn_sendAlert:
             
             // Add message body and recipients list
-            messageComposer.messageRecipientes(message: messageBody, contactList: contacts)
+            messageComposer.messageRecipientes(message: messageBody, contactList: contacts, sendDelegate: self)
             
             // Make sure the device can send text messages
             if (messageComposer.canSendText()) {
