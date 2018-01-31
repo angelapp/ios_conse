@@ -28,7 +28,7 @@ enum FileActions: Int {
 enum VBG_INDEX: Int {
     case M0P0 // Página de bienvenida al curso
     case M0P1 
-    case M1P0 // Inicio Modulo 1
+    case M1P0 // Modulo 1
     case M1P1
     case M1P2
     case M1P3
@@ -38,7 +38,7 @@ enum VBG_INDEX: Int {
     case M1P7
     case M1TEST // Crucigrama
     case M1COMPLET
-    case VBG_13 // MODULO 3
+    case VBG_13 // MODULO 2
     case VBG_14
     case VBG_15
     case VBG_16

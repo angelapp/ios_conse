@@ -118,6 +118,18 @@ func arrayTransform(from tempArray: Array<Any>) -> Array<OrganizationType> {
     return arrayModel
 }
 
+func getProgress(forCourse index: Int) -> Array<ModuleProgressItem>{
+    
+    var progress: Array<ModuleProgressItem> = []
+    
+    progress.append(ModuleProgressItem(image: Strings.image_begginer_off, title: Strings.level_begginer, progress: 0.0))
+    progress.append(ModuleProgressItem(image: Strings.image_expert_off, title: Strings.level_expert, progress: 0.0))
+    progress.append(ModuleProgressItem(image: Strings.image_advanced_off, title: Strings.level_advanced, progress: 0.0))
+    progress.append(ModuleProgressItem(image: Strings.image_star_off, title: Strings.level_star, progress: 0.0))
+    
+    return progress
+}
+
 func printDebugMessage(tag: String) {
     #if DEBUG
         print("\(debugFlag) \(tag)")

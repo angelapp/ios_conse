@@ -52,25 +52,21 @@ class DownloadPopupViewController: UIViewController {
         let stringURl = document.file ?? nullString
         let fileURL = stringURl.contains(Strings.hasHTTPProtocol) ? stringURl : Strings.httpProtocol + stringURl
         
-        lbl_download.text = Strings.copy_downloading
-        Network.download(file: fileURL, completion: {(response) in
+        if UIApplication.shared.canOpenURL(URL(string: fileURL)!) {
             
-            switch response {
-                
-            case .succeeded(_, let msn):
-                self.buttonActions(self.btn_cancel)
-                self.mainDelegate?.showMessageInMain(withMessage: msn)
-                break
-                
-            case .error(let error):
-                print(error.debugDescription)
-                break
-                
-            default:
-                break
+            self.buttonActions(self.btn_cancel)
+            
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(URL(string: fileURL)!)
             }
-        })
-        
+            else {
+                UIApplication.shared.openURL(URL(string: fileURL)!)
+            }
+            
+        }
+        else {
+            mainDelegate?.showMessageInMain(withMessage: NetworkErrorMessage.notFoundError)
+        }
     }
     
     // MARK: - Actions

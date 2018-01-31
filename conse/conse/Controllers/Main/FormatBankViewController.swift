@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class FormatBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, FormatBankProtocol {
+class FormatBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, WKNavigationDelegate, FormatBankProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var table_formats: UITableView!
@@ -35,9 +36,15 @@ class FormatBankViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let pdf = Bundle.main.url(forResource: documentName, withExtension: fileExt, subdirectory: nil, localization: nil) else { return }
         
         if action == .open {
-            let documentInteractionController = UIDocumentInteractionController(url: pdf)
-            documentInteractionController.delegate = self
-            documentInteractionController.presentPreview(animated: true)
+            
+            let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.openFile) as! OpenFilePopupViewController
+            
+            nextVC.fileName = documentName
+            nextVC.fileExt = fileExt
+            nextVC.modalPresentationStyle = .overCurrentContext
+            nextVC.modalTransitionStyle = .crossDissolve
+            present(nextVC, animated: true, completion: nil)
         }
         
         if action == .share {

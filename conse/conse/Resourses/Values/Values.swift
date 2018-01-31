@@ -67,6 +67,8 @@ enum ViewControllerTag : Int {
     case main
     case makeAvatar
     case myCourses
+    case openFile
+    case progress
     case protectionShield
     case recoveryPass
     case register

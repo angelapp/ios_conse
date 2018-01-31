@@ -96,6 +96,18 @@ class MyCommunityItem {
     }
 }
 
+class ModuleProgressItem {
+    var image: String!
+    var title: String!
+    var progress: Float!
+    
+    init(image: String, title: String, progress: Float) {
+        self.image = image
+        self.title = title
+        self.progress = progress
+    }
+}
+
 /** Modelo para mantener el indice de la pág actual de los cursos */
 class CoursesProgress {
     

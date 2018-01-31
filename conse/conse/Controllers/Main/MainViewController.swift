@@ -173,4 +173,13 @@ class MainViewController: UIViewController, MainProtocol {
     @IBAction func buttonAction(_ sender: UIButton) {
         self.showCallEmergency(senderVC: .main)
     }
+    
+    @IBAction func showProgress(_ sender: UIButton) {
+        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.progress) as! ProgressViewController
+        
+        nextVC.modalPresentationStyle = .overCurrentContext
+        nextVC.modalTransitionStyle = .crossDissolve
+        present(nextVC, animated: true, completion: nil)
+    }
 }

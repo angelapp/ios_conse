@@ -31,6 +31,8 @@ struct CellsId {
     static let legalHeader = "legalHeaderCell"
     static let shieldBody = "shieldBodyCell"
     static let shieldHeader = "shieldHeaderCell"
+    
+    static let progress = "progressCell"
 
     static let VBG_M0P0 = "VBG_M0P0_CELL"
     static let VBG_M0P1 = "VBG_M0P1_CELL"
@@ -123,6 +125,8 @@ struct ViewControllersId {
     static let main = "mainVC"
     static let makeAvatar = "makeYourAvatarVC"
     static let myCourses = "myCourseVC"
+    static let openFile = "openFileVC"
+    static let progress = "progressVC"
     static let protectionShield = "protectionShieldVC"
     static let recoveryPass = "recoveryPasswordVC"
     static let register = "registerVC"
