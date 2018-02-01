@@ -138,6 +138,15 @@
 		6BF8A7A81FFDA4760094764D /* TestAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF8A7A71FFDA4760094764D /* TestAlertViewController.swift */; };
 		6BF8ADB31FFE9DD20074EA88 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF8ADB11FFE9DD10074EA88 /* NetworkConstants.swift */; };
 		6BF8ADB41FFE9DD20074EA88 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF8ADB21FFE9DD20074EA88 /* NetworkConfig.swift */; };
+		6BF906C320225C340051636B /* ProtectionRouteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906C220225C340051636B /* ProtectionRouteTableViewCell.swift */; };
+		6BF906C520225E040051636B /* LeadersRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906C420225E040051636B /* LeadersRouteViewController.swift */; };
+		6BF906C720225E160051636B /* LeadersRouteOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906C620225E160051636B /* LeadersRouteOneViewController.swift */; };
+		6BF906C920225E290051636B /* LeadersRouteTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906C820225E290051636B /* LeadersRouteTwoViewController.swift */; };
+		6BF906CB20225E490051636B /* VBGRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906CA20225E490051636B /* VBGRouteViewController.swift */; };
+		6BF906CD20225E740051636B /* VBGRouteOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906CC20225E740051636B /* VBGRouteOneViewController.swift */; };
+		6BF906CF20225EA10051636B /* ProtectionRoutesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906CE20225EA10051636B /* ProtectionRoutesViewController.swift */; };
+		6BF906D120225F000051636B /* SelectRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906D020225F000051636B /* SelectRouteViewController.swift */; };
+		6BF906D320225F130051636B /* ViedoPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF906D220225F130051636B /* ViedoPlayerViewController.swift */; };
 		A0CF9A8B7AEF4FE8ADE34D78 /* Pods_conse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB2C8B43B0F553A051A5701F /* Pods_conse.framework */; };
 		D5F081CD22B0326745B75D40 /* Pods_conseTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1717475FD59246CC9CACB98E /* Pods_conseTests.framework */; };
 		F78DE51EACFF03981129AD4A /* Pods_conseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1262978F0A73B3EE5A48BBA /* Pods_conseUITests.framework */; };
@@ -304,6 +313,15 @@
 		6BF8A7A71FFDA4760094764D /* TestAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAlertViewController.swift; sourceTree = "<group>"; };
 		6BF8ADB11FFE9DD10074EA88 /* NetworkConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		6BF8ADB21FFE9DD20074EA88 /* NetworkConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		6BF906C220225C340051636B /* ProtectionRouteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionRouteTableViewCell.swift; sourceTree = "<group>"; };
+		6BF906C420225E040051636B /* LeadersRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersRouteViewController.swift; sourceTree = "<group>"; };
+		6BF906C620225E160051636B /* LeadersRouteOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersRouteOneViewController.swift; sourceTree = "<group>"; };
+		6BF906C820225E290051636B /* LeadersRouteTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadersRouteTwoViewController.swift; sourceTree = "<group>"; };
+		6BF906CA20225E490051636B /* VBGRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBGRouteViewController.swift; sourceTree = "<group>"; };
+		6BF906CC20225E740051636B /* VBGRouteOneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VBGRouteOneViewController.swift; sourceTree = "<group>"; };
+		6BF906CE20225EA10051636B /* ProtectionRoutesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtectionRoutesViewController.swift; sourceTree = "<group>"; };
+		6BF906D020225F000051636B /* SelectRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRouteViewController.swift; sourceTree = "<group>"; };
+		6BF906D220225F130051636B /* ViedoPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViedoPlayerViewController.swift; sourceTree = "<group>"; };
 		6DD953941902C7880B5EC12E /* Pods-conseTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conseTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-conseTests/Pods-conseTests.release.xcconfig"; sourceTree = "<group>"; };
 		B1262978F0A73B3EE5A48BBA /* Pods_conseUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_conseUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C748E130F2E842A1ABEC3269 /* Pods-conseTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-conseTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-conseTests/Pods-conseTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -609,13 +627,21 @@
 				6B96468E201799C5002ADD3D /* CommunityViewController.swift */,
 				6B79E37B20093F4A004990E9 /* DocumentBankViewController.swift */,
 				6B33A399200E888700971A1E /* FormatBankViewController.swift */,
+				6BF906C420225E040051636B /* LeadersRouteViewController.swift */,
+				6BF906C620225E160051636B /* LeadersRouteOneViewController.swift */,
+				6BF906C820225E290051636B /* LeadersRouteTwoViewController.swift */,
 				6B79E37320093C47004990E9 /* LeftMenuViewController.swift */,
 				6B33A39B200E88EA00971A1E /* LegalViewController.swift */,
 				6B79E37120093BA0004990E9 /* MainViewController.swift */,
 				6B79E37720093E2C004990E9 /* MyCoursesViewController.swift */,
-				6B33A3BD200FEB5400971A1E /* VBGCourseViewController.swift */,
 				6B33A3BF200FEB7600971A1E /* PLCCourseViewController.swift */,
+				6BF906CE20225EA10051636B /* ProtectionRoutesViewController.swift */,
 				6B33A39D200E893700971A1E /* ProtectionShieldViewController.swift */,
+				6BF906D020225F000051636B /* SelectRouteViewController.swift */,
+				6B33A3BD200FEB5400971A1E /* VBGCourseViewController.swift */,
+				6BF906CA20225E490051636B /* VBGRouteViewController.swift */,
+				6BF906CC20225E740051636B /* VBGRouteOneViewController.swift */,
+				6BF906D220225F130051636B /* ViedoPlayerViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -674,6 +700,7 @@
 				6B33A3A1200E902B00971A1E /* LegalBodyTableViewCell.swift */,
 				6B33A3A3200E904700971A1E /* LegalHeaderTableViewCell.swift */,
 				6B1E7599202101C80078F0B5 /* ProgressTableViewCell.swift */,
+				6BF906C220225C340051636B /* ProtectionRouteTableViewCell.swift */,
 				6B33A3A5200E905800971A1E /* ShieldBodyTableViewCell.swift */,
 				6B33A3A7200E907500971A1E /* ShieldHeaderTableViewCell.swift */,
 				6B33A3C1200FFA5400971A1E /* VBGTableViewCell.swift */,
@@ -1066,8 +1093,10 @@
 				6B33A3AE200EB25C00971A1E /* AboutUsTab1ViewController.swift in Sources */,
 				6B79E37E2009494D004990E9 /* AboutUsViewController.swift in Sources */,
 				6B9222D7200414B100D8B779 /* LoaderViewController.swift in Sources */,
+				6BF906C320225C340051636B /* ProtectionRouteTableViewCell.swift in Sources */,
 				6B6AD2CE20155AA200FB541C /* DownloadPopupViewController.swift in Sources */,
 				6B79E38220094E35004990E9 /* SWRevealViewController.m in Sources */,
+				6BF906C720225E160051636B /* LeadersRouteOneViewController.swift in Sources */,
 				6B25456C1FFECB1800235827 /* VideoTutorialViewController.swift in Sources */,
 				6B33A3AA200EA67300971A1E /* VBG_Strings.swift in Sources */,
 				6B2545731FFEDBE500235827 /* ModelsSerializer.swift in Sources */,
@@ -1100,9 +1129,12 @@
 				6B33A3BA200FA3D200971A1E /* Document_Bank.swift in Sources */,
 				6B96468D20179886002ADD3D /* CommunityBodyTableViewCell.swift in Sources */,
 				6B79E37420093C47004990E9 /* LeftMenuViewController.swift in Sources */,
+				6BF906D120225F000051636B /* SelectRouteViewController.swift in Sources */,
+				6BF906C520225E040051636B /* LeadersRouteViewController.swift in Sources */,
 				6BF8ADB31FFE9DD20074EA88 /* NetworkConstants.swift in Sources */,
 				6BF14C2220084F190045E262 /* EmergencyCallPopupViewController.swift in Sources */,
 				6BF14C1C20079D400045E262 /* ChoiceAvatarGenderViewController.swift in Sources */,
+				6BF906CD20225E740051636B /* VBGRouteOneViewController.swift in Sources */,
 				6B1F5AA11FFBF0E900DA650D /* RegisterViewController.swift in Sources */,
 				6B33A3B8200ED6B500971A1E /* AboutNRC3TableViewCell.swift in Sources */,
 				6B25456F1FFED58F00235827 /* Colors.swift in Sources */,
@@ -1112,6 +1144,7 @@
 				6B1F5A9D1FFBF09E00DA650D /* WelcomeViewController.swift in Sources */,
 				6B79E37620093C72004990E9 /* RigthProgressViewController.swift in Sources */,
 				6B33A3BC200FDDDC00971A1E /* CoursesValues.swift in Sources */,
+				6BF906CB20225E490051636B /* VBGRouteViewController.swift in Sources */,
 				462609EB1FFBE70000A3706C /* ViewController.swift in Sources */,
 				6B33A3A6200E905800971A1E /* ShieldBodyTableViewCell.swift in Sources */,
 				6B1E7598202101640078F0B5 /* ProgressViewController.swift in Sources */,
@@ -1129,12 +1162,15 @@
 				6B79E37C20093F4A004990E9 /* DocumentBankViewController.swift in Sources */,
 				6B9646952017FC27002ADD3D /* CoursesMessagesPopupViewController.swift in Sources */,
 				6B33A3B6200ED6A200971A1E /* AboutNRC2TableViewCell.swift in Sources */,
+				6BF906CF20225EA10051636B /* ProtectionRoutesViewController.swift in Sources */,
+				6BF906D320225F130051636B /* ViedoPlayerViewController.swift in Sources */,
 				6B33A3B4200ED61B00971A1E /* AboutNRC1TableViewCell.swift in Sources */,
 				6B9222D02003DBF700D8B779 /* AplicationRuntime.swift in Sources */,
 				6B2F5A932020C1C400FD66ED /* OpenFilePopupViewController.swift in Sources */,
 				6B96468F201799C5002ADD3D /* CommunityViewController.swift in Sources */,
 				6BF14C152006E5880045E262 /* SendAlertPopupViewController.swift in Sources */,
 				6B3C45C2200670C7002C4454 /* StorageModels.swift in Sources */,
+				6BF906C920225E290051636B /* LeadersRouteTwoViewController.swift in Sources */,
 				6B33A3A4200E904700971A1E /* LegalHeaderTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

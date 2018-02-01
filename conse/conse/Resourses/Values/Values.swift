@@ -59,6 +59,9 @@ enum ViewControllerTag : Int {
     case editProfile
     case emergencyCallPopup
     case formatBank
+    case leadersRoute
+    case leadersRouteOne
+    case leadersRouteTwo
     case leftMenu
     case legal
     case letStart
@@ -69,13 +72,18 @@ enum ViewControllerTag : Int {
     case myCourses
     case openFile
     case progress
+    case protectionRoutes
     case protectionShield
     case recoveryPass
     case register
     case rigthProgressPopup
+    case selectRoute
     case sendAlertPopup
     case swMenu
     case testAlert
+    case vbgRoute
+    case vbgRouteOne
+    case videoPlayer
     case welcome
 }
 
@@ -87,4 +95,16 @@ enum TypeMessage: Int {
 enum IdView : Int {
     case NCR_DATA
     case CITY_SELECTOR
+}
+
+enum LeadersRouteOneIndex : Int {
+    case route1, route2, route3, route4, route5, route6, route7
+}
+
+enum LeadersRouteTwoIndex : Int {
+    case route1, route2, route3, route4, route5
+}
+
+enum VBGRouteIndex : Int {
+    case route1, route2, route3, route4, route5, route6
 }

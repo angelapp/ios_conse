@@ -72,6 +72,8 @@ class LeftMenuViewController: UIViewController {
             break
             
         case btn_routes:
+            mainDelegate?.addToContainer(viewControllerID: .protectionRoutes)
+            self.revealViewController().revealToggle(animated: true)
             break
             
         case btn_courses:

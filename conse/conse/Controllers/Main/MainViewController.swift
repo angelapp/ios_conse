@@ -27,6 +27,7 @@ class MainViewController: UIViewController, MainProtocol {
     var editProfileVC: RegisterViewController!
     var myCommunityVC: CommunityViewController!
     var myCourseVC: MyCoursesViewController!
+    var myRoutesVC: ProtectionRoutesViewController!
     var plcCourseVC: PLCCourseViewController!
     var vbgCourseVC: VBGCourseViewController!
     
@@ -69,6 +70,7 @@ class MainViewController: UIViewController, MainProtocol {
         documentBankVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.documentBank) as! DocumentBankViewController
         myCommunityVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.community) as! CommunityViewController
         myCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.myCourses) as! MyCoursesViewController
+        myRoutesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.protectionRoutes) as! ProtectionRoutesViewController
         plcCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.coursePLC) as! PLCCourseViewController
         vbgCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.courseVBG) as! VBGCourseViewController
         
@@ -95,6 +97,9 @@ class MainViewController: UIViewController, MainProtocol {
         case .documentBank:
             return documentBankVC
             
+        case .protectionRoutes:
+            return myRoutesVC
+            
         case .myCourses:
             myCourseVC.mainDelegate = self
             return myCourseVC
@@ -111,7 +116,8 @@ class MainViewController: UIViewController, MainProtocol {
             return editProfileVC
             
         default:
-            return contactFormVC
+            myCourseVC.mainDelegate = self
+            return myCourseVC
         }
     }
     

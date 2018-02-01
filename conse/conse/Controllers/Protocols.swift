@@ -43,6 +43,8 @@ protocol MainProtocol: class {
     func openSettingsPopup(title: String, message: String, settings: String)
 }
 
+
+// Protocolos para Cursos
 protocol VBGProtocol: class {
     func nextPage()
     func previusPage()
@@ -52,10 +54,32 @@ protocol VBGProtocol: class {
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
 }
 
+// Protocolos para Banco de Documentos
 protocol FormatBankProtocol: class {
     func openShareDocument(documentName: String, fileExt: String, action: FileActions)
 }
 
+// Protocolos para Analizo mi comunidad
 protocol CommunityProtocol: class {
     func openShareDocument(documentName: String, fileExt: String, action: FileActions)
+}
+
+// Protocolos para Rutas de Protección
+protocol ProtectionRouteProtocol: class {
+    func showRoute(id: ViewControllerTag)
+}
+
+protocol VBGRouteProtocol: class {
+    func nextPage()
+    func previusPage()
+}
+
+protocol LeadersRouteOneProtocol: class {
+    func nextPage()
+    func previusPage()
+}
+
+protocol LeadersRouteTwoProtocol: class {
+    func nextPage()
+    func previusPage()
 }

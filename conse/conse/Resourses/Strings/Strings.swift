@@ -112,6 +112,28 @@ struct ImageName {
     static let tryAgainHover = "btn_intentar_hover"
 }
 
+// MARK: - Images names
+struct RoutesImages {
+    static let leadersRoute1_1 = "protection_path_leaders_01"
+    static let leadersRoute1_2 = "protection_path_leaders_02"
+    static let leadersRoute1_3 = "protection_path_leaders_03"
+    static let leadersRoute1_4 = "protection_path_leaders_04"
+    static let leadersRoute1_5 = "protection_path_leaders_05"
+    static let leadersRoute1_6 = "protection_path_leaders_06"
+    static let leadersRoute1_7 = "protection_path_leaders_07"
+    static let leadersRoute2_1 = "protection_path_leaders_08"
+    static let leadersRoute2_2 = "protection_path_leaders_09"
+    static let leadersRoute2_3 = "protection_path_leaders_10"
+    static let leadersRoute2_4 = "protection_path_leaders_11"
+    static let leadersRoute2_5 = "protection_path_leaders_12"
+    static let vgbRoute_1 = "protection_path_vbg_01"
+    static let vgbRoute_2 = "protection_path_vbg_02"
+    static let vgbRoute_3 = "protection_path_vbg_03"
+    static let vgbRoute_4 = "protection_path_vbg_04"
+    static let vgbRoute_5 = "protection_path_vbg_05"
+    static let vgbRoute_6 = "protection_path_vbg_06"
+}
+
 // MARK: - Formats
 
 /// Formatos de fecha

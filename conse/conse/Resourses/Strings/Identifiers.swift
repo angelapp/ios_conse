@@ -33,6 +33,25 @@ struct CellsId {
     static let shieldHeader = "shieldHeaderCell"
     
     static let progress = "progressCell"
+    
+    static let leadersRoute1_1 = "leaders1_1_Cell"
+    static let leadersRoute1_2 = "leaders1_2_Cell"
+    static let leadersRoute1_3 = "leaders1_3_Cell"
+    static let leadersRoute1_4 = "leaders1_4_Cell"
+    static let leadersRoute1_5 = "leaders1_5_Cell"
+    static let leadersRoute1_6 = "leaders1_6_Cell"
+    static let leadersRoute1_7 = "leaders1_7_Cell"
+    static let leadersRoute2_1 = "leaders2_1_Cell"
+    static let leadersRoute2_2 = "leaders2_2_Cell"
+    static let leadersRoute2_3 = "leaders2_3_Cell"
+    static let leadersRoute2_4 = "leaders2_4_Cell"
+    static let leadersRoute2_5 = "leaders2_5_Cell"
+    static let vgbRoute_1 = "vgbRoute_1_Cell"
+    static let vgbRoute_2 = "vgbRoute_2_Cell"
+    static let vgbRoute_3 = "vgbRoute_3_Cell"
+    static let vgbRoute_4 = "vgbRoute_4_Cell"
+    static let vgbRoute_5 = "vgbRoute_5_Cell"
+    static let vgbRoute_6 = "vgbRoute_6_Cell"
 
     static let VBG_M0P0 = "VBG_M0P0_CELL"
     static let VBG_M0P1 = "VBG_M0P1_CELL"
@@ -89,7 +108,7 @@ struct CellsId {
     static let VBG_53 = "VBG_53_CELL"
     static let VBG_54 = "VBG_54_CELL"
     static let VBG_55 = "VBG_55_CELL"
-    }
+}
 
 /// Storyboards Identifiers
 struct StoryboardsId {
@@ -117,6 +136,9 @@ struct ViewControllersId {
     static let downloadPopup = "downloadPopupVC"
     static let emergencyCallPopup = "emergencyCallPopupVC"
     static let formatBank = "formatBankVC"
+    static let leadersRoute = "leadersRouteVC"
+    static let leadersRouteOne = "leadersRouteOneVC"
+    static let leadersRouteTwo = "leadersRouteTwoVC"
     static let leftMenu = "leftMenuVC"
     static let legal = "legalVC"
     static let letStart = "letStartVC"
@@ -127,13 +149,18 @@ struct ViewControllersId {
     static let myCourses = "myCourseVC"
     static let openFile = "openFileVC"
     static let progress = "progressVC"
+    static let protectionRoutes = "protectionRoutesVC"
     static let protectionShield = "protectionShieldVC"
     static let recoveryPass = "recoveryPasswordVC"
     static let register = "registerVC"
     static let rigthProgressPopup = "rigthProgressVC"
+    static let selectRoute = "selectRouteVC"
     static let sendAlertPopup = "sendAlertPopupVC"
     static let swMenu = "SWRevealViewController"
     static let testAlert = "TestAlertVC"
+    static let vbgRoute = "vbgRouteVC"
+    static let vbgRouteOne = "vbgRouteOneVC"
+    static let videoPLayer = "videoPlayerVC"
     static let welcome = "welcomeVC"
 }
 
