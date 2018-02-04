@@ -7,13 +7,23 @@
 //
 
 import UIKit
+import WebKit
 
-class ViedoPlayerViewController: UIViewController {
+class ViedoPlayerViewController: UIViewController, WKNavigationDelegate {
 
+    // MARK: - Otlets
+    @IBOutlet weak var videoPlayer: WKWebView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
+    
+    // MARK: - Properties
+    var videoID: String = "j6ADr_icqH8"
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        videoPlayer.navigationDelegate = self
+        getVideo(forID: videoID)
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,15 +31,18 @@ class ViedoPlayerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // MARK: - Private function
+    func getVideo(forID id: String) -> Void {
+        let url = URL(string: String(format: Strings.youtubeEmbedFormat, id))
+        videoPlayer.load(URLRequest(url: url!))
     }
-    */
-
+    
+    // MARK: - WKNavigation Delegate
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        loader.startAnimating()
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        loader.stopAnimating()
+    }
 }

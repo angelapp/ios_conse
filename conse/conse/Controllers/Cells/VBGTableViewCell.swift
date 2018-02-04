@@ -457,8 +457,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     let WRONG_OPTION: Int = 0
     
     weak var vbgDelegate: VBGProtocol?
-    
-    
+
+    // MARK: - cell
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -470,6 +470,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
+    // MARK: - Fill cell
     func fillM0P0() {
         M0P0_LBL1.text = VBG_COURSE.M0P0T1
         M0P0_LBL2.text = VBG_COURSE.M0P0T2
@@ -601,6 +602,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func fill_VBG_13() {
+        VBG_13_AUD.isSelected = false
         VBG_13_LBL1.text = VBG_COURSE.VBG_13_T1
         VBG_13_LBL2.text = VBG_COURSE.VBG_13_T2
         VBG_13_LBL3.text = VBG_COURSE.VBG_13_T3
@@ -647,6 +649,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func fill_VBG_18() {
+        VBG_18_AUD.isSelected = false
         VBG_18_LBL1.text = VBG_COURSE.VBG_18_T1
         VBG_18_LBL2.text = VBG_COURSE.VBG_18_T2
         VBG_18_LBL3.text = VBG_COURSE.VBG_18_T3
@@ -661,6 +664,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func fill_VBG_20() {
+        VBG_20_AUD.isSelected = false
         VBG_20_LBL1.text = VBG_COURSE.VBG_20_T1
         VBG_20_LBL2.text = VBG_COURSE.VBG_20_T2
         VBG_20_LBL3.text = VBG_COURSE.VBG_20_T3
@@ -673,6 +677,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func fill_VBG_22() {
+        VBG_22_AUD.isSelected = false
         VBG_22_LBL1.text = VBG_COURSE.VBG_22_T1
         VBG_22_LBL2.text = VBG_COURSE.VBG_22_T2
         VBG_22_LBL3.text = VBG_COURSE.VBG_22_T3
@@ -685,6 +690,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_VBG_24() {
+        VBG_24_AUD.isSelected = false
         VBG_24_LBL1.text = VBG_COURSE.VBG_24_T1
         VBG_24_LBL2.text = VBG_COURSE.VBG_24_T2
         VBG_24_LBL3.text = VBG_COURSE.VBG_24_T3
@@ -705,6 +711,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_VBG_28() {
+        VBG_28_AUD.isSelected = false
         VBG_28_LBL1.text = VBG_COURSE.VBG_28_T1
         VBG_28_LBL2.text = VBG_COURSE.VBG_28_T2
         VBG_28_LBL3.text = VBG_COURSE.VBG_28_T3
@@ -799,6 +806,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_VBG_38() {
+        VBG_38_AUD.isSelected = false
         VBG_38_LBL1.text = VBG_COURSE.VBG_38_T1
         VBG_38_LBL2.text = VBG_COURSE.VBG_38_T2
         VBG_38_LBL3.text = VBG_COURSE.VBG_38_T3
@@ -806,6 +814,9 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_VBG_39() {
+        VBG_39_AUD1.isSelected = false
+        VBG_39_AUD2.isSelected = false
+        VBG_39_AUD3.isSelected = false
         VBG_39_LBL1.text = VBG_COURSE.VBG_39_T1
         VBG_39_LBL2.text = VBG_COURSE.VBG_39_T2
         VBG_39_LBL3.text = VBG_COURSE.VBG_39_T3
@@ -815,6 +826,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_VBG_40() {
+        VBG_40_AUD.isSelected = false
         VBG_40_LBL1.text = VBG_COURSE.VBG_40_T1
         VBG_40_LBL2.text = VBG_COURSE.VBG_40_T2
         VBG_40_LBL3.text = VBG_COURSE.VBG_40_T3
@@ -850,6 +862,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
 
     func fill_VBG_44() {
+        VBG_44_AUD.isSelected = false
         VBG_44_LBL1.text = VBG_COURSE.VBG_44_T1
         VBG_44_LBL2.text = VBG_COURSE.VBG_44_T2
         VBG_44_LBL3.text = VBG_COURSE.VBG_44_T3

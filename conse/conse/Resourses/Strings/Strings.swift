@@ -134,6 +134,18 @@ struct RoutesImages {
     static let vgbRoute_6 = "protection_path_vbg_06"
 }
 
+struct LeadersImages {
+    static let bg_01 = "bg_66"
+    static let bg_02 = ""
+    static let bg_03 = ""
+    static let bg_04 = ""
+    
+    static let insignia_01 = "insignia_MOD1"
+    static let insignia_02 = "insignia_MOD2"
+    static let insignia_03 = "insignia_MOD3"
+    static let insignia_04 = "insignia_MOD4"
+}
+
 // MARK: - Formats
 
 /// Formatos de fecha

@@ -14,6 +14,8 @@
 		462609F31FFBE70000A3706C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462609F11FFBE70000A3706C /* LaunchScreen.storyboard */; };
 		462609FE1FFBE70000A3706C /* conseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462609FD1FFBE70000A3706C /* conseTests.swift */; };
 		46260A091FFBE70100A3706C /* conseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46260A081FFBE70100A3706C /* conseUITests.swift */; };
+		6B1D34C420239AE9006BB9C2 /* LeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */; };
+		6B1D34C62023B252006BB9C2 /* Leaders_Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D34C52023B252006BB9C2 /* Leaders_Strings.swift */; };
 		6B1E7598202101640078F0B5 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E7597202101640078F0B5 /* ProgressViewController.swift */; };
 		6B1E759A202101C80078F0B5 /* ProgressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E7599202101C80078F0B5 /* ProgressTableViewCell.swift */; };
 		6B1F5A9A1FFBEF0F00DA650D /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B1F5A981FFBEF0F00DA650D /* Authentication.storyboard */; };
@@ -187,6 +189,8 @@
 		46260A041FFBE70000A3706C /* conseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = conseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46260A081FFBE70100A3706C /* conseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conseUITests.swift; sourceTree = "<group>"; };
 		46260A0A1FFBE70100A3706C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderTableViewCell.swift; sourceTree = "<group>"; };
+		6B1D34C52023B252006BB9C2 /* Leaders_Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaders_Strings.swift; sourceTree = "<group>"; };
 		6B1E7597202101640078F0B5 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		6B1E7599202101C80078F0B5 /* ProgressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTableViewCell.swift; sourceTree = "<group>"; };
 		6B1F5A991FFBEF0F00DA650D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Authentication.storyboard; sourceTree = "<group>"; };
@@ -682,6 +686,7 @@
 				6B33A3B9200FA3D200971A1E /* Document_Bank.swift */,
 				6BF8A7A01FFD603C0094764D /* Identifiers.swift */,
 				6BF8A79B1FFD3D0C0094764D /* Strings.swift */,
+				6B1D34C52023B252006BB9C2 /* Leaders_Strings.swift */,
 				6B33A3A9200EA67300971A1E /* VBG_Strings.swift */,
 			);
 			path = Strings;
@@ -698,6 +703,7 @@
 				6B96468C20179886002ADD3D /* CommunityBodyTableViewCell.swift */,
 				6B33A39F200E900E00971A1E /* FormatBankTableViewCell.swift */,
 				6B33A3A1200E902B00971A1E /* LegalBodyTableViewCell.swift */,
+				6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */,
 				6B33A3A3200E904700971A1E /* LegalHeaderTableViewCell.swift */,
 				6B1E7599202101C80078F0B5 /* ProgressTableViewCell.swift */,
 				6BF906C220225C340051636B /* ProtectionRouteTableViewCell.swift */,
@@ -1098,6 +1104,7 @@
 				6B79E38220094E35004990E9 /* SWRevealViewController.m in Sources */,
 				6BF906C720225E160051636B /* LeadersRouteOneViewController.swift in Sources */,
 				6B25456C1FFECB1800235827 /* VideoTutorialViewController.swift in Sources */,
+				6B1D34C420239AE9006BB9C2 /* LeaderTableViewCell.swift in Sources */,
 				6B33A3AA200EA67300971A1E /* VBG_Strings.swift in Sources */,
 				6B2545731FFEDBE500235827 /* ModelsSerializer.swift in Sources */,
 				6B33A3C2200FFA5400971A1E /* VBGTableViewCell.swift in Sources */,
@@ -1138,6 +1145,7 @@
 				6B1F5AA11FFBF0E900DA650D /* RegisterViewController.swift in Sources */,
 				6B33A3B8200ED6B500971A1E /* AboutNRC3TableViewCell.swift in Sources */,
 				6B25456F1FFED58F00235827 /* Colors.swift in Sources */,
+				6B1D34C62023B252006BB9C2 /* Leaders_Strings.swift in Sources */,
 				6B79E37A20093E66004990E9 /* ContactUsViewController.swift in Sources */,
 				6B96468B20179876002ADD3D /* CommunityHeaderTableViewCell.swift in Sources */,
 				6B79E37820093E2C004990E9 /* MyCoursesViewController.swift in Sources */,

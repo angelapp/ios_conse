@@ -45,6 +45,13 @@ protocol MainProtocol: class {
 
 
 // Protocolos para Cursos
+protocol LeadersProtocol: class {
+    func nextPage()
+    func previusPage()
+    func audioManager(audioID id: AUDIO_ID, play: Bool)
+    func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
+}
+
 protocol VBGProtocol: class {
     func nextPage()
     func previusPage()
