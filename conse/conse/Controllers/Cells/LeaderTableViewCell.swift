@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WebKit
 
-class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
+class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, WKNavigationDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_Aud1: UIButton!
@@ -25,6 +26,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var btn_opt7: UIButton!
     @IBOutlet weak var btn_opt8: UIButton!
     
+    @IBOutlet weak var img_route: UIImageView!
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var img_insignia: UIImageView!
     @IBOutlet weak var img_background: UIImageView!
@@ -85,6 +87,9 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var leaders_textField8: UITextField!
     @IBOutlet weak var leaders_textField9: UITextField!
     @IBOutlet weak var leaders_textField10: UITextField!
+    
+    @IBOutlet weak var leader_videoLoader: UIActivityIndicatorView!
+    @IBOutlet weak var leader_videoPlayer: WKWebView!
     
     // MARK: - Properties
     let MIN_GLOBE_HEIGHT: CGFloat = 380
@@ -283,6 +288,9 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
         leaders_title.text = LEADERS_COURSE.PAGE_13.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_13.subtitle
         
+        leaders_text1.text = LEADERS_COURSE.PAGE_13.t1
+        leaders_text2.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_13.t2, toWord: LEADERS_COURSE.PAGE_13.t2_inBold, fontSize: leaders_text2.font.pointSize)
+        
         leaders_item1.text = LEADERS_COURSE.PAGE_13.item_01
         leaders_item2.text = LEADERS_COURSE.PAGE_13.item_02
         leaders_item3.text = LEADERS_COURSE.PAGE_13.item_03
@@ -344,6 +352,15 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
         leaders_option6.text = LEADERS_COURSE.PAGE_18.option_06
         leaders_option7.text = LEADERS_COURSE.PAGE_18.option_07
         leaders_option8.text = LEADERS_COURSE.PAGE_18.option_08
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
+        btn_opt5.isSelected = false
+        btn_opt6.isSelected = false
+        btn_opt7.isSelected = false
+        btn_opt8.isSelected = false
         
         btn_opt1.tag = WRONG_OPTION
         btn_opt2.tag = WRONG_OPTION
@@ -434,6 +451,15 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
         leaders_option7.text = LEADERS_COURSE.PAGE_26.option_07
         leaders_option8.text = LEADERS_COURSE.PAGE_26.option_08
         
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
+        btn_opt5.isSelected = false
+        btn_opt6.isSelected = false
+        btn_opt7.isSelected = false
+        btn_opt8.isSelected = false
+        
         btn_opt1.tag = WRONG_OPTION
         btn_opt2.tag = WRONG_OPTION
         btn_opt3.tag = CORRECT_OPTION
@@ -456,9 +482,343 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
         img_background.image = UIImage(named: LeadersImages.bg_02)
     }
     
-    func fillLeader28() {}
+    func fillLeader28() {
+        leaders_title.text = LEADERS_COURSE.PAGE_28.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_28.subtitle
+        
+        leaders_text1.text = LEADERS_COURSE.PAGE_28.t1
+        leaders_text2.text = LEADERS_COURSE.PAGE_28.t2
+        leaders_text3.text = LEADERS_COURSE.PAGE_28.t3
+    }
     
-    func fillLeader29() {}
+    func fillLeader29() {
+        leaders_title.text = LEADERS_COURSE.PAGE_29.title
+        
+        leaders_text1.text = LEADERS_COURSE.PAGE_29.t1
+        leaders_text2.text = LEADERS_COURSE.PAGE_29.t2
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+    }
+    
+    func fillLeader30() {
+        leaders_title.text = LEADERS_COURSE.PAGE_30.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_30.subtitle
+        
+        leaders_text1.text = LEADERS_COURSE.PAGE_30.t1
+        
+        leaders_item1.text = LEADERS_COURSE.PAGE_30.item_01
+        leaders_item2.text = LEADERS_COURSE.PAGE_30.item_02
+        leaders_item3.text = LEADERS_COURSE.PAGE_30.item_03
+    }
+    
+    func fillLeader31() {
+        leaders_title.text = LEADERS_COURSE.PAGE_31.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_31.t1
+    }
+    
+    func fillLeader32() {
+        leaders_title.text = LEADERS_COURSE.PAGE_32.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_32.subtitle
+        leaders_text1.text = LEADERS_COURSE.PAGE_32.t1
+        
+        img_route.image = UIImage(named: LeadersImages.route_32)
+    }
+    
+    func fillLeader33() {
+        leaders_title.text = LEADERS_COURSE.PAGE_33.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_33.subtitle
+        leaders_text1.text =  LEADERS_COURSE.PAGE_33.t1
+        
+        leaders_item1.text = LEADERS_COURSE.PAGE_33.item_01
+        leaders_item2.text = LEADERS_COURSE.PAGE_33.item_02
+        leaders_item3.text = LEADERS_COURSE.PAGE_33.item_03
+        leaders_item4.text = LEADERS_COURSE.PAGE_33.item_04
+        leaders_item5.text = LEADERS_COURSE.PAGE_33.item_05
+        leaders_item6.text = LEADERS_COURSE.PAGE_33.item_06
+        leaders_item7.text = LEADERS_COURSE.PAGE_33.item_07
+        leaders_item8.text = LEADERS_COURSE.PAGE_33.item_08
+    }
+    
+    func fillLeader34() {
+        leaders_title.text = LEADERS_COURSE.PAGE_34.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_34.t1
+        leaders_text2.text = LEADERS_COURSE.PAGE_34.t2
+        
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = AUDIO_ID.AUD_13.rawValue
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+        
+        audioButtons = [btn_Aud1]
+    }
+    
+    func fillLeader35() {
+        leaders_title.text = LEADERS_COURSE.PAGE_35.title
+        img_route.image = UIImage(named: LeadersImages.route_35)
+    }
+    
+    func fillLeader36() {
+        leaders_title.text = LEADERS_COURSE.PAGE_36.title
+        
+        leaders_item1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_36.item_01, toWord: LEADERS_COURSE.PAGE_36.item_01_inBold, fontSize: leaders_item1.font.pointSize)
+        leaders_item2.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_36.item_02, toWord: LEADERS_COURSE.PAGE_36.item_02_inBold, fontSize: leaders_item2.font.pointSize)
+        leaders_item3.text = LEADERS_COURSE.PAGE_36.item_03
+        
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = AUDIO_ID.AUD_14.rawValue
+        
+        audioButtons = [btn_Aud1]
+    }
+    
+    func fillLeader37() {
+        leaders_title.text = LEADERS_COURSE.PAGE_37.title
+        img_route.image = UIImage(named: LeadersImages.route_37)
+    }
+    
+    func fillLeader38() {
+        leaders_title.text = LEADERS_COURSE.PAGE_38.title
+        
+        leaders_item1.text = LEADERS_COURSE.PAGE_38.item_01
+        leaders_item2.text = LEADERS_COURSE.PAGE_38.item_02
+        leaders_item3.text = LEADERS_COURSE.PAGE_38.item_03
+        leaders_item4.text = LEADERS_COURSE.PAGE_38.item_04
+        leaders_item5.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_38.item_05, toWord: LEADERS_COURSE.PAGE_38.item_05_inBold_1, LEADERS_COURSE.PAGE_38.item_05_inBold_2, fontSize: leaders_item5.font.pointSize)
+    }
+    
+    func fillLeader39() {
+        leaders_title.text = LEADERS_COURSE.PAGE_39.title
+        
+        leaders_item1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_39.item_01, toWord: LEADERS_COURSE.PAGE_39.item_01_inBold, fontSize: leaders_item1.font.pointSize)
+        leaders_item2.text = LEADERS_COURSE.PAGE_39.item_02
+        leaders_item3.text = LEADERS_COURSE.PAGE_39.item_03
+        leaders_item4.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_39.item_04, toWord: LEADERS_COURSE.PAGE_39.item_04_inBold, fontSize: leaders_item4.font.pointSize)
+        
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = AUDIO_ID.AUD_15.rawValue
+        
+        btn_Aud2.isSelected = false
+        btn_Aud2.tag = AUDIO_ID.AUD_16.rawValue
+        
+        audioButtons = [btn_Aud1, btn_Aud2]
+    }
+    
+    func fillLeader40() {
+        leaders_title.text = LEADERS_COURSE.PAGE_40.title
+        
+        leaders_item1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_40.item_01, toWord: LEADERS_COURSE.PAGE_40.item_01_inBold, fontSize: leaders_item1.font.pointSize)
+        leaders_item2.text = LEADERS_COURSE.PAGE_40.item_02
+        leaders_item3.text = LEADERS_COURSE.PAGE_40.item_03
+        leaders_item4.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_40.item_04, toWord: LEADERS_COURSE.PAGE_40.item_04_inBold, fontSize: leaders_item4.font.pointSize)
+        leaders_item5.text = LEADERS_COURSE.PAGE_40.item_05
+        
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = AUDIO_ID.AUD_17.rawValue
+        
+        btn_Aud2.isSelected = false
+        btn_Aud2.tag = AUDIO_ID.AUD_18.rawValue
+        
+        btn_Aud3.isSelected = false
+        btn_Aud3.tag = AUDIO_ID.AUD_19.rawValue
+        
+        audioButtons = [btn_Aud1, btn_Aud2, btn_Aud3]
+    }
+    
+    func fillLeader41() {
+        leaders_title.text = LEADERS_COURSE.PAGE_41.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_41.t1
+    }
+    
+    func fillLeader42() {
+        leaders_title.text = LEADERS_COURSE.PAGE_42.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_42.t1
+        
+        leaders_question.text = LEADERS_COURSE.PAGE_42.question
+        leaders_option1.text = LEADERS_COURSE.PAGE_42.option_01
+        leaders_option2.text = LEADERS_COURSE.PAGE_42.option_02
+        
+        btn_opt1.isSelected = false
+        btn_opt1.tag = WRONG_OPTION
+        
+        btn_opt2.isSelected = false
+        btn_opt2.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2]
+    }
+    
+    func fillLeader43() {
+        leaders_title.text = LEADERS_COURSE.PAGE_43.title
+        
+        leaders_question.text = LEADERS_COURSE.PAGE_43.question
+        leaders_option1.text = LEADERS_COURSE.PAGE_43.option_01
+        leaders_option2.text = LEADERS_COURSE.PAGE_43.option_02
+        
+        btn_opt1.isSelected = false
+        btn_opt1.tag = WRONG_OPTION
+        
+        btn_opt2.isSelected = false
+        btn_opt2.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2]
+    }
+    
+    func fillLeader44() {
+        leaders_title.text = LEADERS_COURSE.PAGE_44.title
+        
+        leaders_question.text = LEADERS_COURSE.PAGE_44.question
+        leaders_option1.text = LEADERS_COURSE.PAGE_44.option_01
+        leaders_option2.text = LEADERS_COURSE.PAGE_44.option_02
+        
+        btn_opt1.isSelected = false
+        btn_opt1.tag = CORRECT_OPTION
+        
+        btn_opt2.isSelected = false
+        btn_opt2.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2]
+    }
+    
+    func fillLeader45(height: CGFloat) {
+        constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
+        
+        leaders_text1.text = LEADERS_COURSE.PAGE_45.t1
+        leaders_text2.text = LEADERS_COURSE.PAGE_45.t2
+        
+        img_insignia.image = UIImage(named: LeadersImages.insignia_03)
+        img_background.image = UIImage(named: LeadersImages.bg_03)
+    }
+    
+    func fillLeader46() {
+        leaders_title.text = LEADERS_COURSE.PAGE_46.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_46.subtitle
+        leaders_text1.text = LEADERS_COURSE.PAGE_46.t1
+    }
+    
+    func fillLeader47() {
+        leaders_title.text = LEADERS_COURSE.PAGE_47.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_47.subtitle
+        
+        leaders_item1.text = LEADERS_COURSE.PAGE_47.item_01
+    }
+    
+    func fillLeader48() {
+        leaders_title.text = LEADERS_COURSE.PAGE_48.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_48.t1
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
+    }
+    
+    func fillLeader49() {
+        leaders_title.text = LEADERS_COURSE.PAGE_49.title
+        img_route.image = UIImage(named: LeadersImages.route_49)
+    }
+    
+    func fillLeader50() {
+        leaders_title.text = LEADERS_COURSE.PAGE_50.title
+        img_route.image = UIImage(named: LeadersImages.route_50)
+    }
+    
+    func fillLeader51() {
+        leaders_title.text = LEADERS_COURSE.PAGE_51.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_51.subtitle
+        
+        leaders_text1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_51.t1, toWord: LEADERS_COURSE.PAGE_51.t1_inBold, fontSize: leaders_text1.font.pointSize)
+        leaders_item2.text = LEADERS_COURSE.PAGE_51.item_02
+        leaders_item3.text = LEADERS_COURSE.PAGE_51.item_03
+        
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = AUDIO_ID.AUD_20.rawValue
+        
+        btn_Aud2.isSelected = false
+        btn_Aud2.tag = AUDIO_ID.AUD_21.rawValue
+        
+        audioButtons = [btn_Aud1, btn_Aud2]
+    }
+    
+    func fillLeader52() {
+        leaders_title.text = LEADERS_COURSE.PAGE_52.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_52.t1
+        leaders_text2.text = LEADERS_COURSE.PAGE_52.t2
+        leaders_text3.text = LEADERS_COURSE.PAGE_52.t3
+        leaders_text4.text = LEADERS_COURSE.PAGE_52.t4
+        
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = AUDIO_ID.AUD_1.rawValue
+        
+        btn_Aud2.isSelected = false
+        btn_Aud2.tag = AUDIO_ID.AUD_2.rawValue
+        
+        audioButtons = [btn_Aud1, btn_Aud2]
+    }
+    
+    func fillLeader53() {
+        leaders_title.text = LEADERS_COURSE.PAGE_53.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_53.t1
+    }
+    
+    func fillLeader54() {
+        leaders_title.text = LEADERS_COURSE.PAGE_54.title
+        
+        leader_videoPlayer.navigationDelegate =  self
+    }
+    
+    func fillLeader55() {
+        leaders_title.text = LEADERS_COURSE.PAGE_55.title
+        leaders_text1.text = LEADERS_COURSE.PAGE_55.t1
+        
+        leaders_question.text = LEADERS_COURSE.PAGE_55.question
+        leaders_option1.text = LEADERS_COURSE.PAGE_55.option_01
+        leaders_option2.text = LEADERS_COURSE.PAGE_55.option_02
+        
+        btn_opt1.isSelected = false
+        btn_opt1.tag = WRONG_OPTION
+        
+        btn_opt2.isSelected = false
+        btn_opt2.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2]
+    }
+    
+    func fillLeader56() {
+        leaders_title.text = LEADERS_COURSE.PAGE_56.title
+        
+        leaders_question.text = LEADERS_COURSE.PAGE_56.question
+        leaders_option1.text = LEADERS_COURSE.PAGE_56.option_01
+        leaders_option2.text = LEADERS_COURSE.PAGE_56.option_02
+        
+        btn_opt1.isSelected = false
+        btn_opt1.tag = CORRECT_OPTION
+        
+        btn_opt2.isSelected = false
+        btn_opt2.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2]
+    }
+    
+    func fillLeader57() {
+        leaders_title.text = LEADERS_COURSE.PAGE_57.title
+        
+        leaders_question.text = LEADERS_COURSE.PAGE_57.question
+        leaders_option1.text = LEADERS_COURSE.PAGE_57.option_01
+        leaders_option2.text = LEADERS_COURSE.PAGE_57.option_02
+        
+        btn_opt1.isSelected = false
+        btn_opt1.tag = WRONG_OPTION
+        
+        btn_opt2.isSelected = false
+        btn_opt2.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2]
+    }
+    
+    func fillLeader58(height: CGFloat) {
+        constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
+        
+        leaders_text1.text = LEADERS_COURSE.PAGE_58.t1
+        leaders_text2.text = LEADERS_COURSE.PAGE_58.t2
+        
+        img_insignia.image = UIImage(named: LeadersImages.insignia_04)
+        img_background.image = UIImage(named: LeadersImages.bg_04)
+    }
     
     // MARK: - TextField Delegate
     //Action of the returnKey
@@ -494,6 +854,13 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
         sender.isSelected = !sender.isSelected
     }
     
+    // Update selected option in radioGroup
+    @IBAction func updateRadioGroup(sender: UIButton) {
+        for button in answersButtons {
+            button.isSelected = (button == sender)
+        }
+    }
+    
     // Change state to "PLAY"
     private func updateButtonsState(sender: UIButton) {
         if sender.isSelected {
@@ -525,38 +892,47 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField2.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField3.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField4.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer04.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField5.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer05.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField6.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer06.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField7.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer07.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField8.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer08.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField9.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
         }
+        
         guard leaders_textField10.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased() else {
            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             return
@@ -570,7 +946,31 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     @IBAction func checking_page_26() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_18.error, inbold: nil, type: .failed)
+        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_26.error, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checking_page_42() {
+        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_42.error, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checking_page_43() {
+        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_43.error, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checking_page_44() {
+        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_44.error, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checking_page_55() {
+        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_42.error, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checking_page_56() {
+        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_43.error, inbold: nil, type: .failed)
+    }
+    
+    @IBAction func checking_page_57() {
+        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_44.error, inbold: nil, type: .failed)
     }
     
     // MARK: - Audio Functions

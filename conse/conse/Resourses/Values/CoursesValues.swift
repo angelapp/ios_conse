@@ -114,6 +114,35 @@ enum PLC_INDEX: Int {
     case LEADERS_27
     case LEADERS_28
     case LEADERS_29
+    case LEADERS_30
+    case LEADERS_31
+    case LEADERS_32
+    case LEADERS_33
+    case LEADERS_34
+    case LEADERS_35
+    case LEADERS_36
+    case LEADERS_37
+    case LEADERS_38
+    case LEADERS_39
+    case LEADERS_40
+    case LEADERS_41
+    case LEADERS_42
+    case LEADERS_43
+    case LEADERS_44
+    case LEADERS_45
+    case LEADERS_46
+    case LEADERS_47
+    case LEADERS_48
+    case LEADERS_49
+    case LEADERS_50
+    case LEADERS_51
+    case LEADERS_52
+    case LEADERS_53
+    case LEADERS_54
+    case LEADERS_55
+    case LEADERS_56
+    case LEADERS_57
+    case LEADERS_58
 }
 
 enum AUDIO_ID: Int {

@@ -57,7 +57,7 @@ struct  LEADERS_COURSE {
         static let t1_inBold_1 = "Ejemplo 1:"
         static let t1_inBold_2 = "Ejemplo 2:"
         static let t2 = "¿Sabías que?"
-        static let t3 = "Una amenaza son las situaciones o hechos externos, con la potencialidad de causar daño a una persona, grupo o comunidad."
+        static let t3 = "A diferencia del riesgo ordinario, María no está obligada a soportar la amenaza y mucho menos a dejar de ejercer su liderazgo, este se considera un riesgo extraordinario."
     }
     
     struct PAGE_07 {
@@ -286,130 +286,234 @@ struct  LEADERS_COURSE {
     }
     
     struct PAGE_28 {
+        static let title = "Módulo 3"
+        static let subtitle = "Rutas estatales de protección individual para lideresas y líderes"
         
+        static let t1 = "Ahora que conoces tus derechos y las responsabilidades del Estado a la hora de protegerlos, entérate cómo utilizar esta información para acceder a las rutas estatales de protección.\n\nEn Colombia existen dos programas de protección, estos son:"
+        static let t2 = "El Programa de Prevención y Protección de los Derechos a la Vida, la Libertad, la Integridad y la Seguridad de Personas, Grupos y Comunidades del Ministerio del Interior y de la Unidad Nacional de Protección. (Programa del Ministerio del Interior y de la Unidad Nacional de Protección)."
+        static let t3 = "Y el Programa de Protección para Víctimas y Testigos de la Ley de Justicia y Paz."
     }
     
     struct PAGE_29 {
-        
+        static let title = LEADERS_COURSE.PAGE_28.subtitle
+        static let t1 = LEADERS_COURSE.PAGE_06.t2
+        static let t2 = "El Programa de Protección para Víctimas y Testigos de la Ley de Justicia y Paz (Ley 975 de 2005) es para aquellas personas que se encuentran en riesgo como consecuencia directa de su condición de víctima, dentro de un proceso de Justicia y Paz.\n\nSi eres parte de un proceso de Justicia y Paz y tu riesgo o amenazas son consecuencia de participar en este proceso, esta es tu ruta adecuada de protección. Para iniciar debes acercarte a la Policía Nacional, donde te remitirán a su enlace de Derechos Humanos para que te acompañe y active la ruta."
     }
     
     struct PAGE_30 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let subtitle = "Recomendación:"
+        static let t1 = "Antes de iniciar una de las rutas para acceder a medidas de protección solicita tu inclusión en el Registro Único de Víctimas y denuncia la situación ante la Fiscalía General de la Nación, estos procesos no son necesarios para acceder a las medidas de protección, pero sí facilitarán la ruta, ya que contarás con un análisis previo de tu caso. Y como beneficio adicional, podrás ser destinatario de Medidas de Atención, Asistencia y Reparación Integral."
+        static let item_01 = "Declara ante el Ministerio Público en el marco de la Ley 1448 de 2011, acudiendo a: Procuradurías, Personerías o la Defensoría del Pueblo y solicita la inscripción en el Registro Único de Víctimas para poder ser destinatario de Medidas de Atención, Asistencia y Reparación Integral."
+        static let item_02 = "Denuncia ante la Fiscalía General de la Nación, para que inicien un proceso de investigación y sanción a los responsables. Puedes encontrar oficinas de la Fiscalía en las Unidades de Reacción Inmediata (URI), Salas de Atención al Usuario (SAU), las Casas de Justicia y los Centros de Atención Especializada."
+        static let item_03 = "También puedes presentar tu denuncia ante la Policía Judicial: CTI de la Fiscalía; SIJIN y DIJIN de la Policía."
     }
     
     struct PAGE_31 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let t1 = "Recuerda mencionar cómo fueron las amenazas o los hechos, y mencionar cómo se relacionan con tu actividad como lideresa o líder.\n\nSi debido a la amenaza te desplazaste de tu territorio debes informarlo.\n\nEl Ministerio Público enviará la declaración a la Unidad para las Víctimas la cual tiene 60 días hábiles, después de recibida la declaración, para informar si te incluyeron o no en el RUV.\n\nCon la declaración, puedes solicitar en la Alcaldía una ayuda humanitaria inmediata (no es necesario esperar la respuesta de la Unidad para las Víctimas)."
     }
     
     struct PAGE_32 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let subtitle = "¿Cómo se implementa la ruta del programa del Ministerio del Interior y de la Unidad Nacional de Protección?"
+        static let t1 = "Lo primero que debes saber es que existe un programa de Protección Individual y un Programa de Protección Colectiva.\n\nPulsa sobre la flecha del Programa de Protección Individual para conocer los pasos que debes seguir."
     }
     
     struct PAGE_33 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let subtitle = "¿Cuál es la población que puede acceder a esta ruta y bajo qué condiciones?"
+        static let t1 = "Para ser parte de las medidas de protección debes encontrarte en alguna de las siguientes poblaciones:"
+        static let item_01 = "Dirigentes de grupos políticos (especialmente de oposición), de grupos que suscribieron acuerdos de paz con el Gobierno Nacional."
+        static let item_02 = "Dirigentes o activistas de organizaciones de Derechos Humanos, de víctimas, sindicales, sociales, cívicas, gremiales, comunales o campesinas."
+        static let item_03 = "Miembros de grupos étnicos."
+        static let item_04 = "Miembros de la misión médica, periodistas, comunicadores sociales, docentes."
+        static let item_05 = "Testigos de violaciones a los Derechos Humanos y al Derecho Humanitario."
+        static let item_06 = "Dirigentes, líderes, representantes de población desplazada o reclamantes de tierras."
+        static let item_07 = "Servidores o ex servidores públicos con responsabilidad en Derechos Humanos."
+        static let item_08 = "Apoderados de procesos judiciales por violaciones a los Derechos Humanos y al Derecho Humanitario."
     }
     
     struct PAGE_34 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let t1 = "¿Sabías que?"
+        static let t2 = "Tú puedes decidir dónde iniciar tu ruta de protección, es decir, puedes acudir directamente ante la Unidad Nacional de Protección (UNP) o puedes acudir a una entidad territorial, como Alcaldías o Gobernaciones, las cuales podrán implementar la ruta de protección si cuentan con los mecanismos y/o recursos necesarios. Si no se encuentran en la capacidad de atenderte te remitirán a la UNP.\n\nA continuación te presentamos la ruta a seguir para las dos entidades:"
     }
     
     struct PAGE_35 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
     }
     
     struct PAGE_36 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let item_01 = "Valoración Preliminar del Riesgo:\nAquí harán una valoración preliminar del riesgo, para determinar si eres población objeto de protección, si el riesgo es ordinario, extraordinario o extremo y si el riesgo está relacionado con tu actividad o funciones como lideresa o líder, esta valoración puede ser solicitada a la UNP. "
+        static let item_01_inBold = "Valoración Preliminar del Riesgo:"
+        static let item_02 = "Implementación de las Medidas de Protección:\nSi el resultado de la valoración preliminar determina medidas de protección, estas deben ser implementadas por el municipio o el departamento.\n\nSi la implementación de medidas de protección no está al alcance del municipio se remitirá el caso a la Secretaría del interior y/o de gobierno del departamento y si éste tampoco cuenta con capacidad lo remitirá a la UNP quien se pondrá en contacto contigo para iniciar tu ruta de protección."
+        static let item_02_inBold = "Implementación de las Medidas de Protección:"
+        static let item_03 = "¿Sabías que?"
     }
     
     struct PAGE_37 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
     }
     
     struct PAGE_38 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let item_01 = "¿Sabías que?"
+        static let item_02 = "Medidas Preventivas de Protección"
+        static let item_03 = "Verificación del Grupo de Solicitudes de Protección"
+        static let item_04 = "Asignación de un analista"
+        static let item_05 = "¿Sabías que?\n\nSi no firmas el consentimiento no se iniciará la evaluación del riesgo y no se podrá continuar la ruta de protección.\n\nComo lideresa puedes elegir el sexo del analista.\n\nEn el caso de las mujeres, la evaluación del riesgo deberá entender las condiciones de víctimas de desplazamiento y lideresas o defensoras de derechos humanos, como una suma de riesgos. Igualmente se hará cuando la mujer tiene a su cargo distintos familiares con el propósito de determinar la extensión de las medidas de protección. "
+        static let item_05_inBold_1 = "¿Sabías que?"
+        static let item_05_inBold_2 = "suma de riesgos."
     }
     
     struct PAGE_39 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let item_01 = "Estudio del Grupo de valoración Preliminar GVP y del Comité de Evaluación del Riesgo y Recomendaciones de Medidas (CERREM)\n\nUna vez evaluado el riesgo por el analista, la información recopilada se presentará ante el Grupo de Valoración Preliminar (GVP) donde analizarán tu situación de riesgo y recomendarán las medidas de protección para tu caso. Posteriormente el Comité de Evaluación del Riesgo y Recomendaciones de Medidas (CERREM) hará una valoración integral del riesgo y de las medidas de protección."
+        static let item_01_inBold = "Estudio del Grupo de valoración Preliminar GVP y del Comité de Evaluación del Riesgo y Recomendaciones de Medidas (CERREM)"
+        static let item_02 = "Las Medidas de Protección que se pueden recomendar, son:"
+        static let item_03 = "Resolución de Medidas de Protección"
+        static let item_04 = "Implementación de las medidas de protección\n\nPara la implementación de tus medidas de protección se hará un acta en la que se demuestra la entrega de las medidas, esta acta estará firmada por ti y por la UNP."
+        static let item_04_inBold = "Implementación de las medidas de protección"
     }
     
     struct PAGE_40 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let item_01 = "¿Sabías que?\n\nLas mujeres tienen la posibilidad de escoger si su esquema de seguridad estará conformado por hombres o mujeres, siempre y cuando se cuente con la disponibilidad de la Unidad Nacional de Protección."
+        static let item_01_inBold = "¿Sabías que?"
+        static let item_02 = "Seguimineto y Reevaluación"
+        static let item_03 = "Medidas de Emergencia"
+        static let item_04 = "Suspensión de las medidas de Protección\n\nSe podrán suspender las medidas de protección, mediante consulta y aprobación del CERREM, en los siguientes casos:\n\nUso indebido de las medidas asignadas.\nA solicitud del protegido."
+        static let item_04_inBold = "Suspensión de las medidas de Protección"
+        static let item_05 = "Finalización de las Medidas de Protección"
     }
     
     struct PAGE_41 {
-        
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let t1 = "Llego el momento de practicar lo aprendido, realizar la siguiente actividad y... ¡Felicitaciones! \nHabrás finalizado el tercer módulo del curso."
     }
     
     struct PAGE_42 {
+        static let title = LEADERS_COURSE.PAGE_29.title
+        static let t1 = "Lee atentamente las siguientes situaciones y contesta sí o no a la pregunta."
         
+        static let question = "1. Juan es un joven estudiante que le gusta hacer fiestas en su casa a altas horas de la noche y con mucho volumen, su vecino lo amenaza con hacerle daño si no deja de hacer estas actividades. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para Juan?"
+        static let option_01 = "SÍ"
+        static let option_02 = "NO"
+        
+        static let error = "No has acertado en todas las respuestas, pero, aunque te equivoques sigues aprendiendo \n¡Inténtalo de nuevo!\n\nTen en cuenta que: para hacer parte del programa debes estar dentro de la población objetivo  y el riesgo que corres debe ser consecuencia de tu actividad como líder o lideresa."
     }
     
     struct PAGE_43 {
+        static let title = LEADERS_COURSE.PAGE_29.title
         
+        static let question = "2. Camilo es nombrado representante de la mesa nacional de víctimas de desplazamiento forzado la semana pasada, desde hace cuatro meses le debe dinero a José quien le prestó para comprar un televisor, el día de hoy después de regresar de una jornada de la mesa nacional, se encuentra con José quien le dice que, si no le paga mañana, le hará daño. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para Camilo?"
+        static let option_01 = LEADERS_COURSE.PAGE_42.option_01
+        static let option_02 = LEADERS_COURSE.PAGE_42.option_02
+        
+        static let error = LEADERS_COURSE.PAGE_42.error
     }
     
     struct PAGE_44 {
+        static let title = LEADERS_COURSE.PAGE_29.title
         
+        static let question = "3. La señora Constanza es profesora de una escuela donde enseña Derechos Humanos y derechos de las víctimas del conflicto, un grupo armado al margen de la Ley le ordena no volver a hablar de estos temas o le hará daño. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para la señora Constanza?"
+        static let option_01 = LEADERS_COURSE.PAGE_42.option_01
+        static let option_02 = LEADERS_COURSE.PAGE_42.option_02
+        
+        static let error = LEADERS_COURSE.PAGE_42.error
     }
     
     struct PAGE_45 {
-        
+        static let t1 = "¡Excelente!"
+        static let t2 = "Te has esforzado y ahora te has ganado la insignia de Conse Experto\n¡Buen trabajo!"
     }
     
     struct PAGE_46 {
-        
+        static let title = "Módulo 4"
+        static let subtitle = "Rutas estatales de protección colectiva para lideresas y líderes"
+        static let t1 = "La Ruta de Protección Colectiva tiene muchos aspectos similares a la Ruta de Protección Individual, a continuación, algunos aspectos a tener en cuenta, en primer lugar, debes saber cuál es la población que puede acceder a esta ruta y bajo qué características."
     }
     
     struct PAGE_47 {
-        
+        static let title = LEADERS_COURSE.PAGE_46.subtitle
+        static let subtitle = "La población objeto del programa de protección colectiva será:"
+        static let item_01 = "Grupos, comunidades, organizaciones sociales o políticas de las poblaciones objeto para el Programa del Ministerio del Interior y de la Unidad Nacional de Protección, es decir:\n\nGrupos políticos; grupos que suscribieron acuerdos de paz con el Gobierno Nacional; organizaciones de Derechos Humanos, de víctimas, sindicales, sociales, cívicas, gremiales, comunales o campesinas; comunidades étnicas; misión médica, periodistas, comunicadores sociales, docentes; testigos y víctimas de violaciones a los Derechos Humanos y al Derecho Humanitario; población desplazada, reclamantes de tierras; servidores o ex servidores públicos con responsabilidad en Derechos Humanos; apoderados de procesos judiciales por violaciones a los Derechos Humanos y al Derecho Humanitario."
     }
     
     struct PAGE_48 {
-        
+        static let title = LEADERS_COURSE.PAGE_47.title
+        static let t1 = "Estos grupos, comunidades u organizaciones deberán contar con un reconocimiento jurídico o social.\n\nPuedes activar la Ruta Colectiva de Protección, por iniciativa propia, sin embargo, es mejor si eres el representante de un colectivo o presentas la solicitud en acuerdo con tu comunidad u organización. Inicia dirigiéndote a la Unidad Nacional de Protección."
     }
     
     struct PAGE_49 {
-        
+        static let title = LEADERS_COURSE.PAGE_47.title
     }
     
     struct PAGE_50 {
-        
+        static let title = LEADERS_COURSE.PAGE_47.title
     }
     
     struct PAGE_51 {
-        
+        static let title = LEADERS_COURSE.PAGE_47.title
+        static let subtitle = "Medidas Preventivas de Protección"
+        static let t1 = "Una vez radicado el \"Formulario de Solicitud de Protección Colectiva\" y los soportes, la UNP oficiará a la Policía del lugar registrado como dirección del colectivo, informando la situación y solicitando la implementación de medidas Preventivas de Protección mientras surte el proceso de estudio de la solicitud de protección. "
+        static let t1_inBold = "\"Formulario de Solicitud de Protección Colectiva\""
+        static let item_02 = "Verificación del Grupo de Solicitudes de Protección"
+        static let item_03 = "Asignación de analistas"
     }
     
     struct PAGE_52 {
-        
+        static let title = LEADERS_COURSE.PAGE_47.title
+        static let t1 = "Comité de Evaluación de Riesgo y Recomendaciones de Medidas (CERREM)"
+        static let t2 = "Resolución de Medidas de Protección"
+        static let t3 = "El Director de la Unidad Nacional de Protección y la Dirección de Derechos Humanos del Ministerio del Interior, tomarán la decisión en relación con las medidas de Prevención y Protección para tu colectivo. "
+        static let t4 = "Seguimiento y Evaluación"
     }
     
     struct PAGE_53 {
-        
+        static let title = LEADERS_COURSE.PAGE_47.title
+        static let t1 = "Ahora que has terminado de revisar las rutas de protección disponibles para líderes y lideresas, observa atentamente el siguiente video que te ayudará a reforzar el conocimiento adquirido."
     }
     
     struct PAGE_54 {
-        
+        static let title = LEADERS_COURSE.PAGE_47.title
     }
     
     struct PAGE_55 {
+        static let title = LEADERS_COURSE.PAGE_47.title
+        static let t1 = "Lee atentamente las siguientes situaciones y contesta sí o no a la pregunta."
         
+        static let question = "1. María es la representante de una organización que trabaja por los derechos de mujeres víctimas de violencia, ella inició su trabajo como defensora después a una agresión que sufrió y quedo en la impunidad, recientemente su agresor ha regresado y amenaza con atentar contra ella ¿Es la Ruta de Protección Colectiva la adecuada para María?"
+        static let option_01 = LEADERS_COURSE.PAGE_42.option_01
+        static let option_02 = LEADERS_COURSE.PAGE_42.option_02
+        
+        static let error = "No has acertado en todas las respuestas ¡Inténtalo de nuevo!\n\nTen en cuenta que: para hacer parte del Programa de Protección Colectiva debes hacer parte de un grupo, comunidad u organización y debe existir una relación directa entre los hechos y las actividades o la pertenencia al grupo."
     }
     
     struct PAGE_56 {
+        static let title = LEADERS_COURSE.PAGE_47.title
         
+        static let question = "2. Juan es desde hace varios años, líder de una comunidad que trabaja por la restitución de las tierras que perdieron en el marco del conflicto, debido a esto, grupos armados al margen de la ley lo han estado siguiendo y ahora amenazan con atentar contra él y los otros miembros de la comunidad que han logrado identificar. ¿Es la Ruta de Protección Colectiva la adecuada para Juan y su comunidad?"
+        static let option_01 = LEADERS_COURSE.PAGE_42.option_01
+        static let option_02 = LEADERS_COURSE.PAGE_42.option_02
+        
+        static let error = LEADERS_COURSE.PAGE_55.error
     }
     
     struct PAGE_57 {
+        static let title = LEADERS_COURSE.PAGE_47.title
         
+        static let question = "3. Jacobo fue víctima de desplazamiento forzado, actualmente se encuentra en un proceso de restitución de tierras y lo están amenazando por seguir en el proceso, Jacobo quiere solicitar protección colectiva, para él y su familia, ya que hace parte de la gran cantidad de personas que se encuentran en esa misma situación. ¿Es la Ruta de Protección Colectiva la adecuada para Jacobo?"
+        static let option_01 = LEADERS_COURSE.PAGE_42.option_01
+        static let option_02 = LEADERS_COURSE.PAGE_42.option_02
+        
+        static let error = LEADERS_COURSE.PAGE_55.error
     }
     
     struct PAGE_58 {
-        
-    }
-    
-    struct PAGE_59 {
-        
+        static let t1 = "¡Felicitaciones!"
+        static let t2 = "¡Muy bien! ¡Sembraste esfuerzo y ahora cosechas logros! Como premio a tu constancia recibe la insignia de \nConse Estrella.\n\n¡Felicitaciones, has terminado todos los módulos del curso!"
     }
 }

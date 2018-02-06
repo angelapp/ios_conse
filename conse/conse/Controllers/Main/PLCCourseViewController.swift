@@ -344,11 +344,221 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             cell.fillLeader27(height: leaders_table.bounds.size.height)
             return cell
         }
+        else if currentIndex == PLC_INDEX.LEADERS_28.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_28, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader28()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_29.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_29, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader29()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_30.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_30, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader30()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_31.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_31, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader31()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_32.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_32, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader32()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_33.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_33, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader33()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_34.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_34, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader34()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_35.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_35, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader35()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_36.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_36, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader36()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_37.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_37, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader37()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_38.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_38, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader38()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_39.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_39, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader39()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_40.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_40, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader40()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_41.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_41, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader41()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_42.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_42, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader42()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_43.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_43, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader43()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_44.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_44, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader44()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_45.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_45, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader45(height: leaders_table.bounds.size.height)
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_46.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_46, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader46()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_47.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_47, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader47()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_48.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_48, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader48()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_49.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_49, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader49()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_50.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_50, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader50()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_51.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_51, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader51()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_52.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_52, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader52()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_53.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_53, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader53()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_54.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_54, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader54()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_55.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_55, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader55()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_56.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_56, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader56()
+            return cell
+        }
+        else if currentIndex == PLC_INDEX.LEADERS_57.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_57, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader57()
+            return cell
+        }
         else {
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_58, for: indexPath) as! LeaderTableViewCell
 
             cell.leadersDelegate = self
-//            cell.fillLeader58(height: leaders_table.bounds.size.height)
+            cell.fillLeader58(height: leaders_table.bounds.size.height)
             return cell
         }
     }

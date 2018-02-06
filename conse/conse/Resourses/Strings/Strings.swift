@@ -135,15 +135,22 @@ struct RoutesImages {
 }
 
 struct LeadersImages {
-    static let bg_01 = "bg_66"
-    static let bg_02 = ""
-    static let bg_03 = ""
-    static let bg_04 = ""
+    static let bg_01 = "bg_modulo_1"
+    static let bg_02 = "bg_ros"
+    static let bg_03 = "bg_45"
+    static let bg_04 = "bg_66"
     
     static let insignia_01 = "insignia_MOD1"
     static let insignia_02 = "insignia_MOD2"
     static let insignia_03 = "insignia_MOD3"
     static let insignia_04 = "insignia_MOD4"
+    
+    static let route_32 = "Ruta_Leaders_32"
+    static let route_35 = "Ruta_Leaders_35"
+    static let route_37 = "Ruta_Leaders_37"
+    static let route_49 = "Ruta_Leaders_49"
+    static let route_50 = "Ruta_Leaders_50"
+    
 }
 
 // MARK: - Formats
