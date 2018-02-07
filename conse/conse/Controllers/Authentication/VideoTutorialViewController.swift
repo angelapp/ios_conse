@@ -7,19 +7,20 @@
 //
 
 import UIKit
+import WebKit
 
-class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
+class VideoTutorialViewController: UIViewController, WKNavigationDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_next: UIButton!
-    @IBOutlet weak var videoPlayer: UIWebView!
+    @IBOutlet weak var videoPlayer: WKWebView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        videoPlayer.delegate = self
+        videoPlayer.navigationDelegate = self
         getVideo(forID: "j6ADr_icqH8")//AplicationRuntime.sharedManager.getvideoID())
         
         setBackTitle(forViewController: self, title: blankSpace)
@@ -34,15 +35,15 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
     // MARK: - Private function
     func getVideo(forID id: String) -> Void {
         let url = URL(string: String(format: Strings.youtubeEmbedFormat, id))
-        videoPlayer.loadRequest(URLRequest(url: url!))
+        videoPlayer.load(URLRequest(url: url!))
     }
     
     // MARK: - Webview Delegate
-    func webViewDidStartLoad(_ webView: UIWebView) {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         loader.startAnimating()
     }
     
-    func webViewDidFinishLoad(_ webView: UIWebView) {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loader.stopAnimating()
     }
 

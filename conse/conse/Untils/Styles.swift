@@ -27,13 +27,13 @@ extension UIView {
      - Parameter margin: (Optional) value for rigth and left margin
      - Parameter padding: (Optional) value for rigth and left padding as width screen porcentage
      */
-    func underline(margin: CGFloat? = nil, padding: CGFloat? = nil) {
+    func underline(margin: CGFloat? = nil, padding: CGFloat? = nil, color: UIColor? = .gray) {
         let border = CALayer()
         let borderWidth = CGFloat(1.0)
         let padding = self.frame.size.width * (padding ?? 0)
         let width = UIScreen.main.bounds.width - ((margin ?? 0) * 2)
         
-        border.borderColor = UIColor.gray.cgColor
+        border.borderColor = color?.cgColor
         border.frame = CGRect(x: ConseValues.defaultPositionX + padding,
                               y: self.frame.size.height - borderWidth,
                               width:  width - (padding * 2),

@@ -221,12 +221,22 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xyi-dD-RXd">
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xyi-dD-RXd">
                                                 <rect key="frame" x="0.0" y="46" width="288" height="30"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES" textContentType="password"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -358,44 +368,39 @@
                                     <segue destination="ve1-nI-8oL" kind="show" id="c2k-0E-Gyo"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="heb-Jt-Kqh">
-                                <rect key="frame" x="24" y="120" width="272" height="160"/>
-                                <subviews>
-                                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KM4-F7-dMI">
-                                        <rect key="frame" x="0.0" y="0.0" width="272" height="160"/>
-                                        <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </webView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-cH-Reg">
-                                        <rect key="frame" x="126" y="70" width="20" height="20"/>
-                                        <color key="color" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </activityIndicatorView>
-                                </subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h64-rH-ndf">
+                                <rect key="frame" x="20" y="128" width="280" height="160"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KM4-F7-dMI" secondAttribute="bottom" id="3Jf-18-Gcp"/>
-                                    <constraint firstItem="KM4-F7-dMI" firstAttribute="top" secondItem="heb-Jt-Kqh" secondAttribute="top" id="3cI-ef-Hkm"/>
-                                    <constraint firstAttribute="height" constant="160" id="3nO-Ih-gxz"/>
-                                    <constraint firstAttribute="trailing" secondItem="KM4-F7-dMI" secondAttribute="trailing" id="MWq-qX-m5i"/>
-                                    <constraint firstItem="KM4-F7-dMI" firstAttribute="leading" secondItem="heb-Jt-Kqh" secondAttribute="leading" id="cqv-dZ-V6V"/>
-                                    <constraint firstItem="Xwe-cH-Reg" firstAttribute="centerX" secondItem="heb-Jt-Kqh" secondAttribute="centerX" id="lJC-kd-495"/>
-                                    <constraint firstItem="Xwe-cH-Reg" firstAttribute="centerY" secondItem="heb-Jt-Kqh" secondAttribute="centerY" id="nYZ-dJ-Ozb"/>
+                                    <constraint firstAttribute="width" constant="280" id="1GC-ZO-4qp"/>
+                                    <constraint firstAttribute="height" constant="160" id="7ST-Ed-iWM"/>
                                 </constraints>
-                            </view>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-cH-Reg">
+                                <rect key="frame" x="150" y="198" width="20" height="20"/>
+                                <color key="color" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.7725490196" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="heb-Jt-Kqh" firstAttribute="top" secondItem="PBD-nr-lXu" secondAttribute="bottom" constant="20" id="6S8-f0-7lz"/>
+                            <constraint firstItem="h64-rH-ndf" firstAttribute="centerY" secondItem="Vdu-Xr-BHX" secondAttribute="centerY" id="3QI-k6-kwO"/>
                             <constraint firstItem="PBD-nr-lXu" firstAttribute="top" secondItem="9xg-uQ-9WX" secondAttribute="top" id="BEI-eR-OoN"/>
                             <constraint firstItem="PBD-nr-lXu" firstAttribute="leading" secondItem="9xg-uQ-9WX" secondAttribute="leading" constant="16" id="C3E-Ou-tpw"/>
                             <constraint firstItem="9xg-uQ-9WX" firstAttribute="trailing" secondItem="PBD-nr-lXu" secondAttribute="trailing" constant="16" id="GJP-eN-6RN"/>
-                            <constraint firstItem="heb-Jt-Kqh" firstAttribute="leading" secondItem="9xg-uQ-9WX" secondAttribute="leading" constant="24" id="iEe-Qv-rcp"/>
-                            <constraint firstItem="9xg-uQ-9WX" firstAttribute="trailing" secondItem="heb-Jt-Kqh" secondAttribute="trailing" constant="24" id="oNX-2y-l4q"/>
+                            <constraint firstItem="h64-rH-ndf" firstAttribute="centerX" secondItem="Vdu-Xr-BHX" secondAttribute="centerX" id="V4T-oY-yHo"/>
+                            <constraint firstItem="Xwe-cH-Reg" firstAttribute="centerX" secondItem="h64-rH-ndf" secondAttribute="centerX" id="svN-db-Uhg"/>
+                            <constraint firstItem="Xwe-cH-Reg" firstAttribute="centerY" secondItem="h64-rH-ndf" secondAttribute="centerY" id="v1w-XW-sQz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9xg-uQ-9WX"/>
                     </view>
                     <connections>
                         <outlet property="btn_next" destination="YOK-lE-Dkj" id="TDu-Cp-WLQ"/>
                         <outlet property="loader" destination="Xwe-cH-Reg" id="K5u-he-Hf0"/>
-                        <outlet property="videoPlayer" destination="KM4-F7-dMI" id="CYp-Da-ubI"/>
+                        <outlet property="videoPlayer" destination="h64-rH-ndf" id="6Jo-6V-fyu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBd-Zx-8Tc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1318,6 +1323,11 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -1448,6 +1458,6 @@
         <image name="logo_ncr" width="216" height="181"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fCT-AI-4xB"/>
+        <segue reference="c2k-0E-Gyo"/>
     </inferredMetricsTieBreakers>
 </document>

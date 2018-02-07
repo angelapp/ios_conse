@@ -45,6 +45,7 @@ func downloadImage(imgView: UIImageView, urlImage: String!) {
     }
 }
 
+// MARK: Styles functions
 /// Resalta en el texto la palabra de entrada
 func addBoldWord(forText text: String, toWord words: String..., fontSize size: CGFloat) -> NSAttributedString {
     
@@ -59,6 +60,8 @@ func addBoldWord(forText text: String, toWord words: String..., fontSize size: C
     return attributeText
 }
 
+/// Change font color and add underline
+/// - Parameter text: Text to apply style
 func addLinkStyle(forText text: String) -> NSAttributedString {
     
     let range = (text as NSString).range(of: text)
@@ -79,6 +82,7 @@ func setAspectFitToButton(buttons: UIButton...){
     }
 }
 
+// MARK: - Transform Functions
 /// convierte JSONString en diccionario
 func convertToDictionary(text: String) -> [String: Any]? {
     if let data = text.data(using: .utf8) {
@@ -188,7 +192,22 @@ class Validations {
     }
 }
 
+// MARK: - Extensions
 extension UIViewController {
+    
+    //Action of the returnKey in texField
+    @objc func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        // Try to find next responder
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        }
+        else {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        return false
+    }
     
     func showLoader(withMessage msn:String!) {
         

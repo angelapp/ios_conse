@@ -22,6 +22,11 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Se agrega observable para desplazar vista cuando se muestra/oculta el teclado
+        NotificationCenter.default.removeObserver(Any.self)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         addStyles()
     }
 
@@ -47,7 +52,7 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
         
         btn_send.imageView?.contentMode = .scaleAspectFit
         btn_alert.imageView?.contentMode = .scaleAspectFit
-        tf_email.underline(margin: ConseValues.margin)
+        tf_email.underline(margin: ConseValues.margin, color: .white)
         tf_email.delegate = self
     }
     
@@ -65,6 +70,20 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
         }
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
+    }
+    
+    //MARK: Métodos para el control de eventos del teclado
+    //Observer for increment contentSize of the scroll
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scroll.contentSize = CGSize(width: self.scroll.bounds.size.width, height: self.scroll.bounds.size.height + keyboardSize.height)
+        }
+    }
+    
+    //Obeserver for move frame to origin when keyboard is hiden
+    @objc func keyboardWillHide(notification: NSNotification) {
+        scroll.contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
     }
     
     // MARK: - Request function
