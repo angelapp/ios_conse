@@ -17,6 +17,7 @@ class ProtectionRoutesViewController: UIViewController, ProtectionRouteProtocol 
     var selectRoute: SelectRouteViewController!
     var vbgRoute: VBGRouteViewController!
     var leadersRoute: LeadersRouteViewController!
+    var welcomeRoutes: Bool = false
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

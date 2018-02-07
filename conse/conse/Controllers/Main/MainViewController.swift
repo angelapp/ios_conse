@@ -126,6 +126,7 @@ class MainViewController: UIViewController, MainProtocol {
     /** Add a view controller as container child */
     func addToContainer(viewControllerID id: ViewControllerTag) {
         
+        if id == .protectionRoutes { removeOfContainer() }
         let vc = getViewController(viewControllerID: id)
         
         // continue is new vc to add is diferent to current top vc

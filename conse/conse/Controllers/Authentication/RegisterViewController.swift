@@ -257,8 +257,17 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             // Si hay datos de perfil se precargan
             if profile != nil {
-                promt_birthday.text = profile.birthdate
+                
+                // Set start DatePicker the current usser birthDate
+                let currentDateFormatter = DateFormatter()
+                currentDateFormatter.dateFormat = DateTimeFormat.sendDateFormat
+                let currentDate = currentDateFormatter.date(from: profile.birthdate)
+                picker_birthday.date = currentDate!
+                
+                // Fill birthDate field
+                promt_birthday.text = getBirthdateString(inFormat: DateTimeFormat.commonDateFormat, fromDate: profile.birthdate, withFormat: DateTimeFormat.sendDateFormat)
                 promt_birthday.textColor = UIColor.black
+                
                 genderID = profile.gender.id
                 promt_gender.text = profile.gender.name
                 isBeneficiaryNCR = profile.isNRCBeneficiary
@@ -439,7 +448,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         newUSR.last_name = tf_lastname.text
         newUSR.email =  tf_email.text
         newUSR.password = tf_password.text
-        newUSR.birthdate = promt_birthday.text
+        newUSR.birthdate = getBirthdateString(inFormat: DateTimeFormat.sendDateFormat, fromDate: promt_birthday.text!, withFormat: DateTimeFormat.commonDateFormat)
         newUSR.isNRCBeneficiary = isBeneficiaryNCR
         newUSR.gender = genderID
         

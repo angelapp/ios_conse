@@ -70,12 +70,13 @@ struct NetworkURLComplement {
 
 /// Mensajes de error
 struct NetworkErrorMessage {
+    static let BirthdateFormatError = "Date has wrong format."
     static let createRequestError = "Error creating request"
     static let defaultRequestError = "Failed Request!"
     static let downloadError = "¡No se pudo descargar este archivo!"
     static let fileExistsError = "¡Ya has descaargado este archivo anteriormente!"
     static let internalServerError = "Parece que hubo algún problema, por favor intentalo más tarde o comunicate con soporte"
-    static let msnDefaultError = "¡Comprueba tu conexión a internet he inténtalo de nuevo!"
+    static let msnDefaultError = "Parece que hubo un problema. ¡Por favor disculpa los inconvenientes!"
     static let nilResponseError = "Error response is nil"
     static let notConexionError = "Reviza tu conexión a internet he inténtalo de nuevo"
     static let notFoundError = "¡Archivo no encontrado!"

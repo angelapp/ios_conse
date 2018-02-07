@@ -157,7 +157,6 @@ class Network: NSObject {
             switch resp.statusCode {
                 
             case NetworkCodes.successful:
-                print(response.destinationURL!.absoluteString, "\n path \n \(response.destinationURL!.absoluteURL)")
                 let msn = response.result.error == nil ? String(format: Formats.successDownload, response.destinationURL!.lastPathComponent) : NetworkErrorMessage.fileExistsError
                 completion(ResponseCallback.succeeded(succeed: true, message: msn))
                 break
@@ -194,7 +193,9 @@ class Network: NSObject {
         if json[JSONKeys.detail] != nil {
             return json[JSONKeys.detail] as! String
         }
-            
+        else if json[JSONKeys.birthdate] != nil {
+            return NetworkErrorMessage.BirthdateFormatError
+        }
         else {
             return NetworkErrorMessage.msnDefaultError
         }

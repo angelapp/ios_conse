@@ -11,16 +11,16 @@ import UIKit
 class AboutUsViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var btn_aboutNRC: UIButton!
-    @IBOutlet weak var btn_whatDoWeDo: UIButton!
-    @IBOutlet weak var btn_whereWeWork: UIButton!
-    
-    @IBOutlet weak var cnt_buttons: UIView!
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var segmentTabs: UISegmentedControl!
     
     @IBOutlet weak var lbl_title: UILabel!
     
     // MARK: - Properties
+    private let tab1Index: Int = 0
+    private let tab2Index: Int = 1
+    private let tab3Index: Int = 2
+    
     var tab1: AboutUsTab1ViewController!
     var tab2: AboutUsTab2ViewController!
     var tab3: AboutUsTab3ViewController!
@@ -29,17 +29,11 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Set tag to buttons
-        btn_aboutNRC.tag = ViewControllerTag.aboutUs_tab1.rawValue
-        btn_whatDoWeDo.tag = ViewControllerTag.aboutUs_tab2.rawValue
-        btn_whereWeWork.tag = ViewControllerTag.aboutUs_tab3.rawValue
+        instanciateTabs()
+        customSegment()
         
-        // Instance Tabs
-        tab1 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab1) as! AboutUsTab1ViewController
-        tab2 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab2) as! AboutUsTab2ViewController
-        tab3 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab3) as! AboutUsTab3ViewController
-        
-        changeTab(btn_aboutNRC)
+        segmentTabs.selectedSegmentIndex = tab1Index
+        changeTab(segmentTabs)
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +42,18 @@ class AboutUsViewController: UIViewController {
     }
     
     // MARK: - Private Functions
+    private func customSegment() {
+        UILabel.appearance(whenContainedInInstancesOf: [UISegmentedControl.self]).numberOfLines = 0
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 10.0)], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10.0)], for: .selected)
+    }
+    
+    private func instanciateTabs() {
+        tab1 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab1) as! AboutUsTab1ViewController
+        tab2 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab2) as! AboutUsTab2ViewController
+        tab3 = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.aboutUs_tab3) as! AboutUsTab3ViewController
+    }
+    
     private func showTab(tab: UIViewController) {
         
         if container.subviews.count > 0 {
@@ -69,26 +75,16 @@ class AboutUsViewController: UIViewController {
         tab.didMove(toParentViewController: self)
     }
     
-    private func updateToSelect(toButton tag:Int) {
-        for subView in cnt_buttons.subviews {
-            if let button = subView as? UIButton {
-                button.isSelected = button.tag == tag
-            }
-        }
-    }
-    
     // MARK: - Actions
-    @IBAction func changeTab(_ sender: UIButton) {
+    @IBAction func changeTab(_ sender: UISegmentedControl) {
         
-        updateToSelect(toButton: sender.tag)
-        
-        switch sender.tag {
+        switch sender.selectedSegmentIndex {
             
-        case ViewControllerTag.aboutUs_tab1.rawValue:
+        case tab1Index:
             showTab(tab: tab1)
             break
             
-        case ViewControllerTag.aboutUs_tab2.rawValue:
+        case tab2Index:
             showTab(tab: tab2)
             break
             

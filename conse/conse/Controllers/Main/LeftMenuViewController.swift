@@ -48,12 +48,9 @@ class LeftMenuViewController: UIViewController {
         let screenSize = UIScreen.main.bounds
         self.revealViewController().rearViewRevealWidth = screenSize.width * 0.85
         
-        var cont = 0
         for subView in cnt_buttons.subviews {
             if let button = subView as? UIButton {
                 button.imageView?.contentMode = .scaleAspectFit
-                printDebugMessage(tag: "btnn_\(cont)")
-                cont += 1
             }
         }
     }

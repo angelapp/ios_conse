@@ -442,44 +442,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aVR-0H-vvc">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPI-1Z-91E">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Title" id="maX-aI-VuD">
                                         <barButtonItem key="leftBarButtonItem" image="icon_back" id="pq5-7K-fbz">
-                                            <color key="tintColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="acctionButton:" destination="ID1-kJ-pPt" id="PWr-kW-xbd"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="aqG-hT-M0i">
+                                            <connections>
+                                                <action selector="acction:" destination="ID1-kJ-pPt" id="ZkS-U1-G5j"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Df-w2-7dk">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="PPI-1Z-91E" firstAttribute="top" secondItem="d2O-Zi-39H" secondAttribute="top" id="61o-qm-Wmi"/>
-                            <constraint firstItem="aVR-0H-vvc" firstAttribute="trailing" secondItem="d2O-Zi-39H" secondAttribute="trailing" id="9cF-np-Elp"/>
-                            <constraint firstItem="aVR-0H-vvc" firstAttribute="leading" secondItem="d2O-Zi-39H" secondAttribute="leading" id="F33-ZE-iVt"/>
                             <constraint firstItem="PPI-1Z-91E" firstAttribute="leading" secondItem="d2O-Zi-39H" secondAttribute="leading" id="JA6-jt-Q7f"/>
+                            <constraint firstItem="3Df-w2-7dk" firstAttribute="leading" secondItem="d2O-Zi-39H" secondAttribute="leading" id="Pug-AX-OTC"/>
                             <constraint firstItem="PPI-1Z-91E" firstAttribute="trailing" secondItem="d2O-Zi-39H" secondAttribute="trailing" id="YVN-Q9-F6n"/>
-                            <constraint firstItem="aVR-0H-vvc" firstAttribute="bottom" secondItem="d2O-Zi-39H" secondAttribute="bottom" id="bTm-4S-dP5"/>
-                            <constraint firstItem="aVR-0H-vvc" firstAttribute="top" secondItem="PPI-1Z-91E" secondAttribute="bottom" id="dXc-1E-6al"/>
+                            <constraint firstItem="3Df-w2-7dk" firstAttribute="top" secondItem="PPI-1Z-91E" secondAttribute="bottom" id="bLm-zG-784"/>
+                            <constraint firstItem="3Df-w2-7dk" firstAttribute="bottom" secondItem="d2O-Zi-39H" secondAttribute="bottom" id="c5B-R2-NpC"/>
+                            <constraint firstItem="3Df-w2-7dk" firstAttribute="trailing" secondItem="d2O-Zi-39H" secondAttribute="trailing" id="dYx-hT-gOh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d2O-Zi-39H"/>
                     </view>
                     <connections>
                         <outlet property="navBar" destination="PPI-1Z-91E" id="PSk-8L-HSg"/>
-                        <outlet property="wkView" destination="aVR-0H-vvc" id="1yy-QT-6Lc"/>
+                        <outlet property="wkView" destination="3Df-w2-7dk" id="vzx-ND-wQv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JlK-cN-gHy" userLabel="First Responder" sceneMemberID="firstResponder"/>

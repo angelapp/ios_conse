@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import WebKit
 
-class FormatBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, WKNavigationDelegate, FormatBankProtocol {
+class FormatBankViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIDocumentInteractionControllerDelegate, FormatBankProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var table_formats: UITableView!

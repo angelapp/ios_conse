@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import WebKit
 
-class OpenFilePopupViewController: UIViewController, WKNavigationDelegate {
+class OpenFilePopupViewController: UIViewController, UIWebViewDelegate {
     
     // MARK: - Outlets
-    @IBOutlet weak var wkView: WKWebView!
+    @IBOutlet weak var wkView: UIWebView!
     @IBOutlet weak var navBar: UINavigationBar!
     
     // MARK: - Properties
@@ -23,7 +22,7 @@ class OpenFilePopupViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        wkView.navigationDelegate? = self
+        wkView.delegate? = self
         navBar.topItem?.title = fileName
         
         openFile()
@@ -37,7 +36,7 @@ class OpenFilePopupViewController: UIViewController, WKNavigationDelegate {
     // MARK: - Functions
     func openFile(){
         if let fileURL = Bundle.main.url(forResource: fileName, withExtension: fileExt, subdirectory: nil, localization: nil) {
-            wkView.load(URLRequest(url: fileURL))
+            wkView.loadRequest(URLRequest(url: fileURL))
         }
         else {
             self.dismiss(animated: true, completion: nil)
@@ -47,5 +46,12 @@ class OpenFilePopupViewController: UIViewController, WKNavigationDelegate {
     // MARK: - Actions
     @IBAction func acctionButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func acction(_ sender: UIBarButtonItem) {
+        guard let pdf = Bundle.main.url(forResource: fileName, withExtension: fileExt, subdirectory: nil, localization: nil) else { return }
+        let objectsToShare = [pdf]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
     }
 }

@@ -11,6 +11,18 @@ import Foundation
 import UIKit
 import ObjectMapper
 
+func getBirthdateString(inFormat format: String, fromDate date: String, withFormat currentFormat: String) -> String {
+    
+    let currentDateFormatter = DateFormatter()
+    currentDateFormatter.dateFormat = currentFormat
+    let currentDate = currentDateFormatter.date(from: date)
+    
+    let newDateFormatter = DateFormatter()
+    newDateFormatter.dateFormat = format
+    
+    return newDateFormatter.string(from: currentDate!)
+}
+
 func hiddenView(view id: IdView, state: Bool) -> CGFloat {
     
     switch id {
@@ -242,7 +254,11 @@ extension UIViewController {
             guard let settingsUrl = URL(string: settings) else { return }
             
             if UIApplication.shared.canOpenURL(settingsUrl) {
-                UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(settingsUrl)
+                }
             }
         }
         let cancelAction = UIAlertAction(title: Strings.button_cancel, style: .default, handler: nil)

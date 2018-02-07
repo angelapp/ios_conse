@@ -7,9 +7,8 @@
 //
 
 import UIKit
-import WebKit
 
-class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, WKNavigationDelegate {
+class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_Aud1: UIButton!
@@ -89,7 +88,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, WKNavigationDel
     @IBOutlet weak var leaders_textField10: UITextField!
     
     @IBOutlet weak var leader_videoLoader: UIActivityIndicatorView!
-    @IBOutlet weak var leader_videoPlayer: WKWebView!
+    @IBOutlet weak var leader_videoPlayer: UIWebView!
     
     // MARK: - Properties
     let MIN_GLOBE_HEIGHT: CGFloat = 380
@@ -240,10 +239,10 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, WKNavigationDel
         leaders_text3_3.text = LEADERS_COURSE.PAGE_09.text3_3
         leaders_text3_4.text = LEADERS_COURSE.PAGE_09.text3_4
         
-        leaders_textField1.text = nullString; leaders_textField1.tag = 0; leaders_textField1.delegate = self
-        leaders_textField2.text = nullString; leaders_textField2.tag = 1; leaders_textField2.delegate = self
-        leaders_textField3.text = nullString; leaders_textField3.tag = 2; leaders_textField3.delegate = self
-        leaders_textField4.text = nullString; leaders_textField4.tag = 3; leaders_textField4.delegate = self
+        leaders_textField1.text = nullString; leaders_textField1.tag = 0; leaders_textField1.underlined(); leaders_textField1.delegate = self
+        leaders_textField2.text = nullString; leaders_textField2.tag = 1; leaders_textField2.underlined(); leaders_textField2.delegate = self
+        leaders_textField3.text = nullString; leaders_textField3.tag = 2; leaders_textField3.underlined(); leaders_textField3.delegate = self
+        leaders_textField4.text = nullString; leaders_textField4.tag = 3; leaders_textField4.underlined(); leaders_textField4.delegate = self
         leaders_textField5.text = nullString; leaders_textField5.tag = 4; leaders_textField5.delegate = self
         leaders_textField6.text = nullString; leaders_textField6.tag = 5; leaders_textField6.delegate = self
         leaders_textField7.text = nullString; leaders_textField7.tag = 6; leaders_textField7.delegate = self
@@ -758,7 +757,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, WKNavigationDel
     func fillLeader54() {
         leaders_title.text = LEADERS_COURSE.PAGE_54.title
         
-        leader_videoPlayer.navigationDelegate =  self
+        leader_videoPlayer.delegate =  self
     }
     
     func fillLeader55() {
