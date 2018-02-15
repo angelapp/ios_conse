@@ -422,7 +422,7 @@ func validateCrossword(word: UITextField..., option: Int) -> Bool {
 }
 
 func getAudioName(forAudio id: AUDIO_ID) -> String {
-    let avatar_gender = AplicationRuntime.sharedManager.avatarGenderID ?? 0
+    let avatar_gender = AplicationRuntime.sharedManager.getAvatarGenderID()
     
     switch id {
         

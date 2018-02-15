@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_alert: UIButton!
@@ -25,6 +25,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Properties
     var actualViewYPosition: CGFloat = 0.0
+    var user = AplicationRuntime.sharedManager.getUser()
+    var states = StorageFunctions.getStates()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -65,9 +67,16 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         tf_email.delegate = self
         tf_password.delegate = self
+        
+        btn_alert.isHidden = !states.wasLoggedAtSomeTime
     }
     
-    //MARK: Métodos para el control de eventos del teclado
+    private func startNextVC(name: String){
+        let sb = UIStoryboard(name: name, bundle: nil)
+        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+    }
+    
+    //MARK: - Métodos para el control de eventos del teclado
     //Observer for increment contentSize of the scroll
     @objc func keyboardWillShow(notification: NSNotification) {
         
@@ -94,14 +103,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     /// Se envia los datos del usuario para loggin
     func sendLogginPost(userToAuth: RegisterUserProfileModel) {
         
-        //self.showLoader(withMessage: Strings.loader_loading)
-        
         let json = Mapper().toJSONString(userToAuth, prettyPrint: true)
         let headers:[[String:String]] = []
         
         Network.buildRequest(urlApi: NetworkPOST.USER_LOGGIN, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
-            
-            // NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
             
             switch response {
                 
@@ -120,14 +125,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 let user = Mapper<RegisterUserResponse>().map(JSON: objReceiver as! [String: Any])
                 let stateModel = StatesModel()
+                stateModel.isLogin = true
                 stateModel.wasLoggedAtSomeTime = true
                 
                 StorageFunctions.saveDataInLocal(user: user)
                 StorageFunctions.saveStates(states: stateModel)
                 AplicationRuntime.sharedManager.setUserData(user: user)
                 
-                let sb = UIStoryboard(name: StoryboardsId.main, bundle: nil)
-                self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                self.states.wasLoggedAtSomeTime ? self.startNextVC(name: StoryboardsId.main) : self.startNextVC(name: StoryboardsId.configAlert)
                 
                 break
                 
@@ -135,6 +140,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 break
             }
         })
+    }
+    
+    // MARK: - Methods for panic button
+    func showAlertSender(){
+        self.showSMSEmergency(logginDelegate: self, senderVC: .login)
+    }
+    /** Usa el protocolo para mostar mensajes */
+    func showMessage(withMessage msn: String) {
+        self.showErrorMessage(withMessage: msn)
+    }
+    
+    func openSettingsPopup(title: String, message: String, settings: String) {
+        self.showSettingsPopup(title: title, message: message, settings: settings)
     }
     
     // MARK: - Actions
@@ -146,13 +164,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             guard Validations.isValidData(fromField: tf_email, controller: self),
                 Validations.isValidData(fromField: tf_password, controller: self),
-                Validations.isValidEmail(email: tf_email.text!, controller: self) else { return }
+                Validations.isValidEmail(email: tf_email.text!, controller: self)
+                else { return }
             
-            let user = RegisterUserProfileModel()
-            user.email = tf_email.text
-            user.password = tf_password.text
+            if user != nil && tf_email.text?.lowercased() == user?.email.lowercased() {
+                showErrorMessage(withMessage: Strings.error_message_notUserValidCredentials)
+                return
+            }
             
-            sendLogginPost(userToAuth: user)
+            let userRequest = RegisterUserProfileModel()
+            userRequest.email = tf_email.text
+            userRequest.password = tf_password.text
+            
+            sendLogginPost(userToAuth: userRequest)
+            break
+            
+        case btn_alert:
+            self.showCallEmergency(logginDelegate: self, senderVC: .login)
             break
             
         default:

@@ -77,9 +77,9 @@ struct  LEADERS_COURSE {
         static let t1 = "Completa las frases"
         static let t2 = "Elige la palabra adecuada para completar las frases que te ayudarán a identificar qué es un riesgo extraordinario. Escribe las palabras en los espacios disponibles, según el orden que quieras darles."
         
-        static let options1 = "\nacciones - concreto \nhechos - supuestos\n"
-        static let options2 = "\nespecífico - persona \ngrupo\n"
-        static let options3 = "\namenaza - vida \nlibertad\n"
+        static let options1 = "acciones - concreto \nhechos - supuestos"
+        static let options2 = "específico - persona \ngrupo"
+        static let options3 = "amenaza - vida \nlibertad"
         
         static let text1_1 = "1. Es "
         static let text1_2 = ", fundado en "
@@ -112,8 +112,9 @@ struct  LEADERS_COURSE {
     }
     
     struct PAGE_10 {
+        static let title = LEADERS_COURSE.PAGE_03.title
         static let t1 = "¡Felicitaciones!"
-        static let t2 = "Has finalizado el primer módulo de formación, a puedes ver como tus esfuerzos están dando resultados. Recibe con gusto tu primera insignia, ahora eres: Conse Conocedor."
+        static let t2 = "Has finalizado el primer módulo de formación, ya puedes ver como tus esfuerzos están dando resultados. Recibe con gusto tu primera insignia, ahora eres: Consejero Conocedor."
     }
     
     struct PAGE_11 {
@@ -281,6 +282,7 @@ struct  LEADERS_COURSE {
     }
     
     struct PAGE_27 {
+        static let title = LEADERS_COURSE.PAGE_12.title
         static let t1 = "¡Muy bien, encontraste las respuestas correctas!"
         static let t2 = "¡Felicitaciones! Ya puedes ver como tus esfuerzos están dando resultados. Sigue coleccionando insignias, ahora eres: \nConse Avanzado."
     }

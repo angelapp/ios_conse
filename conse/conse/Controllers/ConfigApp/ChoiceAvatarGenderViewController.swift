@@ -40,12 +40,10 @@ class ChoiceAvatarGenderViewController: UIViewController {
     // MARK: - Actions
     @IBAction func actionButtons(_ sender: UIButton) {
         
-        if sender == btn_man {
-            AplicationRuntime.sharedManager.setAvatarGenderID(id: AvatarGenderIDs.male.rawValue)
-        }
-        else {
-            AplicationRuntime.sharedManager.setAvatarGenderID(id: AvatarGenderIDs.female.rawValue)
-        }
+        let avatar = MyAvatarPieces()
+        avatar.genderID = sender == btn_man ? AvatarGenderIDs.male.rawValue : AvatarGenderIDs.female.rawValue
+        
+        AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: avatar)
         
         performSegue(withIdentifier: segueID.makeYourAvatar, sender: self)
     }

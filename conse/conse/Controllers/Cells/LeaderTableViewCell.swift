@@ -34,6 +34,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     @IBOutlet weak var leaders_title: UILabel!
     @IBOutlet weak var leaders_subtitle: UILabel!
+    @IBOutlet weak var leaders_review: UILabel!
     
     @IBOutlet weak var leaders_text1: UILabel!
     @IBOutlet weak var leaders_text2: UILabel!
@@ -90,8 +91,9 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     @IBOutlet weak var leader_videoLoader: UIActivityIndicatorView!
     @IBOutlet weak var leader_videoPlayer: UIWebView!
     
+    
     // MARK: - Properties
-    let MIN_GLOBE_HEIGHT: CGFloat = 380
+    let MIN_GLOBE_HEIGHT: CGFloat = 550
     let CORRECT_OPTION: Int = 1
     let WRONG_OPTION: Int = 0
     
@@ -137,7 +139,6 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     func fillLeader03() {
         leaders_title.text = LEADERS_COURSE.PAGE_03.title
-        
         leaders_text1.text = LEADERS_COURSE.PAGE_03.t1
         leaders_text2.text = LEADERS_COURSE.PAGE_03.t2
         
@@ -243,25 +244,29 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_textField2.text = nullString; leaders_textField2.tag = 1; leaders_textField2.underlined(); leaders_textField2.delegate = self
         leaders_textField3.text = nullString; leaders_textField3.tag = 2; leaders_textField3.underlined(); leaders_textField3.delegate = self
         leaders_textField4.text = nullString; leaders_textField4.tag = 3; leaders_textField4.underlined(); leaders_textField4.delegate = self
-        leaders_textField5.text = nullString; leaders_textField5.tag = 4; leaders_textField5.delegate = self
-        leaders_textField6.text = nullString; leaders_textField6.tag = 5; leaders_textField6.delegate = self
-        leaders_textField7.text = nullString; leaders_textField7.tag = 6; leaders_textField7.delegate = self
-        leaders_textField8.text = nullString; leaders_textField8.tag = 7; leaders_textField8.delegate = self
-        leaders_textField9.text = nullString; leaders_textField9.tag = 8; leaders_textField9.delegate = self
-        leaders_textField10.text = nullString; leaders_textField10.tag = 9; leaders_textField10.delegate = self
+        leaders_textField5.text = nullString; leaders_textField5.tag = 4; leaders_textField5.underlined(); leaders_textField5.delegate = self
+        leaders_textField6.text = nullString; leaders_textField6.tag = 5; leaders_textField6.underlined(); leaders_textField6.delegate = self
+        leaders_textField7.text = nullString; leaders_textField7.tag = 6; leaders_textField7.underlined(); leaders_textField7.delegate = self
+        leaders_textField8.text = nullString; leaders_textField8.tag = 7; leaders_textField8.underlined(); leaders_textField8.delegate = self
+        leaders_textField9.text = nullString; leaders_textField9.tag = 8; leaders_textField9.underlined(); leaders_textField9.delegate = self
+        leaders_textField10.text = nullString; leaders_textField10.tag = 9; leaders_textField10.underlined(); leaders_textField10.delegate = self
     }
     
     func fillLeader10(height: CGFloat) {
         constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
         
+        leaders_review.text = Strings.review_content
+        leaders_title.text = LEADERS_COURSE.PAGE_10.title
         leaders_text1.text = LEADERS_COURSE.PAGE_10.t1
         leaders_text2.text = LEADERS_COURSE.PAGE_10.t2
         
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: LeadersImages.insignia_01)
         img_background.image = UIImage(named: LeadersImages.bg_01)
     }
     
     func fillLeader11() {
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         leaders_title.text = LEADERS_COURSE.PAGE_11.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_11.subtitle
         leaders_text1.text = LEADERS_COURSE.PAGE_11.t1
@@ -474,9 +479,12 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader27(height: CGFloat) {
         constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
         
+        leaders_review.text = Strings.review_content
+        leaders_title.text = LEADERS_COURSE.PAGE_27.title
         leaders_text1.text = LEADERS_COURSE.PAGE_27.t1
         leaders_text2.text = LEADERS_COURSE.PAGE_27.t2
         
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: LeadersImages.insignia_02)
         img_background.image = UIImage(named: LeadersImages.bg_02)
     }
@@ -504,10 +512,11 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_subtitle.text = LEADERS_COURSE.PAGE_30.subtitle
         
         leaders_text1.text = LEADERS_COURSE.PAGE_30.t1
-        
         leaders_item1.text = LEADERS_COURSE.PAGE_30.item_01
         leaders_item2.text = LEADERS_COURSE.PAGE_30.item_02
         leaders_item3.text = LEADERS_COURSE.PAGE_30.item_03
+        
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
     }
     
     func fillLeader31() {

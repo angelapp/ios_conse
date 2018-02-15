@@ -12,9 +12,9 @@ import ObjectMapper
 
 class StorageFunctions: NSObject {
     
-    /** Obtine el *token*, el *id* y el *username* de la respuesta para
-     guardarlos en el dispositivo
-     
+    // MARK: - SAVE METHODS
+    
+    /** Guarda toda la data del perfil del usuario
      - Parameter user: Modelo del usuario que contiene todos los datos del mismo
      */
     class func saveDataInLocal(user: RegisterUserResponse!) {
@@ -29,6 +29,22 @@ class StorageFunctions: NSObject {
         if let data = UserPreferences.archive(user: strRepresentation) {
             storage.saveParameterFromKey(key: DicKeys.user, value: data as AnyObject)
         }
+    }
+    
+    /** Guarda la configuración de la APP */
+    class func saveAppConfigInLocal(config: ApplicationConfiguration!) {
+        
+        // Map App Configuration Model in JSON string
+        let jsonConf = Mapper().toJSONString(config, prettyPrint: true)
+        
+        // Save JSON in local
+        let storage = StorageConfig.share
+        let saveData = AppConfigPreferences(jsonConfig: jsonConf!)
+        let strRepresentation = saveData.dictionary()
+        if let data = AppConfigPreferences.archive(conf: strRepresentation) {
+            storage.saveParameterFromKey(key: DicKeys.appConfig, value: data as AnyObject)
+        }
+        
     }
     
     /// Guarda los estados de la aplicación
@@ -64,6 +80,30 @@ class StorageFunctions: NSObject {
         }
     }
     
+    /** Guarda los ID de las caracteristicas del avatar */
+    class func saveAvatarInLocal(avatarPieces: MyAvatarPieces) {
+        
+        // Save JSON in local
+        let storage = StorageConfig.share
+        let saveData = MyAvatarPreferences(pieces: avatarPieces)
+        let strRepresentation = saveData.dictionary()
+        if let data = MyAvatarPreferences.archive(avatar: strRepresentation) {
+            storage.saveParameterFromKey(key: DicKeys.avaterPieces, value: data as AnyObject)
+        }
+    }
+    
+    // MARK: - LOAD METHODS
+    
+    /// Get local storage data
+    class func getAppConfig() -> ApplicationConfiguration! {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: DicKeys.appConfig) as! Data! else { return nil}
+        guard let dic = AppConfigPreferences.unarchive(data: data) else { return nil}
+        let strConf = AppConfigPreferences.initConfig(fromDic: dic) as String!
+        let appConf = Mapper<ApplicationConfiguration>().map(JSON: convertToDictionary(text: strConf!)!)
+        return appConf
+    }
+    
     /// Get storage progress
     class func getProgress() -> CoursesProgress! {
         let storage = StorageConfig.share
@@ -74,10 +114,10 @@ class StorageFunctions: NSObject {
     }
     
     /// Get storage states
-    class func getStates() -> StatesModel! {
+    class func getStates() -> StatesModel {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.states) as! Data! else { return nil}
-        guard let dic = StatesPreferences.unarchive(data: data) else { return nil}
+        guard let data = storage.getParameterFromKey(key: DicKeys.states) as! Data! else { return StatesModel() }
+        guard let dic = StatesPreferences.unarchive(data: data) else { return StatesModel()}
         let states = StatesPreferences.initState(fromDic: dic)
         return states
     }
@@ -100,6 +140,15 @@ class StorageFunctions: NSObject {
         let json = ContactPreferences.initContactList(fromDic: dic) as String!
         let contactList = Mapper<ContactListModel>().map(JSON: convertToDictionary(text: json!)!)
         return contactList?.contacList
+    }
+    
+    /// Get storage Avatar
+    class func getAvatarPieces() -> MyAvatarPieces! {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: DicKeys.avaterPieces) as! Data! else { return nil}
+        guard let dic = MyAvatarPreferences.unarchive(data: data) else { return nil}
+        let avatar = MyAvatarPreferences.initAvatar(fromDic: dic)
+        return avatar
     }
     
     /// Save image as data

@@ -14,6 +14,9 @@
 		462609F31FFBE70000A3706C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 462609F11FFBE70000A3706C /* LaunchScreen.storyboard */; };
 		462609FE1FFBE70000A3706C /* conseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462609FD1FFBE70000A3706C /* conseTests.swift */; };
 		46260A091FFBE70100A3706C /* conseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46260A081FFBE70100A3706C /* conseUITests.swift */; };
+		6B0E04BD2034E46A00564A72 /* NewsHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E04BC2034E46A00564A72 /* NewsHeaderTableViewCell.swift */; };
+		6B0E04BF2034E48500564A72 /* NewsBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E04BE2034E48500564A72 /* NewsBodyTableViewCell.swift */; };
+		6B0E04C12034E4A600564A72 /* NewsButtonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E04C02034E4A600564A72 /* NewsButtonsCollectionViewCell.swift */; };
 		6B1D34C420239AE9006BB9C2 /* LeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */; };
 		6B1D34C62023B252006BB9C2 /* Leaders_Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D34C52023B252006BB9C2 /* Leaders_Strings.swift */; };
 		6B1E7598202101640078F0B5 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E7597202101640078F0B5 /* ProgressViewController.swift */; };
@@ -123,6 +126,7 @@
 		6B9646922017BC2E002ADD3D /* auditoria_lideres.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6B9646902017BC2E002ADD3D /* auditoria_lideres.pdf */; };
 		6B9646932017BC2E002ADD3D /* auditoria_vbg.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6B9646912017BC2E002ADD3D /* auditoria_vbg.pdf */; };
 		6B9646952017FC27002ADD3D /* CoursesMessagesPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B9646942017FC27002ADD3D /* CoursesMessagesPopupViewController.swift */; };
+		6BB0FF95202BDD14002CB731 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BB0FF94202BDD14002CB731 /* NewsViewController.swift */; };
 		6BF14C152006E5880045E262 /* SendAlertPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */; };
 		6BF14C182006F22C0045E262 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BF14C162006F22C0045E262 /* Popup.storyboard */; };
 		6BF14C1A2006FA770045E262 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF14C192006FA770045E262 /* Protocols.swift */; };
@@ -189,6 +193,9 @@
 		46260A041FFBE70000A3706C /* conseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = conseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46260A081FFBE70100A3706C /* conseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = conseUITests.swift; sourceTree = "<group>"; };
 		46260A0A1FFBE70100A3706C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B0E04BC2034E46A00564A72 /* NewsHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		6B0E04BE2034E48500564A72 /* NewsBodyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBodyTableViewCell.swift; sourceTree = "<group>"; };
+		6B0E04C02034E4A600564A72 /* NewsButtonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsButtonsCollectionViewCell.swift; sourceTree = "<group>"; };
 		6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderTableViewCell.swift; sourceTree = "<group>"; };
 		6B1D34C52023B252006BB9C2 /* Leaders_Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaders_Strings.swift; sourceTree = "<group>"; };
 		6B1E7597202101640078F0B5 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
@@ -300,6 +307,7 @@
 		6B9646902017BC2E002ADD3D /* auditoria_lideres.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = auditoria_lideres.pdf; sourceTree = "<group>"; };
 		6B9646912017BC2E002ADD3D /* auditoria_vbg.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = auditoria_vbg.pdf; sourceTree = "<group>"; };
 		6B9646942017FC27002ADD3D /* CoursesMessagesPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesMessagesPopupViewController.swift; sourceTree = "<group>"; };
+		6BB0FF94202BDD14002CB731 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		6BF14C142006E5880045E262 /* SendAlertPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAlertPopupViewController.swift; sourceTree = "<group>"; };
 		6BF14C172006F22C0045E262 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Popup.storyboard; sourceTree = "<group>"; };
 		6BF14C192006FA770045E262 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
@@ -630,6 +638,7 @@
 				6B33A39B200E88EA00971A1E /* LegalViewController.swift */,
 				6B79E37120093BA0004990E9 /* MainViewController.swift */,
 				6B79E37720093E2C004990E9 /* MyCoursesViewController.swift */,
+				6BB0FF94202BDD14002CB731 /* NewsViewController.swift */,
 				6B33A3BF200FEB7600971A1E /* PLCCourseViewController.swift */,
 				6BF906CE20225EA10051636B /* ProtectionRoutesViewController.swift */,
 				6B33A39D200E893700971A1E /* ProtectionShieldViewController.swift */,
@@ -697,6 +706,9 @@
 				6B33A3A1200E902B00971A1E /* LegalBodyTableViewCell.swift */,
 				6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */,
 				6B33A3A3200E904700971A1E /* LegalHeaderTableViewCell.swift */,
+				6B0E04C02034E4A600564A72 /* NewsButtonsCollectionViewCell.swift */,
+				6B0E04BC2034E46A00564A72 /* NewsHeaderTableViewCell.swift */,
+				6B0E04BE2034E48500564A72 /* NewsBodyTableViewCell.swift */,
 				6B1E7599202101C80078F0B5 /* ProgressTableViewCell.swift */,
 				6BF906C220225C340051636B /* ProtectionRouteTableViewCell.swift */,
 				6B33A3A5200E905800971A1E /* ShieldBodyTableViewCell.swift */,
@@ -1125,9 +1137,11 @@
 				6B33A3BE200FEB5400971A1E /* VBGCourseViewController.swift in Sources */,
 				6B35D9862012CA1900556C58 /* CheckConnection.swift in Sources */,
 				6BF14C1E2007A2CF0045E262 /* MakeYourAvatarViewController.swift in Sources */,
+				6B0E04BD2034E46A00564A72 /* NewsHeaderTableViewCell.swift in Sources */,
 				6B33A3BA200FA3D200971A1E /* Document_Bank.swift in Sources */,
 				6B96468D20179886002ADD3D /* CommunityBodyTableViewCell.swift in Sources */,
 				6B79E37420093C47004990E9 /* LeftMenuViewController.swift in Sources */,
+				6B0E04BF2034E48500564A72 /* NewsBodyTableViewCell.swift in Sources */,
 				6BF906D120225F000051636B /* SelectRouteViewController.swift in Sources */,
 				6BF906C520225E040051636B /* LeadersRouteViewController.swift in Sources */,
 				6BF8ADB31FFE9DD20074EA88 /* NetworkConstants.swift in Sources */,
@@ -1151,6 +1165,7 @@
 				6B33A39C200E88EA00971A1E /* LegalViewController.swift in Sources */,
 				6BF8A7991FFD3C7D0094764D /* ConfigAlertButtonViewController.swift in Sources */,
 				6B33A3B0200EB27900971A1E /* AboutUsTab2ViewController.swift in Sources */,
+				6BB0FF95202BDD14002CB731 /* NewsViewController.swift in Sources */,
 				6B1F5AA31FFBF0FE00DA650D /* RecoveryPasswordViewController.swift in Sources */,
 				6B1E759A202101C80078F0B5 /* ProgressTableViewCell.swift in Sources */,
 				6BF8A7A11FFD603C0094764D /* Identifiers.swift in Sources */,
@@ -1158,6 +1173,7 @@
 				6B35D9842012741300556C58 /* CrosswordHelpViewController.swift in Sources */,
 				462609E91FFBE70000A3706C /* AppDelegate.swift in Sources */,
 				6B33A39E200E893700971A1E /* ProtectionShieldViewController.swift in Sources */,
+				6B0E04C12034E4A600564A72 /* NewsButtonsCollectionViewCell.swift in Sources */,
 				6B33A39A200E888700971A1E /* FormatBankViewController.swift in Sources */,
 				6B79E37C20093F4A004990E9 /* DocumentBankViewController.swift in Sources */,
 				6B9646952017FC27002ADD3D /* CoursesMessagesPopupViewController.swift in Sources */,

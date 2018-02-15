@@ -17,6 +17,8 @@ let ACCESSORIES_GRID = 4
 
 struct ConseValues {
     
+    static let radius: CGFloat = 10.0 // Radio para redondear las esquinas 
+    
     static let defaultPositionX: CGFloat = 0.0
     static let defaultPositionY: CGFloat = 0.0
     
@@ -70,6 +72,7 @@ enum ViewControllerTag : Int {
     case main
     case makeAvatar
     case myCourses
+    case news
     case openFile
     case progress
     case protectionRoutes

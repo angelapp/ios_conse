@@ -507,6 +507,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 let user = Mapper<RegisterUserResponse>().map(JSON: objReceiver as! [String: Any])
                 let stateModel = StatesModel()
                 stateModel.wasLoggedAtSomeTime = true
+                stateModel.isLogin = true
                 
                 StorageFunctions.saveDataInLocal(user: user)
                 StorageFunctions.saveStates(states: stateModel)

@@ -28,8 +28,10 @@ class MainViewController: UIViewController, MainProtocol {
     var myCommunityVC: CommunityViewController!
     var myCourseVC: MyCoursesViewController!
     var myRoutesVC: ProtectionRoutesViewController!
+    var newsVC: NewsViewController!
     var plcCourseVC: PLCCourseViewController!
     var vbgCourseVC: VBGCourseViewController!
+    var videoPlayerVC: ViedoPlayerViewController!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -71,8 +73,10 @@ class MainViewController: UIViewController, MainProtocol {
         myCommunityVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.community) as! CommunityViewController
         myCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.myCourses) as! MyCoursesViewController
         myRoutesVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.protectionRoutes) as! ProtectionRoutesViewController
+        newsVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.news) as! NewsViewController
         plcCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.coursePLC) as! PLCCourseViewController
         vbgCourseVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.courseVBG) as! VBGCourseViewController
+        videoPlayerVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.videoPLayer) as! ViedoPlayerViewController
         
         let sb = UIStoryboard(name: StoryboardsId.auth, bundle: nil)
         editProfileVC = sb.instantiateViewController(withIdentifier: ViewControllersId.register) as! RegisterViewController
@@ -109,6 +113,13 @@ class MainViewController: UIViewController, MainProtocol {
             
         case .coursePLC:
             return plcCourseVC
+            
+        case .news:
+            return newsVC
+            
+        case .videoPlayer:
+            videoPlayerVC.videoID = AplicationRuntime.sharedManager.getvideoID()
+            return videoPlayerVC
             
         case .editProfile:
             editProfileVC.formType = .editProfile

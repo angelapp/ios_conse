@@ -715,3 +715,47 @@ class UserAvatar: Mappable {
         avatar_piece <- map[JSONKeys.avatar_piece]
     }
 }
+
+// MARK: NEWS MODELS
+class NewsCategory: Mappable {
+    
+    var id: Int!
+    var name: String!
+    var abreviature: String!
+    var description: String!
+    var icon: String!
+    var news_category: Array<News>!
+    
+    init() {
+    }
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        name <- map[JSONKeys.name]
+        abreviature <- map[JSONKeys.abreviature]
+        description <- map[JSONKeys.description]
+        icon <- map[JSONKeys.icon]
+        news_category <- map[JSONKeys.news_category]
+    }
+    
+}
+
+class News: Mappable {
+    var id: Int!
+    var tittle: String!
+    var city: City!
+    var more_info_link: String!
+    
+    required init?(map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        id <- map[JSONKeys.id]
+        tittle <- map[JSONKeys.title]
+        city <- map[JSONKeys.city]
+        more_info_link <- map[JSONKeys.more_info_link]
+    }
+}

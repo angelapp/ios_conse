@@ -134,6 +134,17 @@ func arrayTransform(from tempArray: Array<Any>) -> Array<OrganizationType> {
     return arrayModel
 }
 
+func arrayTransform(from tempArray: Array<Any>) -> Array<NewsCategory> {
+    var arrayModel: Array<NewsCategory> =  []
+    
+    for value in tempArray {
+        let model = Mapper<NewsCategory>().map(JSON: value as! [String: Any])
+        arrayModel.append(model!)
+    }
+    
+    return arrayModel
+}
+
 func getProgress(forCourse index: Int) -> Array<ModuleProgressItem>{
     
     var progress: Array<ModuleProgressItem> = []
@@ -377,6 +388,22 @@ extension UIImage {
         UIGraphicsEndImageContext()
         
         return combinedImage!
+    }
+}
+
+// Extension for get array without duplicate elements
+extension Array {
+    func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
+        var set = Set<T>() //the unique list kept in a Set for fast retrieval
+        var arrayOrdered = [Element]() //keeping the unique list of elements but ordered
+        for value in self {
+            if !set.contains(map(value)) {
+                set.insert(map(value))
+                arrayOrdered.append(value)
+            }
+        }
+        
+        return arrayOrdered
     }
 }
 

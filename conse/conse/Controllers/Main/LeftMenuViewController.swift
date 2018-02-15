@@ -11,17 +11,19 @@ import UIKit
 class LeftMenuViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var btn_aboutNRC: UIButton!
-    @IBOutlet weak var btn_analyze: UIButton!
-    @IBOutlet weak var btn_contactUs: UIButton!
-    @IBOutlet weak var btn_courses: UIButton!
     @IBOutlet weak var btn_docs: UIButton!
+    @IBOutlet weak var btn_routes: UIButton!
+    @IBOutlet weak var btn_courses: UIButton!
+    @IBOutlet weak var btn_analyze: UIButton!
+    @IBOutlet weak var btn_news: UIButton!
+    @IBOutlet weak var btn_contactUs: UIButton!
+    @IBOutlet weak var btn_aboutNRC: UIButton!
+    @IBOutlet weak var btn_videoTutorial: UIButton!
     @IBOutlet weak var btn_editProfile: UIButton!
     @IBOutlet weak var btn_logout: UIButton!
-    @IBOutlet weak var btn_news: UIButton!
-    @IBOutlet weak var btn_routes: UIButton!
     
     @IBOutlet weak var cnt_buttons: UIView!
+    @IBOutlet weak var scroll: UIScrollView!
     
     // MARK: - Properties
     weak var mainDelegate: MainProtocol?
@@ -41,6 +43,18 @@ class LeftMenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // set content height to scroll
+    override func viewDidLayoutSubviews() {
+        
+        var contentRect = CGRect.zero
+        
+        for view in scroll.subviews {
+            contentRect = contentRect.union(view.frame)
+        }
+        
+        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
+    }
+    
     // MARK: - Private Functions
     private func addStyles() {
         
@@ -54,9 +68,6 @@ class LeftMenuViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Public Functions (Access by protocols)
-    
     
     // MARK: - Actions
     @IBAction func actionButtons(_ sender: UIButton) {
@@ -84,6 +95,8 @@ class LeftMenuViewController: UIViewController {
             break
             
         case btn_news:
+            mainDelegate?.addToContainer(viewControllerID: .news)
+            self.revealViewController().revealToggle(animated: true)
             break
             
         case btn_contactUs:
@@ -93,6 +106,11 @@ class LeftMenuViewController: UIViewController {
             
         case btn_aboutNRC:
             mainDelegate?.addToContainer(viewControllerID: .aboutUs)
+            self.revealViewController().revealToggle(animated: true)
+            break
+            
+        case btn_videoTutorial:
+            mainDelegate?.addToContainer(viewControllerID: .videoPlayer)
             self.revealViewController().revealToggle(animated: true)
             break
             
@@ -111,8 +129,10 @@ class LeftMenuViewController: UIViewController {
                 storageCookies.deleteCookie(cookie)
             }
             
-            // Clean data in local
-            StorageConfig.share.clearParameterFromKey(key: DicKeys.user)
+            // update login state in local
+            let states = StorageFunctions.getStates()
+            states.isLogin = false
+            StorageFunctions.saveStates(states: states)
             
             // Launch Auth Screen
             let sb = UIStoryboard(name: StoryboardsId.auth, bundle: nil)

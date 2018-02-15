@@ -59,6 +59,22 @@ extension UserPreferences {
     }
 }
 
+// Extensión de AppConfigPreferences para agregar los métodos Archivar o Desarchivar
+extension AppConfigPreferences {
+    
+    /// Archiva la configuración de la APP a partir de un diccionario de datos
+    class func archive(conf: [String:Any]) -> Data! {
+        return NSKeyedArchiver.archivedData(withRootObject: conf)
+    }
+    
+    /// Desarchiva la data de un usuario
+    /// - Returns: diccionario con la data del usuario
+    class func unarchive (data: Data) -> [String:Any]! {
+        guard let conf = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else { return nil }
+        return conf
+    }
+}
+
 // Extensión de StatesPreferences para agregar los metodos de Archivar o Desarchivar los estados de la App
 extension StatesPreferences {
     
@@ -104,5 +120,21 @@ extension ProgressPreferences {
     class func unarchive (data: Data) -> [String:Any]! {
         guard let progress = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else {return nil}
         return progress
+    }
+}
+
+// Extensión de AvatarPreferences para agregar los métodos Archivar o Desarchivar
+extension MyAvatarPreferences {
+    
+    /// Archiva la data del usuario a partir de un diccionario de datos
+    class func archive(avatar: [String:Any]) -> Data! {
+        return NSKeyedArchiver.archivedData(withRootObject: avatar)
+    }
+    
+    /// Desarchiva la data de un usuario
+    /// - Returns: diccionario con la data del usuario
+    class func unarchive (data: Data) -> [String:Any]! {
+        guard let avatar = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else { return nil }
+        return avatar
     }
 }

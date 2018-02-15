@@ -15,7 +15,7 @@ class ViedoPlayerViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
-    var videoID: String = "j6ADr_icqH8"
+    var videoID: String!
     
     // MARK: - LifeCycle
     override func viewDidLoad() {

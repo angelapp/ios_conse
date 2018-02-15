@@ -15,8 +15,8 @@ class AplicationRuntime {
     private var appConfig: ApplicationConfiguration!
     private var userData: RegisterUserResponse!
     private var progress: CoursesProgress!
-
-    var avatarGenderID: Int!
+    private var avatar: MyAvatarPieces!
+    
     var avatarImage: UIImage!
     var trustedContacts: Array<ContactModel>!
     
@@ -30,10 +30,8 @@ class AplicationRuntime {
         return Static.instance
     }
     
-    // MARK: - Getters and Setters
-    
-    // MARK: - SET App Configuration
-    public func setAppConfig(config: ApplicationConfiguration){
+    // MARK: - Setters
+    public func setAppConfig(config: ApplicationConfiguration!){
         self.appConfig = config
     }
     
@@ -41,8 +39,12 @@ class AplicationRuntime {
         self.userData = user
     }
     
+    public func setAvatarPieces(avatarPieces: MyAvatarPieces) {
+        self.avatar = avatarPieces
+    }
+    
     public func setAvatarGenderID(id: Int) {
-        self.avatarGenderID = id
+        self.avatar.genderID = id
     }
     
     public func setAvatarImage(img: UIImage) {
@@ -64,6 +66,11 @@ class AplicationRuntime {
         else { self.progress.PLC_INDEX = progress }
         
         StorageFunctions.saveProgress(progress: self.progress)
+    }
+    
+    // MARK: - GETTERS
+    public func getAppConfig() -> ApplicationConfiguration! {
+        return self.appConfig
     }
     
     // MARK: - getters for - Spinners
@@ -158,7 +165,7 @@ class AplicationRuntime {
     
     public func getvideoID() -> String {
         guard appConfig != nil, appConfig.video_tutorial_id != nil else {
-            return nullString
+            return defaultVideoID
         }
         return appConfig.video_tutorial_id
     }
@@ -169,19 +176,24 @@ class AplicationRuntime {
     }
     
     public func getAvatarGenderID() -> Int {
-        return self.avatarGenderID
+        guard self.avatar != nil, self.avatar.genderID != nil else { return AvatarGenderIDs.female.rawValue }
+        return self.avatar.genderID
+    }
+    
+    public func getAvatarPieces() -> MyAvatarPieces! {
+        return self.avatar
     }
     
     public func getPiecesList(forPart part: AvatarPiecesIDs) -> Array<AvatarPiece> {
         
-        guard appConfig != nil, appConfig.avatar_pieces_Array != nil, self.avatarGenderID != nil else {
+        guard appConfig != nil, appConfig.avatar_pieces_Array != nil, self.avatar != nil, self.avatar.genderID != nil else {
             return []
         }
         
         var piecesList: Array<AvatarPiece> = []
         
         for pieces in appConfig.avatar_pieces_Array {
-            if pieces.gender == self.avatarGenderID && pieces.body_part == part.rawValue {
+            if pieces.gender == self.avatar.genderID && pieces.body_part == part.rawValue {
                 piecesList.append(pieces)
             }
         }

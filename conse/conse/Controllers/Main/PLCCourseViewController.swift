@@ -154,6 +154,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: LeaderTableViewCell
+        printDebugMessage(tag: "current page is LEADERS: \(currentIndex + 1)")
         
         if currentIndex == PLC_INDEX.LEADERS_1.rawValue {
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_01, for: indexPath) as! LeaderTableViewCell
@@ -222,6 +223,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_10, for: indexPath) as! LeaderTableViewCell
             
             cell.leadersDelegate = self
+            
             cell.fillLeader10(height: leaders_table.bounds.size.height)
             return cell
         }

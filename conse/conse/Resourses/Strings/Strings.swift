@@ -13,6 +13,7 @@ let debugFlag = "♻️ \(appName)_Debug: "
 
 let blankSpace = " "
 let nullString = ""
+let defaultVideoID = "XxSK31L1D9A"
 let jumpLine = "\n"
 let titleTextColor = "titleTextColor"
 
@@ -57,21 +58,17 @@ struct Strings {
     static let image_star = "icon_progress_avanzado"
     static let image_star_off = "icon_progress_avanzadoapagado"
     
-    static let level_advanced = "Avanzado"
-    static let level_begginer = "Conocedor"
-    static let level_expert = "Experto"
-    static let level_star = "Estrella"
-    
     static let error_message_avatarIncomplete = "¡Falta seleccionar una parte del ávatar!"
     static let error_message_invalidEmail = "Correo no valido"
     static let error_message_locationDisabled = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
     static let error_message_notAvailable = "El contacto no tiene número telefónico"
     static let error_message_notAvailableAction = "Este dispositivo no puede realizar esta acción"
-    static let error_message_notIntenertConection = "Debes teber una conexión activa a internet"
+    static let error_message_notIntenertConection = "Debes tener una conexión activa a internet"
+    static let error_message_notUserValidCredentials = "Credenciales inválidas"
     static let error_message_passNotMatch = "Las contraseñas no coinciden"
     static let error_message_requieredField = "Debe diligenciar este campo"
     static let error_message_requieredData = "Debe completar información"
-    
+
     static let error_title_locationDisabled = "Geolocalización desactivada"
     static let error_title_notInternetConection = "No hay conexión a internet"
     
@@ -89,13 +86,21 @@ struct Strings {
     static let hasHTTPProtocol = "http"
     static let httpProtocol = "http://"
     
+    static let level_advanced = "Avanzado"
+    static let level_begginer = "Conocedor"
+    static let level_expert = "Experto"
+    static let level_star = "Estrella"
     static let loader_configApp = "Obteniendo configuración de la aplicación"
     static let loader_loading = "Cargando..."
     
     static let message_ok_contact = "Se ha enviado tu mensaje"
     static let message_ok_update = "Información actualizada"
     
+    static let news_message = "Pulse sobre cada enlace para acceder a la información actualizada en temas de protección y seguridad. Debes estar conectado a internet para poder ver los contenidos."
+    
     static let placeholder_yourMessage = "Escribe aquí tu mensaje"
+    
+    static let review_content = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
     static let texfiled_placeholder = "Seleccione"

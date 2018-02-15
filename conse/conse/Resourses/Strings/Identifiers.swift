@@ -29,6 +29,9 @@ struct CellsId {
     static let formatBank = "formatBankCell"
     static let legalBody = "legalBodyCell"
     static let legalHeader = "legalHeaderCell"
+    static let newsButtons = "newsButtonsCell"
+    static let newsBody = "newsBodyCell"
+    static let newsHeader = "newsHeaderCell"
     static let shieldBody = "shieldBodyCell"
     static let shieldHeader = "shieldHeaderCell"
     
@@ -209,6 +212,7 @@ struct ViewControllersId {
     static let main = "mainVC"
     static let makeAvatar = "makeYourAvatarVC"
     static let myCourses = "myCourseVC"
+    static let news = "newsVC"
     static let openFile = "openFileVC"
     static let progress = "progressVC"
     static let protectionRoutes = "protectionRoutesVC"

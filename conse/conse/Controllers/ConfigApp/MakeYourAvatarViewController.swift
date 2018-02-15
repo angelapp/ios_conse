@@ -70,7 +70,7 @@ class MakeYourAvatarViewController: UIViewController {
     
     var piecesGrid: [Array<AvatarPiece>] = []
     
-    var myAvatar = MyAvatarPieces()
+    var myAvatar = AplicationRuntime.sharedManager.getAvatarPieces()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -172,31 +172,31 @@ class MakeYourAvatarViewController: UIViewController {
         case SKIN_GRID:
             downloadImage(imgView: img_avatarSkin, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupSkin, buttonId: sender.tag)
-            myAvatar.skinID = piecesGrid[listPart][posInList].id
+            myAvatar?.skinID = piecesGrid[listPart][posInList].id
             break
             
         case HAIR_GRID:
             downloadImage(imgView: img_avatarHair, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupHair, buttonId: sender.tag)
-            myAvatar.hairID = piecesGrid[listPart][posInList].id
+            myAvatar?.hairID = piecesGrid[listPart][posInList].id
             break
             
         case EYES_GRID:
             downloadImage(imgView: img_avatarEyes, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupEyes, buttonId: sender.tag)
-            myAvatar.eyesID = piecesGrid[listPart][posInList].id
+            myAvatar?.eyesID = piecesGrid[listPart][posInList].id
             break
             
         case MOUTH_GRID:
             downloadImage(imgView: img_avatarMouth, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupMouth, buttonId: sender.tag)
-            myAvatar.mouthID = piecesGrid[listPart][posInList].id
+            myAvatar?.mouthID = piecesGrid[listPart][posInList].id
             break
             
         case ACCESSORIES_GRID:
             downloadImage(imgView: img_avatarAcc, urlImage: piecesGrid[listPart][posInList].icon)
             updateStateButtons(radioGroup: radioGroupAcc, buttonId: sender.tag)
-            myAvatar.accID = piecesGrid[listPart][posInList].id
+            myAvatar?.accID = piecesGrid[listPart][posInList].id
             break
             
         default:
@@ -207,16 +207,20 @@ class MakeYourAvatarViewController: UIViewController {
     @IBAction func actionButtons(_ sender: UIButton) {
         
         // Verifica que se hayan seleccionado todas las partes del avatar
-        guard myAvatar.skinID != nil, myAvatar.hairID != nil, myAvatar.eyesID != nil,
-            myAvatar.mouthID != nil, myAvatar.accID != nil else {
+        guard myAvatar?.skinID != nil, myAvatar?.hairID != nil, myAvatar?.eyesID != nil,
+            myAvatar?.mouthID != nil, myAvatar?.accID != nil else {
             self.showErrorMessage(withMessage: Strings.error_message_avatarIncomplete)
             return
         }
         
         // Crea una imagen combinado todas las partes y la guarda en el dispositivo y enel runtime
         let avatar = UIImage.combine(images: img_avatarSkin.image!, img_avatarEyes.image!, img_avatarMouth.image!, img_avatarHair.image!, img_avatarAcc.image!)
+        
         AplicationRuntime.sharedManager.setAvatarImage(img: avatar)
+        AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: myAvatar!)
+        
         StorageFunctions.saveAvatarImage(image: avatar)
+        StorageFunctions.saveAvatarInLocal(avatarPieces: myAvatar!)
         
         performSegue(withIdentifier: segueID.showAvatar, sender: self)
     }

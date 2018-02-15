@@ -10,15 +10,24 @@ import Foundation
 
 /// Claves para los diccionarios
 struct DicKeys{
+    static let accesories = "accesories"
+    static let appConfig = "AppConfig"
     static let avatarImg = "AvatarImage"
+    static let avaterPieces = "AvatarPieces"
     static let contactList = "ContactList"
     static let date = "date"
     static let email = "email"
+    static let eyes = "eyes"
+    static let gender = "gender"
+    static let hair = "hair"
     static let id = "id"
+    static let isLogin = "isLogin"
     static let name = "name"
+    static let mounth = "mounth"
     static let phone = "phone"
     static let plcProgess = "plcProgess"
     static let progess = "progess"
+    static let skin = "skin"
     static let states = "states"
     static let time = "time"
     static let title = "title"
@@ -106,9 +115,11 @@ struct JSONKeys {
     static let message_type = "message_type"
     static let min_pin_length = "min_pin_length"
     static let mobile_phone = "mobile_phone"
+    static let more_info_link = "more_info_link"
     
     //MARK: - N
     static let name = "name"
+    static let news_category = "news_category"
     static let number = "number"
     
     //MARK: - O
@@ -137,6 +148,7 @@ struct JSONKeys {
     
     //MARK: - T
     static let terms_condition_url = "terms_condition_url"
+    static let title = "tittle"
     static let token = "token"
     static let topic = "topic"
     static let topic_activity = "topic_activity"

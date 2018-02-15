@@ -90,3 +90,8 @@ protocol LeadersRouteTwoProtocol: class {
     func nextPage()
     func previusPage()
 }
+
+// Protocolos para Noticias
+protocol NewsProtocol: class {
+    func changeCitySelected(inPosition position: Int)
+}

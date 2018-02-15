@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
+class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, RecoveryProtocol {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_alert: UIButton!
@@ -17,6 +17,9 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var img_logo: UIImageView!
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var tf_email: UITextField!
+    
+    // MARK: - Properties
+    let states = StorageFunctions.getStates()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -54,6 +57,8 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
         btn_alert.imageView?.contentMode = .scaleAspectFit
         tf_email.underline(margin: ConseValues.margin, color: .white)
         tf_email.delegate = self
+        
+        btn_alert.isHidden = !states.wasLoggedAtSomeTime
     }
     
     private func dismissVC() {
@@ -125,17 +130,38 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
+    // MARK: - Methods for panic button
+    func showAlertSender(){
+        self.showSMSEmergency(recoveryDelegate: self, senderVC: .login)
+    }
+    /** Usa el protocolo para mostar mensajes */
+    func showMessage(withMessage msn: String) {
+        self.showErrorMessage(withMessage: msn)
+    }
+    
+    func openSettingsPopup(title: String, message: String, settings: String) {
+        self.showSettingsPopup(title: title, message: message, settings: settings)
+    }
+    
     // MARK: - actions
     @IBAction func send(_ sender: UIButton){
         
-        guard Validations.isValidData(fromField: tf_email, controller: self),
-        Validations.isValidEmail(email: tf_email.text!, controller: self) else {
-            return
+        switch sender {
+            
+        case btn_send:
+            guard Validations.isValidData(fromField: tf_email, controller: self),
+                Validations.isValidEmail(email: tf_email.text!, controller: self) else {
+                    return
+            }
+            
+            let username = RegisterUserProfileModel()
+            username.email = tf_email.text
+            
+            sendRecoveryPost(email: username)
+            break
+            
+        default:
+            self.showCallEmergency(recoveryDelegate: self, senderVC: .login)
         }
-        
-        let username = RegisterUserProfileModel()
-        username.email = tf_email.text
-        
-        sendRecoveryPost(email: username)
     }
 }

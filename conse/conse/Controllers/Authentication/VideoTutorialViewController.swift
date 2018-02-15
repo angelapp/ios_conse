@@ -20,7 +20,7 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
         super.viewDidLoad()
 
         videoPlayer.delegate = self
-        getVideo(forID: "j6ADr_icqH8")//AplicationRuntime.sharedManager.getvideoID())
+        getVideo(forID: AplicationRuntime.sharedManager.getvideoID())
         
         setBackTitle(forViewController: self, title: blankSpace)
         btn_next.imageView?.contentMode = .scaleAspectFit

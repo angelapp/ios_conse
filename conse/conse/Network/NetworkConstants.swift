@@ -37,9 +37,9 @@ struct NetworkCodes {
 struct NetworkConfig {
     //Root Api url
     #if DEBUG
-        static let urlAccess = "http://consejo.nrc.org.co:9000/api/"
+        static let urlAccess = "https://consejo.nrc.org.co/api/"
     #else
-        static let urlAccess = "http://consejo.nrc.org.co:9000/api/"
+        static let urlAccess = "https://consejo.nrc.org.co/api/"
     #endif
     
     //Header
@@ -76,7 +76,7 @@ struct NetworkErrorMessage {
     static let downloadError = "¡No se pudo descargar este archivo!"
     static let fileExistsError = "¡Ya has descaargado este archivo anteriormente!"
     static let internalServerError = "Parece que hubo algún problema, por favor intentalo más tarde o comunicate con soporte"
-    static let msnDefaultError = "Parece que hubo un problema. ¡Por favor disculpa los inconvenientes!"
+    static let msnDefaultError = "No hay respuesta del servidor, por favor revise su conexión a internet"
     static let nilResponseError = "Error response is nil"
     static let notConexionError = "Reviza tu conexión a internet he inténtalo de nuevo"
     static let notFoundError = "¡Archivo no encontrado!"
@@ -97,6 +97,7 @@ struct NetworkPOST {
 struct NetworkGET {
     static let APP_CONFIGURATION = "applicationConfiguration/1/"
     static let LIBRARY_DOCS = "get_library_docs/"
+    static let NEWS = "get_news_list/"
     static let SHIELDS = "get_corporate_phone_book"
 }
 

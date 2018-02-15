@@ -79,7 +79,7 @@ class LeadersRouteViewController: UIViewController {
         switch sender.selectedSegmentIndex {
             
         case videoIndex:
-//            video_tab.videoID = AplicationRuntime.sharedManager.getvideoID()
+            video_tab.videoID = AplicationRuntime.sharedManager.getvideoID()
             showTab(tab: video_tab)
             break
             

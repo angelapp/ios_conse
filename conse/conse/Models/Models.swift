@@ -62,6 +62,12 @@ class UserModel {
 
 class StatesModel {
     var wasLoggedAtSomeTime: Bool!
+    var isLogin: Bool!
+    
+    init() {
+        self.isLogin = false
+        self.wasLoggedAtSomeTime = false
+    }
 }
 
 class FormatsBankItem {

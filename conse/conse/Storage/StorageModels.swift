@@ -13,7 +13,7 @@ class UserPreferences: NSObject{
     
     var jsonUserData: String!
     
-    /** Resibe los datos del usuario como un texto JSON para almacenarlos en local*/
+    /** Recibe los datos del usuario como un texto JSON para almacenarlos en local */
     convenience init(user: String!){
         self.init()
         self.jsonUserData = user
@@ -48,18 +48,20 @@ class UserPreferences: NSObject{
 class StatesPreferences: NSObject {
     
     var wasLoggedAtSomeTime: Bool!
+    var isLogin: Bool!
     
     /// Inicializa el modelo para almacenar en local apartir del modelo de datos
     /// - Parameter states: estados
-    
     convenience init(states: StatesModel){
         self.init()
+        self.isLogin = states.isLogin
         self.wasLoggedAtSomeTime = states.wasLoggedAtSomeTime
     }
     
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.isLogin as Bool, forKey: DicKeys.isLogin)
         aCoder.encode(self.wasLoggedAtSomeTime as Bool, forKey: DicKeys.wasLoggedAtSomeTime)
     }
     
@@ -68,6 +70,7 @@ class StatesPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
         
+        myDic[DicKeys.isLogin] = self.isLogin
         myDic[DicKeys.wasLoggedAtSomeTime] = self.wasLoggedAtSomeTime
         
         return myDic
@@ -78,8 +81,8 @@ class StatesPreferences: NSObject {
     /// - Returns: Modelo de datos
     class func initState(fromDic dic: [String: Any]) -> StatesModel {
         let state = StatesModel()
-        
-        state.wasLoggedAtSomeTime = dic[DicKeys.wasLoggedAtSomeTime] as! Bool
+        state.isLogin = dic[DicKeys.isLogin] as? Bool ?? false
+        state.wasLoggedAtSomeTime = dic[DicKeys.wasLoggedAtSomeTime] as? Bool ?? false
         
         return state
     }
@@ -91,8 +94,7 @@ class ContactPreferences: NSObject {
     var jsonContact: String!
     
     /// Inicializa el modelo para almacenar en local apartir del modelo de datos
-    /// - Parameter states: estados
-    
+    /// - Parameter jsonContacts: Lista de contactos mapeados en formato JSON
     convenience init(jsonContacts: String) {
         self.init()
         self.jsonContact = jsonContacts
@@ -122,6 +124,43 @@ class ContactPreferences: NSObject {
         return json
     }
 }
+
+/// Modelo de datos para tener en local la configuración de la app
+class AppConfigPreferences: NSObject {
+    
+    var jsonAppConfig: String!
+    
+    /** Recibe JSON con la configuración de la app para almacenarlos en local */
+    convenience init(jsonConfig: String) {
+        self.init()
+        self.jsonAppConfig = jsonConfig
+    }
+    
+    ///Codifica los datos del modelo y lo asocia a una clave
+    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
+    func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.jsonAppConfig as String, forKey: DicKeys.appConfig)
+    }
+    
+    /// Crea un diccionario con los datos del modelo
+    /// - Returns: EL diccionario de datos del modelo
+    func dictionary() -> [String:Any] {
+        var myDic = [String:Any]()
+        
+        myDic[DicKeys.appConfig] = self.jsonAppConfig
+        
+        return myDic
+    }
+    
+    /// Crea un modelo de datos a aprtir de un diccionario de datos
+    /// - Parameter dic: Diccionario de datos
+    /// - Returns: Modelo de datos
+    class func initConfig(fromDic dic: [String: Any]) -> String {
+        let json = dic[DicKeys.appConfig] as! String
+        return json
+    }
+}
+
 
 /** Modelo de datos para tener en local los indices del avance de los cursos */
 class ProgressPreferences: NSObject {
@@ -165,5 +204,70 @@ class ProgressPreferences: NSObject {
         progress.PLC_INDEX = dic[DicKeys.plcProgess] as? Int ?? 0
         
         return progress
+    }
+}
+
+/** Modelo de datos para tener en local los identificadores de las caractaeriticas del Avatar */
+class MyAvatarPreferences: NSObject {
+    
+    var skin: Int!
+    var hair: Int!
+    var eyes: Int!
+    var mounth: Int!
+    var acc: Int!
+    var gender: Int!
+    
+    /// Inicializa el modelo para almacenar en local apartir del modelo de datos
+    /// - Parameter indices: estados
+    convenience init(pieces: MyAvatarPieces){
+        self.init()
+        self.skin = pieces.skinID
+        self.hair = pieces.hairID
+        self.eyes = pieces.eyesID
+        self.mounth = pieces.mouthID
+        self.acc = pieces.accID
+        self.gender = pieces.genderID
+    }
+    
+    ///Codifica los datos del modelo y lo asocia a una clave
+    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
+    func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.skin as Int, forKey: DicKeys.skin)
+        aCoder.encode(self.hair as Int, forKey: DicKeys.hair)
+        aCoder.encode(self.eyes as Int, forKey: DicKeys.eyes)
+        aCoder.encode(self.mounth as Int, forKey: DicKeys.mounth)
+        aCoder.encode(self.acc as Int, forKey: DicKeys.accesories)
+        aCoder.encode(self.gender as Int, forKey: DicKeys.gender)
+    }
+    
+    /// Crea un diccionario con los datos del modelo
+    /// - Returns: EL diccionario de datos del modelo
+    func dictionary() -> [String:Any] {
+        var myDic = [String:Any]()
+        
+        myDic[DicKeys.skin] = self.skin
+        myDic[DicKeys.hair] = self.hair
+        myDic[DicKeys.eyes] = self.eyes
+        myDic[DicKeys.mounth] = self.mounth
+        myDic[DicKeys.accesories] = self.acc
+        myDic[DicKeys.gender] = self.gender
+        
+        return myDic
+    }
+    
+    /// Crea un modelo de datos a apartir de un diccionario de datos
+    /// - Parameter dic: Diccionario de datos
+    /// - Returns: Modelo de datos
+    class func initAvatar(fromDic dic: [String: Any]) -> MyAvatarPieces {
+        let avatarPieces = MyAvatarPieces()
+        
+        avatarPieces.skinID = dic[DicKeys.skin] as? Int ?? 0
+        avatarPieces.hairID = dic[DicKeys.hair] as? Int ?? 0
+        avatarPieces.eyesID = dic[DicKeys.eyes] as? Int ?? 0
+        avatarPieces.mouthID = dic[DicKeys.mounth] as? Int ?? 0
+        avatarPieces.accID = dic[DicKeys.accesories] as? Int ?? 0
+        avatarPieces.genderID = dic[DicKeys.gender] as? Int ?? 0
+        
+        return avatarPieces
     }
 }
