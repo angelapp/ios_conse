@@ -17,6 +17,7 @@ class EmergencyCallPopupViewController: UIViewController {
     @IBOutlet weak var btn_SMS: UIButton!
     @IBOutlet weak var btn_Cancel: UIButton!
     
+    @IBOutlet weak var lbl_message: UILabel!
     @IBOutlet weak var lbl_line_123: UILabel!
     @IBOutlet weak var lbl_line_141: UILabel!
     @IBOutlet weak var lbl_line_155: UILabel!
@@ -33,8 +34,9 @@ class EmergencyCallPopupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addStyles()
+        lbl_message.text = Strings.emergency_label
         mainDelegate = AplicationRuntime.sharedManager.mainDelegate
+        addStyles()
     }
 
     override func didReceiveMemoryWarning() {

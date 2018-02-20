@@ -45,7 +45,6 @@ class LeftMenuViewController: UIViewController {
     
     // set content height to scroll
     override func viewDidLayoutSubviews() {
-        
         var contentRect = CGRect.zero
         
         for view in scroll.subviews {

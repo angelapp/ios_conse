@@ -72,6 +72,7 @@ struct Strings {
     static let error_title_locationDisabled = "Geolocalización desactivada"
     static let error_title_notInternetConection = "No hay conexión a internet"
     
+    static let emergency_label = "También puedes llamar gratis, todos los días y a cualquier hora, a las siguientes líneas telefónicas:"
     static let emergency_line_123 = "123"
     static let emergency_line_123_message = "Línea nacional de atención de emergencias " + emergency_line_123
     static let emergency_line_141 = "141"
@@ -91,7 +92,13 @@ struct Strings {
     static let level_expert = "Experto"
     static let level_star = "Estrella"
     static let loader_configApp = "Obteniendo configuración de la aplicación"
+    static let loader_getLegal = "Obteniendo biblioteca ..."
+    static let loader_getNews = "Obteniendo listado de noticias..."
+    static let loader_getShield = "Obteniendo Listado de Escudos de Protección"
     static let loader_loading = "Cargando..."
+    static let loader_login = "Autenticando usuario..."
+    static let loader_recovery = "Recuperando contraseña..."
+    static let loader_sendEmail = "Enviando email ..."
     
     static let message_ok_contact = "Se ha enviado tu mensaje"
     static let message_ok_update = "Información actualizada"

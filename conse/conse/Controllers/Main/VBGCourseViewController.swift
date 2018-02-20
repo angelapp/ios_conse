@@ -111,7 +111,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
                 ncrAudio?.delegate = self
                 isPlaying = name
             } catch {
-                print("couldn't load file :(")
+//                print("couldn't load file :(")
             }
             
         }
@@ -171,90 +171,90 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
         var cell: VBGTableViewCell
         
         // MODULO 0
-        if currentIndex == VBG_INDEX.M0P0.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M0P0, for: indexPath) as! VBGTableViewCell
+        if currentIndex == VBG_INDEX.VBG_01.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_01, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM0P0()
+            cell.fill_VBG_01()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M0P1.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M0P1, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_02.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_02, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM0P1()
+            cell.fill_VBG_02()
             return cell
         }
         // MODULO 1
-        else if currentIndex == VBG_INDEX.M1P0.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P0, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_03.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_03, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P0()
+            cell.fill_VBG_03()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1P1.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P1, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_04.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_04, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P1()
+            cell.fill_VBG_04()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1P2.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P2, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_05.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_05, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P2()
+            cell.fill_VBG_05()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1P3.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P3, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_06.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_06, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P3()
+            cell.fill_VBG_06()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1P4.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P4, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_07.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_07, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P4()
+            cell.fill_VBG_07()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1P5.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P5, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_08.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_08, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P5()
+            cell.fill_VBG_08()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1P6.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P6, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_09.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_09, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P6()
+            cell.fill_VBG_09()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1P7.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1P7, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_10.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_10, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fillM1P7()
+            cell.fill_VBG_10()
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1TEST.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1TEST, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_11.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_11, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fill_CROSSWORD()
+            cell.fill_VBG_11()
             
             return cell
         }
-        else if currentIndex == VBG_INDEX.M1COMPLET.rawValue {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_M1COMPLETE, for: indexPath) as! VBGTableViewCell
+        else if currentIndex == VBG_INDEX.VBG_12.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_12, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fill_GLOBE_M1(height: self.vbg_table.bounds.size.height)
+            cell.fill_VBG_12(height: self.vbg_table.bounds.size.height)
             
             return cell
         }

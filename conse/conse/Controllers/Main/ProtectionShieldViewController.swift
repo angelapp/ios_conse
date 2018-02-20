@@ -180,18 +180,18 @@ class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegat
         }
     }
     
-    // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
+    // Custom header heigth
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-    // Tamaño estimado del header y de las celdas
     func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
         return 64
+    }
+    
+    // Custom cell heigth
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -204,70 +204,7 @@ class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: CellsId.shieldBody) as! ShieldBodyTableViewCell
         
         let item = sections[indexPath.section].organization_by_type[indexPath.row]
-        
-        // NAME
-        if item.name != nil, !item.name.isEmpty { cell.lbl_title.text = item.name }
-        else { cell.lbl_title.text = nullString }
-       
-        // PHONE
-        if (item.phone != nil && !item.phone.isEmpty) {
-            cell.lbl_phone.text = item.phone
-            cell.img_phone.image = #imageLiteral(resourceName: "ic_tel")
-            cell.constraint_telephone.constant = 21
-        }
-        else {
-            cell.lbl_phone.text = nullString
-            cell.img_phone.image = nil
-            cell.constraint_telephone.constant = 21
-        }
-        
-        // ADDRESS
-        if (item.address != nil && !item.address.isEmpty) {
-            cell.lbl_address.text = item.address
-            cell.constraint_address.constant = 21
-            cell.img_address.image = #imageLiteral(resourceName: "ic_direccion")
-        }
-        else {
-            cell.constraint_address.constant = 0
-            cell.lbl_address.text = nullString
-            cell.img_address.image = nil
-        }
-        
-        // MOBILE PHONE
-        if (item.mobile_phone != nil && !item.mobile_phone.isEmpty) {
-            cell.lbl_mobile.text = item.mobile_phone
-            cell.constraint_mobile.constant = 21
-            cell.img_mobile.image = #imageLiteral(resourceName: "ic_celular")
-        }
-        else {
-            cell.constraint_mobile.constant = 0
-            cell.lbl_mobile.text = nullString
-            cell.img_mobile.image = nil
-        }
-        
-        // EMAIL
-        if (item.email != nil && !item.email.isEmpty) {
-            cell.constraint_email.constant = 21
-            cell.lbl_email.text = item.email
-            cell.img_email.image = #imageLiteral(resourceName: "ic_correo")
-        }
-        else {
-            cell.constraint_email.constant = 0
-            cell.lbl_email.text = nullString
-            cell.img_email.image = nil
-        }
-        
-        // TWITTER
-        if (item.twitter != nil && !item.twitter.isEmpty) {
-            cell.constraint_twitter.constant = 21
-            cell.lbl_twitter.text = item.twitter
-            cell.img_twitter.image = #imageLiteral(resourceName: "ic_twitter")
-        }
-        else {
-            cell.constraint_twitter.constant = 0
-            cell.lbl_twitter.text = nullString
-            cell.img_twitter.image = nil
-        }
+        cell.fillCell(item: item)
         
         return cell
     }

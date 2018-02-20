@@ -16,6 +16,7 @@ class LegalViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: - Properties
     var sections: Array<DocumentTextType> = []
     var expandedSections : NSMutableSet = []
+    var mainDelegate = AplicationRuntime.sharedManager.mainDelegate
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -51,18 +52,23 @@ class LegalViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // MARK: - REQUEST
     func downloadDocuments() {
         
+        let loader = LoadingOverlay(text: Strings.loader_getLegal)
         let json = nullString
         let url = NetworkGET.LIBRARY_DOCS
         let headers:[[String:String]] = []
         
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
+        
         Network.buildRequest(urlApi: url, json: json, extraHeaders: headers, method: .methodGET, completion: { (response) in
+            
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
             
             switch response {
                 
-            case .succeeded(let succeed, let message):
-                if !succeed, !message.isEmpty {
-                    print(message)
-                }
+            case .succeeded(_ , let message):
+                self.mainDelegate?.showMessageInMain(withMessage: message)
                 break
                 
             case .error(let error):

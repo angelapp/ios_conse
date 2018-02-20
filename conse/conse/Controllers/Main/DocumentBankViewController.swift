@@ -91,7 +91,7 @@ class DocumentBankViewController: UIViewController {
             
             guard ConnectionCheck.isConnectedToNetwork() else {
                 segmentTabs.selectedSegmentIndex = formatsIndex
-                mainDelegate?.openSettingsPopup(title: Strings.error_title_notInternetConection, message: Strings.error_message_notIntenertConection, settings: URL_GENERAL_SETTINGS)
+                self.mainDelegate?.openSettingsPopup(title: Strings.error_title_notInternetConection, message: Strings.error_message_notIntenertConection, settings: URL_GENERAL_SETTINGS)
                 return
             }
             

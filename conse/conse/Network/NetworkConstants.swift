@@ -74,11 +74,11 @@ struct NetworkErrorMessage {
     static let createRequestError = "Error creating request"
     static let defaultRequestError = "Failed Request!"
     static let downloadError = "¡No se pudo descargar este archivo!"
-    static let fileExistsError = "¡Ya has descaargado este archivo anteriormente!"
+    static let fileExistsError = "¡Ya has descargado este archivo anteriormente!"
     static let internalServerError = "Parece que hubo algún problema, por favor intentalo más tarde o comunicate con soporte"
     static let msnDefaultError = "No hay respuesta del servidor, por favor revise su conexión a internet"
     static let nilResponseError = "Error response is nil"
-    static let notConexionError = "Reviza tu conexión a internet he inténtalo de nuevo"
+    static let notConexionError = "No hay respuesta del servidor, por favor revise su conexión a internet"
     static let notFoundError = "¡Archivo no encontrado!"
     static let parsingResultError = "Error parsing result"
 }

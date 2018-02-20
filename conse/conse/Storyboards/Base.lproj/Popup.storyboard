@@ -229,6 +229,7 @@
                         <outlet property="lbl_line_123" destination="fE9-ck-u6q" id="Ug1-6p-FGB"/>
                         <outlet property="lbl_line_141" destination="bgK-q5-U8z" id="sne-7d-CBo"/>
                         <outlet property="lbl_line_155" destination="eEs-FL-yag" id="QSZ-Wk-fsB"/>
+                        <outlet property="lbl_message" destination="DDs-XW-hTs" id="AaT-1t-pSN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUh-47-d0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -335,63 +336,6 @@
             </objects>
             <point key="canvasLocation" x="1858" y="25"/>
         </scene>
-        <!--Loader View Controller-->
-        <scene sceneID="ORe-VB-Uca">
-            <objects>
-                <viewController storyboardIdentifier="loaderVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="039-Te-Llw" customClass="LoaderViewController" customModule="conse" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="QFK-Bg-nvq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M0o-dE-YzA">
-                                <rect key="frame" x="40" y="176" width="240" height="128"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="vb6-pO-POv">
-                                        <rect key="frame" x="98" y="20" width="45" height="45"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="45" id="GxE-t9-p6u"/>
-                                            <constraint firstAttribute="width" constant="45" id="MTd-zo-Beg"/>
-                                        </constraints>
-                                    </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obteniendo configuración de la aplicación" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tOH-Ha-0rN">
-                                        <rect key="frame" x="24" y="70" width="192" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="mHK-AH-QqK"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="8je-jG-Fcw"/>
-                                    <constraint firstItem="vb6-pO-POv" firstAttribute="centerX" secondItem="M0o-dE-YzA" secondAttribute="centerX" id="KAC-XP-CWg"/>
-                                    <constraint firstAttribute="bottom" secondItem="tOH-Ha-0rN" secondAttribute="bottom" constant="8" id="PtV-SI-I37"/>
-                                    <constraint firstAttribute="trailing" secondItem="tOH-Ha-0rN" secondAttribute="trailing" constant="24" id="bhL-6H-XiA"/>
-                                    <constraint firstItem="vb6-pO-POv" firstAttribute="top" secondItem="M0o-dE-YzA" secondAttribute="top" constant="20" id="dh0-jV-5x6"/>
-                                    <constraint firstItem="tOH-Ha-0rN" firstAttribute="leading" secondItem="M0o-dE-YzA" secondAttribute="leading" constant="24" id="fA1-uB-6Md"/>
-                                    <constraint firstAttribute="width" constant="240" id="i2q-ST-mUp"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70400791949999997" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="M0o-dE-YzA" firstAttribute="centerY" secondItem="QFK-Bg-nvq" secondAttribute="centerY" id="6Dq-jH-xB2"/>
-                            <constraint firstItem="M0o-dE-YzA" firstAttribute="centerX" secondItem="QFK-Bg-nvq" secondAttribute="centerX" id="HPU-Ox-xsM"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="hmq-7a-fWF"/>
-                    </view>
-                    <connections>
-                        <outlet property="loader" destination="vb6-pO-POv" id="J6u-Lz-TP0"/>
-                        <outlet property="loaderBackground" destination="M0o-dE-YzA" id="IPK-PK-QnO"/>
-                        <outlet property="loaderLabel" destination="tOH-Ha-0rN" id="pQm-ec-aBX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HuT-hA-l5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2529" y="25"/>
-        </scene>
         <!--Crossword Help View Controller-->
         <scene sceneID="fN1-YZ-BRu">
             <objects>
@@ -421,7 +365,7 @@
                                 </subviews>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70400791949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="3vj-oz-LOl"/>
                     </view>
                     <connections>
@@ -447,7 +391,7 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Title" id="maX-aI-VuD">
-                                        <barButtonItem key="leftBarButtonItem" image="icon_back" id="pq5-7K-fbz">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="pq5-7K-fbz">
                                             <connections>
                                                 <action selector="acctionButton:" destination="ID1-kJ-pPt" id="PWr-kW-xbd"/>
                                             </connections>
@@ -754,7 +698,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VH-dh-aIN">
                                 <rect key="frame" x="24.5" y="253.5" width="271.5" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -782,7 +726,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.70400791949999997" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.84738869863013699" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="1VH-dh-aIN" firstAttribute="top" secondItem="WUF-0y-w4a" secondAttribute="bottom" constant="16" id="3I7-qj-3yS"/>
                             <constraint firstItem="1VH-dh-aIN" firstAttribute="leading" secondItem="R5f-Gp-Q20" secondAttribute="leading" constant="24" id="Fk5-Cb-7J5"/>
@@ -816,7 +760,6 @@
         <image name="descargar" width="120" height="120"/>
         <image name="descargar_hover" width="120" height="120"/>
         <image name="icon_admiracion" width="484" height="484"/>
-        <image name="icon_back" width="24" height="24"/>
         <image name="icon_campana" width="107" height="69"/>
         <image name="icon_enviaralerta" width="328" height="328"/>
         <image name="icon_telefono" width="66" height="66"/>

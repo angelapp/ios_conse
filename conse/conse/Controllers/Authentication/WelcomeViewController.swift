@@ -83,55 +83,51 @@ class WelcomeViewController: UIViewController, WelcomeProtocol {
         guard (AplicationRuntime.sharedManager.getAppConfig()) != nil else {
             return
         }
-        printDebugMessage(tag: "have app conf")
         guard states != nil, states.isLogin  else {
             return
         }
         
-        printDebugMessage(tag: "state is login")
         guard (AplicationRuntime.sharedManager.getUser()) != nil else {
             states.isLogin = false
             StorageFunctions.saveStates(states: states)
             return
         }
         
-        printDebugMessage(tag: "have user")
         if self.contacts != nil && self.contacts.count > 0 {
             AplicationRuntime.sharedManager.setTrustedConctacs(list: self.contacts)
             
-            printDebugMessage(tag: "have trusted contacts")
             if self.avatarPieces != nil && self.avatarPieces.genderID != nil {
                 AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: self.avatarPieces)
                 AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
                 
-                printDebugMessage(tag: "have Avatar")
                 self.startConse(inScreen: StoryboardsId.main)
             }
             else {
-                printDebugMessage(tag: "don't have Avatar")
                 self.startConse(inScreen: StoryboardsId.configAlert)
             }
         }
         else {
-            printDebugMessage(tag: "don't trusted contacts")
             self.startConse(inScreen: StoryboardsId.configAlert)
         }
     }
     
     private func startConse(inScreen name: String){
-        printDebugMessage(tag: "start in screen ... \(name)")
         let sb = UIStoryboard(name: name, bundle: nil)
         self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
     }
     
     private func getConfiguration() {
         
-        self.showLoader(withMessage: Strings.loader_configApp)
+        let loader = LoadingOverlay(text: Strings.loader_configApp)
         let headers: [[String:String]] = []
+        
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
         
         Network.buildRequest(urlApi: NetworkGET.APP_CONFIGURATION, json: nullString, extraHeaders: headers, method: .methodGET, completion: {(response) in
             
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
             
             switch response {
                 
@@ -160,8 +156,6 @@ class WelcomeViewController: UIViewController, WelcomeProtocol {
             default:
                 break
             }
-            
-            
         })
     }
     

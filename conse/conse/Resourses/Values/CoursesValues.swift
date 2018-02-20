@@ -26,18 +26,18 @@ enum FileActions: Int {
 
 /// Indices para el curso *Violencia Basada en Genero*
 enum VBG_INDEX: Int {
-    case M0P0 // Página de bienvenida al curso
-    case M0P1 
-    case M1P0 // Modulo 1
-    case M1P1
-    case M1P2
-    case M1P3
-    case M1P4
-    case M1P5
-    case M1P6
-    case M1P7
-    case M1TEST // Crucigrama
-    case M1COMPLET
+    case VBG_01 // Página de bienvenida al curso
+    case VBG_02
+    case VBG_03 // Modulo 1
+    case VBG_04
+    case VBG_05
+    case VBG_06
+    case VBG_07
+    case VBG_08
+    case VBG_09
+    case VBG_10
+    case VBG_11 // Crucigrama
+    case VBG_12
     case VBG_13 // MODULO 2
     case VBG_14
     case VBG_15

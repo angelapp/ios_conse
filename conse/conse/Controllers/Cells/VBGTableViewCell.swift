@@ -11,6 +11,16 @@ import UIKit
 class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: - Outlets
+    @IBOutlet weak var INSIGNIA_HEIGHT: NSLayoutConstraint!
+    
+    @IBOutlet weak var IMG_AVATAR: UIImageView!
+    @IBOutlet weak var IMG_BACKGROUND: UIImageView!
+    @IBOutlet weak var IMG_INSIGNIA: UIImageView!
+    
+    @IBOutlet weak var LBL_BACK: UILabel!
+    @IBOutlet weak var LBL_T1: UILabel!
+    @IBOutlet weak var LBL_T2: UILabel!
+    @IBOutlet weak var LBL_TITLE: UILabel!
     
     // Module 0 - Page 0
     @IBOutlet weak var M0P0_LBL1: UILabel!
@@ -72,6 +82,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var M1P3_LBL11: UILabel!
     @IBOutlet weak var M1P3_LBL12: UILabel!
     @IBOutlet weak var M1P3_LBL13: UILabel!
+    @IBOutlet weak var LBL_14: UILabel!
     
     // Module 1 - Page 4
      @IBOutlet weak var M1P4_LBL1: UILabel!
@@ -452,7 +463,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: - Properties
     let MAX_LENGTH_CELL = 1
-    let MIN_GLOBE_HEIGHT: CGFloat = 380
+    let MIN_GLOBE_HEIGHT: CGFloat = 490
     let CORRECT_OPTION: Int = 1
     let WRONG_OPTION: Int = 0
     
@@ -471,105 +482,107 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     // MARK: - Fill cell
-    func fillM0P0() {
-        M0P0_LBL1.text = VBG_COURSE.M0P0T1
-        M0P0_LBL2.text = VBG_COURSE.M0P0T2
+    func fill_VBG_01() {
+        M0P0_LBL1.text = VBG_COURSE.PAGE_01.T1
+        M0P0_LBL2.text = VBG_COURSE.PAGE_01.T2
     }
     
-    func fillM0P1() {
-        M0P1_LBL1.text = VBG_COURSE.M0P1T1
-        M0P1_LBL2.text = VBG_COURSE.M0P1T2
-        M0P1_LBL3.text = VBG_COURSE.M0P1T3
-        M0P1_LBL4.text = VBG_COURSE.M0P1T4
+    func fill_VBG_02() {
+        M0P1_LBL1.text = VBG_COURSE.PAGE_02.T1
+        M0P1_LBL2.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_02.T2, toWord: VBG_COURSE.PAGE_02.T2_inBold_01, VBG_COURSE.PAGE_02.T2_inBold_02, fontSize: M0P1_LBL2.font.pointSize)
+        M0P1_LBL3.text = VBG_COURSE.PAGE_02.T3
+        M0P1_LBL4.text = VBG_COURSE.PAGE_02.T4
     }
     
-    func fillM1P0() {
-        M1P0_LBL1.text = VBG_COURSE.M1P0T1
-        M1P0_LBL2.text = VBG_COURSE.M1P0T2
-        M1P0_LBL3.text = VBG_COURSE.M1P0T3
-        M1P0_LBL4.text = VBG_COURSE.M1P0T4
-        M1P0_LBL5.text = VBG_COURSE.M1P0T5
-        M1P0_LBL6.text = VBG_COURSE.M1P0T6
+    func fill_VBG_03() {
+        M1P0_LBL1.text = VBG_COURSE.PAGE_03.T1
+        M1P0_LBL2.text = VBG_COURSE.PAGE_03.T2
+        M1P0_LBL3.text = VBG_COURSE.PAGE_03.T3
+        M1P0_LBL4.text = VBG_COURSE.PAGE_03.T4
+        M1P0_LBL5.text = VBG_COURSE.PAGE_03.T5
+        M1P0_LBL6.text = VBG_COURSE.PAGE_03.T6
         
         M1P0_IMG_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
     
-    func fillM1P1() {
-        M1P1_LBL1.text = VBG_COURSE.M1P1T1
-        M1P1_LBL2.text = VBG_COURSE.M1P1T2
-        M1P1_LBL3.text = VBG_COURSE.M1P1T3
-        M1P1_LBL4.text = VBG_COURSE.M1P1T4
-        M1P1_LBL5.text = VBG_COURSE.M1P1T5
-        M1P1_LBL6.text = VBG_COURSE.M1P1T6
-        M1P1_LBL7.text = VBG_COURSE.M1P1T7
+    func fill_VBG_04() {
+        M1P1_LBL1.text = VBG_COURSE.PAGE_04.T1
+        M1P1_LBL2.text = VBG_COURSE.PAGE_04.T2
+        M1P1_LBL3.text = VBG_COURSE.PAGE_04.T3
+        M1P1_LBL4.text = VBG_COURSE.PAGE_04.T4
+        M1P1_LBL5.text = VBG_COURSE.PAGE_04.T5
+        M1P1_LBL6.text = VBG_COURSE.PAGE_04.T6
+        M1P1_LBL7.text = VBG_COURSE.PAGE_04.T7
     }
     
-    func fillM1P2() {
+    func fill_VBG_05() {
         M1P2_AUD1.isSelected = false
         M1P2_AUD2.isSelected = false
         M1P2_AUD3.isSelected = false
         M1P2_AUD4.isSelected = false
         
-        M1P2_LBL1.text = VBG_COURSE.M1P2T1
-        M1P2_LBL2.text = VBG_COURSE.M1P2T2
-        M1P2_LBL3.text = VBG_COURSE.M1P2T3
-        M1P2_LBL4.text = VBG_COURSE.M1P2T4
-        M1P2_LBL5.text = VBG_COURSE.M1P2T5
-        M1P2_LBL6.text = VBG_COURSE.M1P2T6
-        M1P2_LBL7.text = VBG_COURSE.M1P2T7
+        M1P2_LBL1.text = VBG_COURSE.PAGE_05.T1
+        M1P2_LBL2.text = VBG_COURSE.PAGE_05.T2
+        M1P2_LBL3.text = VBG_COURSE.PAGE_05.T3
+        M1P2_LBL4.text = VBG_COURSE.PAGE_05.T4
+        M1P2_LBL5.text = VBG_COURSE.PAGE_05.T5
+        M1P2_LBL6.text = VBG_COURSE.PAGE_05.T6
+        M1P2_LBL7.text = VBG_COURSE.PAGE_05.T7
     }
 
-    func fillM1P3() {
-        M1P3_LBL1.text = VBG_COURSE.M1P3T1
-        M1P3_LBL2.text = VBG_COURSE.M1P3T2
-        M1P3_LBL3.text = VBG_COURSE.M1P3T3
-        M1P3_LBL4.text = VBG_COURSE.M1P3T4
-        M1P3_LBL5.text = VBG_COURSE.M1P3T5
-        M1P3_LBL6.text = VBG_COURSE.M1P3T6
-        M1P3_LBL7.text = VBG_COURSE.M1P3T7
-        M1P3_LBL8.text = VBG_COURSE.M1P3T8
-        M1P3_LBL9.text = VBG_COURSE.M1P3T9
-        M1P3_LBL10.text = VBG_COURSE.M1P3T10
-        M1P3_LBL11.text = VBG_COURSE.M1P3T11
-        M1P3_LBL12.text = VBG_COURSE.M1P3T12
-        M1P3_LBL13.text = VBG_COURSE.M1P3T13
+    func fill_VBG_06() {
+        M1P3_LBL1.text = VBG_COURSE.PAGE_06.T1
+        M1P3_LBL2.text = VBG_COURSE.PAGE_06.T2
+        M1P3_LBL3.text = VBG_COURSE.PAGE_06.T3
+        M1P3_LBL4.text = VBG_COURSE.PAGE_06.T4
+        M1P3_LBL5.text = VBG_COURSE.PAGE_06.T5
+        M1P3_LBL6.text = VBG_COURSE.PAGE_06.T6
+        M1P3_LBL7.text = VBG_COURSE.PAGE_06.T7
+        M1P3_LBL8.text = VBG_COURSE.PAGE_06.T8
+        M1P3_LBL9.text = VBG_COURSE.PAGE_06.T9
+        M1P3_LBL10.text = VBG_COURSE.PAGE_06.T10
+        M1P3_LBL11.text = VBG_COURSE.PAGE_06.T11
+        M1P3_LBL12.text = VBG_COURSE.PAGE_06.T12
+        M1P3_LBL13.text = VBG_COURSE.PAGE_06.T13
+        LBL_14.text = VBG_COURSE.PAGE_06.T14
     }
     
-    func fillM1P4() {
-        M1P4_LBL1.text = VBG_COURSE.M1P3T1
-        M1P4_LBL2.text = VBG_COURSE.M1P3T2
-        M1P4_LBL3.text = VBG_COURSE.M1P3T3
+    func fill_VBG_07() {
+        M1P4_LBL1.text = VBG_COURSE.PAGE_07.T1
+        M1P4_LBL2.text = VBG_COURSE.PAGE_07.T2
+        M1P4_LBL3.text = VBG_COURSE.PAGE_07.T3
     }
     
-    func fillM1P5() {
+    func fill_VBG_08() {
         M1P5_AUD1.isSelected = false
         M1P5_AUD2.isSelected = false
         M1P5_AUD3.isSelected = false
         M1P5_AUD4.isSelected = false
      
-        M1P5_LBL1.text = VBG_COURSE.M1P5T1
-        M1P5_LBL2.text = VBG_COURSE.M1P5T2
-        M1P5_LBL3.text = VBG_COURSE.M1P5T3
-        M1P5_LBL4.text = VBG_COURSE.M1P5T4
-        M1P5_LBL5.text = VBG_COURSE.M1P5T5
-        M1P5_LBL6.text = VBG_COURSE.M1P5T6
+        M1P5_LBL1.text = VBG_COURSE.PAGE_08.T1
+        M1P5_LBL2.text = VBG_COURSE.PAGE_08.T2
+        M1P5_LBL3.text = VBG_COURSE.PAGE_08.T3
+        M1P5_LBL4.text = VBG_COURSE.PAGE_08.T4
+        M1P5_LBL5.text = VBG_COURSE.PAGE_08.T5
+        M1P5_LBL6.text = VBG_COURSE.PAGE_08.T6
     }
     
-    func fillM1P6() {
+    func fill_VBG_09() {
         M1P6_AUD1.isSelected = false
      
-        M1P6_LBL1.text = VBG_COURSE.M1P6T1
-        M1P6_LBL2.text = VBG_COURSE.M1P6T2
+        M1P6_LBL1.text = VBG_COURSE.PAGE_09.T1
+        M1P6_LBL2.text = VBG_COURSE.PAGE_09.T2
         M1P6_IMG_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
     
-    func fillM1P7() {
-        M1P7_LBL1.text = VBG_COURSE.M1P7T1
-        M1P7_LBL2.text = VBG_COURSE.M1P7T2
+    func fill_VBG_10() {
+        M1P7_LBL1.text = VBG_COURSE.PAGE_10.T1
+        M1P7_LBL2.text = VBG_COURSE.PAGE_10.T2
     }
 
-    func fill_CROSSWORD() {
-        M1_CROSSWORD_LBL1.text = VBG_COURSE.M1CWT1
+    // CrossWord
+    func fill_VBG_11() {
+        M1_CROSSWORD_LBL1.text = VBG_COURSE.PAGE_11.T1
         M1CW_C_0209.text = nullString; M1CW_C_0307.text = nullString; M1CW_C_0308.text = nullString; M1CW_C_0309.text = nullString
         M1CW_C_0310.text = nullString; M1CW_C_0311.text = nullString; M1CW_C_0312.text = nullString; M1CW_C_0402.text = nullString
         M1CW_C_0409.text = nullString; M1CW_C_0502.text = nullString; M1CW_C_0503.text = nullString; M1CW_C_0504.text = nullString
@@ -594,11 +607,17 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         M1CW_C_1208.delegate = self; M1CW_C_1209.delegate = self; M1CW_C_1210.delegate = self; M1CW_C_1211.delegate = self
     }
     
-    func fill_GLOBE_M1(height: CGFloat){
-        M1BG_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
-        M1COMPLET_T1.text = VBG_COURSE.M1P1T1
-        M1COMPLET_TITLE.text = VBG_COURSE.COMPLETE_MOD1_TITLE
-        M1COMPLET_MESSAGE.text = VBG_COURSE.COMPLETE_MOD1_MESSAGE
+    func fill_VBG_12(height: CGFloat){
+        INSIGNIA_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
+        
+        LBL_BACK.text = Strings.review_content
+        LBL_TITLE.text = VBG_COURSE.PAGE_12.TITLE
+        LBL_T1.text = VBG_COURSE.PAGE_12.T1
+        LBL_T2.text = VBG_COURSE.PAGE_12.T2
+        
+        IMG_AVATAR.image = AplicationRuntime.sharedManager.avatarImage
+        IMG_INSIGNIA.image = UIImage(named: LeadersImages.insignia_01)
+        IMG_BACKGROUND.image = UIImage(named: LeadersImages.bg_01)
     }
     
     func fill_VBG_13() {
@@ -626,17 +645,23 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         // set tag for identify correct option
         VBG_15_BTN1.tag = CORRECT_OPTION
-        VBG_15_BTN2.tag = CORRECT_OPTION
+        VBG_15_BTN2.tag = WRONG_OPTION
         VBG_15_BTN3.tag = CORRECT_OPTION
         VBG_15_BTN4.tag = CORRECT_OPTION
         VBG_15_BTN5.tag = WRONG_OPTION
     }
     
     func fill_VBG_16(height: CGFloat) {
-        VBG_16_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
-        VBG_16_LBL1.text = VBG_COURSE.VBG_16_T1
-        VBG_16_LBL2.text = VBG_COURSE.VBG_16_T2
-        VBG_16_LBL3.text = VBG_COURSE.VBG_16_T3
+        INSIGNIA_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
+        
+        LBL_BACK.text = Strings.review_content
+        LBL_TITLE.text = VBG_COURSE.VBG_16_T1
+        LBL_T1.text = VBG_COURSE.VBG_16_T2
+        LBL_T2.text = VBG_COURSE.VBG_16_T3
+        
+        IMG_AVATAR.image = AplicationRuntime.sharedManager.avatarImage
+        IMG_INSIGNIA.image = UIImage(named: LeadersImages.insignia_01)
+        IMG_BACKGROUND.image = UIImage(named: LeadersImages.bg_01)
     }
     
     // Modulo 3

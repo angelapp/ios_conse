@@ -57,12 +57,13 @@ func downloadImage(imgView: UIImageView, urlImage: String!) {
     }
 }
 
-// MARK: Styles functions
+// MARK: - Styles functions
 /// Resalta en el texto la palabra de entrada
 func addBoldWord(forText text: String, toWord words: String..., fontSize size: CGFloat) -> NSAttributedString {
     
     let attributeText = NSMutableAttributedString(string: text)
     let boldFontAttribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size)]
+//    let italicFontAttribute = [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: size)]
     
     for word in words {
         let range = (text as NSString).range(of: word)
@@ -230,19 +231,6 @@ extension UIViewController {
             textField.resignFirstResponder()
         }
         return false
-    }
-    
-    func showLoader(withMessage msn:String!) {
-        
-        guard msn != nil else { return }
-        
-        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.loader) as! LoaderViewController
-        
-        nextVC.loaderText = msn
-        nextVC.modalPresentationStyle = .overCurrentContext
-        nextVC.modalTransitionStyle = .crossDissolve
-        present(nextVC, animated: true, completion: nil)
     }
     
     /// Show Alert with message

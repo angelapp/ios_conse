@@ -100,13 +100,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol
     }
     
     // MARK: - Request function
-    /// Se envia los datos del usuario para loggin
+    /// Se envia los datos del usuario para login
     func sendLogginPost(userToAuth: RegisterUserProfileModel) {
         
+        let loader = LoadingOverlay(text: Strings.loader_login)
         let json = Mapper().toJSONString(userToAuth, prettyPrint: true)
         let headers:[[String:String]] = []
         
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
+        
         Network.buildRequest(urlApi: NetworkPOST.USER_LOGGIN, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
+            
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
             
             switch response {
                 

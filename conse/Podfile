@@ -10,7 +10,7 @@ target 'conse' do
   pod 'AlamofireImage'
   pod 'AlamofireObjectMapper', '~> 5.0'
   pod 'Fabric'
-  pod 'Crashlytics'
+  pod 'Crashlytics', '~>  3.10'
   pod 'ObjectMapper', '~> 3.1'
   pod 'SwiftyJSON'
 

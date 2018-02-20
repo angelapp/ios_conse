@@ -118,18 +118,18 @@ struct CellsId {
     static let LEADERS_58 = "LEADERS_58_CELL"
 
     // CELL NAME FOR VBG_COURSE
-    static let VBG_M0P0 = "VBG_M0P0_CELL"
-    static let VBG_M0P1 = "VBG_M0P1_CELL"
-    static let VBG_M1P0 = "VBG_M1P0_CELL"
-    static let VBG_M1P1 = "VBG_M1P1_CELL"
-    static let VBG_M1P2 = "VBG_M1P2_CELL"
-    static let VBG_M1P3 = "VBG_M1P3_CELL"
-    static let VBG_M1P4 = "VBG_M1P4_CELL"
-    static let VBG_M1P5 = "VBG_M1P5_CELL"
-    static let VBG_M1P6 = "VBG_M1P6_CELL"
-    static let VBG_M1P7 = "VBG_M1P7_CELL"
-    static let VBG_M1TEST = "VBG_CROSSWORD_CELL"  // Test Modulo 1 (Crucigrama)
-    static let VBG_M1COMPLETE = "VBG_M1COMPLETE_CELL"
+    static let VBG_01 = "VBG_01_CELL"
+    static let VBG_02 = "VBG_02_CELL"
+    static let VBG_03 = "VBG_03_CELL"
+    static let VBG_04 = "VBG_04_CELL"
+    static let VBG_05 = "VBG_05_CELL"
+    static let VBG_06 = "VBG_06_CELL"
+    static let VBG_07 = "VBG_07_CELL"
+    static let VBG_08 = "VBG_08_CELL"
+    static let VBG_09 = "VBG_09_CELL"
+    static let VBG_10 = "VBG_10_CELL"
+    static let VBG_11 = "VBG_11_CELL"  // Test Modulo 1 (Crucigrama)
+    static let VBG_12 = "VBG_12_CELL"
     static let VBG_13 = "VBG_13_CELL"
     static let VBG_14 = "VBG_14_CELL"
     static let VBG_15 = "VBG_15_CELL"  // Cuestionario Modulo 2

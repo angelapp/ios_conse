@@ -99,6 +99,7 @@ class MainViewController: UIViewController, MainProtocol {
             return contactFormVC
             
         case .documentBank:
+            documentBankVC.mainDelegate = self
             return documentBankVC
             
         case .protectionRoutes:

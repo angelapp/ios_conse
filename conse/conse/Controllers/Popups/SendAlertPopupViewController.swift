@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 import CoreLocation
 
 class SendAlertPopupViewController: UIViewController, CLLocationManagerDelegate, SendAlertProtocol {
@@ -106,6 +107,9 @@ class SendAlertPopupViewController: UIViewController, CLLocationManagerDelegate,
         switch sender {
             
         case btn_sendAlert:
+            
+            // Vibrate Device
+            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
             
             // Add message body and recipients list
             messageComposer.messageRecipientes(message: messageBody, contactList: contacts, sendDelegate: self)

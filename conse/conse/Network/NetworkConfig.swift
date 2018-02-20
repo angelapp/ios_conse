@@ -121,7 +121,7 @@ class Network: NSObject {
                 
             default:
                 result = false
-                message =  JSONResponse != nil ? getErrorMSN(json: JSONResponse! as! [String : Any]) : nullString
+                message =  JSONResponse != nil ? getErrorMSN(json: JSONResponse! as! [String : Any]) : NetworkErrorMessage.msnDefaultError
                 completion(ResponseCallback.succeeded(succeed: result, message: message))
                 break
             }

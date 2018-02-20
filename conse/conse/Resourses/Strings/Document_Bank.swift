@@ -28,13 +28,17 @@ struct MyCommunityStrings {
     static let leadersFile = "auditoria_lideres"
     static let vbgFile = "auditoria_vbg"
     
-    static let leadersTitle = "Auditoría de seguridad de Violencia Basada en Género"
-    static let vbgTitle = "Evaluación de riesgos de protección para líderes y lideresas"
+    static let leadersTitle = "Evaluación de riesgos de protección para líderes y lideresas"
+    static let vbgTitle = "Auditoría de seguridad de Violencia Basada en Género"
     
-    static let leadersObjective = "Objetivo: Reducir los riesgos de violencia en líderes y lideresas comunitarias"
-    static let vbgObjective = "Objetivo: Reducir los riesgos de violencia basadas en género"
+    static let leadersMessage = "A continuación, te brindamos una herramienta para analizar los riesgos de protección que enfrentan líderes y lideresas en tu comunidad.\n\nEsta herramienta está basada en la observación.\n\nSi tu comunidad es muy insegura, no deberías completar este cuestionario caminando. En ese caso, se recomienda observar y retener información mentalmente, para posteriormente completar el formato en un lugar seguro.\n\nA través de esta herramienta puedes obtener información acerca de tu comunidad en los siguientes aspectos: características generales, acceso a servicios básicos, salud, alimentación, seguridad, presencia institucional.\n\nUna vez completes la herramienta, podrás utilizarla para trabajar con tu comunidad, así como con autoridades, organizaciones humanitarias, agencias de Naciones Unidas, ONGs en acciones de prevención y mitigación de riesgos.\n\nAsí mismo, podrá serte útil para hacer incidencia ante los funcionarios públicos y gestionar recursos, medidas de protección individuales y colectivas, proyectos y programas especiales que permitan disminuir los riesgos de protección que enfrentan líderes y lideresas.\n\nPasos a seguir:\n1) Descarga e imprime la herramienta\n2) Observa y responde las preguntas\n3) ¡Ahora tienes un mejor panorama sobre los riesgos de protección en tu comunidad!"
+    static let vbgMessage = "A continuación, te brindamos una herramienta para analizar los riesgos de violencia basada en género para mujeres y niñas en tu comunidad. \n\nEsta herramienta está basada en la observación. \n\nSi tu comunidad es muy insegura, no deberías completar este cuestionario caminando. En ese caso, se recomienda observar y retener información mentalmente, para posteriormente completar el formato en un lugar seguro.\n\nA través de esta herramienta puedes obtener información acerca de tu comunidad en los siguientes aspectos: características generales, acceso a servicios básicos, salud, alimentación, seguridad, presencia institucional.\n\nUna vez completes la herramienta, podrás utilizarla para trabajar con tu comunidad, así como con autoridades, organizaciones humanitarias, agencias de Naciones Unidas, ONGs en acciones de prevención y mitigación de riesgos.\n\nAsí mismo, podrá serte útil para hacer incidencia ante los funcionarios públicos y gestionar recursos, proyectos y programas especiales que permitan disminuir los riesgos de protección que enfrentan mujeres y niñas.\n\nPasos a seguir:\n\n1) Descarga e imprime la herramienta\n2) Observa y responde las preguntas\n3) ¡Ahora tienes un mejor panorama sobre los riesgos en tu comunidad!"
+    
+    static let leadersObjective = "¿Has analizado los riesgos de protección que corren líderes y lideresas en tu comunidad?"
+    static let vbgObjective = "¿Te has detenido a analizar los riesgos que corren las niñas y mujeres de tu comunidad?"
     
     static let note = "Nota: Esta herramineta está basada en la observación. Puede ser o no relevante en deterinados contexts. En áreas de inseguridad, no debe completar este cuestionario caminando por la comunidad; se recomienda observar y retener la información mentalamnete, para posteriormente completar el formato en un lugar seguro."
+    
     static let downloadCopy = "Descargue o comparta la auditoría"
 }
 
@@ -47,18 +51,18 @@ func getMyCommunityDocuments() -> Array<MyCommunityItem> {
     var array:Array<MyCommunityItem> = []
     
     array.append(MyCommunityItem(title: MyCommunityStrings.vbgTitle,
-                                objective: MyCommunityStrings.vbgObjective,
-                                note: MyCommunityStrings.note,
-                                downloadCopy: MyCommunityStrings.downloadCopy,
-                                file: MyCommunityStrings.vbgFile,
-                                ext: FileExtensions.PDF))
+                                 objective: MyCommunityStrings.vbgObjective,
+                                 note: MyCommunityStrings.vbgMessage,
+                                 downloadCopy: MyCommunityStrings.downloadCopy,
+                                 file: MyCommunityStrings.vbgFile,
+                                 ext: FileExtensions.PDF))
     
     array.append(MyCommunityItem(title: MyCommunityStrings.leadersTitle,
-                                objective: MyCommunityStrings.leadersObjective,
-                                note: MyCommunityStrings.note,
-                                downloadCopy: MyCommunityStrings.downloadCopy,
-                                file: MyCommunityStrings.leadersFile,
-                                ext: FileExtensions.PDF))
+                                 objective: MyCommunityStrings.leadersObjective,
+                                 note: MyCommunityStrings.leadersMessage,
+                                 downloadCopy: MyCommunityStrings.downloadCopy,
+                                 file: MyCommunityStrings.leadersFile,
+                                 ext: FileExtensions.PDF))
     
     return array
 }
