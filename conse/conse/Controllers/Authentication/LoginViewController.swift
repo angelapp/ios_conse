@@ -9,14 +9,18 @@
 import UIKit
 import ObjectMapper
 
-class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_alert: UIButton!
+    @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_loggin: UIButton!
     @IBOutlet weak var btn_recoveryPassword: UIButton!
     
     @IBOutlet weak var img_logo: UIImageView!
+    
+    @IBOutlet weak var lbl_error_email: UILabel!
+    @IBOutlet weak var lbl_error_password: UILabel!
     
     @IBOutlet weak var tf_email: UITextField!
     @IBOutlet weak var tf_password: UITextField!
@@ -33,7 +37,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol
         super.viewDidLoad()
 
         addStyles()
-        setBackTitle(forViewController: self, title: " ")
         
         //Se agrega observable para desplazar vista cuando se muestra/oculta el teclado
         NotificationCenter.default.removeObserver(Any.self)
@@ -60,10 +63,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol
     
     // MARK: - private functions
     private func addStyles() {
-        btn_alert.imageView?.contentMode = .scaleAspectFit
-        btn_loggin.imageView?.contentMode = .scaleAspectFit
-        tf_email.underline(margin: ConseValues.margin, color: .white)
-        tf_password.underline(margin: ConseValues.margin, color: .white)
+        setAspectFitToButton(buttons: btn_alert, btn_loggin)
+        tf_email.underline(margin: ConseValues.margin, padding: ConseValues.innerMargin, color: .white)
+        tf_password.underline(margin: ConseValues.margin, padding: ConseValues.innerMargin, color: .white)
         
         tf_email.delegate = self
         tf_password.delegate = self
@@ -149,19 +151,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol
         })
     }
     
-    // MARK: - Methods for panic button
-    func showAlertSender(){
-        self.showSMSEmergency(logginDelegate: self, senderVC: .login)
-    }
-    /** Usa el protocolo para mostar mensajes */
-    func showMessage(withMessage msn: String) {
-        self.showErrorMessage(withMessage: msn)
-    }
-    
-    func openSettingsPopup(title: String, message: String, settings: String) {
-        self.showSettingsPopup(title: title, message: message, settings: settings)
-    }
-    
     // MARK: - Actions
     @IBAction func send (_ sender: UIButton){
         
@@ -169,9 +158,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol
             
         case btn_loggin:
             
-            guard Validations.isValidData(fromField: tf_email, controller: self),
-                Validations.isValidData(fromField: tf_password, controller: self),
-                Validations.isValidEmail(email: tf_email.text!, controller: self)
+            guard Validations.isValidData(fromField: tf_email, errorView: lbl_error_email),
+                Validations.isValidData(fromField: tf_password, errorView: lbl_error_password),
+                Validations.isValidEmail(email: tf_email.text!, errorView: lbl_error_email)
                 else { return }
             
             if user != nil && tf_email.text?.lowercased() == user?.email.lowercased() {
@@ -187,10 +176,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate, LogginProtocol
             break
             
         case btn_alert:
-            self.showCallEmergency(logginDelegate: self, senderVC: .login)
+            self.showEmergencyPopup(senderVC: .login)
             break
             
         default:
+            self.dismiss(animated: true, completion: nil)
             break
         }
     }

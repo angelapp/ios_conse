@@ -115,7 +115,7 @@ class Network: NSObject {
                 
             case NetworkCodes.notFound:
                 result = false
-                message = JSONResponse != nil ? getErrorMSN(json: JSONResponse! as! [String : Any]) : NetworkErrorMessage.notFoundError
+                message = JSONResponse != nil ? getErrorMSN(json: JSONResponse! as! [String : Any]) : NetworkErrorMessage.notConexionError
                 completion(ResponseCallback.succeeded(succeed: result, message: message))
                 break
                 

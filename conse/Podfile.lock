@@ -5,9 +5,9 @@ PODS:
   - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
-  - Crashlytics (3.9.3):
-    - Fabric (~> 1.7.2)
-  - Fabric (1.7.2)
+  - Crashlytics (3.10.0):
+    - Fabric (~> 1.7.3)
+  - Fabric (1.7.3)
   - ObjectMapper (3.1.0)
   - SwiftyJSON (4.0.0)
 
@@ -15,8 +15,8 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireImage
   - AlamofireObjectMapper (~> 5.0)
-  - Crashlytics
-  - Fabric
+  - Crashlytics (~> 3.10)
+  - Fabric (~> 1.7.3)
   - ObjectMapper (~> 3.1)
   - SwiftyJSON
 
@@ -24,11 +24,11 @@ SPEC CHECKSUMS:
   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
-  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
-  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  Crashlytics: a989ef242b66605577a425733797f810bd2725eb
+  Fabric: bb495bb9a7a7677c6d03a1f8b83d95bc49b47e41
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
 
-PODFILE CHECKSUM: 7b09bab190c805e2ce6b4bec54564eb556bc75b9
+PODFILE CHECKSUM: 952da500dba01d510ae6d9c44b0dcf41b69ea78e
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

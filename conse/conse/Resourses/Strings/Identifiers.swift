@@ -34,8 +34,8 @@ struct CellsId {
     static let newsHeader = "newsHeaderCell"
     static let shieldBody = "shieldBodyCell"
     static let shieldHeader = "shieldHeaderCell"
-    
     static let progress = "progressCell"
+    static let tabButtons = "tabButtonsCell" 
     
     // CELL NAME PROTECTION ROUTES
     static let leadersRoute1_1 = "leaders1_1_Cell"
@@ -199,7 +199,7 @@ struct ViewControllersId {
     static let crosswordHelpPopup = "crosswordHelpPopup"
     static let documentBank = "documentBankVC"
     static let downloadPopup = "downloadPopupVC"
-    static let emergencyCallPopup = "emergencyCallPopupVC"
+    static let emergencyPopup = "emergencyPopupVC"
     static let formatBank = "formatBankVC"
     static let leadersRoute = "leadersRouteVC"
     static let leadersRouteOne = "leadersRouteOneVC"
@@ -231,7 +231,7 @@ struct ViewControllersId {
 }
 
 /// Observer name's
-    struct observerName {
+struct observerName {
     static let stop_loader = "stopLoader"
     static let close_session = "closeSession"
     static let tapped_menuAbout = "menuAboutNRC"
@@ -239,10 +239,12 @@ struct ViewControllersId {
 }
 
 /// Segue Identifiers
-    struct segueID {
+struct segueID {
     static let makeYourAvatar = "makeYourAvatar"
     static let savedContacs = "savedContacts"
     static let showAvatar = "showAvatar"
     static let swFront = "sw_front"
     static let swRear = "sw_rear"
+    static let tutorialResgister = "tutorialResgister"
+    static let welcomeResgister = "welcomeResgister"
 }

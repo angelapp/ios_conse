@@ -14,6 +14,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // MARK: - Outlets
     
     // Buttons
+    @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
     @IBOutlet weak var btn_pickerCancel: UIButton!
     @IBOutlet weak var btn_pickerConfirm: UIButton!
@@ -42,6 +43,22 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_terms: UILabel!
     
+    @IBOutlet weak var lbl_error_name: UILabel!
+    @IBOutlet weak var lbl_error_lastName: UILabel!
+    @IBOutlet weak var lbl_error_birthday: UILabel!
+    @IBOutlet weak var lbl_error_gender: UILabel!
+    @IBOutlet weak var lbl_error_email: UILabel!
+    @IBOutlet weak var lbl_error_pass: UILabel!
+    @IBOutlet weak var lbl_error_confirmPass: UILabel!
+    @IBOutlet weak var lbl_error_IDType: UILabel!
+    @IBOutlet weak var lbl_error_dni: UILabel!
+    @IBOutlet weak var lbl_error_ethnic: UILabel!
+    @IBOutlet weak var lbl_error_state: UILabel!
+    @IBOutlet weak var lbl_error_town: UILabel!
+    @IBOutlet weak var lbl_error_condition: UILabel!
+    @IBOutlet weak var lbl_error_role: UILabel!
+    @IBOutlet weak var lbl_error_terms: UILabel!
+    
     // Scroll
     @IBOutlet weak var scroll: UIScrollView!
     
@@ -68,6 +85,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var selector_geo_city: UIView!
     @IBOutlet weak var selector_condition: UIView!
     @IBOutlet weak var selector_profile: UIView!
+    @IBOutlet weak var navBar: UIView!
     
     // Textfields
     @IBOutlet weak var tf_dni_number: UITextField!
@@ -78,6 +96,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var tf_confirmPassword: UITextField!
     
     // Constraits
+    @IBOutlet weak var constraints_navBar: NSLayoutConstraint!
     @IBOutlet weak var constraints_NRC_Height: NSLayoutConstraint!
     @IBOutlet weak var constraints_register_height: NSLayoutConstraint!
     @IBOutlet weak var constraints_terms_height: NSLayoutConstraint!
@@ -95,6 +114,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     private let profileTag: Int = 7
     
     weak var mainDelegate: MainProtocol?
+    var actualViewYPosition: CGFloat = 0.0
     
     // flag (Register profile or Edit profile) default Register
     var formType: ViewControllerTag = .register
@@ -137,6 +157,11 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         cnt_pickers.isHidden = true
         picker.delegate = self
         picker.dataSource = self
+        
+        //Se agrega observable para desplazar vista cuando se muestra/oculta el teclado
+        NotificationCenter.default.removeObserver(Any.self)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -156,27 +181,43 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
     }
     
-    // change navbor whe this controller disappear
-    override func viewWillDisappear(_ animated: Bool) {
-        if formType == .register {
-            self.navigationController?.navigationBar.barTintColor = Colors().getColor(from: ConseColors.yellow.rawValue)
-            self.navigationController?.navigationBar.tintColor = UIColor.white
+    //MARK: - Métodos para el control de eventos del teclado
+    //Observer for increment contentSize of the scroll
+    @objc func keyboardWillShow(notification: NSNotification) {
+    
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scroll.contentSize = CGSize(width: self.scroll.bounds.size.width, height: self.scroll.bounds.size.height + keyboardSize.height)
             
+            if actualViewYPosition >= keyboardSize.height{
+                scroll.setContentOffset(CGPoint(x: 0, y: actualViewYPosition - keyboardSize.height), animated: true)
+            }
+        }
+    }
+    
+    //Obeserver for move frame to origin when keyboard is hiden
+    @objc func keyboardWillHide(notification: NSNotification) {
+        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: self.view.bounds.size.height)
+    }
+    
+    // MARK: - TextFields
+    //Get the actual position of the TextView
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        actualViewYPosition = textField.convert(CGPoint.zero, to: self.view).y
+        
+        if textField == tf_password {
+            self.view.makeToast(message: AplicationRuntime.sharedManager.getPswErrorMessage(), duration: 5.0, position: HRToastPositionTop as AnyObject)
         }
     }
     
     // MARK: - private functions
     private func addStyles(){
         
-        // change navbar color
-        if formType == .register {
-            self.navigationController?.navigationBar.barTintColor = UIColor.groupTableViewBackground
-            self.navigationController?.navigationBar.tintColor = UIColor.black
-        }
+        navBar.isHidden = formType == .editProfile
+        constraints_navBar.constant = formType == .editProfile ? 0 : 40
         
-        setBackTitle(forViewController: self, title: blankSpace)
-        btn_next.imageView?.contentMode = .scaleAspectFit
+        setAspectFitToButton(buttons: btn_next, btn_back)
         picker_birthday.maximumDate = Date()
+        picker_birthday.date = picker_birthday.minimumDate!
         
         // width of under line
         let underlineWidth = (ConseValues.margin + ConseValues.innerMargin)
@@ -237,7 +278,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     /// Llena la vista, deacuerdo al tag (Register or EditProfile)
     private func fillView() {
         checkTerms.isHidden = formType != .register
-        lbl_title.text = formType == .register ? nullString : Strings.copy_profileTitle
+        lbl_title.text = formType == .register ? Strings.copy_profileTitle : Strings.copy_profileEdit
         tf_email.isEnabled = formType == .register
         tf_password.isHidden = formType != .register
         tf_confirmPassword.isHidden = formType != .register
@@ -393,23 +434,25 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     private func prepareRequest(forViewController id: ViewControllerTag) {
         
         // Se valida que todos los campos esten completos
-        guard Validations.isValidData(fromField: tf_name, controller: self),
-            Validations.isValidData(fromField: tf_lastname, controller: self),
-            Validations.isValidData(fromField: promt_gender, controller: self),
-            Validations.isValidDate(birthDate: promt_birthday.text, controller: self) else {
+        guard Validations.isValidData(fromField: tf_name, errorView: lbl_error_name),
+            Validations.isValidData(fromField: tf_lastname, errorView: lbl_error_lastName),
+            Validations.isValidDate(birthDate: promt_birthday.text, errorView: lbl_error_birthday),
+            Validations.isValidData(fromPromt: promt_gender, errorView: lbl_error_gender) else {
+                self.showErrorMessage(withMessage: Strings.error_message_requieredData)
                 return
         }
         
-        // Campos que solo se validan si el usuario se esat registrando
+        // Campos que solo se validan si el usuario se esta registrando
         if id == .register {
-            guard Validations.isValidData(fromField: tf_email, controller: self),
-                Validations.isValidData(fromField: tf_password, controller: self),
-                Validations.isValidData(fromField: tf_confirmPassword, controller: self) else {
+            guard Validations.isValidData(fromField: tf_email, errorView: lbl_error_email),
+                Validations.isValidData(fromField: tf_password, errorView: lbl_error_pass),
+                Validations.isValidData(fromField: tf_confirmPassword, errorView: lbl_error_confirmPass) else {
+                    self.showErrorMessage(withMessage: Strings.error_message_requieredData)
                     return
             }
             
             // Se validan los formatos
-            guard Validations.isValidEmail(email: tf_email.text!, controller: self),
+            guard Validations.isValidEmail(email: tf_email.text!, errorView: lbl_error_email),
                 Validations.isValidPass(pass: tf_password.text!, controller: self) else {
                     return
             }
@@ -419,26 +462,30 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 self.showErrorMessage(withMessage: Strings.error_message_passNotMatch)
                 return
             }
-            
-            // Se verifica que accepte los terminos
-            guard acceptedTerms else {
-                self.showErrorMessage(withMessage: Strings.error_message_requieredData)
-                return
-            }
         }
         
         // Si es beneficiario conse valida que todos los campos esten llenos
         if isBeneficiaryNCR {
             
-            guard Validations.isValidData(fromField: tf_dni_number, controller: self),
-                Validations.isValidData(fromField: promt_dni_type, controller: self),
-                Validations.isValidData(fromField: promt_ethnic_group, controller: self),
-                Validations.isValidData(fromField: promt_geo_state, controller: self),
-                Validations.isValidData(fromField: promt_geo_city, controller: self),
-                Validations.isValidData(fromField: promt_condition, controller: self),
-                Validations.isValidData(fromField: promt_profile, controller: self)
+            guard Validations.isValidData(fromField: tf_dni_number, errorView: lbl_error_dni),
+                Validations.isValidData(fromPromt: promt_dni_type, errorView: lbl_error_IDType),
+                Validations.isValidData(fromPromt: promt_ethnic_group, errorView: lbl_error_ethnic),
+                Validations.isValidData(fromPromt: promt_geo_state, errorView: lbl_error_state),
+                Validations.isValidData(fromPromt: promt_geo_city, errorView: lbl_error_town),
+                Validations.isValidData(fromPromt: promt_condition, errorView: lbl_error_condition),
+                Validations.isValidData(fromPromt: promt_profile, errorView: lbl_error_role)
                 else {
+                    self.showErrorMessage(withMessage: Strings.error_message_requieredData)
                     return
+            }
+        }
+        
+        // Se verifica que accepte los terminos
+        if id == .register {
+            lbl_error_terms.text = acceptedTerms ? nullString : Strings.error_message_terms
+            guard acceptedTerms else {
+                self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+                return
             }
         }
         
@@ -732,5 +779,10 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     /// Realiza las validaciones y contruye el modelo de datos para enviar al servidor
     @IBAction func next (_ sender: UIButton) {
         prepareRequest(forViewController: formType)
+    }
+    
+    /// Vuelve a la pantalla anterior
+    @IBAction func backAction(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
     }
 }

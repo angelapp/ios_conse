@@ -8,8 +8,9 @@
 
 import UIKit
 import ObjectMapper
+import CoreLocation
 
-class WelcomeViewController: UIViewController, WelcomeProtocol {
+class WelcomeViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_alet: UIButton!
@@ -20,8 +21,7 @@ class WelcomeViewController: UIViewController, WelcomeProtocol {
     @IBOutlet weak var img_nrc_logo: UIImageView!
     @IBOutlet weak var img_conse_logo: UIImageView!
     
-    @IBOutlet weak var scroll: UIScrollView!
-    
+    @IBOutlet weak var content_centerConstraint: NSLayoutConstraint!
     @IBOutlet weak var alertButton_heightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
@@ -45,28 +45,16 @@ class WelcomeViewController: UIViewController, WelcomeProtocol {
         // Dispose of any resources that can be recreated.
     }
     
-    // set content height to scroll
-    override func viewDidLayoutSubviews() {
-        
-        var contentRect = CGRect.zero
-        
-        for view in scroll.subviews {
-            contentRect = contentRect.union(view.frame)
-        }
-        
-        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
-    }
-    
     // MARK: - private functions
     private func addStyles(){
-        btn_register.imageView?.contentMode = .scaleAspectFit
-        btn_alet.imageView?.contentMode = .scaleAspectFit
-        btn_videoTutorial.imageView?.contentMode = .scaleAspectFit
+        
+        setAspectFitToButton(buttons: btn_alet, btn_register, btn_login, btn_videoTutorial)
         
         btn_videoTutorial.isHidden = (states != nil && states.wasLoggedAtSomeTime)
         btn_alet.isHidden = !btn_videoTutorial.isHidden
         
         alertButton_heightConstraint.constant = btn_alet.isHidden ? 0 : 50
+        content_centerConstraint.constant = btn_alet.isHidden ? 0 : 20
     }
     
     private func loadLocalData() {
@@ -83,6 +71,7 @@ class WelcomeViewController: UIViewController, WelcomeProtocol {
         guard (AplicationRuntime.sharedManager.getAppConfig()) != nil else {
             return
         }
+        
         guard states != nil, states.isLogin  else {
             return
         }
@@ -93,27 +82,32 @@ class WelcomeViewController: UIViewController, WelcomeProtocol {
             return
         }
         
-        if self.contacts != nil && self.contacts.count > 0 {
-            AplicationRuntime.sharedManager.setTrustedConctacs(list: self.contacts)
-            
-            if self.avatarPieces != nil && self.avatarPieces.genderID != nil {
-                AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: self.avatarPieces)
-                AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
-                
-                self.startConse(inScreen: StoryboardsId.main)
-            }
-            else {
-                self.startConse(inScreen: StoryboardsId.configAlert)
-            }
+        guard self.contacts != nil && self.contacts.count > 0 else {
+            self.presentConse(storyBoard: StoryboardsId.configAlert, inScreen: ViewControllersId.configAlert)
+            return
         }
-        else {
-            self.startConse(inScreen: StoryboardsId.configAlert)
+        
+        AplicationRuntime.sharedManager.setTrustedConctacs(list: self.contacts)
+        
+        guard self.avatarPieces != nil && self.avatarPieces.skinID != nil else {
+            self.presentConse(storyBoard: StoryboardsId.configAlert, inScreen: ViewControllersId.choiceAvatarGender)
+            return
         }
+        
+        AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: self.avatarPieces)
+        AplicationRuntime.sharedManager.setAvatarImage(img: self.avatar)
+        
+        self.presentConse(storyBoard: StoryboardsId.main)
     }
     
-    private func startConse(inScreen name: String){
-        let sb = UIStoryboard(name: name, bundle: nil)
-        self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+    private func presentConse(storyBoard sbName: String, inScreen vc: String? = nil){
+        let sb = UIStoryboard(name: sbName, bundle: nil)
+        if vc != nil {
+            self.present(sb.instantiateViewController(withIdentifier: vc!), animated: true, completion: nil)
+        }
+        else{
+            self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+        }
     }
     
     private func getConfiguration() {
@@ -159,21 +153,38 @@ class WelcomeViewController: UIViewController, WelcomeProtocol {
         })
     }
     
-    // MARK: - Methods for panic button
-    func showAlertSender(){
-        self.showSMSEmergency(wellcomeDelegate: self, senderVC: .welcome)
-    }
-    /** Usa el protocolo para mostar mensajes */
-    func showMessage(withMessage msn: String) {
-        self.showErrorMessage(withMessage: msn)
-    }
-    
-    func openSettingsPopup(title: String, message: String, settings: String) {
-        self.showSettingsPopup(title: title, message: message, settings: settings)
-    }
-    
     // MARK: - Actions
-    @IBAction func alert(_ sender: UIButton) {
-        self.showCallEmergency(wellcomeDelegate: self, senderVC: .welcome)
+    @IBAction func actionButtons(_ sender: UIButton) {
+        
+        switch sender {
+            
+        case btn_alet:
+            self.showEmergencyPopup(senderVC: .welcome)
+            break
+            
+        case btn_register:
+            
+            // Check Intenet Conexión
+            guard ConnectionCheck.isConnectedToNetwork() else {
+                self.showSettingsPopup(title: Strings.error_title_notInternetConection,
+                                       message: Strings.error_message_notIntenertConection,
+                                       settings: URL_GENERAL_SETTINGS)
+                return
+            }
+            
+            // Check if GPS is Enable
+            guard CLLocationManager.locationServicesEnabled() else {
+                self.showSettingsPopup(title: Strings.error_title_locationDisabled,
+                                       message: Strings.error_message_locationDisabled,
+                                       settings: URL_LOCATION_SERVICES)
+                return
+            }
+            
+            performSegue(withIdentifier: segueID.welcomeResgister, sender: self)
+            break
+            
+        default:
+            break
+        }
     }
 }

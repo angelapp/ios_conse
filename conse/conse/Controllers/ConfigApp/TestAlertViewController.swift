@@ -21,8 +21,6 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setBackTitle(forViewController: self, title: blankSpace)
-        
         cnt_step1.isHidden = false
         cnt_step2.isHidden = true
         
@@ -36,7 +34,15 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     }
     
     // MARK: - functions
-    func startStepTwo() {
+    func startStepTwo(error: Bool) {
+        
+        guard !error else {
+            self.view.makeToast(message: Strings.error_message_notAvailableAction,
+                                duration: 5.0,
+                                position: HRToastPositionDefault as AnyObject)
+            return
+        }
+        
         cnt_step1.isHidden = true
         cnt_step2.isHidden = false
         
@@ -46,15 +52,19 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     
     // MARK: - Actions
     @IBAction func sendAlertTest(_ sender: UIButton) {
-        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.sendAlertPopup) as! SendAlertPopupViewController
-        
-        nextVC.alertMessage = Strings.copy_testAlertMessage
-        nextVC.launchVC = .testAlert
-        nextVC.testAlertDelegate = self
-        nextVC.modalPresentationStyle = .overCurrentContext
-        nextVC.modalTransitionStyle = .crossDissolve
-        present(nextVC, animated: true, completion: nil)
+        self.showEmergencyPopup(senderVC: .testAlert, testDelegate: self)
+//        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
+//        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.sendAlertPopup) as! SendAlertPopupViewController
+//
+//        nextVC.alertMessage = Strings.copy_testAlertMessage
+//        nextVC.launchVC = .testAlert
+//        nextVC.testAlertDelegate = self
+//        nextVC.modalPresentationStyle = .overCurrentContext
+//        nextVC.modalTransitionStyle = .crossDissolve
+//        present(nextVC, animated: true, completion: nil)
     }
 
+    @IBAction func backAction(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

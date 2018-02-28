@@ -13,17 +13,25 @@ let debugFlag = "♻️ \(appName)_Debug: "
 
 let blankSpace = " "
 let nullString = ""
-let defaultVideoID = "XxSK31L1D9A"
 let jumpLine = "\n"
+let subject = "Subject"
 let titleTextColor = "titleTextColor"
+let defaultVideoID = "XxSK31L1D9A"
+let resetButtonTitle = "Reiniciar Curso"
 
 let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
+let URL_LOCATION_SERVICES = "App-Prefs:root=LOCATION_SERVICES"
 let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
+
+struct AvatarStrings {
+    static let makeYourAvatarTitle = "Arma tu Conse"
+    static let makeYourAvatarMessage = "Inicia por escoger el género, depués, podrás definir las características físicas que más te gusten para tu Consejero o Consejera ¡Será quien te acompañe mientras usas la aplicación!"
+}
 
 struct Strings {
     
     static let birthday_placeholder = "DÍA/MES/AÑO"
-    static let body_AlertConfig = "Selecciona tres contactos de confianza a quienes les llegarán las alertas en caso de que te encuentres en una situación de peligro"
+    static let body_AlertConfig = "Ingresa de 1 a 3 contactos"
     static let body_Checkbox_Beneficiary = "Soy beneficiario de los programas NRC"
     static let body_Checkbox_AcceptTerms = "Acepto los %@ del NRC"
     static let button_accept = "Aceptar"
@@ -41,6 +49,7 @@ struct Strings {
     static let copy_downloading = "Descargando..."
     static let copy_letStartMessage = "Hola soy tu Conse y voy a estar acompañándote en este recorrido. Traigo mucha información y herramientas que me gustaría compartir contigo"
     static let copy_letStartTitle = "¡Iniciemos!"
+    static let copy_profileEdit = "Actualiza tu perfil"
     static let copy_profileTitle = "Completa tu perfil"
     static let copy_progressTitle = "MI PROGRESO"
     static let copy_progressTab_VBG = "Violencia Basada en Género"
@@ -59,15 +68,19 @@ struct Strings {
     static let image_star_off = "icon_progress_avanzadoapagado"
     
     static let error_message_avatarIncomplete = "¡Falta seleccionar una parte del ávatar!"
-    static let error_message_invalidEmail = "Correo no valido"
+    static let error_message_invalidEmail = "Correo no válido"
     static let error_message_locationDisabled = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
     static let error_message_notAvailable = "El contacto no tiene número telefónico"
     static let error_message_notAvailableAction = "Este dispositivo no puede realizar esta acción"
     static let error_message_notIntenertConection = "Debes tener una conexión activa a internet"
     static let error_message_notUserValidCredentials = "Credenciales inválidas"
     static let error_message_passNotMatch = "Las contraseñas no coinciden"
-    static let error_message_requieredField = "Debe diligenciar este campo"
-    static let error_message_requieredData = "Debe completar información"
+    static let error_message_requieredField = "Debes diligenciar este campo"
+    static let error_message_requieredData = "Debes completar información"
+    static let error_message_terms = "Debes diligenciar este campo"
+    
+    static let error_no_audio = "No se encuentra el archivo"
+    static let error_play_audio = "No se pudo cargar el Audio"
 
     static let error_title_locationDisabled = "Geolocalización desactivada"
     static let error_title_notInternetConection = "No hay conexión a internet"
@@ -80,7 +93,7 @@ struct Strings {
     static let emergency_line_155 = "155"
     static let emergency_line_155_message = "Línea de orientación a las mujeres vícitmas de violencia " + emergency_line_155
     static let emergency_SMS = "Estoy en PELIGRO, necesito ayuda URGENTE"
-    static let emergency_SMS_test = "Ahora eres mi contacto de emergencia. Esta es una prueba"
+    static let emergency_SMS_test = "Ahora eres mi contacto de emergencia. Esta es una prueba. Estoy ubicado en "
     
     static let fullname_format = "%@ %@"
     
@@ -110,9 +123,10 @@ struct Strings {
     static let review_content = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
-    static let texfiled_placeholder = "Seleccione"
+    static let texfiled_placeholder = "Selecciona"
     static let title_AlertConfig = "Configura el botón de alerta"
     static let title_AlertTest = "Haz una prueba de funcionamiento"
+    static let title_for_share = "Plantilla compartida desde Conse"
     
     static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }
@@ -193,4 +207,5 @@ struct Formats {
     static let shieldURLComplement = "?latitude=%@&longitude=%@"
     static let successDownload = "El archivo: %@ fue descragado exitosamente"
     static let testAlertMessage = "%@ http://maps.google.com/?q=%@,%@" // Message, Latitute, Longitude
+    static let bodyEmailShare = "Plantilla %@"
 }

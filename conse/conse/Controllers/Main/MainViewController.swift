@@ -12,8 +12,8 @@ class MainViewController: UIViewController, MainProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_alert: UIButton!
-    @IBOutlet weak var btn_menu: UIBarButtonItem!
-    @IBOutlet weak var btn_progress: UIBarButtonItem!
+    @IBOutlet weak var btn_menu: UIButton!
+    @IBOutlet weak var btn_progress: UIButton!
     
     @IBOutlet weak var container: UIView!
     
@@ -44,11 +44,7 @@ class MainViewController: UIViewController, MainProtocol {
         if let progress = StorageFunctions.getProgress() {
             AplicationRuntime.sharedManager.setProgress(progress: progress)
         }
-        
-        //Se agrega accion al boton menu
-        btn_menu.target = revealViewController()
-        btn_menu.action = #selector(SWRevealViewController.revealToggle(_:))
-        
+
         //Add Geture for open/close menu
         if self.revealViewController() != nil {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
@@ -176,9 +172,6 @@ class MainViewController: UIViewController, MainProtocol {
         logView.remove(at: indexOF!)
     }
     
-    func showAlertSender(){
-        self.showSMSEmergency(senderVC: .main)
-    }
     /** Usa el protocolo para mostar mensajes en el main */
     func showMessageInMain(withMessage msn: String) {
         self.showErrorMessage(withMessage: msn)
@@ -190,7 +183,11 @@ class MainViewController: UIViewController, MainProtocol {
     
     // MARK: - Actions
     @IBAction func buttonAction(_ sender: UIButton) {
-        self.showCallEmergency(senderVC: .main)
+        self.showEmergencyPopup(senderVC: .main)
+    }
+    
+    @IBAction func showMenu(_ sender: UIButton) {
+        self.revealViewController().revealToggle(self)
     }
     
     @IBAction func showProgress(_ sender: UIButton) {

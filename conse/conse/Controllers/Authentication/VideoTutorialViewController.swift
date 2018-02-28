@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreLocation
 
 class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
     
     // MARK: - Outlets
+    @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
     @IBOutlet weak var videoPlayer: UIWebView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
@@ -22,7 +24,6 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
         videoPlayer.delegate = self
         getVideo(forID: AplicationRuntime.sharedManager.getvideoID())
         
-        setBackTitle(forViewController: self, title: blankSpace)
         btn_next.imageView?.contentMode = .scaleAspectFit
     }
 
@@ -46,4 +47,34 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
         loader.stopAnimating()
     }
 
+    // MARK: - Action
+    @IBAction func backAction(_ sender: UIButton) {
+        
+        switch sender {
+            
+        case btn_next:
+            // Check Intenet Conexión
+            guard ConnectionCheck.isConnectedToNetwork() else {
+                self.showSettingsPopup(title: Strings.error_title_notInternetConection,
+                                       message: Strings.error_message_notIntenertConection,
+                                       settings: URL_GENERAL_SETTINGS)
+                return
+            }
+            
+            // Check if GPS is Enable
+            guard CLLocationManager.locationServicesEnabled() else {
+                self.showSettingsPopup(title: Strings.error_title_locationDisabled,
+                                       message: Strings.error_message_locationDisabled,
+                                       settings: URL_LOCATION_SERVICES)
+                return
+            }
+            
+            performSegue(withIdentifier: segueID.tutorialResgister, sender: self)
+            break
+            
+        default:
+            self.dismiss(animated: true, completion: nil)
+            break
+        }
+    }
 }

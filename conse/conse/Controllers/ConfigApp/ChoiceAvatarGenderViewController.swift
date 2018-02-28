@@ -21,7 +21,13 @@ class ChoiceAvatarGenderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        addStyles()
+        // Add buttons style
+        setAspectFitToButton(buttons: btn_man, btn_woman)
+        
+        // Fill labels
+        lbl_title.text = AvatarStrings.makeYourAvatarTitle
+        lbl_message.text = AvatarStrings.makeYourAvatarMessage
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,20 +35,11 @@ class ChoiceAvatarGenderViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Private Functions
-    private func addStyles() {
-        setBackTitle(forViewController: self, title: blankSpace)
-        
-        btn_man.imageView?.contentMode = .scaleAspectFit
-        btn_woman.imageView?.contentMode = .scaleAspectFit
-    }
-    
     // MARK: - Actions
     @IBAction func actionButtons(_ sender: UIButton) {
         
         let avatar = MyAvatarPieces()
         avatar.genderID = sender == btn_man ? AvatarGenderIDs.male.rawValue : AvatarGenderIDs.female.rawValue
-        
         AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: avatar)
         
         performSegue(withIdentifier: segueID.makeYourAvatar, sender: self)

@@ -5,6 +5,8 @@
 //  Created by Felipe Zamudio on 1/02/18.
 //  Copyright © 2018 NRC. All rights reserved.
 //
+// Contiene todos los textos del curso "Protección para Líderes comunitarios"
+// El contenido, esta separado por Páginas del curso
 
 import Foundation
 
@@ -102,6 +104,7 @@ struct  LEADERS_COURSE {
         static let answer03 = "hechos"
         static let answer04 = "supuestos"
         static let answer05 = "específico"
+        static let answer05_2 = "especifico"
         static let answer06 = "persona"
         static let answer07 = "grupo"
         static let answer08 = "amenaza"

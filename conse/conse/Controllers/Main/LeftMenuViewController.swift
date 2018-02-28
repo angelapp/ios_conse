@@ -24,8 +24,12 @@ class LeftMenuViewController: UIViewController {
     
     @IBOutlet weak var cnt_buttons: UIView!
     @IBOutlet weak var scroll: UIScrollView!
+    @IBOutlet weak var scrollHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
+    private let maxHeightScroll: CGFloat = 488
+    private let minAllowHeightContent: CGFloat = 504
+    
     weak var mainDelegate: MainProtocol?
     var overlayView: UIView = UIView()
     
@@ -52,6 +56,8 @@ class LeftMenuViewController: UIViewController {
         }
         
         scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: contentRect.size.height)
+        
+        scrollHeightConstraint.constant = cnt_buttons.frame.size.height < minAllowHeightContent ? (cnt_buttons.frame.size.height - 8) : maxHeightScroll
     }
     
     // MARK: - Private Functions

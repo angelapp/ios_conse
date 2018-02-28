@@ -5,6 +5,10 @@
 //  Created by Felipe Zamudio on 16/01/18.
 //  Copyright © 2018 NRC. All rights reserved.
 //
+//
+// Contiene todos los textos del curso "Atención y prevención de Violencia Basada en Género "
+// El contenido, esta separado por Páginas del curso.
+
 
 import Foundation
 
@@ -361,150 +365,41 @@ struct VGB_ERROR_RES {
     static let MOD4_Q8 = "Ten presente que si una entidad estatal no cumple con sus funciones o no protege tus derechos, puedes denunciarlo ante Ministerio Público que está conformado por la Procuraduría General de la Nación, la Defensoría del Pueblo y Personerías."
 }
 
-enum AUDIO_FEMALE: String {
-    case AUD_1 = "audio_1.mp3"
-    case AUD_2 = "audio_2.mp3"
-    case AUD_3 = "audio_3.mp3"
-    case AUD_4 = "audio_4.mp3"
-    case AUD_5 = "audio_5.mp3"
-    case AUD_6 = "audio_6.mp3"
-    case AUD_7 = "audio_7.mp3"
-    case AUD_8 = "audio_8.mp3"
-    case AUD_9 = "audio_9.mp3"
-    case AUD_10 = "audio_10.mp3"
-    case AUD_11 = "audio_11.mp3"
-    case AUD_12 = "audio_12.mp3"
-    case AUD_13 = "audio_13.mp3"
-    case AUD_14 = "audio_14.mp3"
-    case AUD_15 = "audio_15.mp3"
-    case AUD_16 = "audio_16.mp3"
-    case AUD_17 = "audio_17.mp3"
-    case AUD_18 = "audio_18.mp3"
-    case AUD_19 = "audio_19.mp3"
-    case AUD_20 = "audio_20.mp3"
-    case AUD_21 = "audio_21.mp3"
-}
-
-enum AUDIO_MALE: String {
-    case AUD_1 = "audio_1_m.mp3"
-    case AUD_2 = "audio_2_m.mp3"
-    case AUD_3 = "audio_3_m.mp3"
-    case AUD_4 = "audio_4_m.mp3"
-    case AUD_5 = "audio_5_m.mp3"
-    case AUD_6 = "audio_6_m.mp3"
-    case AUD_7 = "audio_7_m.mp3"
-    case AUD_8 = "audio_8_m.mp3"
-    case AUD_9 = "audio_9_m.mp3"
-    case AUD_10 = "audio_10_m.mp3"
-    case AUD_11 = "audio_11_m.mp3"
-    case AUD_12 = "audio_12_m.mp3"
-    case AUD_13 = "audio_13_m.mp3"
-    case AUD_14 = "audio_14_m.mp3"
-    case AUD_15 = "audio_15_m.mp3"
-    case AUD_16 = "audio_16_m.mp3"
-    case AUD_17 = "audio_17_m.mp3"
-    case AUD_18 = "audio_18_m.mp3"
-    case AUD_19 = "audio_19_m.mp3"
-    case AUD_20 = "audio_20_m.mp3"
-    case AUD_21 = "audio_21_m.mp3"
-}
-
-func validateCrossword(word: UITextField..., option: Int) -> Bool {
+/**
+ Construye un palabra de acuerdo, a los campos del crucigrama y la valida con su
+ respectiva respuesta
+ 
+ - Parameter word: Arreglo de campos de texto, con los cuales se armara la palabra que debe ser verificada
+ - Parameter option: id de la respuesta.
+ - Returns: **True** Si la palabra armada y la respuesta correspondiente al id recibido coinciden, **False** en caso contrario
+*/
+func validateCrossword(word: UITextField..., option: ClueID) -> Bool {
     var resp = nullString
     
+    // Concatena el contenido de cada linea(Clue) del crucigrama para formar una palabra y poder compararla con las respuestas
     for letter in word {
         resp = resp + letter.text!
     }
     
     switch option {
         
-    case 1:
+    case .clue_01:
        return resp.uppercased() == VGB_CROSSWORD.clue_1.uppercased()
         
-    case 2:
+    case .clue_02:
         return resp.uppercased() == VGB_CROSSWORD.clue_2.uppercased()
         
-    case 3:
+    case .clue_03:
         return resp.uppercased() == VGB_CROSSWORD.clue_3.uppercased()
         
-    case 4:
+    case .clue_04:
         return resp.uppercased() == VGB_CROSSWORD.clue_4.uppercased()
         
-    case 5:
+    case .clue_05:
         return resp.uppercased() == VGB_CROSSWORD.clue_5.uppercased()
         
     default:
         return resp.uppercased() == VGB_CROSSWORD.clue_6.uppercased()
-    }
-}
-
-func getAudioName(forAudio id: AUDIO_ID) -> String {
-    let avatar_gender = AplicationRuntime.sharedManager.getAvatarGenderID()
-    
-    switch id {
-        
-    case .AUD_1:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_1.rawValue : AUDIO_FEMALE.AUD_1.rawValue
-        
-    case .AUD_2:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_2.rawValue : AUDIO_FEMALE.AUD_2.rawValue
-        
-    case .AUD_3:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_3.rawValue : AUDIO_FEMALE.AUD_3.rawValue
-        
-    case .AUD_4:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_4.rawValue : AUDIO_FEMALE.AUD_4.rawValue
-        
-    case .AUD_5:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_5.rawValue : AUDIO_FEMALE.AUD_5.rawValue
-        
-    case .AUD_6:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_6.rawValue : AUDIO_FEMALE.AUD_6.rawValue
-        
-    case .AUD_7:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_7.rawValue : AUDIO_FEMALE.AUD_7.rawValue
-        
-    case .AUD_8:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_8.rawValue : AUDIO_FEMALE.AUD_8.rawValue
-        
-    case .AUD_9:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_9.rawValue : AUDIO_FEMALE.AUD_9.rawValue
-        
-    case .AUD_10:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_10.rawValue : AUDIO_FEMALE.AUD_10.rawValue
-        
-    case .AUD_11:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_11.rawValue : AUDIO_FEMALE.AUD_11.rawValue
-        
-    case .AUD_12:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_12.rawValue : AUDIO_FEMALE.AUD_12.rawValue
-        
-    case .AUD_13:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_13.rawValue : AUDIO_FEMALE.AUD_13.rawValue
-        
-    case .AUD_14:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_14.rawValue : AUDIO_FEMALE.AUD_14.rawValue
-        
-    case .AUD_15:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_15.rawValue : AUDIO_FEMALE.AUD_15.rawValue
-        
-    case .AUD_16:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_16.rawValue : AUDIO_FEMALE.AUD_16.rawValue
-        
-    case .AUD_17:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_17.rawValue : AUDIO_FEMALE.AUD_17.rawValue
-        
-    case .AUD_18:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_18.rawValue : AUDIO_FEMALE.AUD_18.rawValue
-        
-    case .AUD_19:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_19.rawValue : AUDIO_FEMALE.AUD_19.rawValue
-        
-    case .AUD_20:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_20.rawValue : AUDIO_FEMALE.AUD_20.rawValue
-        
-    default:
-        return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.AUD_21.rawValue : AUDIO_FEMALE.AUD_21.rawValue
     }
 }
 

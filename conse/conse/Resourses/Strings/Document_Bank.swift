@@ -47,6 +47,7 @@ struct FileExtensions {
     static let DOC = ".docx"
 }
 
+/// Make a list of My Cominity items
 func getMyCommunityDocuments() -> Array<MyCommunityItem> {
     var array:Array<MyCommunityItem> = []
     
@@ -67,6 +68,10 @@ func getMyCommunityDocuments() -> Array<MyCommunityItem> {
     return array
 }
 
+/**
+ Get format list like array of FormatBankItem
+ Create each item like an object with title to show, name in device and extension 
+*/
 func getFormatList() -> Array<FormatsBankItem>! {
     
     var list: Array<FormatsBankItem>! = []

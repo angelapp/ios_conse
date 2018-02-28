@@ -19,6 +19,8 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_boby: UILabel!
     
+    @IBOutlet weak var nextButtonTop: NSLayoutConstraint!
+    
     @IBOutlet weak var table_contacts: UITableView!
     
     // MARK: - Propierties
@@ -31,8 +33,6 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        contactList = AplicationRuntime.sharedManager.getTrustedContact()
         
         addStyles()
         fillView()
@@ -46,8 +46,10 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
     // MARK: - private functions
     private func addStyles() {
         
-        setBackTitle(forViewController: self, title: blankSpace)
         setAspectFitToButton(buttons: btn_addContact, btn_next)
+        
+        //Set Default nextbutton position
+        nextButtonTop.constant = (30 + btn_addContact.bounds.height)
     }
     
     private func fillView() {
@@ -59,11 +61,13 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
             lbl_boby.isHidden = true
         }
         
+        // Hide add contact button and move next button to nuew position
         if contactList.count >= 3 {
             btn_addContact.isHidden = true
+            nextButtonTop.constant = 10
         }
         
-        btn_next.isHidden = (contactList.count < 1) ? true : false
+        btn_next.isHidden = (contactList.count < 1)
         table_contacts.isHidden = !lbl_boby.isHidden
     }
     

@@ -169,39 +169,47 @@ func printDebugMessage(tag: String) {
 class Validations {
     
     // Valida que se halla escrito alguna fecha
-    class func isValidDate(birthDate: String!, controller: UIViewController) -> Bool {
+    class func isValidDate(birthDate: String!, errorView: UILabel? = nil) -> Bool {
         guard !birthDate.isEmpty, birthDate.uppercased() != Strings.birthday_placeholder.uppercased() else {
-            controller.showErrorMessage(withMessage: Strings.error_message_requieredData)
+            errorView?.text = Strings.error_message_requieredField
             return false
         }
+        
+        errorView?.text = nullString
         return true
     }
     
     // Valida que el label no este lleno y no tenga la informacion por defecto
-    class func isValidData(fromField lbl: UILabel, controller: UIViewController) -> Bool {
+    class func isValidData(fromPromt lbl: UILabel, errorView: UILabel? = nil) -> Bool {
         guard !(lbl.text?.isEmpty)!, lbl.text?.uppercased() != Strings.texfiled_placeholder.uppercased() else {
-            controller.showErrorMessage(withMessage: Strings.error_message_requieredData)
+            errorView?.text = Strings.error_message_requieredField
             return false
         }
+        
+        errorView?.text = nullString
         return true
     }
     
     // Valida que los campos de texto no esten vacios
-    class func isValidData(fromField textField: UITextField, controller: UIViewController) -> Bool {
+    class func isValidData(fromField textField: UITextField, errorView: UILabel? = nil) -> Bool {
         guard !(textField.text?.isEmpty)!, textField.text != blankSpace else {
-            controller.showErrorMessage(withMessage: Strings.error_message_requieredData)
+            errorView?.text = Strings.error_message_requieredField
             return false
         }
+        
+        errorView?.text = nullString
         return true
     }
     
     // Valida que el formato de email sea correcto
-    class func isValidEmail(email:String, controller: UIViewController) -> Bool {
+    class func isValidEmail(email:String, errorView: UILabel? = nil) -> Bool {
         let emailTest = NSPredicate(format: Formats.matchesFormat, Formats.emailRegEx)
         guard emailTest.evaluate(with: email) else {
-            controller.showErrorMessage(withMessage: Strings.error_message_invalidEmail)
+            errorView?.text =  Strings.error_message_invalidEmail
             return false
         }
+        
+        errorView?.text = nullString
         return true
     }
     
@@ -240,6 +248,7 @@ extension UIViewController {
         let cancel = UIAlertAction(title: Strings.button_accept, style: .cancel) {(_) in
             alert.dismiss(animated: false, completion: nil)
         }
+        
         alert.addAction(cancel)
         present(alert, animated: true, completion: nil)
     }
@@ -260,7 +269,7 @@ extension UIViewController {
                 }
             }
         }
-        let cancelAction = UIAlertAction(title: Strings.button_cancel, style: .default, handler: nil)
+        let cancelAction = UIAlertAction(title: Strings.button_cancel, style: .cancel, handler: nil)
         
         alertController.addAction(settingsAction)
         alertController.addAction(cancelAction)
@@ -268,37 +277,24 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    func showCallEmergency(wellcomeDelegate: WelcomeProtocol? = nil, logginDelegate: LogginProtocol? = nil, recoveryDelegate: RecoveryProtocol? = nil, senderVC: ViewControllerTag) {
+    func showEmergencyPopup(senderVC: ViewControllerTag, testDelegate: TestAlertProtocol? = nil) {
+        
         let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.emergencyCallPopup) as! EmergencyCallPopupViewController
+        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.emergencyPopup) as! EmergencyPopupViewController
         
         nextVC.senderVC = senderVC
-        nextVC.logginDelegate = logginDelegate
-        nextVC.recoveryDelegate = recoveryDelegate
-        nextVC.welcomeDelegate = wellcomeDelegate
+        nextVC.testAlertDelegate = testDelegate
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
         present(nextVC, animated: true, completion: nil)
     }
     
-    func showSMSEmergency(wellcomeDelegate: WelcomeProtocol? = nil, logginDelegate: LogginProtocol? = nil, recoveryDelegate: RecoveryProtocol? = nil,
-                          testAlertDelegate: TestAlertProtocol? = nil, senderVC: ViewControllerTag) {
-        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.sendAlertPopup) as! SendAlertPopupViewController
+    func makeCall(forNumber line: String) {
         
-        nextVC.launchVC = senderVC
-        nextVC.logginDelegate = logginDelegate
-        nextVC.recoveryDelegate = recoveryDelegate
-        nextVC.testAlertDelegate = testAlertDelegate
-        nextVC.welcomeDelegate = wellcomeDelegate
-        nextVC.modalPresentationStyle = .overCurrentContext
-        nextVC.modalTransitionStyle = .crossDissolve
-        present(nextVC, animated: true, completion: nil)
-    }
-    
-    func makeCallEmergency(toEmergencyLine line: String){
         let number = line.components(separatedBy: .whitespaces).joined()
+        
         if let url = URL(string: String(format: Formats.callFormat, number)), UIApplication.shared.canOpenURL(url) {
+            
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url)
             } else {
@@ -311,7 +307,7 @@ extension UIViewController {
     }
 }
 
-// extención paro los tap gesture
+// Link action as tapGesture
 extension UITapGestureRecognizer {
     
     // http://samwize.com/2016/03/04/how-to-create-multiple-tappable-links-in-a-uilabel/
@@ -379,8 +375,26 @@ extension UIImage {
     }
 }
 
-// Extension for get array without duplicate elements
+// Extension para el table view
+extension UITableView {
+    
+    /** Crea animación desaparecer, aparecer para indicar que se a actualizado la tabla
+     */
+    func animate() {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.alpha = 0
+        }) { _ in
+            UIView.animate(withDuration: 0.5, animations: {
+                self.alpha = 1
+            })
+        }
+    }
+}
+
+// Extension for array
 extension Array {
+    
+    /// Get array without duplicate elements
     func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
         var set = Set<T>() //the unique list kept in a Set for fast retrieval
         var arrayOrdered = [Element]() //keeping the unique list of elements but ordered
@@ -397,11 +411,13 @@ extension Array {
 
 extension String {
     
+    /// - Returns: Only number digits from strings
     var digits: String {
         return components(separatedBy: CharacterSet.decimalDigits.inverted)
             .joined()
     }
     
+    /// - Returns: attribute wiht html attributes
     func htmlAttributedString() -> NSAttributedString? {
         guard let data = self.data(using: String.Encoding.utf16, allowLossyConversion: false) else { return nil }
         guard let html = try? NSMutableAttributedString(

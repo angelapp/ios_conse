@@ -9,11 +9,13 @@
 import UIKit
 import ObjectMapper
 
-class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, RecoveryProtocol {
+class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_alert: UIButton!
+    @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_send: UIButton!
+    @IBOutlet weak var lbl_error_email: UILabel!
     @IBOutlet weak var img_logo: UIImageView!
     @IBOutlet weak var scroll: UIScrollView!
     @IBOutlet weak var tf_email: UITextField!
@@ -53,9 +55,8 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, Rec
     // MARK: - Private functions
     private func addStyles() {
         
-        btn_send.imageView?.contentMode = .scaleAspectFit
-        btn_alert.imageView?.contentMode = .scaleAspectFit
-        tf_email.underline(margin: ConseValues.margin, color: .white)
+        setAspectFitToButton(buttons: btn_alert, btn_send, btn_back)
+        tf_email.underline(margin: ConseValues.margin, padding: ConseValues.innerMargin, color: .white)
         tf_email.delegate = self
         
         btn_alert.isHidden = !states.wasLoggedAtSomeTime
@@ -63,10 +64,10 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, Rec
     
     private func dismissVC() {
         tf_email.text? = nullString
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
-    private func showMessage(withMessage msn:String, title:String? = nullString) {
+    private func showSuccessMessage(withMessage msn:String, title:String? = nullString) {
         
         let alert = UIAlertController(title: title, message: msn, preferredStyle: .alert)
         let cancel = UIAlertAction(title: Strings.button_accept, style: .cancel) {(_) in
@@ -77,7 +78,7 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, Rec
         present(alert, animated: true, completion: nil)
     }
     
-    //MARK: Métodos para el control de eventos del teclado
+    //MARK: - Métodos para el control de eventos del teclado
     //Observer for increment contentSize of the scroll
     @objc func keyboardWillShow(notification: NSNotification) {
         
@@ -95,14 +96,17 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, Rec
     /// Se envia correo del usuario para recuperar la contraseña
     func sendRecoveryPost(email: RegisterUserProfileModel) {
         
-        //self.showLoader(withMessage: Strings.loader_loading)
-        
+        let loader = LoadingOverlay(text: Strings.loader_recovery)
         let json = Mapper().toJSONString(email, prettyPrint: true)
         let headers:[[String:String]] = []
         
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
+        
         Network.buildRequest(urlApi: NetworkPOST.PASSWORD_RECOVERY, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
             
-            // NotificationCenter.default.post(name: NSNotification.Name(rawValue: observerName.stop_loader), object: nil)
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
             
             switch response {
                 
@@ -120,7 +124,7 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, Rec
             case .succeededObject(let objReceiver):
                 
                 let resp = objReceiver as! [String: Any]
-                self.showMessage(withMessage: resp[JSONKeys.detail] as! String)
+                self.showSuccessMessage(withMessage: resp[JSONKeys.detail] as! String)
                 
                 break
                 
@@ -130,27 +134,14 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, Rec
         })
     }
     
-    // MARK: - Methods for panic button
-    func showAlertSender(){
-        self.showSMSEmergency(recoveryDelegate: self, senderVC: .login)
-    }
-    /** Usa el protocolo para mostar mensajes */
-    func showMessage(withMessage msn: String) {
-        self.showErrorMessage(withMessage: msn)
-    }
-    
-    func openSettingsPopup(title: String, message: String, settings: String) {
-        self.showSettingsPopup(title: title, message: message, settings: settings)
-    }
-    
     // MARK: - actions
     @IBAction func send(_ sender: UIButton){
         
         switch sender {
             
         case btn_send:
-            guard Validations.isValidData(fromField: tf_email, controller: self),
-                Validations.isValidEmail(email: tf_email.text!, controller: self) else {
+            guard Validations.isValidData(fromField: tf_email, errorView: lbl_error_email),
+                Validations.isValidEmail(email: tf_email.text!, errorView: lbl_error_email) else {
                     return
             }
             
@@ -160,8 +151,13 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate, Rec
             sendRecoveryPost(email: username)
             break
             
+        case btn_alert:
+            self.showEmergencyPopup(senderVC: .recoveryPass)
+            break
+            
         default:
-            self.showCallEmergency(recoveryDelegate: self, senderVC: .login)
+            dismissVC()
+            break
         }
     }
 }

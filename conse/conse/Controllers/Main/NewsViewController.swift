@@ -9,7 +9,7 @@
 import UIKit
 
 class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, NewsProtocol {
-    
+
     // MARK: - Outlets
     @IBOutlet weak var button_collection: UICollectionView!
     @IBOutlet weak var lbl_message: UILabel!
@@ -35,6 +35,10 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         table_news.delegate = self
         table_news.dataSource = self
+        
+        if let flowLayout = button_collection.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 100, height: 40)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,14 +79,13 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cityList = cities.unique{$0.id}
         button_collection.reloadData()
         
-        changeCitySelected(inPosition: currentTab)
+        changeCitySelected(inPosition: currentTab, animated: false)
     }
 
     /** Filter news by City*/
-    private func getNewsByCity(whitID id: Int) {
+    private func getNewsByCity(whitID id: Int, animated: Bool) {
         
         var newsByCity: Array<NewsCategory> = []
-        printDebugMessage(tag: "City id: \(id)")
         
         for news_cat in newsResponse {
             
@@ -106,15 +109,16 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         newsList = newsByCity
         fillView()
+        
         table_news.reloadData()
+        if animated { table_news.animate() }
     }
     
-    // MARK: News Protocol functions
-    func changeCitySelected(inPosition position: Int) {
+    // MARK: - News Protocol functions
+    func changeCitySelected(inPosition position: Int, animated: Bool) {
         currentTab = position
         button_collection.reloadData()
-        printDebugMessage(tag: "City from position \(position)")
-        getNewsByCity(whitID: cityList[position].id)
+        getNewsByCity(whitID: cityList[position].id, animated: animated)
     }
     
     // MARK: - REQUEST
@@ -171,6 +175,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.newsDelegate = self
         cell.tab_button.tag = indexPath.row
         cell.tab_button.isSelected = indexPath.row == currentTab
+        cell.underline.isHidden = !cell.tab_button.isSelected
         cell.setButtonTitle(title: cityList[indexPath.row].name)
         
         return cell

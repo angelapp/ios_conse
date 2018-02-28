@@ -90,8 +90,6 @@ class MakeYourAvatarViewController: UIViewController {
     // MARK: - Private Functions
     private func addStyles() {
         
-        setBackTitle(forViewController: self, title: blankSpace)
-        
         // Set Aspect fit to all grid Buttons and add the same tag to radioButton as image
         // row (fila), pos (posicion en la fila)
         var row = 0, posBtn = 0, posImg = 0
@@ -162,7 +160,6 @@ class MakeYourAvatarViewController: UIViewController {
     }
     
     // MARK: - Actions buttons
-    
     @IBAction func updateSelected(_ sender: UIButton) {
         let listPart: Int = Int( sender.tag / 10)
         let posInList: Int =  sender.tag % 10
@@ -204,6 +201,10 @@ class MakeYourAvatarViewController: UIViewController {
         }
     }
     
+    @IBAction func actionBack(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func actionButtons(_ sender: UIButton) {
         
         // Verifica que se hayan seleccionado todas las partes del avatar
@@ -211,6 +212,12 @@ class MakeYourAvatarViewController: UIViewController {
             myAvatar?.mouthID != nil, myAvatar?.accID != nil else {
             self.showErrorMessage(withMessage: Strings.error_message_avatarIncomplete)
             return
+        }
+        
+        // Verifica que se hallan podido descargar las imagenes del servidor
+        guard img_avatarSkin.image != nil , img_avatarEyes.image != nil , img_avatarMouth.image != nil , img_avatarHair.image != nil , img_avatarAcc.image != nil  else {
+                self.showErrorMessage(withMessage: NetworkErrorMessage.notConexionError)
+                return
         }
         
         // Crea una imagen combinado todas las partes y la guarda en el dispositivo y enel runtime

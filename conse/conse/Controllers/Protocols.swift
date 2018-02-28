@@ -8,27 +8,9 @@
 
 import Foundation
 
-protocol WelcomeProtocol: class {
-    func showAlertSender()
-    func showMessage(withMessage msn: String)
-    func openSettingsPopup(title: String, message: String, settings: String)
-}
-
-protocol LogginProtocol: class {
-    func showAlertSender()
-    func showMessage(withMessage msn: String)
-    func openSettingsPopup(title: String, message: String, settings: String)
-}
-
-protocol RecoveryProtocol: class {
-    func showAlertSender()
-    func showMessage(withMessage msn: String)
-    func openSettingsPopup(title: String, message: String, settings: String)
-}
-
 /// Protocol de la parte de configuración para enviar un mensaje de prueba
 protocol TestAlertProtocol: class {
-    func startStepTwo()
+    func startStepTwo(error: Bool)
 }
 
 protocol SendAlertProtocol: class {
@@ -38,17 +20,16 @@ protocol SendAlertProtocol: class {
 protocol MainProtocol: class {
     func addToContainer(viewControllerID id: ViewControllerTag)
     func removeOfContainer()
-    func showAlertSender()
     func showMessageInMain(withMessage msn: String)
     func openSettingsPopup(title: String, message: String, settings: String)
 }
 
 
-// Protocolos para Cursos
+// Protocolos para administrar el avance de los Cursos
 protocol LeadersProtocol: class {
     func nextPage()
     func previusPage()
-    func audioManager(audioID id: AUDIO_ID, play: Bool)
+    func audioManager(audioID id: Int, play: Bool)
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
 }
 
@@ -56,14 +37,18 @@ protocol VBGProtocol: class {
     func nextPage()
     func previusPage()
     func goCourses()
-    func audioManager(audioID id: AUDIO_ID, play: Bool)
+    func audioManager(audioID id: VBG_AUDIO_ID, play: Bool)
     func showPopupHelp(title: String, text: String)
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
 }
 
 // Protocolos para Banco de Documentos
+protocol DocumentsTabProtocol: class {
+    func changeTabSelected(toPosition: Int)
+}
+
 protocol FormatBankProtocol: class {
-    func openShareDocument(documentName: String, fileExt: String, action: FileActions)
+    func openShareDocument(file: FormatsBankItem, action: FileActions)
 }
 
 // Protocolos para Analizo mi comunidad
@@ -93,5 +78,5 @@ protocol LeadersRouteTwoProtocol: class {
 
 // Protocolos para Noticias
 protocol NewsProtocol: class {
-    func changeCitySelected(inPosition position: Int)
+    func changeCitySelected(inPosition position: Int, animated: Bool)
 }

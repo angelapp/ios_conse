@@ -33,7 +33,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
         let messageComposeVC = MFMessageComposeViewController()
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
         printDebugMessage(tag: "list \(textMessageRecipients)")
-        messageComposeVC.recipients = textMessageRecipients//["3204292282","3132133300"]
+        messageComposeVC.recipients = textMessageRecipients
         messageComposeVC.body = messageBody
         return messageComposeVC
     }
