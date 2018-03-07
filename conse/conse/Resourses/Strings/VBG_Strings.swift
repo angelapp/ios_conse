@@ -380,6 +380,7 @@ func validateCrossword(word: UITextField..., option: ClueID) -> Bool {
     for letter in word {
         resp = resp + letter.text!
     }
+    printDebugMessage(tag: "Validando: \(resp)")
     
     switch option {
         

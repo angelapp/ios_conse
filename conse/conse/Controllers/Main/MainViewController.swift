@@ -140,9 +140,15 @@ class MainViewController: UIViewController, MainProtocol {
         if id == .protectionRoutes { removeOfContainer() }
         let vc = getViewController(viewControllerID: id)
         
-        // continue is new vc to add is diferent to current top vc
-        guard logView.last != id else {
-            return
+//        // continue is new vc to add is diferent to current top vc
+//        guard logView.last != id else {
+//            return
+//        }
+        if container.subviews.count > 0 {
+            let vc = self.childViewControllers.last
+            vc?.willMove(toParentViewController: nil)
+            vc?.view.removeFromSuperview()
+            vc?.removeFromParentViewController()
         }
         
         // Add vc as child

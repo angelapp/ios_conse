@@ -1165,6 +1165,10 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.text = nil
+    }
+    
     private func getNextTextField(forTextField tag: Int) -> UITextField! {
         
         M1CW_C_0309.tag = M1CW_C_0308.tag == tag ? 23 : 2
@@ -1229,39 +1233,46 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
         guard validateCrossword(word: M1CW_C_0209, M1CW_C_0309, M1CW_C_0409, M1CW_C_0509, M1CW_C_0609, M1CW_C_0709, M1CW_C_0809, M1CW_C_0909, M1CW_C_1009, M1CW_C_1109, M1CW_C_1209, option: .clue_01)
             else {
+                printDebugMessage(tag: "clue_1")
                 vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
                 return
         }
         
         guard validateCrossword(word: M1CW_C_0307, M1CW_C_0308, M1CW_C_0309, M1CW_C_0310, M1CW_C_0311, M1CW_C_0312, option: .clue_02)
             else {
+                printDebugMessage(tag: "clue_2")
                 vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
                 return
         }
         
         guard validateCrossword(word: M1CW_C_0402, M1CW_C_0502, M1CW_C_0602, M1CW_C_0702, M1CW_C_0802, M1CW_C_0902, option: .clue_03)
             else {
+                printDebugMessage(tag: "clue_3")
                 vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
                 return
         }
         
         guard validateCrossword(word: M1CW_C_0502, M1CW_C_0503, M1CW_C_0504, M1CW_C_0505, M1CW_C_0506, M1CW_C_0507, M1CW_C_0508, M1CW_C_0509, M1CW_C_0510, option: .clue_04)
             else {
+                printDebugMessage(tag: "clue_4")
                 vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
                 return
         }
         
         guard validateCrossword(word: M1CW_C_1006, M1CW_C_1007, M1CW_C_1008, M1CW_C_1009, M1CW_C_1010, M1CW_C_1011, M1CW_C_1012, option: .clue_05)
             else {
+                printDebugMessage(tag: "clue_5")
                 vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
                 return
         }
         
         guard validateCrossword(word: M1CW_C_1206, M1CW_C_1207, M1CW_C_1208, M1CW_C_1209, M1CW_C_1210, M1CW_C_1211, option: .clue_06)
             else {
+                printDebugMessage(tag: "clue_6")
                 vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
                 return
         }
+        
         nextPage(nil)
     }
     
