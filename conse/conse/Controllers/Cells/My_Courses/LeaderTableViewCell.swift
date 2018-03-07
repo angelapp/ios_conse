@@ -278,9 +278,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_textField10.text = nullString; leaders_textField10.tag = 9; leaders_textField10.underlined(); leaders_textField10.delegate = self
     }
     
-    func fillLeader10(height: CGFloat) {
-        constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
-        
+    func fillLeader10() {
         leaders_review.text = Strings.review_content
         leaders_title.text = LEADERS_COURSE.PAGE_10.title
         leaders_text1.text = LEADERS_COURSE.PAGE_10.t1
@@ -505,9 +503,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4, btn_opt5, btn_opt6, btn_opt7, btn_opt8]
     }
     
-    func fillLeader27(height: CGFloat) {
-        constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
-        
+    func fillLeader27() {
         leaders_review.text = Strings.review_content
         leaders_title.text = LEADERS_COURSE.PAGE_27.title
         leaders_text1.text = LEADERS_COURSE.PAGE_27.t1
@@ -716,8 +712,9 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader44() {
-        leaders_title.text = LEADERS_COURSE.PAGE_44.title
+        mainDelegate?.setImageBackground(withName: nullString)
         
+        leaders_title.text = LEADERS_COURSE.PAGE_44.title
         leaders_question.text = LEADERS_COURSE.PAGE_44.question
         leaders_option1.text = LEADERS_COURSE.PAGE_44.option_01
         leaders_option2.text = LEADERS_COURSE.PAGE_44.option_02
@@ -731,8 +728,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         answersButtons = [btn_opt1, btn_opt2]
     }
     
-    func fillLeader45(height: CGFloat) {
-        constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
+    func fillLeader45() {
         
         leaders_review.text = Strings.review_content
         leaders_title.text = LEADERS_COURSE.PAGE_45.title
@@ -745,6 +741,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader46() {
+        mainDelegate?.setImageBackground(withName: nullString)
         leaders_title.text = LEADERS_COURSE.PAGE_46.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_46.subtitle
         leaders_text1.text = LEADERS_COURSE.PAGE_46.t1
@@ -851,6 +848,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader57() {
+        mainDelegate?.setImageBackground(withName: nullString)
         leaders_title.text = LEADERS_COURSE.PAGE_57.title
         
         leaders_question.text = LEADERS_COURSE.PAGE_57.question
@@ -866,9 +864,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         answersButtons = [btn_opt1, btn_opt2]
     }
     
-    func fillLeader58(height: CGFloat) {
-        constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
-        
+    func fillLeader58() {
         leaders_review.text = Strings.review_content
         leaders_title.text = LEADERS_COURSE.PAGE_58.title
         leaders_text1.text = LEADERS_COURSE.PAGE_58.t1
@@ -904,6 +900,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     @IBAction func endCourse(_ sender: UIButton) {
+        mainDelegate?.setImageBackground(withName: nullString)
         mainDelegate?.addToContainer(viewControllerID: .myCourses)
     }
     

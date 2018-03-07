@@ -26,7 +26,7 @@ struct VBG_COURSE {
         static let T2_inBold_01 = "Guía para el abordaje pedagógico"
         static let T2_inBold_02 = "CONSEJERÍA PRESIDENCIAL PARA LA EQUIDAD DE LA MUJER, USAID, OIM"
         static let T3 = "La VBG puede ser ejercida contra personas que no se adecuan a lo esperado por la sociedad según su sexo, como es el caso de personas con orientación sexual diversa (gays, lebianas, y bisexuales) o con identidad de género diversa (transexuales), pero se ejerce principalmente contra mujeres, niñas y adolecentes, de allí que cuando se hable de violencia de género, se asocie mayormente con violencia contra las mujeres"
-        static let T4 = "¡Ahora sí! Estás lista para iniciar ¡Adelante!"
+        static let T4 = "¡Ahora sí! Estamos listos para iniciar ¡Adelante!"
     }
     
     struct PAGE_03 {

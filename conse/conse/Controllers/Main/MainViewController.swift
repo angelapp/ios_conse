@@ -187,7 +187,7 @@ class MainViewController: UIViewController, MainProtocol {
     /** Pone una imagen de fondo
      - Parameter withName: Nombre de la imagen que se desea usar como fondo */
     func setImageBackground(withName name: String) {
-        img_background.image = UIImage(named: name)
+        img_background.image = name != nullString ? UIImage(named: name) : nil
     }
     
     // MARK: - Actions

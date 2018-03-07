@@ -251,7 +251,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             
             cell.leadersDelegate = self
             
-            cell.fillLeader10(height: leaders_table.bounds.size.height)
+            cell.fillLeader10()
             return cell
         }
         else if currentIndex == LEADERS_INDEX.LEADERS_11.rawValue {
@@ -370,7 +370,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_27, for: indexPath) as! LeaderTableViewCell
             
             cell.leadersDelegate = self
-            cell.fillLeader27(height: leaders_table.bounds.size.height)
+            cell.fillLeader27()
             return cell
         }
         else if currentIndex == LEADERS_INDEX.LEADERS_28.rawValue {
@@ -496,7 +496,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_45, for: indexPath) as! LeaderTableViewCell
             
             cell.leadersDelegate = self
-            cell.fillLeader45(height: leaders_table.bounds.size.height)
+            cell.fillLeader45()
             return cell
         }
         else if currentIndex == LEADERS_INDEX.LEADERS_46.rawValue {
@@ -587,7 +587,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_58, for: indexPath) as! LeaderTableViewCell
 
             cell.leadersDelegate = self
-            cell.fillLeader58(height: leaders_table.bounds.size.height)
+            cell.fillLeader58()
             return cell
         }
     }
