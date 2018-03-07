@@ -12,6 +12,8 @@ import Foundation
 
 struct  LEADERS_COURSE {
     
+    static let correct_answer = "¡Muy bien, respuesta correcta! ¡Continúa el recorrido!"
+    
     struct PAGE_01 {
         static let title = "Lideresas y líderes de la comunidad: tus derechos, tu cuidado, tu protección"
         static let t1 = "Recibe la bienvenida al contenido de Protección de Líderes y Lideresas de la Comunidad, prepárate para recorrer un camino en el que conocerás tus derechos, las rutas de protección creadas por el Estado y las recomendaciones de cuidado y protección en el marco del conflicto armado en Colombia. \n\n¡Es hora de iniciar! ¡Aprovecha al máximo este recorrido!"
@@ -117,13 +119,13 @@ struct  LEADERS_COURSE {
     struct PAGE_10 {
         static let title = LEADERS_COURSE.PAGE_03.title
         static let t1 = "¡Felicitaciones!"
-        static let t2 = "Has finalizado el primer módulo de formación, ya puedes ver como tus esfuerzos están dando resultados. Recibe con gusto tu primera insignia, ahora eres: Consejero Conocedor."
+        static let t2 = "Has finalizado el primer módulo de formación, ya puedes ver como tus esfuerzos están dando resultados. Recibe con gusto tu primera insignia, ahora eres: %@!."
     }
     
     struct PAGE_11 {
         static let title = "Módulo 2"
         static let subtitle = "Responsabilidades de las instituciones en la prevención y protección"
-        static let t1 = "Ya conoces tus derechos como líder o lideresa, ahora, entérate de cuáles son algunas de las responsabilidades de las instituciones en temas de prevención y protección. Ten presente que la implementación de estas medidas se realiza a través de dos estrategias diferentes: una Estrategia de Prevención y otra de Estrategia de Protección."
+        static let t1 = "Ya conoces tus derechos como líder o lideresa, ahora, entérate de cuáles son algunas de las responsabilidades de las instituciones en temas de prevención y protección. Ten presente que la implementación de estas medidas se realiza a través de dos estrategias diferentes: una Estrategia de Prevención y otra de Protección."
     }
     
     struct PAGE_12 {
@@ -263,7 +265,7 @@ struct  LEADERS_COURSE {
     
     struct PAGE_25 {
         static let title = LEADERS_COURSE.PAGE_12.title
-        static let t1 = "¡Muy bien!\nHas explorado la estrategia de prevención! Ahora pon a prueba tu mente realizando la siguiente actividad."
+        static let t1 = "¡Muy bien!\n¡Has explorado la estrategia de prevención! Ahora pon a prueba tu mente realizando la siguiente actividad."
     }
     
     struct PAGE_26 {
@@ -286,8 +288,8 @@ struct  LEADERS_COURSE {
     
     struct PAGE_27 {
         static let title = LEADERS_COURSE.PAGE_12.title
-        static let t1 = "¡Muy bien, encontraste las respuestas correctas!"
-        static let t2 = "¡Felicitaciones! Ya puedes ver como tus esfuerzos están dando resultados. Sigue coleccionando insignias, ahora eres: \nConse Avanzado."
+        static let t1 = nullString //"¡Muy bien, encontraste las respuestas correctas!"
+        static let t2 = "¡Felicitaciones! Ya puedes ver como tus esfuerzos están dando resultados. Sigue coleccionando insignias, ahora eres: \n%@!"
     }
     
     struct PAGE_28 {
@@ -368,9 +370,9 @@ struct  LEADERS_COURSE {
         static let item_02 = "Medidas Preventivas de Protección"
         static let item_03 = "Verificación del Grupo de Solicitudes de Protección"
         static let item_04 = "Asignación de un analista"
-        static let item_05 = "¿Sabías que?\n\nSi no firmas el consentimiento no se iniciará la evaluación del riesgo y no se podrá continuar la ruta de protección.\n\nComo lideresa puedes elegir el sexo del analista.\n\nEn el caso de las mujeres, la evaluación del riesgo deberá entender las condiciones de víctimas de desplazamiento y lideresas o defensoras de derechos humanos, como una suma de riesgos. Igualmente se hará cuando la mujer tiene a su cargo distintos familiares con el propósito de determinar la extensión de las medidas de protección. "
-        static let item_05_inBold_1 = "¿Sabías que?"
-        static let item_05_inBold_2 = "suma de riesgos."
+        static let t1 = "¿Sabías que?"
+        static let t2 = "Si no firmas el consentimiento no se iniciará la evaluación del riesgo y no se podrá continuar la ruta de protección.\n\nComo lideresa puedes elegir el sexo del analista.\n\nEn el caso de las mujeres, la evaluación del riesgo deberá entender las condiciones de víctimas de desplazamiento y lideresas o defensoras de derechos humanos, como una suma de riesgos. Igualmente se hará cuando la mujer tiene a su cargo distintos familiares con el propósito de determinar la extensión de las medidas de protección. "
+        static let t2_inBold_1 = "suma de riesgos."
     }
     
     struct PAGE_39 {
@@ -403,7 +405,7 @@ struct  LEADERS_COURSE {
         static let title = LEADERS_COURSE.PAGE_29.title
         static let t1 = "Lee atentamente las siguientes situaciones y contesta sí o no a la pregunta."
         
-        static let question = "1. Juan es un joven estudiante que le gusta hacer fiestas en su casa a altas horas de la noche y con mucho volumen, su vecino lo amenaza con hacerle daño si no deja de hacer estas actividades. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para Juan?"
+        static let question = "1. Juan es un joven estudiante al que le gusta hacer fiestas en su casa hasta altas horas de la noche y con mucho volumen. Su vecino lo amenaza con hacerle daño si no deja de hacer estas actividades. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para Juan?"
         static let option_01 = "SÍ"
         static let option_02 = "NO"
         
@@ -413,7 +415,7 @@ struct  LEADERS_COURSE {
     struct PAGE_43 {
         static let title = LEADERS_COURSE.PAGE_29.title
         
-        static let question = "2. Camilo es nombrado representante de la mesa nacional de víctimas de desplazamiento forzado la semana pasada, desde hace cuatro meses le debe dinero a José quien le prestó para comprar un televisor, el día de hoy después de regresar de una jornada de la mesa nacional, se encuentra con José quien le dice que, si no le paga mañana, le hará daño. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para Camilo?"
+        static let question = "2. Camilo fue nombrado representante de la Mesa Nacional de Víctimas de Desplazamiento Forzado la semana pasada. Desde hace cuatro meses le debe dinero a José, quien le prestó para comprar un televisor. El día de hoy después de regresar de una jornada de la Mesa, se encuentra con José quien le dice que si no le paga mañana, le hará daño. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para Camilo?"
         static let option_01 = LEADERS_COURSE.PAGE_42.option_01
         static let option_02 = LEADERS_COURSE.PAGE_42.option_02
         
@@ -423,7 +425,7 @@ struct  LEADERS_COURSE {
     struct PAGE_44 {
         static let title = LEADERS_COURSE.PAGE_29.title
         
-        static let question = "3. La señora Constanza es profesora de una escuela donde enseña Derechos Humanos y derechos de las víctimas del conflicto, un grupo armado al margen de la Ley le ordena no volver a hablar de estos temas o le hará daño. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para la señora Constanza?"
+        static let question = "3. La señora Constanza es profesora de una escuela donde enseña derechos humanos y derechos de las víctimas del conflicto. Un grupo armado al margen de la Ley le ordena no volver a hablar de estos temas o le hará daño. ¿Es el programa del Ministerio del Interior y de la Unidad Nacional de Protección el adecuado para la señora Constanza?"
         static let option_01 = LEADERS_COURSE.PAGE_42.option_01
         static let option_02 = LEADERS_COURSE.PAGE_42.option_02
         
@@ -431,8 +433,9 @@ struct  LEADERS_COURSE {
     }
     
     struct PAGE_45 {
+        static let title = LEADERS_COURSE.PAGE_29.title
         static let t1 = "¡Excelente!"
-        static let t2 = "Te has esforzado y ahora te has ganado la insignia de Conse Experto\n¡Buen trabajo!"
+        static let t2 = "Te has esforzado y ahora te has ganado la insignia de %@\n¡Buen trabajo!"
     }
     
     struct PAGE_46 {
@@ -490,7 +493,7 @@ struct  LEADERS_COURSE {
         static let title = LEADERS_COURSE.PAGE_47.title
         static let t1 = "Lee atentamente las siguientes situaciones y contesta sí o no a la pregunta."
         
-        static let question = "1. María es la representante de una organización que trabaja por los derechos de mujeres víctimas de violencia, ella inició su trabajo como defensora después a una agresión que sufrió y quedo en la impunidad, recientemente su agresor ha regresado y amenaza con atentar contra ella ¿Es la Ruta de Protección Colectiva la adecuada para María?"
+        static let question = "1. María es la representante de una organización que trabaja por los derechos de mujeres víctimas de violencia. Ella inició su trabajo como defensora después de una agresión que sufrió y que quedo en la impunidad; recientemente su agresor ha regresado y amenaza con atentar contra ella ¿Es la Ruta de Protección Colectiva la adecuada para María?"
         static let option_01 = LEADERS_COURSE.PAGE_42.option_01
         static let option_02 = LEADERS_COURSE.PAGE_42.option_02
         
@@ -500,7 +503,7 @@ struct  LEADERS_COURSE {
     struct PAGE_56 {
         static let title = LEADERS_COURSE.PAGE_47.title
         
-        static let question = "2. Juan es desde hace varios años, líder de una comunidad que trabaja por la restitución de las tierras que perdieron en el marco del conflicto, debido a esto, grupos armados al margen de la ley lo han estado siguiendo y ahora amenazan con atentar contra él y los otros miembros de la comunidad que han logrado identificar. ¿Es la Ruta de Protección Colectiva la adecuada para Juan y su comunidad?"
+        static let question = "2. Juan es desde hace varios años, líder de una comunidad que trabaja por la restitución de las tierras que perdieron en el marco del conflicto. Debido a esto, grupos armados al margen de la ley lo han estado siguiendo y ahora amenazan con atentar contra él y los otros miembros de la comunidad que han logrado identificar. ¿Es la Ruta de Protección Colectiva la adecuada para Juan y su comunidad?"
         static let option_01 = LEADERS_COURSE.PAGE_42.option_01
         static let option_02 = LEADERS_COURSE.PAGE_42.option_02
         
@@ -510,7 +513,7 @@ struct  LEADERS_COURSE {
     struct PAGE_57 {
         static let title = LEADERS_COURSE.PAGE_47.title
         
-        static let question = "3. Jacobo fue víctima de desplazamiento forzado, actualmente se encuentra en un proceso de restitución de tierras y lo están amenazando por seguir en el proceso, Jacobo quiere solicitar protección colectiva, para él y su familia, ya que hace parte de la gran cantidad de personas que se encuentran en esa misma situación. ¿Es la Ruta de Protección Colectiva la adecuada para Jacobo?"
+        static let question = "3. Jacobo fue víctima de desplazamiento forzado. Actualmente se encuentra en un proceso de restitución de tierras y lo están amenazando por seguir en el proceso. Quiere solicitar protección colectiva, para él y su familia, ya que hace parte de la gran cantidad de personas que se encuentran en esa misma situación. ¿Es la Ruta de Protección Colectiva la adecuada para Jacobo?"
         static let option_01 = LEADERS_COURSE.PAGE_42.option_01
         static let option_02 = LEADERS_COURSE.PAGE_42.option_02
         
@@ -518,7 +521,33 @@ struct  LEADERS_COURSE {
     }
     
     struct PAGE_58 {
+        static let title = LEADERS_COURSE.PAGE_47.title
+    
         static let t1 = "¡Felicitaciones!"
-        static let t2 = "¡Muy bien! ¡Sembraste esfuerzo y ahora cosechas logros! Como premio a tu constancia recibe la insignia de \nConse Estrella.\n\n¡Felicitaciones, has terminado todos los módulos del curso!"
+        static let t2 = "¡Muy bien! ¡Sembraste esfuerzo y ahora cosechas logros! Como premio a tu constancia recibe la insignia de \n%@.\n\n¡Felicitaciones, has terminado todos los módulos del curso!"
+    }
+}
+
+enum INSIGNIA: Int {
+    case MOD_01, MOD_02, MOD_03, MOD_04
+}
+
+func getInsignia(forModule module: INSIGNIA) -> String {
+    
+    let userGender = AplicationRuntime.sharedManager.getUserProfile().gender.name
+    
+    switch module {
+        
+    case .MOD_01:
+        return (userGender?.lowercased() == "masculino") ? "Consejero Conocedor" : "Consejera Conocedora"
+        
+    case .MOD_02:
+        return (userGender?.lowercased() == "masculino") ? "Consejero Experto" : "Consejera Experta"
+        
+    case .MOD_03:
+        return (userGender?.lowercased() == "masculino") ? "Consejero Avanzado" : "Consejera Avanzada"
+        
+    default:
+        return (userGender?.lowercased() == "masculino") ? "Consejero Estrella" : "Consejera Estrella"
     }
 }

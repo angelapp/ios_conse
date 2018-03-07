@@ -1150,7 +1150,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         M1P6_AUD1.isSelected = !M1P6_AUD1.isSelected
     }
     
-    // MARK: Crossword functions
+    // MARK: - Crossword functions
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if textField.text!.count == MAX_LENGTH_CELL {
@@ -1265,31 +1265,26 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         nextPage(nil)
     }
     
-    // MARK: Module 2 Functions
+    // MARK:- Module 2 Functions
     @IBAction func checkModule2Test(_ sender: UIButton) {
         checkingQuestionary(options: VBG_15_BTN1, VBG_15_BTN2, VBG_15_BTN3, VBG_15_BTN4, VBG_15_BTN5) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD2, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     // MARK: Module 3 Functions
     @IBAction func checkModule3Question1(_ sender: UIButton) {
         checkingQuestionary(options: VBG_31_BTN1, VBG_31_BTN2, VBG_31_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q1, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule3Question2(_ sender: UIButton) {
         checkingQuestionary(options: VBG_32_BTN1, VBG_32_BTN2, VBG_32_BTN3, VBG_32_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q2, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule3Question3(_ sender: UIButton) {
         checkingQuestionary(options: VBG_33_BTN1, VBG_33_BTN2, VBG_33_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q3, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule3Question4(_ sender: UIButton) {
         checkingQuestionary(options: VBG_34_BTN1, VBG_34_BTN2, VBG_34_BTN3, VBG_34_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q4, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     // MARK: Module 4 Functions
@@ -1318,12 +1313,10 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func checkModule4Question1(_ sender: UIButton) {
         checkingQuestionary(options: VBG_47_BTN1, VBG_47_BTN2, VBG_47_BTN3, VBG_47_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q1, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule4Question2(_ sender: UIButton) {
         checkingQuestionary(options: VBG_48_BTN1, VBG_48_BTN2, VBG_48_BTN3, VBG_48_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q2, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule4Question3(_ sender: UIButton) {
@@ -1333,17 +1326,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func checkModule4Question4(_ sender: UIButton) {
         checkingQuestionary(options: VBG_50_BTN1, VBG_50_BTN2, VBG_50_BTN3, VBG_50_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q4, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule4Question5(_ sender: UIButton) {
         checkingQuestionary(options: VBG_51_BTN1, VBG_51_BTN2, VBG_51_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q5, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule4Question6(_ sender: UIButton) {
         checkingQuestionary(options: VBG_52_BTN1, VBG_52_BTN2, VBG_52_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q6, inbold: nil, type: .failed)
-        nextPage(nil)
     }
     
     @IBAction func checkModule4Question7(_ sender: UIButton) {
@@ -1353,6 +1343,5 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func checkModule4Question8(_ sender: UIButton) {
         checkingQuestionary(options: VBG_54_BTN1, VBG_54_BTN2, VBG_54_BTN3, VBG_54_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q8, inbold: nil, type: .failed)
-        nextPage(nil)
     }
 }

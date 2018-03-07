@@ -16,6 +16,9 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     @IBOutlet weak var btn_Aud3: UIButton!
     @IBOutlet weak var btn_Aud4: UIButton!
     
+    @IBOutlet weak var btn_route_col: UIButton!
+    @IBOutlet weak var btn_route_ind: UIButton!
+    
     @IBOutlet weak var btn_opt1: UIButton!
     @IBOutlet weak var btn_opt2: UIButton!
     @IBOutlet weak var btn_opt3: UIButton!
@@ -30,6 +33,11 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     @IBOutlet weak var img_insignia: UIImageView!
     @IBOutlet weak var img_background: UIImageView!
     
+    @IBOutlet weak var content_aud1: UIView!
+    @IBOutlet weak var content_aud2: UIView!
+//    @IBOutlet weak var content_aud3: UIView!
+//    @IBOutlet weak var content_aud4: UIView!
+    @IBOutlet weak var content_tilte: UIView!
     @IBOutlet weak var constraint_height: NSLayoutConstraint!
     
     @IBOutlet weak var leaders_title: UILabel!
@@ -97,6 +105,11 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     let CORRECT_OPTION: Int = 1
     let WRONG_OPTION: Int = 0
     
+    let LARGE_MARGIN: CGFloat = 24
+    let MEDIUM_MARGIN: CGFloat = 16
+    let SMALL_MARGIN: CGFloat = 8.0
+    let PADDING_PORC: CGFloat = 0.02
+    
     var answersButtons: Array<UIButton> = []
     var audioButtons: Array<UIButton> = []
     
@@ -121,6 +134,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader02() {
+        content_tilte.underline(withTop: true)
+        
         leaders_title.text = LEADERS_COURSE.PAGE_02.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_02.subtitle
         
@@ -134,10 +149,15 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_Aud1.tag = LEADERS_AUDIO_ID.AUD_01.rawValue
         btn_Aud2.tag = LEADERS_AUDIO_ID.AUD_02.rawValue
         
+        content_aud1.underline(margin: LARGE_MARGIN, padding: PADDING_PORC, color: .white, withTop: true)
+        content_aud2.underline(margin: LARGE_MARGIN, padding: PADDING_PORC, color: .white, withTop: true)
+        
         audioButtons = [btn_Aud1, btn_Aud2]
     }
     
     func fillLeader03() {
+        content_tilte.underline(withTop: true)
+        
         leaders_title.text = LEADERS_COURSE.PAGE_03.title
         leaders_text1.text = LEADERS_COURSE.PAGE_03.t1
         leaders_text2.text = LEADERS_COURSE.PAGE_03.t2
@@ -151,6 +171,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader04() {
+        content_tilte.underline(withTop: true)
+        
         leaders_title.text = LEADERS_COURSE.PAGE_04.title
         
         leaders_text1.text = LEADERS_COURSE.PAGE_04.t1
@@ -172,6 +194,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader05() {
+        content_tilte.underline(withTop: true)
+        
         leaders_title.text = LEADERS_COURSE.PAGE_05.title
         
         leaders_text1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_05.t1, toWord: LEADERS_COURSE.PAGE_05.t1_inBold_1, LEADERS_COURSE.PAGE_05.t1_inBold_2, fontSize: leaders_text1.font.pointSize)
@@ -217,6 +241,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader09() {
+        mainDelegate?.setImageBackground(withName: nullString)
+        
         leaders_title.text = LEADERS_COURSE.PAGE_09.title
         
         leaders_text1.text = LEADERS_COURSE.PAGE_09.t1
@@ -258,14 +284,16 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_review.text = Strings.review_content
         leaders_title.text = LEADERS_COURSE.PAGE_10.title
         leaders_text1.text = LEADERS_COURSE.PAGE_10.t1
-        leaders_text2.text = LEADERS_COURSE.PAGE_10.t2
+        leaders_text2.text = String(format: LEADERS_COURSE.PAGE_10.t2, getInsignia(forModule: .MOD_01))
         
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: LeadersImages.insignia_01)
-        img_background.image = UIImage(named: LeadersImages.bg_01)
+        mainDelegate?.setImageBackground(withName: LeadersImages.bg_01)
     }
     
     func fillLeader11() {
+        mainDelegate?.setImageBackground(withName: nullString)
+        
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         leaders_title.text = LEADERS_COURSE.PAGE_11.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_11.subtitle
@@ -442,6 +470,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader26() {
+        mainDelegate?.setImageBackground(withName: nullString)
         leaders_title.text = LEADERS_COURSE.PAGE_26.title
         leaders_text1.text = LEADERS_COURSE.PAGE_26.t1
         leaders_question.text = LEADERS_COURSE.PAGE_26.question
@@ -482,14 +511,15 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_review.text = Strings.review_content
         leaders_title.text = LEADERS_COURSE.PAGE_27.title
         leaders_text1.text = LEADERS_COURSE.PAGE_27.t1
-        leaders_text2.text = LEADERS_COURSE.PAGE_27.t2
+        leaders_text2.text = String(format: LEADERS_COURSE.PAGE_27.t2, getInsignia(forModule: .MOD_02))
         
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: LeadersImages.insignia_02)
-        img_background.image = UIImage(named: LeadersImages.bg_02)
+        mainDelegate?.setImageBackground(withName: LeadersImages.bg_02)
     }
     
     func fillLeader28() {
+        mainDelegate?.setImageBackground(withName: nullString)
         leaders_title.text = LEADERS_COURSE.PAGE_28.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_28.subtitle
         
@@ -525,11 +555,12 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader32() {
+        btn_route_col.isEnabled = false
         leaders_title.text = LEADERS_COURSE.PAGE_32.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_32.subtitle
         leaders_text1.text = LEADERS_COURSE.PAGE_32.t1
         
-        img_route.image = UIImage(named: LeadersImages.route_32)
+//        img_route.image = UIImage(named: LeadersImages.route_32)
     }
     
     func fillLeader33() {
@@ -590,7 +621,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_item2.text = LEADERS_COURSE.PAGE_38.item_02
         leaders_item3.text = LEADERS_COURSE.PAGE_38.item_03
         leaders_item4.text = LEADERS_COURSE.PAGE_38.item_04
-        leaders_item5.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_38.item_05, toWord: LEADERS_COURSE.PAGE_38.item_05_inBold_1, LEADERS_COURSE.PAGE_38.item_05_inBold_2, fontSize: leaders_item5.font.pointSize)
+        leaders_text1.text = LEADERS_COURSE.PAGE_38.t1
+        leaders_text2.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_38.t2, toWord: LEADERS_COURSE.PAGE_38.t2_inBold_1, fontSize: leaders_text2.font.pointSize)
         
         btn_Aud1.isSelected = false
         btn_Aud1.tag = LEADERS_AUDIO_ID.AUD_16.rawValue
@@ -702,11 +734,14 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader45(height: CGFloat) {
         constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
         
+        leaders_review.text = Strings.review_content
+        leaders_title.text = LEADERS_COURSE.PAGE_45.title
         leaders_text1.text = LEADERS_COURSE.PAGE_45.t1
-        leaders_text2.text = LEADERS_COURSE.PAGE_45.t2
+        leaders_text2.text = String(format: LEADERS_COURSE.PAGE_45.t2, getInsignia(forModule: .MOD_03))
         
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: LeadersImages.insignia_03)
-        img_background.image = UIImage(named: LeadersImages.bg_03)
+        mainDelegate?.setImageBackground(withName: LeadersImages.bg_03)
     }
     
     func fillLeader46() {
@@ -730,8 +765,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader49() {
+        btn_route_ind.isEnabled = false
         leaders_title.text = LEADERS_COURSE.PAGE_49.title
-        img_route.image = UIImage(named: LeadersImages.route_49)
     }
     
     func fillLeader50() {
@@ -779,7 +814,6 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     func fillLeader54() {
         leaders_title.text = LEADERS_COURSE.PAGE_54.title
-        
         leader_videoPlayer.delegate =  self
     }
     
@@ -835,11 +869,14 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader58(height: CGFloat) {
         constraint_height.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
         
+        leaders_review.text = Strings.review_content
+        leaders_title.text = LEADERS_COURSE.PAGE_58.title
         leaders_text1.text = LEADERS_COURSE.PAGE_58.t1
-        leaders_text2.text = LEADERS_COURSE.PAGE_58.t2
+        leaders_text2.text = String(format: LEADERS_COURSE.PAGE_58.t2, getInsignia(forModule: .MOD_04))
         
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: LeadersImages.insignia_04)
-        img_background.image = UIImage(named: LeadersImages.bg_04)
+        mainDelegate?.setImageBackground(withName: LeadersImages.bg_04)
     }
     
     // MARK: - TextField Delegate
@@ -894,7 +931,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         }
     }
     
-    // MARK: - Validations functions
+    // MARK: - Validaciones
     /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
     private func checkingQuestionary() -> Bool {
         
@@ -909,55 +946,72 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         return true
     }
     
+    /// Verifica los campos. Valida en casacada (Valida el sigiente sii el primero esta bien)
     @IBAction func checking_page_09() {
         guard leaders_textField1.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer01.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leaders_textField1.text = nil
             return
         }
 
-        guard leaders_textField2.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+        guard (leaders_textField2.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased() ||
+            leaders_textField2.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased()) else {
+                leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+                leaders_textField2.text = nil
             return
         }
 
-        guard leaders_textField3.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+        guard (leaders_textField3.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased() ||
+            leaders_textField3.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased()) &&
+            (leaders_textField3.text?.lowercased() != leaders_textField2.text?.lowercased()) else {
+                leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+                leaders_textField3.text = nil
             return
         }
 
         guard leaders_textField4.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer04.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leaders_textField4.text = nil
             return
         }
 
         guard (leaders_textField5.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer05.lowercased() ||
               leaders_textField5.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer05_2.lowercased()) else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+                leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+                leaders_textField5.text = nil
             return
         }
 
         guard leaders_textField6.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer06.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leaders_textField6.text = nil
             return
         }
 
         guard leaders_textField7.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer07.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leaders_textField7.text = nil
             return
         }
 
         guard leaders_textField8.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer08.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+            leaders_textField8.text = nil
             return
         }
 
-        guard leaders_textField9.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+        guard (leaders_textField9.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased() ||
+            leaders_textField9.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased()) else {
+                leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+                leaders_textField9.text = nil
             return
         }
 
-        guard leaders_textField10.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased() else {
-           leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+        guard (leaders_textField10.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased() ||
+                leaders_textField10.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased()) && (
+                leaders_textField9.text?.lowercased() != leaders_textField10.text?.lowercased()) else {
+                    leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
+                    leaders_textField10.text = nil
             return
         }
         
@@ -965,7 +1019,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     @IBAction func checking_page_18() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_18.error, inbold: nil, type: .failed)
+        checkingQuestionary() ? leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.correct_answer, inbold: nil, type: .success) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_18.error, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_26() {

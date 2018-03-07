@@ -10,18 +10,9 @@ import Foundation
 
 /// Cells Identifiers
 struct CellsId {
-    static let aboutNRC1 = "aboutNRC1Cell"
-    static let aboutNRC2 = "aboutNRC2Cell"
-    static let aboutNRC3 = "aboutNRC3Cell"
-    static let aboutWeDo1 = "aboutWeDo1Cell"
-    static let aboutWeDo2 = "aboutWeDo2Cell"
-    static let aboutWeDo3 = "aboutWeDo3Cell"
-    static let aboutWeDo4 = "aboutWeDo4Cell"
-    static let aboutWeDo5 = "aboutWeDo5Cell"
-    static let aboutWeDo6 = "aboutWeDo6Cell"
-    static let aboutWeDo7 = "aboutWeDo7Cell"
-    static let aboutWhere1 = "aboutWhere1Cell"
-    static let aboutWhere2 = "aboutWhere2Cell"
+    static let aboutTab01 = "aboutTab01Cell"
+    static let aboutTab02 = "aboutTab02Cell"
+    static let aboutTab03 = "aboutTab03Cell"
 
     static let contact = "contactCell"
     static let communityBody = "communitylBodyCell"
@@ -29,13 +20,20 @@ struct CellsId {
     static let formatBank = "formatBankCell"
     static let legalBody = "legalBodyCell"
     static let legalHeader = "legalHeaderCell"
-    static let newsButtons = "newsButtonsCell"
     static let newsBody = "newsBodyCell"
     static let newsHeader = "newsHeaderCell"
     static let shieldBody = "shieldBodyCell"
     static let shieldHeader = "shieldHeaderCell"
     static let progress = "progressCell"
-    static let tabButtons = "tabButtonsCell" 
+    static let tabButtons = "tabButtonsCell"
+    
+    // Identificadores para las colecciones de Tabs
+    static let aboutNRCTabs = "aboutTabButtonsCell"
+    static let documentsTabs = "documentsTabButtonsCell"
+    static let leadersRouteTabs = "leadersRouteTabButtonsCell"
+    static let newsTabs = "newsButtonsCell"
+    static let progressTabs = "progressTabButtonsCell"
+    static let VBGRouteTabs = "vbgRouteTabButtonsCell"
     
     // CELL NAME PROTECTION ROUTES
     static let leadersRoute1_1 = "leaders1_1_Cell"

@@ -408,22 +408,3 @@ extension Array {
         return arrayOrdered
     }
 }
-
-extension String {
-    
-    /// - Returns: Only number digits from strings
-    var digits: String {
-        return components(separatedBy: CharacterSet.decimalDigits.inverted)
-            .joined()
-    }
-    
-    /// - Returns: attribute wiht html attributes
-    func htmlAttributedString() -> NSAttributedString? {
-        guard let data = self.data(using: String.Encoding.utf16, allowLossyConversion: false) else { return nil }
-        guard let html = try? NSMutableAttributedString(
-            data: data,
-            options: [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html],
-            documentAttributes: nil) else { return nil }
-        return html
-    }
-}

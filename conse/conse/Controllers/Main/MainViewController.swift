@@ -16,6 +16,7 @@ class MainViewController: UIViewController, MainProtocol {
     @IBOutlet weak var btn_progress: UIButton!
     
     @IBOutlet weak var container: UIView!
+    @IBOutlet weak var img_background: UIImageView!
     
     // MARK: - Properties
     var logView: [ViewControllerTag]! = []
@@ -106,9 +107,11 @@ class MainViewController: UIViewController, MainProtocol {
             return myCourseVC
             
         case .courseVBG:
+            vbgCourseVC.vbg_table?.reloadData()
             return vbgCourseVC
             
         case .coursePLC:
+            plcCourseVC.leaders_table?.reloadData()
             return plcCourseVC
             
         case .news:
@@ -179,6 +182,12 @@ class MainViewController: UIViewController, MainProtocol {
     
     func openSettingsPopup(title: String, message: String, settings: String) {
         self.showSettingsPopup(title: title, message: message, settings: settings)
+    }
+    
+    /** Pone una imagen de fondo
+     - Parameter withName: Nombre de la imagen que se desea usar como fondo */
+    func setImageBackground(withName name: String) {
+        img_background.image = UIImage(named: name)
     }
     
     // MARK: - Actions

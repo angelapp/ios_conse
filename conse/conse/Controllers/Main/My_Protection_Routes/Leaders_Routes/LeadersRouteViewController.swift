@@ -8,17 +8,19 @@
 
 import UIKit
 
-class LeadersRouteViewController: UIViewController {
+class LeadersRouteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, LeadersRouteTabProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var container: UIView!
-    @IBOutlet weak var segmentTabs: UISegmentedControl!
+    @IBOutlet weak var button_collection: UICollectionView!
     
     // MARK: - Properties
+    private let tabs = getTabs(forViewID: .leadersRoute)
     private let leadersRouteOneIndex: Int = 0
     private let leadersRouteTwoIndex: Int = 1
     private let videoIndex: Int = 2
     
+    var currentTab: Int = 0
     var leadersRouteOne_tab: LeadersRouteOneViewController!
     var leadersRouteTwo_tab: LeadersRouteTwoViewController!
     var video_tab: ViedoPlayerViewController!
@@ -28,10 +30,16 @@ class LeadersRouteViewController: UIViewController {
         super.viewDidLoad()
         
         instanciateTabs()
-        customSegment()
         
-        segmentTabs.selectedSegmentIndex = leadersRouteOneIndex
-        changeTab(segmentTabs)
+        currentTab = leadersRouteOneIndex
+        changeTab()
+        
+        button_collection.delegate = self
+        button_collection.dataSource = self
+        
+        if let flowLayout = button_collection.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 150, height: 40)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,12 +48,6 @@ class LeadersRouteViewController: UIViewController {
     }
     
     // MARK: - Private Functions
-    private func customSegment() {
-        UILabel.appearance(whenContainedInInstancesOf: [UISegmentedControl.self]).numberOfLines = 0
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 10.0)], for: .normal)
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10.0)], for: .selected)
-    }
-    
     private func instanciateTabs() {
         leadersRouteOne_tab = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.leadersRouteOne) as! LeadersRouteOneViewController
         leadersRouteTwo_tab = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.leadersRouteTwo) as! LeadersRouteTwoViewController
@@ -74,9 +76,9 @@ class LeadersRouteViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func changeTab(_ sender: UISegmentedControl) {
+    func changeTab() {
         
-        switch sender.selectedSegmentIndex {
+        switch currentTab {
             
         case videoIndex:
             video_tab.videoID = AplicationRuntime.sharedManager.getvideoID()
@@ -92,5 +94,37 @@ class LeadersRouteViewController: UIViewController {
         }
     }
     
+    // MARK: - Public Functions (Access by protocols)
+    func changeTabSelected(toPosition position: Int) {
+        currentTab = position
+        button_collection.reloadData()
+        changeTab()
+    }
+    
+    // MARK: - Collection view DataSource and FlowLayout Dategate
+    // Set number of section in the colection
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    //number of the items in the section
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tabs.count
+    }
+    
+    //fill collection
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellsId.leadersRouteTabs, for: indexPath) as! TabButtonsCollectionViewCell
+        
+        cell.leadersRoutesTabDelegate = self
+        cell.titleButton = tabs[indexPath.row]
+        cell.tab_button.tag = indexPath.row
+        cell.tab_button.isSelected = indexPath.row == currentTab
+        cell.underline.isHidden = !cell.tab_button.isSelected
+        cell.setButtonTitle()
+        
+        return cell
+    }
 }
 

@@ -157,13 +157,14 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
     //fill collection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellsId.tabButtons, for: indexPath) as! TabButtonsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellsId.documentsTabs, for: indexPath) as! TabButtonsCollectionViewCell
         
         cell.documentsTabDelegate = self
+        cell.titleButton = tabs[indexPath.row]
         cell.tab_button.tag = indexPath.row
         cell.tab_button.isSelected = indexPath.row == currentTab
         cell.underline.isHidden = !cell.tab_button.isSelected
-        cell.setButtonTitle(title: tabs[indexPath.row])
+        cell.setButtonTitle()
         
         return cell
     }

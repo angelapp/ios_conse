@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-/// Colores Ortyda
 class Colors: NSObject {
     
+    /// Optiene el color desde su referencia HEX
+    /// - Parameter from: Hexa del color
+    /// - Returns: UIColor correspondiente al hexa de entrada
     func getColor (from hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         

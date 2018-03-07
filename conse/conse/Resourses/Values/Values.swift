@@ -31,6 +31,7 @@ struct ConseValues {
     static let conseUserProfile_Heigth: CGFloat = 74.0
 }
 
+// MARK: - Índices usados para crear el avatar
 enum AvatarGenderIDs: Int {
     case male = 1
     case female
@@ -43,6 +44,8 @@ enum AvatarPiecesIDs: Int {
     case Mouth
 }
 
+// MARK: - Identificador de las vistas
+/// Id númerico de las vistas
 enum ViewControllerTag : Int {
     case aboutUs
     case aboutUs_tab1
@@ -90,6 +93,7 @@ enum ViewControllerTag : Int {
     case welcome
 }
 
+/// Estados de un mensaje 
 enum TypeMessage: Int {
     case failed
     case success
@@ -100,6 +104,7 @@ enum IdView : Int {
     case CITY_SELECTOR
 }
 
+// MARK: - Índices para las rutas e Protección
 enum LeadersRouteOneIndex : Int {
     case route1, route2, route3, route4, route5, route6, route7
 }

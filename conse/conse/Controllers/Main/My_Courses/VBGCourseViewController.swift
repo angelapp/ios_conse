@@ -30,11 +30,30 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
         
         vbg_table.delegate = self
         vbg_table.dataSource = self
+        
+        //Se agrega observable para desplazar vista cuando se muestra/oculta el teclado
+        NotificationCenter.default.removeObserver(Any.self)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //MARK: - Métodos para el control de eventos del teclado
+    //Observer for increment contentSize of the scroll
+    @objc func keyboardWillShow(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            vbg_table.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0)
+        }
+    }
+    
+    //Obeserver for move frame to origin when keyboard is hiden
+    @objc func keyboardWillHide(notification: NSNotification) {
+        vbg_table.contentInset = UIEdgeInsets.zero
     }
     
     // MARK: - Protocol Access

@@ -22,25 +22,59 @@ extension UIView {
     }
     
     /**
-     Agreaga un borde inferior  a la vista que lo este lamando
+     Crea una capa para agregar una linea inferior y una linea top
      
-     - Parameter margin: (Optional) value for rigth and left margin
-     - Parameter padding: (Optional) value for rigth and left padding as width screen porcentage
+     - Parameter margin: (Optional) Valor del espacio entre la visa y el borde de pantalla
+     - Parameter padding: (Octional) Porcentage de espacio entre el border de la vista y la capa. Su valor por defecto es 0, admite valores entre 0 - 0.25
+     - Parameter color: (Opcional) Color de la linea, por defecto es gris
+     - Parameter withTop: (Opcional) Boleano, determina si se debe poner linea top, por defecto esta en FALSO
      */
-    func underline(margin: CGFloat? = nil, padding: CGFloat? = nil, color: UIColor? = .gray) {
+    func underline(margin: CGFloat? = nil, padding: CGFloat? = 0.0, color: UIColor? = .gray, withTop: Bool? = false) {
+        
+        // Verifica que los valores esten dentro de un rango porcentual,
+        // es decir, entre (0 - 1)
+        let minPadding: CGFloat = 0.0
+        let maxPadding: CGFloat = 0.25
+        var porcentage: CGFloat = (padding ?? 0)
+        
+        porcentage = porcentage > maxPadding ? maxPadding : porcentage
+        porcentage = porcentage < minPadding ? minPadding : porcentage
+        
+        // Crea capa linea inferior
         let border = CALayer()
+        // Grueso del borde
         let borderWidth = CGFloat(1.0)
-        let padding = self.frame.size.width * (padding ?? 0)
+        // Determina el ancho de borde (tamaño de pantalla - (marge * 2))
+        // Margen = Constraint Izq / Der
         let width = UIScreen.main.bounds.width - ((margin ?? 0) * 2)
+        // porcentage del ancho que no va con linea
+        let borderPadding = width * porcentage
         
+        // Color del borde
         border.borderColor = color?.cgColor
-        border.frame = CGRect(x: ConseValues.defaultPositionX + padding,
+        // Se crea el frame del borde
+        border.frame = CGRect(x: ConseValues.defaultPositionX + borderPadding,
                               y: self.frame.size.height - borderWidth,
-                              width:  width - (padding * 2),
+                              width:  width - (borderPadding * 2),
                               height: self.frame.size.height)
-        
+        // Se agrega el grosor del borde
         border.borderWidth = borderWidth
         
+        // Se crea nueva capa para agregar linea top si se requiere
+        if withTop! {
+            let top = CALayer()
+            
+            top.borderColor = color?.cgColor
+            top.frame = CGRect(x: ConseValues.defaultPositionX + borderPadding,
+                                  y: ConseValues.defaultPositionY,
+                                  width:  width - (borderPadding * 2),
+                                  height: borderWidth)
+            
+            top.borderWidth = borderWidth
+            self.layer.addSublayer(top)
+        }
+        
+        // Se agrega la nueva capa a la vista
         self.layer.addSublayer(border)
         self.layer.masksToBounds = true
     }

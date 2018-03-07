@@ -208,7 +208,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_conse" translatesAutoresizingMaskIntoConstraints="NO" id="34L-98-ZkC">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_conse_welcome" translatesAutoresizingMaskIntoConstraints="NO" id="34L-98-ZkC">
                                                 <rect key="frame" x="0.0" y="54" width="288" height="138"/>
                                             </imageView>
                                         </subviews>
@@ -441,6 +441,7 @@
                                 <state key="selected" image="btn_siguientehover_01"/>
                                 <state key="highlighted" image="btn_siguientehover_01"/>
                                 <connections>
+                                    <action selector="backAction:" destination="3Og-Fc-fcI" eventType="touchUpInside" id="TKa-2I-U51"/>
                                     <action selector="next:" destination="ve1-nI-8oL" eventType="touchUpInside" id="I8M-Sz-arp"/>
                                 </connections>
                             </button>
@@ -1786,12 +1787,11 @@
         <image name="checkbox" width="21" height="21"/>
         <image name="icon_back" width="42" height="42"/>
         <image name="icon_back_blanco" width="42" height="42"/>
-        <image name="logo_conse" width="250" height="249"/>
         <image name="logo_conse_welcome" width="242" height="214"/>
         <image name="logo_ncr" width="216" height="181"/>
         <image name="logo_nrc_welcome" width="236" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WIZ-re-MAD"/>
+        <segue reference="Adj-Pq-fxj"/>
     </inferredMetricsTieBreakers>
 </document>

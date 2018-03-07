@@ -178,7 +178,6 @@
 		6B7681F32016A7380084251C /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7681F22016A7380084251C /* MessageComposer.swift */; };
 		6B79E37220093BA0004990E9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37120093BA0004990E9 /* MainViewController.swift */; };
 		6B79E37420093C47004990E9 /* LeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37320093C47004990E9 /* LeftMenuViewController.swift */; };
-		6B79E37620093C72004990E9 /* RigthProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37520093C72004990E9 /* RigthProgressViewController.swift */; };
 		6B79E37820093E2C004990E9 /* MyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37720093E2C004990E9 /* MyCoursesViewController.swift */; };
 		6B79E37A20093E66004990E9 /* ContactUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37920093E66004990E9 /* ContactUsViewController.swift */; };
 		6B79E37C20093F4A004990E9 /* DocumentBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B79E37B20093F4A004990E9 /* DocumentBankViewController.swift */; };
@@ -422,7 +421,6 @@
 		6B7681F22016A7380084251C /* MessageComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageComposer.swift; sourceTree = "<group>"; };
 		6B79E37120093BA0004990E9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6B79E37320093C47004990E9 /* LeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftMenuViewController.swift; sourceTree = "<group>"; };
-		6B79E37520093C72004990E9 /* RigthProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RigthProgressViewController.swift; sourceTree = "<group>"; };
 		6B79E37720093E2C004990E9 /* MyCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCoursesViewController.swift; sourceTree = "<group>"; };
 		6B79E37920093E66004990E9 /* ContactUsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewController.swift; sourceTree = "<group>"; };
 		6B79E37B20093F4A004990E9 /* DocumentBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBankViewController.swift; sourceTree = "<group>"; };
@@ -1032,7 +1030,6 @@
 				6BF14C2120084F190045E262 /* EmergencyPopupViewController.swift */,
 				6B2F5A922020C1C400FD66ED /* OpenFilePopupViewController.swift */,
 				6B1E7597202101640078F0B5 /* ProgressViewController.swift */,
-				6B79E37520093C72004990E9 /* RigthProgressViewController.swift */,
 			);
 			path = Popups;
 			sourceTree = "<group>";
@@ -1585,7 +1582,6 @@
 				6B96468B20179876002ADD3D /* CommunityHeaderTableViewCell.swift in Sources */,
 				6B79E37820093E2C004990E9 /* MyCoursesViewController.swift in Sources */,
 				6B1F5A9D1FFBF09E00DA650D /* WelcomeViewController.swift in Sources */,
-				6B79E37620093C72004990E9 /* RigthProgressViewController.swift in Sources */,
 				6B33A3BC200FDDDC00971A1E /* CoursesValues.swift in Sources */,
 				6BF906CB20225E490051636B /* VBGRouteViewController.swift in Sources */,
 				462609EB1FFBE70000A3706C /* ViewController.swift in Sources */,

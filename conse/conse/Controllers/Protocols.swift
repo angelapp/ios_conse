@@ -21,9 +21,14 @@ protocol MainProtocol: class {
     func addToContainer(viewControllerID id: ViewControllerTag)
     func removeOfContainer()
     func showMessageInMain(withMessage msn: String)
+    func setImageBackground(withName name: String)
     func openSettingsPopup(title: String, message: String, settings: String)
 }
 
+// Protocolo para Sobre NRC
+protocol AboutNRCTabProtocol: class {
+    func changeTabSelected(toPosition: Int)
+}
 
 // Protocolos para administrar el avance de los Cursos
 protocol LeadersProtocol: class {
@@ -61,9 +66,17 @@ protocol ProtectionRouteProtocol: class {
     func showRoute(id: ViewControllerTag)
 }
 
+protocol VBGRouteTabProtocol: class {
+    func changeTabSelected(toPosition: Int)
+}
+
 protocol VBGRouteProtocol: class {
     func nextPage()
     func previusPage()
+}
+
+protocol LeadersRouteTabProtocol: class {
+    func changeTabSelected(toPosition: Int)
 }
 
 protocol LeadersRouteOneProtocol: class {

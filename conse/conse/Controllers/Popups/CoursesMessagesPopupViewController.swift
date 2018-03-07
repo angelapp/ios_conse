@@ -16,6 +16,9 @@ class CoursesMessagesPopupViewController: UIViewController {
     @IBOutlet weak var lbl_message: UILabel!
     
     // MARK: - Properties
+    weak var vbgDelegate: VBGProtocol?
+    weak var leadersDelegate: LeadersProtocol?
+    
     var typeMessage: TypeMessage = .failed
     var message: String = nullString
     var inBold: String?
@@ -51,7 +54,13 @@ class CoursesMessagesPopupViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    @IBAction func dissmisMessage(_ sender: UIButton){
+    @IBAction func dissmisMessage(_ sender: UIButton) {
+        
+        if typeMessage == .success {
+            vbgDelegate?.nextPage()
+            leadersDelegate?.nextPage()
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
  

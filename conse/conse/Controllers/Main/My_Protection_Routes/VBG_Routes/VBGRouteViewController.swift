@@ -8,16 +8,18 @@
 
 import UIKit
 
-class VBGRouteViewController: UIViewController {
+class VBGRouteViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, VBGRouteTabProtocol {
 
     // MARK: - Outlets
     @IBOutlet weak var container: UIView!
-    @IBOutlet weak var segmentTabs: UISegmentedControl!
+    @IBOutlet weak var button_collection: UICollectionView!
     
     // MARK: - Properties
+    private let tabs = getTabs(forViewID: .vbgRoute)
     private let vbgRouteIndex: Int = 0
     private let videoIndex: Int = 1
     
+    var currentTab: Int = 0
     var vbgRoute_tab: VBGRouteOneViewController!
     var video_tab: ViedoPlayerViewController!
     
@@ -26,10 +28,16 @@ class VBGRouteViewController: UIViewController {
         super.viewDidLoad()
 
         instanciateTabs()
-        customSegment()
         
-        segmentTabs.selectedSegmentIndex = vbgRouteIndex
-        changeTab(segmentTabs)
+        currentTab = vbgRouteIndex
+        changeTab()
+        
+        button_collection.delegate = self
+        button_collection.dataSource = self
+        
+        if let flowLayout = button_collection.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.estimatedItemSize = CGSize(width: 100, height: 40)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,12 +46,6 @@ class VBGRouteViewController: UIViewController {
     }
     
     // MARK: - Private Functions
-    private func customSegment() {
-        UILabel.appearance(whenContainedInInstancesOf: [UISegmentedControl.self]).numberOfLines = 0
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: 10.0)], for: .normal)
-        UISegmentedControl.appearance().setTitleTextAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10.0)], for: .selected)
-    }
-    
     private func instanciateTabs() {
         vbgRoute_tab = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.vbgRouteOne) as! VBGRouteOneViewController
         video_tab = self.storyboard?.instantiateViewController(withIdentifier: ViewControllersId.videoPLayer) as! ViedoPlayerViewController
@@ -71,9 +73,9 @@ class VBGRouteViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func changeTab(_ sender: UISegmentedControl) {
+    func changeTab() {
         
-        switch sender.selectedSegmentIndex {
+        switch currentTab {
             
         case videoIndex:
             video_tab.videoID = AplicationRuntime.sharedManager.getvideoID()
@@ -86,4 +88,36 @@ class VBGRouteViewController: UIViewController {
         }
     }
 
+    // MARK: - Public Functions (Access by protocols)
+    func changeTabSelected(toPosition position: Int) {
+        currentTab = position
+        button_collection.reloadData()
+        changeTab()
+    }
+    
+    // MARK: - Collection view DataSource and FlowLayout Dategate
+    // Set number of section in the colection
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    //number of the items in the section
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return tabs.count
+    }
+    
+    //fill collection
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellsId.VBGRouteTabs, for: indexPath) as! TabButtonsCollectionViewCell
+        
+        cell.vbgRoutesTabDelegate = self
+        cell.titleButton = tabs[indexPath.row]
+        cell.tab_button.tag = indexPath.row
+        cell.tab_button.isSelected = indexPath.row == currentTab
+        cell.underline.isHidden = !cell.tab_button.isSelected
+        cell.setButtonTitle()
+        
+        return cell
+    }
 }

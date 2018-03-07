@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Listado de los colores usados en formado HEX
 enum ConseColors: String{
     case yellow = "fcc41d"
     case orange = "f29100"

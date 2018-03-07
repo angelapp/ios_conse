@@ -77,6 +77,9 @@ class LeftMenuViewController: UIViewController {
     // MARK: - Actions
     @IBAction func actionButtons(_ sender: UIButton) {
         
+        //Pone el fondo por defecto
+        mainDelegate?.setImageBackground(withName: nullString)
+        
         switch sender {
             
         case btn_docs:

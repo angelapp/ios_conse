@@ -33,7 +33,7 @@ class AboutUsTab1ViewController: UIViewController, UITableViewDelegate, UITableV
     
     // Número de filas
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 1
     }
     
     // Se agrega la propiedad para ajustar el tamaño de la celda al contenido
@@ -43,35 +43,16 @@ class AboutUsTab1ViewController: UIViewController, UITableViewDelegate, UITableV
     
     // Tamaño estimado de las celdas
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 142
+        return 392
     }
     
     // pintado de la tabla
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell: AboutNRC1TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CellsId.aboutTab01, for: indexPath) as! AboutNRC1TableViewCell
         
-        if indexPath.row == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.aboutNRC1, for: indexPath) as! AboutNRC1TableViewCell
+        cell.fillCell()
             
-            return cell
-        }
-        else if indexPath.row == 1 {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.aboutNRC2, for: indexPath) as! AboutNRC1TableViewCell
-            
-            cell.lbl_text_1.attributedText = addBoldWord(forText: AboutNRC_page_1.text_1, toWord: AboutNRC_page_1.inBold_1, AboutNRC_page_1.inBold_2, fontSize: cell.lbl_text_1.font.pointSize)
-            
-            return cell
-        }
-        else {
-            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.aboutNRC3, for: indexPath) as! AboutNRC1TableViewCell
-            
-            cell.lbl_about_2.text = AboutNRC_page_1.text_2
-            cell.lbl_about_3.text = AboutNRC_page_1.text_3
-            cell.lbl_about_4.text = AboutNRC_page_1.text_4
-            cell.lbl_about_5.text = AboutNRC_page_1.text_5
-            
-            return cell
-        }
+        return cell
     }
 }

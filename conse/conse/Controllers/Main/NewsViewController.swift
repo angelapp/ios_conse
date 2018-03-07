@@ -170,7 +170,7 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     //fill collection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellsId.newsButtons, for: indexPath) as! NewsButtonsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CellsId.newsTabs, for: indexPath) as! NewsButtonsCollectionViewCell
         
         cell.newsDelegate = self
         cell.tab_button.tag = indexPath.row
