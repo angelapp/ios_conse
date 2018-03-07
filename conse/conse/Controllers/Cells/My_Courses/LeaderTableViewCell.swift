@@ -31,14 +31,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     @IBOutlet weak var img_route: UIImageView!
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var img_insignia: UIImageView!
-    @IBOutlet weak var img_background: UIImageView!
     
-    @IBOutlet weak var content_aud1: UIView!
-    @IBOutlet weak var content_aud2: UIView!
-//    @IBOutlet weak var content_aud3: UIView!
-//    @IBOutlet weak var content_aud4: UIView!
     @IBOutlet weak var content_tilte: UIView!
-    @IBOutlet weak var constraint_height: NSLayoutConstraint!
     
     @IBOutlet weak var leaders_title: UILabel!
     @IBOutlet weak var leaders_subtitle: UILabel!
@@ -148,9 +142,6 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         
         btn_Aud1.tag = LEADERS_AUDIO_ID.AUD_01.rawValue
         btn_Aud2.tag = LEADERS_AUDIO_ID.AUD_02.rawValue
-        
-        content_aud1.underline(margin: LARGE_MARGIN, padding: PADDING_PORC, color: .white, withTop: true)
-        content_aud2.underline(margin: LARGE_MARGIN, padding: PADDING_PORC, color: .white, withTop: true)
         
         audioButtons = [btn_Aud1, btn_Aud2]
     }
@@ -729,7 +720,6 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader45() {
-        
         leaders_review.text = Strings.review_content
         leaders_title.text = LEADERS_COURSE.PAGE_45.title
         leaders_text1.text = LEADERS_COURSE.PAGE_45.t1

@@ -523,7 +523,7 @@ struct  LEADERS_COURSE {
     struct PAGE_58 {
         static let title = LEADERS_COURSE.PAGE_47.title
     
-        static let t1 = "¡Felicitaciones!"
+        static let t1 = nullString //"¡Felicitaciones!"
         static let t2 = "¡Muy bien! ¡Sembraste esfuerzo y ahora cosechas logros! Como premio a tu constancia recibe la insignia de \n%@.\n\n¡Felicitaciones, has terminado todos los módulos del curso!"
     }
 }
