@@ -74,6 +74,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
         
         nextVC.message = message
         nextVC.inBold = inbold
+        nextVC.vbgDelegate = self
         nextVC.typeMessage = type
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.modalTransitionStyle = .crossDissolve
@@ -104,11 +105,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
         reloadTable()
     }
     
-    func goCourses(){
-        mainDelegate?.addToContainer(viewControllerID: .myCourses)
-    }
-    
-    func audioManager(audioID id: VBG_AUDIO_ID, play: Bool) {
+    func audioManager(audioID id: Int, play: Bool) {
         let audioName = get_VBGAudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
     }
@@ -192,7 +189,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: VBGTableViewCell
-        printDebugMessage(tag: "Current page: \(currentIndex + 1)")
+        printDebugMessage(tag: "VBG INDEX: \(currentIndex + 1)")
         
         // MODULO 0
         if currentIndex == VBG_INDEX.VBG_01.rawValue {

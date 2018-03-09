@@ -95,14 +95,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     
     // MARK: - Properties
-    let MIN_GLOBE_HEIGHT: CGFloat = 550
     let CORRECT_OPTION: Int = 1
     let WRONG_OPTION: Int = 0
-    
-    let LARGE_MARGIN: CGFloat = 24
-    let MEDIUM_MARGIN: CGFloat = 16
-    let SMALL_MARGIN: CGFloat = 8.0
-    let PADDING_PORC: CGFloat = 0.02
     
     var answersButtons: Array<UIButton> = []
     var audioButtons: Array<UIButton> = []
@@ -276,8 +270,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_text2.text = String(format: LEADERS_COURSE.PAGE_10.t2, getInsignia(forModule: .MOD_01))
         
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: LeadersImages.insignia_01)
-        mainDelegate?.setImageBackground(withName: LeadersImages.bg_01)
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_01)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_01)
     }
     
     func fillLeader11() {
@@ -501,8 +495,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_text2.text = String(format: LEADERS_COURSE.PAGE_27.t2, getInsignia(forModule: .MOD_02))
         
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: LeadersImages.insignia_02)
-        mainDelegate?.setImageBackground(withName: LeadersImages.bg_02)
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_02)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_02)
     }
     
     func fillLeader28() {
@@ -546,8 +540,6 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_title.text = LEADERS_COURSE.PAGE_32.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_32.subtitle
         leaders_text1.text = LEADERS_COURSE.PAGE_32.t1
-        
-//        img_route.image = UIImage(named: LeadersImages.route_32)
     }
     
     func fillLeader33() {
@@ -580,7 +572,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     func fillLeader35() {
         leaders_title.text = LEADERS_COURSE.PAGE_35.title
-        img_route.image = UIImage(named: LeadersImages.route_35)
+        img_route.image = UIImage(named: RoutesImages.route_leaders_35)
     }
     
     func fillLeader36() {
@@ -598,7 +590,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     func fillLeader37() {
         leaders_title.text = LEADERS_COURSE.PAGE_37.title
-        img_route.image = UIImage(named: LeadersImages.route_37)
+        img_route.image = UIImage(named: RoutesImages.route_leaders_37)
     }
     
     func fillLeader38() {
@@ -726,8 +718,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_text2.text = String(format: LEADERS_COURSE.PAGE_45.t2, getInsignia(forModule: .MOD_03))
         
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: LeadersImages.insignia_03)
-        mainDelegate?.setImageBackground(withName: LeadersImages.bg_03)
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_03)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_03)
     }
     
     func fillLeader46() {
@@ -758,7 +750,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     func fillLeader50() {
         leaders_title.text = LEADERS_COURSE.PAGE_50.title
-        img_route.image = UIImage(named: LeadersImages.route_50)
+        img_route.image = UIImage(named: RoutesImages.route_leaders_50)
     }
     
     func fillLeader51() {
@@ -861,8 +853,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_text2.text = String(format: LEADERS_COURSE.PAGE_58.t2, getInsignia(forModule: .MOD_04))
         
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
-        img_insignia.image = UIImage(named: LeadersImages.insignia_04)
-        mainDelegate?.setImageBackground(withName: LeadersImages.bg_04)
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_04)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_04)
     }
     
     // MARK: - TextField Delegate
@@ -874,8 +866,17 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             nextField.becomeFirstResponder()
         }
         else {
-            // Not found, so remove keyboard.
-            textField.resignFirstResponder()
+            // Pasa el Foco al TF_1 de la hoja 2
+            if textField == leaders_textField4 {
+                leaders_textField5.becomeFirstResponder()
+            }
+            // Pasa el Foco al TF_1 de la hoja 3
+            if textField == leaders_textField7 {
+                leaders_textField8.becomeFirstResponder()
+            }
+            else {
+                textField.resignFirstResponder()
+            }
         }
         return false
     }

@@ -140,6 +140,8 @@ struct ImageName {
 
 // MARK: - Images names
 struct RoutesImages {
+    
+    // Protection route
     static let leadersRoute1_1 = "protection_path_leaders_01"
     static let leadersRoute1_2 = "protection_path_leaders_02"
     static let leadersRoute1_3 = "protection_path_leaders_03"
@@ -158,9 +160,25 @@ struct RoutesImages {
     static let vgbRoute_4 = "protection_path_vbg_04"
     static let vgbRoute_5 = "protection_path_vbg_05"
     static let vgbRoute_6 = "protection_path_vbg_06"
+    
+    // Leaders Course
+    static let route_leaders_35 = "Ruta_Leaders_35"
+    static let route_leaders_37 = "Ruta_Leaders_37"
+    static let route_leaders_50 = "Ruta_Leaders_50"
+    
+    // VBG Course
+    static let route_VBG_19 = "ruta_mod3_1"
+    static let route_VBG_21 = "ruta_mod3_2"
+    static let route_VBG_23 = "ruta_mod3_3"
+    static let route_VBG_25 = "ruta_mod3_4"
+    static let route_VBG_26 = "ruta_mod3_5"
+    static let route_VBG_27 = "ruta_mod3_6"
+    static let route_VBG_29 = "ruta_mod3_7"
+    static let route_VBG_37 = "ruta_mod4_1"
+    static let route_VBG_38 = "ruta_mod4_2"
 }
 
-struct LeadersImages {
+struct BackgroundInsignia {
     static let bg_01 = "bg_modulo_1"
     static let bg_02 = "bg_ros"
     static let bg_03 = "bg_45"
@@ -170,13 +188,6 @@ struct LeadersImages {
     static let insignia_02 = "insignia_MOD2"
     static let insignia_03 = "insignia_MOD3"
     static let insignia_04 = "insignia_MOD4"
-    
-    static let route_32 = "Ruta_Leaders_32"
-    static let route_35 = "Ruta_Leaders_35"
-    static let route_37 = "Ruta_Leaders_37"
-    static let route_49 = "Ruta_Leaders_49"
-    static let route_50 = "Ruta_Leaders_50"
-    
 }
 
 // MARK: - Formats

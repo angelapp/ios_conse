@@ -8,118 +8,73 @@
 
 import UIKit
 
-class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
+class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate {
     
     // MARK: - Outlets
-    @IBOutlet weak var INSIGNIA_HEIGHT: NSLayoutConstraint!
-    
-    @IBOutlet weak var IMG_AVATAR: UIImageView!
-    @IBOutlet weak var IMG_BACKGROUND: UIImageView!
-    @IBOutlet weak var IMG_INSIGNIA: UIImageView!
-    
-    @IBOutlet weak var LBL_BACK: UILabel!
-    @IBOutlet weak var LBL_T1: UILabel!
-    @IBOutlet weak var LBL_T2: UILabel!
-    @IBOutlet weak var LBL_TITLE: UILabel!
-    
-    // Module 0 - Page 0
-    @IBOutlet weak var M0P0_LBL1: UILabel!
-    @IBOutlet weak var M0P0_LBL2: UILabel!
-    @IBOutlet weak var M0P0_BTN1: UIButton!
+    @IBOutlet weak var btn_Aud1: UIButton!
+    @IBOutlet weak var btn_Aud2: UIButton!
+    @IBOutlet weak var btn_Aud3: UIButton!
+    @IBOutlet weak var btn_Aud4: UIButton!
 
-    // Module 0 - Page 1
-    @IBOutlet weak var M0P1_LBL1: UILabel!
-    @IBOutlet weak var M0P1_LBL2: UILabel!
-    @IBOutlet weak var M0P1_LBL3: UILabel!
-    @IBOutlet weak var M0P1_LBL4: UILabel!
-    @IBOutlet weak var M0P1_BTN1: UIButton!
-    @IBOutlet weak var M0P1_BTN2: UIButton!
-    @IBOutlet weak var M0P1_IMG1: UIImageView!
+    @IBOutlet weak var btn_help1: UIButton!
+    @IBOutlet weak var btn_help2: UIButton!
+    @IBOutlet weak var btn_help3: UIButton!
+    @IBOutlet weak var btn_help4: UIButton!
+    @IBOutlet weak var btn_help5: UIButton!
+    @IBOutlet weak var btn_help6: UIButton!
     
-    // Module 1 - Page 0
-    @IBOutlet weak var M1P0_LBL1: UILabel!
-    @IBOutlet weak var M1P0_LBL2: UILabel!
-    @IBOutlet weak var M1P0_LBL3: UILabel!
-    @IBOutlet weak var M1P0_LBL4: UILabel!
-    @IBOutlet weak var M1P0_LBL5: UILabel!
-    @IBOutlet weak var M1P0_LBL6: UILabel!
-    @IBOutlet weak var M1P0_IMG_AVATAR: UIImageView!
-    @IBOutlet weak var M1P0_IMG_GLOBO: UIImageView!
+    @IBOutlet weak var btn_opt1: UIButton!
+    @IBOutlet weak var btn_opt2: UIButton!
+    @IBOutlet weak var btn_opt3: UIButton!
+    @IBOutlet weak var btn_opt4: UIButton!
+    @IBOutlet weak var btn_opt5: UIButton!
     
-    // Module 1 - Page 1
-    @IBOutlet weak var M1P1_LBL1: UILabel!
-    @IBOutlet weak var M1P1_LBL2: UILabel!
-    @IBOutlet weak var M1P1_LBL3: UILabel!
-    @IBOutlet weak var M1P1_LBL4: UILabel!
-    @IBOutlet weak var M1P1_LBL5: UILabel!
-    @IBOutlet weak var M1P1_LBL6: UILabel!
-    @IBOutlet weak var M1P1_LBL7: UILabel!
+    @IBOutlet weak var content_tilte: UIView!
     
-   // Module 1 - Page 2
-    @IBOutlet weak var M1P2_LBL1: UILabel!
-    @IBOutlet weak var M1P2_LBL2: UILabel!
-    @IBOutlet weak var M1P2_LBL3: UILabel!
-    @IBOutlet weak var M1P2_LBL4: UILabel!
-    @IBOutlet weak var M1P2_LBL5: UILabel!
-    @IBOutlet weak var M1P2_LBL6: UILabel!
-    @IBOutlet weak var M1P2_LBL7: UILabel!
-    @IBOutlet weak var M1P2_AUD1: UIButton!
-    @IBOutlet weak var M1P2_AUD2: UIButton!
-    @IBOutlet weak var M1P2_AUD3: UIButton!
-    @IBOutlet weak var M1P2_AUD4: UIButton!
+    @IBOutlet weak var img_1: UIImageView!
+    @IBOutlet weak var img_2: UIImageView!
+    @IBOutlet weak var img_route: UIImageView!
+    @IBOutlet weak var img_avatar: UIImageView!
+    @IBOutlet weak var img_insignia: UIImageView!
+
+    @IBOutlet weak var lbl_Aud1: UILabel!
+    @IBOutlet weak var lbl_Aud2: UILabel!
+    @IBOutlet weak var lbl_Aud3: UILabel!
+    @IBOutlet weak var lbl_Aud4: UILabel!
     
-    // Module 1 - Page 3
-    @IBOutlet weak var M1P3_LBL1: UILabel!
-    @IBOutlet weak var M1P3_LBL2: UILabel!
-    @IBOutlet weak var M1P3_LBL3: UILabel!
-    @IBOutlet weak var M1P3_LBL4: UILabel!
-    @IBOutlet weak var M1P3_LBL5: UILabel!
-    @IBOutlet weak var M1P3_LBL6: UILabel!
-    @IBOutlet weak var M1P3_LBL7: UILabel!
-    @IBOutlet weak var M1P3_LBL8: UILabel!
-    @IBOutlet weak var M1P3_LBL9: UILabel!
-    @IBOutlet weak var M1P3_LBL10: UILabel!
-    @IBOutlet weak var M1P3_LBL11: UILabel!
-    @IBOutlet weak var M1P3_LBL12: UILabel!
-    @IBOutlet weak var M1P3_LBL13: UILabel!
-    @IBOutlet weak var LBL_14: UILabel!
+    @IBOutlet weak var lbl_item1: UILabel!
+    @IBOutlet weak var lbl_item2: UILabel!
+    @IBOutlet weak var lbl_item3: UILabel!
+    @IBOutlet weak var lbl_item4: UILabel!
+    @IBOutlet weak var lbl_item5: UILabel!
+    @IBOutlet weak var lbl_item6: UILabel!
+    @IBOutlet weak var lbl_item7: UILabel!
+    @IBOutlet weak var lbl_item8: UILabel!
+    @IBOutlet weak var lbl_item9: UILabel!
+    @IBOutlet weak var lbl_item10: UILabel!
+    @IBOutlet weak var lbl_item11: UILabel!
     
-    // Module 1 - Page 4
-     @IBOutlet weak var M1P4_LBL1: UILabel!
-     @IBOutlet weak var M1P4_LBL2: UILabel!
-     @IBOutlet weak var M1P4_LBL3: UILabel!
+    @IBOutlet weak var lbl_option1: UILabel!
+    @IBOutlet weak var lbl_option2: UILabel!
+    @IBOutlet weak var lbl_option3: UILabel!
+    @IBOutlet weak var lbl_option4: UILabel!
+    @IBOutlet weak var lbl_option5: UILabel!
     
-    // Module 1 - Page 5
-     @IBOutlet weak var M1P5_LBL1: UILabel!
-     @IBOutlet weak var M1P5_LBL2: UILabel!
-     @IBOutlet weak var M1P5_LBL3: UILabel!
-     @IBOutlet weak var M1P5_LBL4: UILabel!
-     @IBOutlet weak var M1P5_LBL5: UILabel!
-     @IBOutlet weak var M1P5_LBL6: UILabel!
-     @IBOutlet weak var M1P5_AUD1: UIButton!
-     @IBOutlet weak var M1P5_AUD2: UIButton!
-     @IBOutlet weak var M1P5_AUD3: UIButton!
-     @IBOutlet weak var M1P5_AUD4: UIButton!
+    @IBOutlet weak var lbl_question: UILabel!
+    @IBOutlet weak var lbl_review: UILabel!
+    @IBOutlet weak var lbl_subtitle: UILabel!
+    @IBOutlet weak var lbl_text1: UILabel!
+    @IBOutlet weak var lbl_text2: UILabel!
+    @IBOutlet weak var lbl_text3: UILabel!
+    @IBOutlet weak var lbl_text4: UILabel!
+    @IBOutlet weak var lbl_text5: UILabel!
+    @IBOutlet weak var lbl_text6: UILabel!
+    @IBOutlet weak var lbl_title: UILabel!
     
-    // Module 1 - Page 6
-     @IBOutlet weak var M1P6_LBL1: UILabel!
-     @IBOutlet weak var M1P6_LBL2: UILabel!
-     @IBOutlet weak var M1P6_AUD1: UIButton!
-     @IBOutlet weak var M1P6_IMG_AVATAR: UIImageView!
+    @IBOutlet weak var textField1: UITextField!
     
-    // Module 1 - Page 7
-     @IBOutlet weak var M1P7_LBL1: UILabel!
-     @IBOutlet weak var M1P7_LBL2: UILabel!
-    
-    // Module 1 - CROSSWORD
-    @IBOutlet weak var M1_CROSSWORD_LBL1: UILabel!
-    @IBOutlet weak var M1_CROSSWORD_BTN1: UIButton!
-    @IBOutlet weak var M1_CROSSWORD_BTN2: UIButton!
-    @IBOutlet weak var M1_CROSSWORD_BTN3: UIButton!
-    @IBOutlet weak var M1_CROSSWORD_BTN4: UIButton!
-    @IBOutlet weak var M1_CROSSWORD_BTN5: UIButton!
-    @IBOutlet weak var M1_CROSSWORD_BTN6: UIButton!
-    @IBOutlet weak var M1_CROSSWORD_BTN_N: UIButton!
+    @IBOutlet weak var videoLoader: UIActivityIndicatorView!
+    @IBOutlet weak var videoPlayer: UIWebView!
     
     // Name of textField cell for Crossword
     //(M1CW)Module 1 Crossword
@@ -165,309 +120,22 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet weak var M1CW_C_1210: UITextField!
     @IBOutlet weak var M1CW_C_1211: UITextField!
     
-    @IBOutlet weak var M1COMPLET_T1: UILabel!
-    @IBOutlet weak var M1COMPLET_TITLE: UILabel!
-    @IBOutlet weak var M1COMPLET_MESSAGE: UILabel!
-    @IBOutlet weak var M1BG_HEIGHT: NSLayoutConstraint!
-    
-    // Module 2
-    @IBOutlet weak var VBG_13_LBL1: UILabel!
-    @IBOutlet weak var VBG_13_LBL2: UILabel!
-    @IBOutlet weak var VBG_13_LBL3: UILabel!
-    @IBOutlet weak var VBG_13_LBL4: UILabel!
-    @IBOutlet weak var VBG_13_AUD: UIButton!
-    
-    @IBOutlet weak var VBG_14_LBL1: UILabel!
-    @IBOutlet weak var VBG_14_LBL2: UILabel!
-    
-    @IBOutlet weak var VBG_15_LBL1: UILabel!
-    @IBOutlet weak var VBG_15_LBL2: UILabel!
-    @IBOutlet weak var VBG_15_LBL3: UILabel!
-    @IBOutlet weak var VBG_15_OPT_1: UILabel!
-    @IBOutlet weak var VBG_15_OPT_2: UILabel!
-    @IBOutlet weak var VBG_15_OPT_3: UILabel!
-    @IBOutlet weak var VBG_15_OPT_4: UILabel!
-    @IBOutlet weak var VBG_15_OPT_5: UILabel!
-    @IBOutlet weak var VBG_15_BTN1: UIButton!
-    @IBOutlet weak var VBG_15_BTN2: UIButton!
-    @IBOutlet weak var VBG_15_BTN3: UIButton!
-    @IBOutlet weak var VBG_15_BTN4: UIButton!
-    @IBOutlet weak var VBG_15_BTN5: UIButton!
-    
-    @IBOutlet weak var VBG_16_LBL1: UILabel!
-    @IBOutlet weak var VBG_16_LBL2: UILabel!
-    @IBOutlet weak var VBG_16_LBL3: UILabel!
-    @IBOutlet weak var VBG_16_HEIGHT: NSLayoutConstraint!
-    
-    
-    // Module 3
-    @IBOutlet weak var VBG_17_LBL1: UILabel!
-    @IBOutlet weak var VBG_17_LBL2: UILabel!
-    @IBOutlet weak var VBG_17_LBL3: UILabel!
-    @IBOutlet weak var VBG_17_LBL4: UILabel!
-    @IBOutlet weak var VBG_17_AVATAR: UIImageView!
-    
-    @IBOutlet weak var VBG_18_LBL1: UILabel!
-    @IBOutlet weak var VBG_18_LBL2: UILabel!
-    @IBOutlet weak var VBG_18_LBL3: UILabel!
-    @IBOutlet weak var VBG_18_LBL4: UILabel!
-    @IBOutlet weak var VBG_18_LBL5: UILabel!
-    @IBOutlet weak var VBG_18_LBL6: UILabel!
-    @IBOutlet weak var VBG_18_LBL7: UILabel!
-    @IBOutlet weak var VBG_18_AUD: UIButton!
-    
-    @IBOutlet weak var VBG_19_LBL1: UILabel!
-    
-    @IBOutlet weak var VBG_20_LBL1: UILabel!
-    @IBOutlet weak var VBG_20_LBL2: UILabel!
-    @IBOutlet weak var VBG_20_LBL3: UILabel!
-    @IBOutlet weak var VBG_20_LBL4: UILabel!
-    @IBOutlet weak var VBG_20_AUD: UIButton!
-    @IBOutlet weak var VBG_20_AVATAR: UIImageView!
-    
-    @IBOutlet weak var VBG_21_LBL1: UILabel!
-    
-    @IBOutlet weak var VBG_22_LBL1: UILabel!
-    @IBOutlet weak var VBG_22_LBL2: UILabel!
-    @IBOutlet weak var VBG_22_LBL3: UILabel!
-    @IBOutlet weak var VBG_22_LBL4: UILabel!
-    @IBOutlet weak var VBG_22_AUD: UIButton!
-    @IBOutlet weak var VBG_22_AVATAR: UIImageView!
-
-    @IBOutlet weak var VBG_23_LBL1: UILabel!
-
-    @IBOutlet weak var VBG_24_LBL1: UILabel!
-    @IBOutlet weak var VBG_24_LBL2: UILabel!
-    @IBOutlet weak var VBG_24_LBL3: UILabel!
-    @IBOutlet weak var VBG_24_LBL4: UILabel!
-    @IBOutlet weak var VBG_24_AUD: UIButton!
-    @IBOutlet weak var VBG_24_AVATAR: UIImageView!
-
-    @IBOutlet weak var VBG_25_LBL1: UILabel!
-    @IBOutlet weak var VBG_26_LBL1: UILabel!
-    @IBOutlet weak var VBG_27_LBL1: UILabel!
-
-    @IBOutlet weak var VBG_28_LBL1: UILabel!
-    @IBOutlet weak var VBG_28_LBL2: UILabel!
-    @IBOutlet weak var VBG_28_LBL3: UILabel!
-    @IBOutlet weak var VBG_28_LBL4: UILabel!
-    @IBOutlet weak var VBG_28_AUD: UIButton!
-    @IBOutlet weak var VBG_28_AVATAR: UIImageView!
-
-    @IBOutlet weak var VBG_29_LBL1: UILabel!
-
-    @IBOutlet weak var VBG_30_LBL1: UILabel!
-    @IBOutlet weak var VBG_30_LBL2: UILabel!
-
-    @IBOutlet weak var VBG_31_LBL1: UILabel!
-    @IBOutlet weak var VBG_31_LBL2: UILabel!
-    @IBOutlet weak var VBG_31_LBL3: UILabel!
-    @IBOutlet weak var VBG_31_OPT_1: UILabel!
-    @IBOutlet weak var VBG_31_OPT_2: UILabel!
-    @IBOutlet weak var VBG_31_OPT_3: UILabel!
-    @IBOutlet weak var VBG_31_BTN1: UIButton!
-    @IBOutlet weak var VBG_31_BTN2: UIButton!
-    @IBOutlet weak var VBG_31_BTN3: UIButton!
-
-    @IBOutlet weak var VBG_32_LBL1: UILabel!
-    @IBOutlet weak var VBG_32_LBL2: UILabel!
-    @IBOutlet weak var VBG_32_OPT_1: UILabel!
-    @IBOutlet weak var VBG_32_OPT_2: UILabel!
-    @IBOutlet weak var VBG_32_OPT_3: UILabel!
-    @IBOutlet weak var VBG_32_OPT_4: UILabel!
-    @IBOutlet weak var VBG_32_BTN1: UIButton!
-    @IBOutlet weak var VBG_32_BTN2: UIButton!
-    @IBOutlet weak var VBG_32_BTN3: UIButton!
-    @IBOutlet weak var VBG_32_BTN4: UIButton!
-
-    @IBOutlet weak var VBG_33_LBL1: UILabel!
-    @IBOutlet weak var VBG_33_LBL2: UILabel!
-    @IBOutlet weak var VBG_33_OPT_1: UILabel!
-    @IBOutlet weak var VBG_33_OPT_2: UILabel!
-    @IBOutlet weak var VBG_33_OPT_3: UILabel!
-    @IBOutlet weak var VBG_33_BTN1: UIButton!
-    @IBOutlet weak var VBG_33_BTN2: UIButton!
-    @IBOutlet weak var VBG_33_BTN3: UIButton!
-
-    @IBOutlet weak var VBG_34_LBL1: UILabel!
-    @IBOutlet weak var VBG_34_LBL2: UILabel!
-    @IBOutlet weak var VBG_34_OPT_1: UILabel!
-    @IBOutlet weak var VBG_34_OPT_2: UILabel!
-    @IBOutlet weak var VBG_34_OPT_3: UILabel!
-    @IBOutlet weak var VBG_34_OPT_4: UILabel!
-    @IBOutlet weak var VBG_34_BTN1: UIButton!
-    @IBOutlet weak var VBG_34_BTN2: UIButton!
-    @IBOutlet weak var VBG_34_BTN3: UIButton!
-    @IBOutlet weak var VBG_34_BTN4: UIButton!
-
-    @IBOutlet weak var VBG_35_LBL1: UILabel!
-    @IBOutlet weak var VBG_35_LBL2: UILabel!
-    @IBOutlet weak var VBG_35_LBL3: UILabel!
-    @IBOutlet weak var VBG_35_HEIGHT: NSLayoutConstraint!
-
-    // Module 4
-    @IBOutlet weak var VBG_36_LBL1: UILabel!
-    @IBOutlet weak var VBG_36_LBL2: UILabel!
-    @IBOutlet weak var VBG_36_LBL3: UILabel!
-
-    @IBOutlet weak var VBG_37_LBL1: UILabel!
-    @IBOutlet weak var VBG_37_LBL2: UILabel!
-    @IBOutlet weak var VBG_37_LBL3: UILabel!
-
-    @IBOutlet weak var VBG_38_LBL1: UILabel!
-    @IBOutlet weak var VBG_38_LBL2: UILabel!
-    @IBOutlet weak var VBG_38_LBL3: UILabel!
-    @IBOutlet weak var VBG_38_LBL4: UILabel!
-    @IBOutlet weak var VBG_38_AUD: UIButton!
-
-    @IBOutlet weak var VBG_39_LBL1: UILabel!
-    @IBOutlet weak var VBG_39_LBL2: UILabel!
-    @IBOutlet weak var VBG_39_LBL3: UILabel!
-    @IBOutlet weak var VBG_39_LBL4: UILabel!
-    @IBOutlet weak var VBG_39_LBL5: UILabel!
-    @IBOutlet weak var VBG_39_LBL6: UILabel!
-    @IBOutlet weak var VBG_39_AUD1: UIButton!
-    @IBOutlet weak var VBG_39_AUD2: UIButton!
-    @IBOutlet weak var VBG_39_AUD3: UIButton!
-
-    @IBOutlet weak var VBG_40_LBL1: UILabel!
-    @IBOutlet weak var VBG_40_LBL2: UILabel!
-    @IBOutlet weak var VBG_40_LBL3: UILabel!
-    @IBOutlet weak var VBG_40_AUD: UIButton!
-    @IBOutlet weak var VBG_40_AVATAR: UIImageView!
-
-    @IBOutlet weak var VBG_41_LBL1: UILabel!
-    @IBOutlet weak var VBG_41_LBL2: UILabel!
-    @IBOutlet weak var VBG_41_LBL3: UILabel!
-    @IBOutlet weak var VBG_41_LBL4: UILabel!
-    @IBOutlet weak var VBG_41_LBL5: UILabel!
-    @IBOutlet weak var VBG_41_LBL6: UILabel!
-    @IBOutlet weak var VBG_41_LBL7: UILabel!
-    @IBOutlet weak var VBG_41_LBL8: UILabel!
-    @IBOutlet weak var VBG_41_LBL9: UILabel!
-
-    @IBOutlet weak var VBG_42_LBL1: UILabel!
-    @IBOutlet weak var VBG_42_LBL2: UILabel!
-    @IBOutlet weak var VBG_42_LBL3: UILabel!
-    @IBOutlet weak var VBG_42_LBL4: UILabel!
-    @IBOutlet weak var VBG_42_LBL5: UILabel!
-
-    @IBOutlet weak var VBG_43_LBL1: UILabel!
-    @IBOutlet weak var VBG_43_LBL2: UILabel!
-    @IBOutlet weak var VBG_43_LBL3: UILabel!
-    @IBOutlet weak var VBG_43_LBL4: UILabel!
-    @IBOutlet weak var VBG_43_LBL5: UILabel!
-
-    @IBOutlet weak var VBG_44_LBL1: UILabel!
-    @IBOutlet weak var VBG_44_LBL2: UILabel!
-    @IBOutlet weak var VBG_44_LBL3: UILabel!
-    @IBOutlet weak var VBG_44_AUD: UIButton!
-    @IBOutlet weak var VBG_44_AVATAR: UIImageView!
-
-    @IBOutlet weak var VBG_45_LBL1: UILabel!
-    @IBOutlet weak var VBG_45_LBL2: UILabel!
-
-    @IBOutlet weak var VBG_46_LBL1: UILabel!
-    @IBOutlet weak var VBG_46_VIDEO: UIWebView!
-
-    // Q1
-    @IBOutlet weak var VBG_47_LBL1: UILabel!
-    @IBOutlet weak var VBG_47_LBL2: UILabel!
-    @IBOutlet weak var VBG_47_LBL3: UILabel!
-    @IBOutlet weak var VBG_47_OPT_1: UILabel!
-    @IBOutlet weak var VBG_47_OPT_2: UILabel!
-    @IBOutlet weak var VBG_47_OPT_3: UILabel!
-    @IBOutlet weak var VBG_47_OPT_4: UILabel!
-    @IBOutlet weak var VBG_47_BTN1: UIButton!
-    @IBOutlet weak var VBG_47_BTN2: UIButton!
-    @IBOutlet weak var VBG_47_BTN3: UIButton!
-    @IBOutlet weak var VBG_47_BTN4: UIButton!
-
-    // Q2
-    @IBOutlet weak var VBG_48_LBL1: UILabel!
-    @IBOutlet weak var VBG_48_LBL2: UILabel!
-    @IBOutlet weak var VBG_48_OPT_1: UILabel!
-    @IBOutlet weak var VBG_48_OPT_2: UILabel!
-    @IBOutlet weak var VBG_48_OPT_3: UILabel!
-    @IBOutlet weak var VBG_48_OPT_4: UILabel!
-    @IBOutlet weak var VBG_48_BTN1: UIButton!
-    @IBOutlet weak var VBG_48_BTN2: UIButton!
-    @IBOutlet weak var VBG_48_BTN3: UIButton!
-    @IBOutlet weak var VBG_48_BTN4: UIButton!
-
-    // Q3
-    @IBOutlet weak var VBG_49_LBL1: UILabel!
-    @IBOutlet weak var VBG_49_LBL2: UILabel!
-    @IBOutlet weak var VBG_49_INPUT: UITextField!
-
-    // Q4
-    @IBOutlet weak var VBG_50_LBL1: UILabel!
-    @IBOutlet weak var VBG_50_LBL2: UILabel!
-    @IBOutlet weak var VBG_50_OPT_1: UILabel!
-    @IBOutlet weak var VBG_50_OPT_2: UILabel!
-    @IBOutlet weak var VBG_50_OPT_3: UILabel!
-    @IBOutlet weak var VBG_50_OPT_4: UILabel!
-    @IBOutlet weak var VBG_50_BTN1: UIButton!
-    @IBOutlet weak var VBG_50_BTN2: UIButton!
-    @IBOutlet weak var VBG_50_BTN3: UIButton!
-    @IBOutlet weak var VBG_50_BTN4: UIButton!
-
-    // Q5
-    @IBOutlet weak var VBG_51_LBL1: UILabel!
-    @IBOutlet weak var VBG_51_LBL2: UILabel!
-    @IBOutlet weak var VBG_51_OPT_1: UILabel!
-    @IBOutlet weak var VBG_51_OPT_2: UILabel!
-    @IBOutlet weak var VBG_51_OPT_3: UILabel!
-    @IBOutlet weak var VBG_51_BTN1: UIButton!
-    @IBOutlet weak var VBG_51_BTN2: UIButton!
-    @IBOutlet weak var VBG_51_BTN3: UIButton!
-
-    // Q6
-    @IBOutlet weak var VBG_52_LBL1: UILabel!
-    @IBOutlet weak var VBG_52_LBL2: UILabel!
-    @IBOutlet weak var VBG_52_OPT_1: UILabel!
-    @IBOutlet weak var VBG_52_OPT_2: UILabel!
-    @IBOutlet weak var VBG_52_OPT_3: UILabel!
-    @IBOutlet weak var VBG_52_BTN1: UIButton!
-    @IBOutlet weak var VBG_52_BTN2: UIButton!
-    @IBOutlet weak var VBG_52_BTN3: UIButton!
-
-    // Q7
-    @IBOutlet weak var VBG_53_LBL1: UILabel!
-    @IBOutlet weak var VBG_53_LBL2: UILabel!
-    @IBOutlet weak var VBG_53_OPT_1: UILabel!
-    @IBOutlet weak var VBG_53_OPT_2: UILabel!
-    @IBOutlet weak var VBG_53_OPT_3: UILabel!
-    @IBOutlet weak var VBG_53_OPT_4: UILabel!
-    @IBOutlet weak var VBG_53_BTN1: UIButton!
-    @IBOutlet weak var VBG_53_BTN2: UIButton!
-    @IBOutlet weak var VBG_53_BTN3: UIButton!
-    @IBOutlet weak var VBG_53_BTN4: UIButton!
-
-    // Q8
-    @IBOutlet weak var VBG_54_LBL1: UILabel!
-    @IBOutlet weak var VBG_54_LBL2: UILabel!
-    @IBOutlet weak var VBG_54_OPT_1: UILabel!
-    @IBOutlet weak var VBG_54_OPT_2: UILabel!
-    @IBOutlet weak var VBG_54_OPT_3: UILabel!
-    @IBOutlet weak var VBG_54_OPT_4: UILabel!
-    @IBOutlet weak var VBG_54_BTN1: UIButton!
-    @IBOutlet weak var VBG_54_BTN2: UIButton!
-    @IBOutlet weak var VBG_54_BTN3: UIButton!
-    @IBOutlet weak var VBG_54_BTN4: UIButton!
-
-    @IBOutlet weak var VBG_55_LBL1: UILabel!
-    @IBOutlet weak var VBG_55_LBL2: UILabel!
-    @IBOutlet weak var VBG_55_LBL3: UILabel!
-    @IBOutlet weak var VBG_55_HEIGHT: NSLayoutConstraint!
-    
     // MARK: - Properties
-    let MAX_LENGTH_CELL = 1
-    let MIN_GLOBE_HEIGHT: CGFloat = 490
     let CORRECT_OPTION: Int = 1
     let WRONG_OPTION: Int = 0
+    let MAX_LENGTH_CELL = 1
+    
+    var crossword_word1: Array<UITextField> = []
+    var crossword_word2: Array<UITextField> = []
+    var crossword_word3: Array<UITextField> = []
+    var crossword_word4: Array<UITextField> = []
+    var crossword_word5: Array<UITextField> = []
+    var crossword_word6: Array<UITextField> = []
+    var answersButtons: Array<UIButton> = []
+    var audioButtons: Array<UIButton> = []
     
     weak var vbgDelegate: VBGProtocol?
+    weak var mainDelegate: MainProtocol? = AplicationRuntime.sharedManager.mainDelegate
 
     // MARK: - cell
     override func awakeFromNib() {
@@ -481,108 +149,139 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
-    // MARK: - Fill cell
+    // MARK: - Llenado de las celdas
+    // MARK: Module 1
     func fill_VBG_01() {
-        M0P0_LBL1.text = VBG_COURSE.PAGE_01.T1
-        M0P0_LBL2.text = VBG_COURSE.PAGE_01.T2
+        lbl_text1.text = VBG_COURSE.PAGE_01.T1
+        lbl_text2.text = VBG_COURSE.PAGE_01.T2
     }
     
     func fill_VBG_02() {
-        M0P1_LBL1.text = VBG_COURSE.PAGE_02.T1
-        M0P1_LBL2.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_02.T2, toWord: VBG_COURSE.PAGE_02.T2_inBold_01, VBG_COURSE.PAGE_02.T2_inBold_02, fontSize: M0P1_LBL2.font.pointSize)
-        M0P1_LBL3.text = VBG_COURSE.PAGE_02.T3
-        M0P1_LBL4.text = VBG_COURSE.PAGE_02.T4
+        lbl_text1.text = VBG_COURSE.PAGE_02.T1
+        lbl_text2.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_02.T2, toWord: VBG_COURSE.PAGE_02.T2_inBold_01, VBG_COURSE.PAGE_02.T2_inBold_02, fontSize: lbl_text2.font.pointSize)
+        lbl_text3.text = VBG_COURSE.PAGE_02.T3
+        lbl_text4.text = VBG_COURSE.PAGE_02.T4
     }
     
     func fill_VBG_03() {
-        M1P0_LBL1.text = VBG_COURSE.PAGE_03.T1
-        M1P0_LBL2.text = VBG_COURSE.PAGE_03.T2
-        M1P0_LBL3.text = VBG_COURSE.PAGE_03.T3
-        M1P0_LBL4.text = VBG_COURSE.PAGE_03.T4
-        M1P0_LBL5.text = VBG_COURSE.PAGE_03.T5
-        M1P0_LBL6.text = VBG_COURSE.PAGE_03.T6
+        content_tilte?.underline(withTop: true)
         
-        M1P0_IMG_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        lbl_title.text = VBG_COURSE.PAGE_03.T1
+        lbl_subtitle.text = VBG_COURSE.PAGE_03.T2
+        lbl_text1.text = VBG_COURSE.PAGE_03.T3
+        lbl_text2.text = VBG_COURSE.PAGE_03.T4
+        lbl_text3.text = VBG_COURSE.PAGE_03.T5
+        lbl_text4.text = VBG_COURSE.PAGE_03.T6
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
     
     func fill_VBG_04() {
-        M1P1_LBL1.text = VBG_COURSE.PAGE_04.T1
-        M1P1_LBL2.text = VBG_COURSE.PAGE_04.T2
-        M1P1_LBL3.text = VBG_COURSE.PAGE_04.T3
-        M1P1_LBL4.text = VBG_COURSE.PAGE_04.T4
-        M1P1_LBL5.text = VBG_COURSE.PAGE_04.T5
-        M1P1_LBL6.text = VBG_COURSE.PAGE_04.T6
-        M1P1_LBL7.text = VBG_COURSE.PAGE_04.T7
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_04.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_04.T1
+        lbl_item1.text = VBG_COURSE.PAGE_04.ITEM_1
+        lbl_item2.text = VBG_COURSE.PAGE_04.ITEM_2
+        lbl_item3.text = VBG_COURSE.PAGE_04.ITEM_3
+        lbl_item4.text = VBG_COURSE.PAGE_04.ITEM_4
+        lbl_item5.text = VBG_COURSE.PAGE_04.ITEM_5
     }
     
     func fill_VBG_05() {
-        M1P2_AUD1.isSelected = false
-        M1P2_AUD2.isSelected = false
-        M1P2_AUD3.isSelected = false
-        M1P2_AUD4.isSelected = false
+        content_tilte?.underline(withTop: true)
         
-        M1P2_LBL1.text = VBG_COURSE.PAGE_05.T1
-        M1P2_LBL2.text = VBG_COURSE.PAGE_05.T2
-        M1P2_LBL3.text = VBG_COURSE.PAGE_05.T3
-        M1P2_LBL4.text = VBG_COURSE.PAGE_05.T4
-        M1P2_LBL5.text = VBG_COURSE.PAGE_05.T5
-        M1P2_LBL6.text = VBG_COURSE.PAGE_05.T6
-        M1P2_LBL7.text = VBG_COURSE.PAGE_05.T7
+        btn_Aud1.isSelected = false
+        btn_Aud2.isSelected = false
+        btn_Aud3.isSelected = false
+        btn_Aud4.isSelected = false
+        
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_01.rawValue
+        btn_Aud2.tag = VBG_AUDIO_ID.AUD_02.rawValue
+        btn_Aud3.tag = VBG_AUDIO_ID.AUD_03.rawValue
+        btn_Aud4.tag = VBG_AUDIO_ID.AUD_04.rawValue
+        
+        audioButtons = [btn_Aud1, btn_Aud2, btn_Aud3, btn_Aud4]
+        
+        lbl_title.text = VBG_COURSE.PAGE_05.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_05.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_05.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_05.AUDIO_1
+        lbl_Aud2.text = VBG_COURSE.PAGE_05.AUDIO_2
+        lbl_Aud3.text = VBG_COURSE.PAGE_05.AUDIO_3
+        lbl_Aud4.text = VBG_COURSE.PAGE_05.AUDIO_4
     }
 
     func fill_VBG_06() {
-        M1P3_LBL1.text = VBG_COURSE.PAGE_06.T1
-        M1P3_LBL2.text = VBG_COURSE.PAGE_06.T2
-        M1P3_LBL3.text = VBG_COURSE.PAGE_06.T3
-        M1P3_LBL4.text = VBG_COURSE.PAGE_06.T4
-        M1P3_LBL5.text = VBG_COURSE.PAGE_06.T5
-        M1P3_LBL6.text = VBG_COURSE.PAGE_06.T6
-        M1P3_LBL7.text = VBG_COURSE.PAGE_06.T7
-        M1P3_LBL8.text = VBG_COURSE.PAGE_06.T8
-        M1P3_LBL9.text = VBG_COURSE.PAGE_06.T9
-        M1P3_LBL10.text = VBG_COURSE.PAGE_06.T10
-        M1P3_LBL11.text = VBG_COURSE.PAGE_06.T11
-        M1P3_LBL12.text = VBG_COURSE.PAGE_06.T12
-        M1P3_LBL13.text = VBG_COURSE.PAGE_06.T13
-        LBL_14.text = VBG_COURSE.PAGE_06.T14
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_06.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_06.T1
+        lbl_text2.text = VBG_COURSE.PAGE_06.T2
+        lbl_item1.text = VBG_COURSE.PAGE_06.ITEM_1
+        lbl_item2.text = VBG_COURSE.PAGE_06.ITEM_2
+        lbl_item3.text = VBG_COURSE.PAGE_06.ITEM_3
+        lbl_item4.text = VBG_COURSE.PAGE_06.ITEM_4
+        lbl_item5.text = VBG_COURSE.PAGE_06.ITEM_5
+        lbl_item6.text = VBG_COURSE.PAGE_06.ITEM_6
+        lbl_item7.text = VBG_COURSE.PAGE_06.ITEM_7
+        lbl_item8.text = VBG_COURSE.PAGE_06.ITEM_8
+        lbl_item9.text = VBG_COURSE.PAGE_06.ITEM_9
+        lbl_item10.text = VBG_COURSE.PAGE_06.ITEM_10
+        lbl_item11.text = VBG_COURSE.PAGE_06.ITEM_11
     }
     
     func fill_VBG_07() {
-        M1P4_LBL1.text = VBG_COURSE.PAGE_07.T1
-        M1P4_LBL2.text = VBG_COURSE.PAGE_07.T2
-        M1P4_LBL3.text = VBG_COURSE.PAGE_07.T3
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_07.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_07.T1
+        lbl_item1.text = VBG_COURSE.PAGE_07.ITEM_1
     }
     
     func fill_VBG_08() {
-        M1P5_AUD1.isSelected = false
-        M1P5_AUD2.isSelected = false
-        M1P5_AUD3.isSelected = false
-        M1P5_AUD4.isSelected = false
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud2.isSelected = false
+        btn_Aud3.isSelected = false
+        btn_Aud4.isSelected = false
+        
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_05.rawValue
+        btn_Aud2.tag = VBG_AUDIO_ID.AUD_06.rawValue
+        btn_Aud3.tag = VBG_AUDIO_ID.AUD_07.rawValue
+        btn_Aud4.tag = VBG_AUDIO_ID.AUD_08.rawValue
+        
+        audioButtons = [btn_Aud1, btn_Aud2, btn_Aud3, btn_Aud4]
      
-        M1P5_LBL1.text = VBG_COURSE.PAGE_08.T1
-        M1P5_LBL2.text = VBG_COURSE.PAGE_08.T2
-        M1P5_LBL3.text = VBG_COURSE.PAGE_08.T3
-        M1P5_LBL4.text = VBG_COURSE.PAGE_08.T4
-        M1P5_LBL5.text = VBG_COURSE.PAGE_08.T5
-        M1P5_LBL6.text = VBG_COURSE.PAGE_08.T6
+        lbl_title.text = VBG_COURSE.PAGE_08.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_08.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_08.AUDIO_1
+        lbl_Aud2.text = VBG_COURSE.PAGE_08.AUDIO_2
+        lbl_Aud3.text = VBG_COURSE.PAGE_08.AUDIO_3
+        lbl_Aud4.text = VBG_COURSE.PAGE_08.AUDIO_4
     }
     
     func fill_VBG_09() {
-        M1P6_AUD1.isSelected = false
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_09.rawValue
+        
+        audioButtons = [btn_Aud1]
      
-        M1P6_LBL1.text = VBG_COURSE.PAGE_09.T1
-        M1P6_LBL2.text = VBG_COURSE.PAGE_09.T2
-        M1P6_IMG_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        lbl_title.text = VBG_COURSE.PAGE_09.TITLE
+        lbl_Aud1.text = VBG_COURSE.PAGE_09.AUDIO_1
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
     
     func fill_VBG_10() {
-        M1P7_LBL1.text = VBG_COURSE.PAGE_10.T1
-        M1P7_LBL2.text = VBG_COURSE.PAGE_10.T2
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_10.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_10.T1
     }
 
     // CrossWord
     func fill_VBG_11() {
-        M1_CROSSWORD_LBL1.text = VBG_COURSE.PAGE_11.T1
+        lbl_text1.text = VBG_COURSE.PAGE_11.T1
+        
+        // Clear crossword
         M1CW_C_0209.text = nullString; M1CW_C_0307.text = nullString; M1CW_C_0308.text = nullString; M1CW_C_0309.text = nullString
         M1CW_C_0310.text = nullString; M1CW_C_0311.text = nullString; M1CW_C_0312.text = nullString; M1CW_C_0402.text = nullString
         M1CW_C_0409.text = nullString; M1CW_C_0502.text = nullString; M1CW_C_0503.text = nullString; M1CW_C_0504.text = nullString
@@ -605,417 +304,615 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         M1CW_C_1008.delegate = self; M1CW_C_1009.delegate = self; M1CW_C_1010.delegate = self; M1CW_C_1011.delegate = self
         M1CW_C_1012.delegate = self; M1CW_C_1109.delegate = self; M1CW_C_1206.delegate = self; M1CW_C_1207.delegate = self
         M1CW_C_1208.delegate = self; M1CW_C_1209.delegate = self; M1CW_C_1210.delegate = self; M1CW_C_1211.delegate = self
+        
+        // Arreglos de letras para las palabras
+        crossword_word1 = [M1CW_C_0209, M1CW_C_0309, M1CW_C_0409, M1CW_C_0509, M1CW_C_0609, M1CW_C_0709, M1CW_C_0809, M1CW_C_0909, M1CW_C_1009, M1CW_C_1109, M1CW_C_1209]
+        crossword_word2 = [M1CW_C_0307, M1CW_C_0308, M1CW_C_0309, M1CW_C_0310, M1CW_C_0311, M1CW_C_0312]
+        crossword_word3 = [M1CW_C_0402, M1CW_C_0502, M1CW_C_0602, M1CW_C_0702, M1CW_C_0802, M1CW_C_0902]
+        crossword_word4 = [M1CW_C_0502, M1CW_C_0503, M1CW_C_0504, M1CW_C_0505, M1CW_C_0506, M1CW_C_0507, M1CW_C_0508, M1CW_C_0509, M1CW_C_0510]
+        crossword_word5 = [M1CW_C_1006, M1CW_C_1007, M1CW_C_1008, M1CW_C_1009, M1CW_C_1010, M1CW_C_1011, M1CW_C_1012]
+        crossword_word6 = [M1CW_C_1206, M1CW_C_1207, M1CW_C_1208, M1CW_C_1209, M1CW_C_1210, M1CW_C_1211]
     }
     
-    func fill_VBG_12(height: CGFloat){
-        INSIGNIA_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
+    func fill_VBG_12(){
+        content_tilte?.underline(withTop: true)
+        lbl_review.text = Strings.review_content
+        lbl_title.text = VBG_COURSE.PAGE_12.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_12.T1
+        lbl_text2.text = String(format: VBG_COURSE.PAGE_12.T2, getInsignia(forModule: .MOD_01))
         
-        LBL_BACK.text = Strings.review_content
-        LBL_TITLE.text = VBG_COURSE.PAGE_12.TITLE
-        LBL_T1.text = VBG_COURSE.PAGE_12.T1
-        LBL_T2.text = VBG_COURSE.PAGE_12.T2
-        
-        IMG_AVATAR.image = AplicationRuntime.sharedManager.avatarImage
-        IMG_INSIGNIA.image = UIImage(named: LeadersImages.insignia_01)
-        IMG_BACKGROUND.image = UIImage(named: LeadersImages.bg_01)
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_01)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_01)
     }
     
+    // MARK: MODULE 2
     func fill_VBG_13() {
-        VBG_13_AUD.isSelected = false
-        VBG_13_LBL1.text = VBG_COURSE.VBG_13_T1
-        VBG_13_LBL2.text = VBG_COURSE.VBG_13_T2
-        VBG_13_LBL3.text = VBG_COURSE.VBG_13_T3
-        VBG_13_LBL4.text = VBG_COURSE.VBG_13_T4
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_10.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_13.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_13.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_13.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_13.AUDIO_1
     }
     
     func fill_VBG_14() {
-        VBG_14_LBL1.text = VBG_COURSE.VBG_14_T1
-        VBG_14_LBL2.text = VBG_COURSE.VBG_14_T2
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_14.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_14.T1
     }
     
     func fill_VBG_15() {
-        VBG_15_LBL1.text = VBG_COURSE.VBG_15_T1
-        VBG_15_LBL2.text = VBG_COURSE.VBG_15_T2
-        VBG_15_LBL3.text = VBG_COURSE.VBG_15_T3
-        VBG_15_OPT_1.text = VBG_COURSE.VBG_15_OPT1
-        VBG_15_OPT_2.text = VBG_COURSE.VBG_15_OPT2
-        VBG_15_OPT_3.text = VBG_COURSE.VBG_15_OPT3
-        VBG_15_OPT_4.text = VBG_COURSE.VBG_15_OPT4
-        VBG_15_OPT_5.text = VBG_COURSE.VBG_15_OPT5
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_15.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_15.T1
+        lbl_text2.text = VBG_COURSE.PAGE_15.T2
         
-        // set tag for identify correct option
-        VBG_15_BTN1.tag = CORRECT_OPTION
-        VBG_15_BTN2.tag = WRONG_OPTION
-        VBG_15_BTN3.tag = CORRECT_OPTION
-        VBG_15_BTN4.tag = CORRECT_OPTION
-        VBG_15_BTN5.tag = WRONG_OPTION
+        lbl_option1.text = VBG_COURSE.PAGE_15.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_15.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_15.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_15.OPT4
+        lbl_option5.text = VBG_COURSE.PAGE_15.OPT5
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
+        btn_opt5.isSelected = false
+        
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = WRONG_OPTION
+        btn_opt3.tag = CORRECT_OPTION
+        btn_opt4.tag = CORRECT_OPTION
+        btn_opt5.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4, btn_opt5]
     }
     
-    func fill_VBG_16(height: CGFloat) {
-        INSIGNIA_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
+    func fill_VBG_16() {
+        content_tilte?.underline(withTop: true)
+        lbl_review.text = Strings.review_content
+        lbl_title.text = VBG_COURSE.PAGE_16.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_16.T1
+        lbl_text2.text = String(format: VBG_COURSE.PAGE_16.T2, getInsignia(forModule: .MOD_01))
         
-        LBL_BACK.text = Strings.review_content
-        LBL_TITLE.text = VBG_COURSE.VBG_16_T1
-        LBL_T1.text = VBG_COURSE.VBG_16_T2
-        LBL_T2.text = VBG_COURSE.VBG_16_T3
-        
-        IMG_AVATAR.image = AplicationRuntime.sharedManager.avatarImage
-        IMG_INSIGNIA.image = UIImage(named: LeadersImages.insignia_01)
-        IMG_BACKGROUND.image = UIImage(named: LeadersImages.bg_01)
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_02)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_02)
     }
     
-    // Modulo 3
+    // MARK: MODULE 3
     func fill_VBG_17() {
-        VBG_17_LBL1.text = VBG_COURSE.VBG_17_T1
-        VBG_17_LBL2.text = VBG_COURSE.VBG_17_T2
-        VBG_17_LBL3.text = VBG_COURSE.VBG_17_T3
-        VBG_17_LBL4.text = VBG_COURSE.VBG_17_T4
-        VBG_17_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_17.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_17.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_17.T1
+        lbl_text2.text = VBG_COURSE.PAGE_17.T2
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
     
     func fill_VBG_18() {
-        VBG_18_AUD.isSelected = false
-        VBG_18_LBL1.text = VBG_COURSE.VBG_18_T1
-        VBG_18_LBL2.text = VBG_COURSE.VBG_18_T2
-        VBG_18_LBL3.text = VBG_COURSE.VBG_18_T3
-        VBG_18_LBL4.text = VBG_COURSE.VBG_18_T4
-        VBG_18_LBL5.text = VBG_COURSE.VBG_18_T5
-        VBG_18_LBL6.text = VBG_COURSE.VBG_18_T6
-        VBG_18_LBL7.text = VBG_COURSE.VBG_18_T7
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_11.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_18.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_18.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_18.T1
+        lbl_item1.text = VBG_COURSE.PAGE_18.ITEM_1
+        lbl_item2.text = VBG_COURSE.PAGE_18.ITEM_2
+        lbl_item3.text = VBG_COURSE.PAGE_18.ITEM_3
+        lbl_Aud1.text = VBG_COURSE.PAGE_18.AUDIO_1
     }
     
     func fill_VBG_19() {
-        VBG_19_LBL1.text = VBG_COURSE.VBG_19_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_19.TITLE
+        img_route.image = UIImage(named: RoutesImages.route_VBG_19)
     }
     
     func fill_VBG_20() {
-        VBG_20_AUD.isSelected = false
-        VBG_20_LBL1.text = VBG_COURSE.VBG_20_T1
-        VBG_20_LBL2.text = VBG_COURSE.VBG_20_T2
-        VBG_20_LBL3.text = VBG_COURSE.VBG_20_T3
-        VBG_20_LBL4.text = VBG_COURSE.VBG_20_T4
-        VBG_20_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_12.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_20.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_20.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_20.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_20.AUDIO_1
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
     
     func fill_VBG_21() {
-        VBG_21_LBL1.text = VBG_COURSE.VBG_21_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_21.TITLE
+        img_route.image = UIImage(named: RoutesImages.route_VBG_21)
     }
     
     func fill_VBG_22() {
-        VBG_22_AUD.isSelected = false
-        VBG_22_LBL1.text = VBG_COURSE.VBG_22_T1
-        VBG_22_LBL2.text = VBG_COURSE.VBG_22_T2
-        VBG_22_LBL3.text = VBG_COURSE.VBG_22_T3
-        VBG_22_LBL4.text = VBG_COURSE.VBG_22_T4
-        VBG_22_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_13.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_22.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_22.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_22.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_22.AUDIO_1
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
 
     func fill_VBG_23() {
-        VBG_23_LBL1.text = VBG_COURSE.VBG_23_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_23.TITLE
+        img_route.image = UIImage(named: RoutesImages.route_VBG_23)
     }
 
     func fill_VBG_24() {
-        VBG_24_AUD.isSelected = false
-        VBG_24_LBL1.text = VBG_COURSE.VBG_24_T1
-        VBG_24_LBL2.text = VBG_COURSE.VBG_24_T2
-        VBG_24_LBL3.text = VBG_COURSE.VBG_24_T3
-        VBG_24_LBL4.text = VBG_COURSE.VBG_24_T4
-        VBG_24_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_14.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_24.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_24.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_24.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_24.AUDIO_1
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
 
     func fill_VBG_25() {
-        VBG_25_LBL1.text = VBG_COURSE.VBG_25_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_25.TITLE
+        img_route.image = UIImage(named: RoutesImages.route_VBG_25)
     }
 
     func fill_VBG_26() {
-        VBG_26_LBL1.text = VBG_COURSE.VBG_26_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_26.TITLE
+        img_route.image = UIImage(named: RoutesImages.route_VBG_26)
     }
 
     func fill_VBG_27() {
-        VBG_27_LBL1.text = VBG_COURSE.VBG_27_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_27.TITLE
+        img_route.image = UIImage(named: RoutesImages.route_VBG_27)
     }
 
     func fill_VBG_28() {
-        VBG_28_AUD.isSelected = false
-        VBG_28_LBL1.text = VBG_COURSE.VBG_28_T1
-        VBG_28_LBL2.text = VBG_COURSE.VBG_28_T2
-        VBG_28_LBL3.text = VBG_COURSE.VBG_28_T3
-        VBG_28_LBL4.text = VBG_COURSE.VBG_28_T4
-        VBG_28_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_14.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_28.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_28.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_28.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_28.AUDIO_1
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
 
     func fill_VBG_29() {
-        VBG_29_LBL1.text = VBG_COURSE.VBG_29_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_29.TITLE
+        img_route.image = UIImage(named: RoutesImages.route_VBG_29)
     }
 
     func fill_VBG_30() {
-        VBG_30_LBL1.text = VBG_COURSE.VBG_30_T1
-        VBG_30_LBL2.text = VBG_COURSE.VBG_30_T2
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_30.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_30.T1
     }
 
     func fill_VBG_31() {
-        VBG_31_LBL1.text = VBG_COURSE.VBG_31_T1
-        VBG_31_LBL2.text = VBG_COURSE.VBG_31_T2
-        VBG_31_LBL3.text = VBG_COURSE.VBG_31_T3
-        VBG_31_OPT_1.text = VBG_COURSE.VBG_31_OPT1
-        VBG_31_OPT_2.text = VBG_COURSE.VBG_31_OPT2
-        VBG_31_OPT_3.text = VBG_COURSE.VBG_31_OPT3
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_31.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_31.T1
+        
+        lbl_question.text = VBG_COURSE.PAGE_31.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_31.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_31.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_31.OPT3
 
-        // set tag for identify correct option
-        VBG_31_BTN1.tag = CORRECT_OPTION
-        VBG_31_BTN2.tag = CORRECT_OPTION
-        VBG_31_BTN3.tag = WRONG_OPTION
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = CORRECT_OPTION
+        btn_opt3.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
     }
 
     func fill_VBG_32() {
-        VBG_32_LBL1.text = VBG_COURSE.VBG_32_T1
-        VBG_32_LBL2.text = VBG_COURSE.VBG_32_T2
-        VBG_32_OPT_1.text = VBG_COURSE.VBG_32_OPT1
-        VBG_32_OPT_2.text = VBG_COURSE.VBG_32_OPT2
-        VBG_32_OPT_3.text = VBG_COURSE.VBG_32_OPT3
-        VBG_32_OPT_4.text = VBG_COURSE.VBG_32_OPT4
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_32.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_32.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_32.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_32.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_32.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_32.OPT4
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
 
-        // set tag for identify correct option
-        VBG_32_BTN1.tag = CORRECT_OPTION
-        VBG_32_BTN2.tag = WRONG_OPTION
-        VBG_32_BTN3.tag = CORRECT_OPTION
-        VBG_32_BTN4.tag = CORRECT_OPTION
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = WRONG_OPTION
+        btn_opt3.tag = CORRECT_OPTION
+        btn_opt4.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
     func fill_VBG_33() {
-        VBG_33_LBL1.text = VBG_COURSE.VBG_33_T1
-        VBG_33_LBL2.text = VBG_COURSE.VBG_33_T2
-        VBG_33_OPT_1.text = VBG_COURSE.VBG_33_OPT1
-        VBG_33_OPT_2.text = VBG_COURSE.VBG_33_OPT2
-        VBG_33_OPT_3.text = VBG_COURSE.VBG_33_OPT3
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_33.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_33.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_33.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_33.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_33.OPT3
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
 
-        // set tag for identify correct option
-        VBG_33_BTN1.tag = WRONG_OPTION
-        VBG_33_BTN2.tag = CORRECT_OPTION
-        VBG_33_BTN3.tag = CORRECT_OPTION
+        btn_opt1.tag = WRONG_OPTION
+        btn_opt2.tag = CORRECT_OPTION
+        btn_opt3.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
     }
 
     func fill_VBG_34() {
-        VBG_34_LBL1.text = VBG_COURSE.VBG_34_T1
-        VBG_34_LBL2.text = VBG_COURSE.VBG_34_T2
-        VBG_34_OPT_1.text = VBG_COURSE.VBG_34_OPT1
-        VBG_34_OPT_2.text = VBG_COURSE.VBG_34_OPT2
-        VBG_34_OPT_3.text = VBG_COURSE.VBG_34_OPT3
-        VBG_34_OPT_4.text = VBG_COURSE.VBG_34_OPT4
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_34.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_34.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_34.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_34.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_34.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_34.OPT4
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
 
-        // set tag for identify correct option
-        VBG_34_BTN1.tag = CORRECT_OPTION
-        VBG_34_BTN2.tag = WRONG_OPTION
-        VBG_34_BTN3.tag = CORRECT_OPTION
-        VBG_34_BTN4.tag = CORRECT_OPTION
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = WRONG_OPTION
+        btn_opt3.tag = CORRECT_OPTION
+        btn_opt4.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
-    func fill_VBG_35(height: CGFloat) {
-        VBG_35_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
-        VBG_35_LBL1.text = VBG_COURSE.VBG_35_T1
-        VBG_35_LBL2.text = VBG_COURSE.VBG_35_T2
-        VBG_35_LBL3.text = VBG_COURSE.VBG_35_T3
+    func fill_VBG_35() {
+        content_tilte?.underline(withTop: true)
+        lbl_review.text = Strings.review_content
+        lbl_title.text = VBG_COURSE.PAGE_35.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_35.T1
+        lbl_text2.text = String(format: VBG_COURSE.PAGE_35.T2, getInsignia(forModule: .MOD_03))
+        
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_03)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_03)
     }
 
-    // Modulo 4
+    // MARK: Modulo 4
     func fill_VBG_36() {
-        VBG_36_LBL1.text = VBG_COURSE.VBG_36_T1
-        VBG_36_LBL2.text = VBG_COURSE.VBG_36_T2
-        VBG_36_LBL3.text = VBG_COURSE.VBG_36_T3
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_36.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_36.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_36.T1
     }
 
     func fill_VBG_37() {
-        VBG_37_LBL1.text = VBG_COURSE.VBG_37_T1
-        VBG_37_LBL2.text = VBG_COURSE.VBG_37_T2
-        VBG_37_LBL3.text = VBG_COURSE.VBG_37_T3
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_37.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_37.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_37.T1
+        
+        img_route.image = UIImage(named: RoutesImages.route_VBG_37)
     }
 
     func fill_VBG_38() {
-        VBG_38_AUD.isSelected = false
-        VBG_38_LBL1.text = VBG_COURSE.VBG_38_T1
-        VBG_38_LBL2.text = VBG_COURSE.VBG_38_T2
-        VBG_38_LBL3.text = VBG_COURSE.VBG_38_T3
-        VBG_38_LBL4.text = VBG_COURSE.VBG_38_T4
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_16.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_38.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_38.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_38.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_38.AUDIO_1
+        
+        img_route.image = UIImage(named: RoutesImages.route_VBG_38)
     }
 
     func fill_VBG_39() {
-        VBG_39_AUD1.isSelected = false
-        VBG_39_AUD2.isSelected = false
-        VBG_39_AUD3.isSelected = false
-        VBG_39_LBL1.text = VBG_COURSE.VBG_39_T1
-        VBG_39_LBL2.text = VBG_COURSE.VBG_39_T2
-        VBG_39_LBL3.text = VBG_COURSE.VBG_39_T3
-        VBG_39_LBL4.text = VBG_COURSE.VBG_39_T4
-        VBG_39_LBL5.text = VBG_COURSE.VBG_39_T5
-        VBG_39_LBL6.text = VBG_COURSE.VBG_39_T6
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud2.isSelected = false
+        btn_Aud3.isSelected = false
+        
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_17.rawValue
+        btn_Aud2.tag = VBG_AUDIO_ID.AUD_18.rawValue
+        btn_Aud3.tag = VBG_AUDIO_ID.AUD_19.rawValue
+        
+        audioButtons = [btn_Aud1, btn_Aud2, btn_Aud3]
+        
+        lbl_title.text = VBG_COURSE.PAGE_39.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_39.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_39.T1
+        
+        lbl_Aud1.text = VBG_COURSE.PAGE_39.AUDIO_1
+        lbl_Aud2.text = VBG_COURSE.PAGE_39.AUDIO_2
+        lbl_Aud3.text = VBG_COURSE.PAGE_39.AUDIO_3
     }
 
     func fill_VBG_40() {
-        VBG_40_AUD.isSelected = false
-        VBG_40_LBL1.text = VBG_COURSE.VBG_40_T1
-        VBG_40_LBL2.text = VBG_COURSE.VBG_40_T2
-        VBG_40_LBL3.text = VBG_COURSE.VBG_40_T3
-        VBG_40_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_20.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        VBG_40_LBL1.text = VBG_COURSE.PAGE_40.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_40.T1
+        lbl_Aud1.text = VBG_COURSE.PAGE_40.AUDIO_1
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
 
     func fill_VBG_41() {
-        VBG_41_LBL1.text = VBG_COURSE.VBG_41_T1
-        VBG_41_LBL2.text = VBG_COURSE.VBG_41_T2
-        VBG_41_LBL3.text = VBG_COURSE.VBG_41_T3
-        VBG_41_LBL4.text = VBG_COURSE.VBG_41_T4
-        VBG_41_LBL5.text = VBG_COURSE.VBG_41_T5
-        VBG_41_LBL6.text = VBG_COURSE.VBG_41_T6
-        VBG_41_LBL7.text = VBG_COURSE.VBG_41_T7
-        VBG_41_LBL8.text = VBG_COURSE.VBG_41_T8
-        VBG_41_LBL9.text = VBG_COURSE.VBG_41_T9
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_41.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_41.T1
+        lbl_text2.text = VBG_COURSE.PAGE_41.T2
+        lbl_text3.text = VBG_COURSE.PAGE_41.T3
+        lbl_item1.text = VBG_COURSE.PAGE_41.ITEM_1
+        lbl_item2.text = VBG_COURSE.PAGE_41.ITEM_2
+        lbl_item3.text = VBG_COURSE.PAGE_41.ITEM_3
+        lbl_item4.text = VBG_COURSE.PAGE_41.ITEM_4
+        lbl_item5.text = VBG_COURSE.PAGE_41.ITEM_5
     }
 
     func fill_VBG_42() {
-        VBG_42_LBL1.text = VBG_COURSE.VBG_42_T1
-        VBG_42_LBL2.text = VBG_COURSE.VBG_42_T2
-        VBG_42_LBL3.text = VBG_COURSE.VBG_42_T3
-        VBG_42_LBL4.text = VBG_COURSE.VBG_42_T4
-        VBG_42_LBL5.text = VBG_COURSE.VBG_42_T5
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_42.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_42.T1
+        lbl_text2.text = VBG_COURSE.PAGE_42.T2
+        lbl_item1.text = VBG_COURSE.PAGE_42.ITEM_1
+        lbl_item2.text = VBG_COURSE.PAGE_42.ITEM_2
     }
 
     func fill_VBG_43() {
-        VBG_43_LBL1.text = VBG_COURSE.VBG_43_T1
-        VBG_43_LBL2.attributedText = addBoldWord(forText: VBG_COURSE.VBG_43_T2, toWord: VBG_COURSE.VBG_43_T2_inBOLD, fontSize: VBG_43_LBL2.font.pointSize)
-        VBG_43_LBL3.attributedText = addBoldWord(forText: VBG_COURSE.VBG_43_T3, toWord: VBG_COURSE.VBG_43_T3_inBOLD, fontSize: VBG_43_LBL3.font.pointSize)
-        VBG_43_LBL4.attributedText = addBoldWord(forText: VBG_COURSE.VBG_43_T4, toWord: VBG_COURSE.VBG_43_T4_inBOLD, fontSize: VBG_43_LBL4.font.pointSize)
-        VBG_43_LBL5.attributedText = addBoldWord(forText: VBG_COURSE.VBG_43_T5, toWord: VBG_COURSE.VBG_43_T5_inBOLD, fontSize: VBG_43_LBL5.font.pointSize)
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_43.TITLE
+        lbl_text1.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_43.T1, toWord: VBG_COURSE.PAGE_43.T1_inBOLD, fontSize: lbl_text1.font.pointSize)
+        lbl_text2.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_43.T2, toWord: VBG_COURSE.PAGE_43.T2_inBOLD, fontSize: lbl_text2.font.pointSize)
+        lbl_item1.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_43.ITEM_1, toWord: VBG_COURSE.PAGE_43.ITEM_1_inBOLD, fontSize: lbl_item1.font.pointSize)
+        lbl_item2.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_43.ITEM_2, toWord: VBG_COURSE.PAGE_43.ITEM_2_inBOLD, fontSize: lbl_item2.font.pointSize)
     }
 
     func fill_VBG_44() {
-        VBG_44_AUD.isSelected = false
-        VBG_44_LBL1.text = VBG_COURSE.VBG_44_T1
-        VBG_44_LBL2.text = VBG_COURSE.VBG_44_T2
-        VBG_44_LBL3.text = VBG_COURSE.VBG_44_T3
-        VBG_44_AVATAR.image = AplicationRuntime.sharedManager.getAvatarImage()
+        content_tilte?.underline(withTop: true)
+        btn_Aud1.isSelected = false
+        btn_Aud1.tag = VBG_AUDIO_ID.AUD_20.rawValue
+        
+        audioButtons = [btn_Aud1]
+        
+        lbl_title.text = VBG_COURSE.PAGE_44.TITLE
+        lbl_subtitle.text = VBG_COURSE.PAGE_44.SUBTITLE
+        lbl_text1.text = VBG_COURSE.PAGE_44.T1
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
 
     func fill_VBG_45() {
-        VBG_45_LBL1.text = VBG_COURSE.VBG_45_T1
-        VBG_45_LBL2.text = VBG_COURSE.VBG_45_T2
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_45.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_45.T1
     }
 
     func fill_VBG_46() {
-        VBG_46_LBL1.text = VBG_COURSE.VBG_46_T1
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_46.TITLE
+        videoPlayer.delegate = self
     }
 
     func fill_VBG_47() {
-        VBG_47_LBL1.text = VBG_COURSE.VBG_47_T1
-        VBG_47_LBL2.text = VBG_COURSE.VBG_47_T2
-        VBG_47_LBL3.text = VBG_COURSE.VBG_47_T3
-        VBG_47_OPT_1.text = VBG_COURSE.VBG_47_OPT1
-        VBG_47_OPT_2.text = VBG_COURSE.VBG_47_OPT2
-        VBG_47_OPT_3.text = VBG_COURSE.VBG_47_OPT3
-        VBG_47_OPT_4.text = VBG_COURSE.VBG_47_OPT4
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_47.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_47.T1
         
-        // set tag for identify correct option
-        VBG_47_BTN1.tag = CORRECT_OPTION
-        VBG_47_BTN2.tag = WRONG_OPTION
-        VBG_47_BTN3.tag = WRONG_OPTION
-        VBG_47_BTN4.tag = WRONG_OPTION
+        lbl_question.text = VBG_COURSE.PAGE_47.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_47.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_47.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_47.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_47.OPT4
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
+        
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = WRONG_OPTION
+        btn_opt3.tag = WRONG_OPTION
+        btn_opt4.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
     func fill_VBG_48() {
-        VBG_48_LBL1.text = VBG_COURSE.VBG_48_T1
-        VBG_48_LBL2.text = VBG_COURSE.VBG_48_T2
-        VBG_48_OPT_1.text = VBG_COURSE.VBG_48_OPT1
-        VBG_48_OPT_2.text = VBG_COURSE.VBG_48_OPT2
-        VBG_48_OPT_3.text = VBG_COURSE.VBG_48_OPT3
-        VBG_48_OPT_4.text = VBG_COURSE.VBG_48_OPT4
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_48.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_48.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_48.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_48.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_48.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_48.OPT4
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
         
         // set tag for identify correct option
-        VBG_48_BTN1.tag = WRONG_OPTION
-        VBG_48_BTN2.tag = WRONG_OPTION
-        VBG_48_BTN3.tag = WRONG_OPTION
-        VBG_48_BTN4.tag = CORRECT_OPTION
+        btn_opt1.tag = WRONG_OPTION
+        btn_opt2.tag = WRONG_OPTION
+        btn_opt3.tag = WRONG_OPTION
+        btn_opt4.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
     func fill_VBG_49() {
-        VBG_49_LBL1.text = VBG_COURSE.VBG_49_T1
-        VBG_49_LBL2.text = VBG_COURSE.VBG_49_T2
-        VBG_49_INPUT.text = nullString
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_49.TITLE
+        lbl_question.text = VBG_COURSE.PAGE_49.QUESTION
+        textField1.text = nullString
     }
 
     func fill_VBG_50() {
-        VBG_50_LBL1.text = VBG_COURSE.VBG_50_T1
-        VBG_50_LBL2.text = VBG_COURSE.VBG_50_T2
-        VBG_50_OPT_1.text = VBG_COURSE.VBG_50_OPT1
-        VBG_50_OPT_2.text = VBG_COURSE.VBG_50_OPT2
-        VBG_50_OPT_3.text = VBG_COURSE.VBG_50_OPT3
-        VBG_50_OPT_4.text = VBG_COURSE.VBG_50_OPT4
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_50.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_50.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_50.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_50.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_50.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_50.OPT4
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
         
         // set tag for identify correct option
-        VBG_50_BTN1.tag = CORRECT_OPTION
-        VBG_50_BTN2.tag = WRONG_OPTION
-        VBG_50_BTN3.tag = CORRECT_OPTION
-        VBG_50_BTN4.tag = CORRECT_OPTION
+        lbl_option1.tag = CORRECT_OPTION
+        lbl_option2.tag = WRONG_OPTION
+        lbl_option3.tag = CORRECT_OPTION
+        lbl_option4.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
     func fill_VBG_51() {
-        VBG_51_LBL1.text = VBG_COURSE.VBG_51_T1
-        VBG_51_LBL2.text = VBG_COURSE.VBG_51_T2
-        VBG_51_OPT_1.text = VBG_COURSE.VBG_51_OPT1
-        VBG_51_OPT_2.text = VBG_COURSE.VBG_51_OPT2
-        VBG_51_OPT_3.text = VBG_COURSE.VBG_51_OPT3
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_51.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_51.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_51.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_51.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_51.OPT3
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
         
         // set tag for identify correct option
-        VBG_51_BTN1.tag = CORRECT_OPTION
-        VBG_51_BTN2.tag = CORRECT_OPTION
-        VBG_51_BTN3.tag = WRONG_OPTION
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = CORRECT_OPTION
+        btn_opt3.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
     }
 
     func fill_VBG_52() {
-        VBG_52_LBL1.text = VBG_COURSE.VBG_52_T1
-        VBG_52_LBL2.text = VBG_COURSE.VBG_52_T2
-        VBG_52_OPT_1.text = VBG_COURSE.VBG_52_OPT1
-        VBG_52_OPT_2.text = VBG_COURSE.VBG_52_OPT2
-        VBG_52_OPT_3.text = VBG_COURSE.VBG_52_OPT3
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_52.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_52.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_52.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_52.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_52.OPT3
         
         // set tag for identify correct option
-        VBG_52_BTN1.tag = WRONG_OPTION
-        VBG_52_BTN2.tag = CORRECT_OPTION
-        VBG_52_BTN3.tag = CORRECT_OPTION
+        lbl_option1.tag = WRONG_OPTION
+        lbl_option2.tag = CORRECT_OPTION
+        lbl_option3.tag = CORRECT_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3]
     }
 
     func fill_VBG_53() {
-        VBG_53_LBL1.text = VBG_COURSE.VBG_53_T1
-        VBG_53_LBL2.text = VBG_COURSE.VBG_53_T2
-        VBG_53_OPT_1.text = VBG_COURSE.VBG_53_OPT1
-        VBG_53_OPT_2.text = VBG_COURSE.VBG_53_OPT2
-        VBG_53_OPT_3.text = VBG_COURSE.VBG_53_OPT3
-        VBG_53_OPT_4.text = VBG_COURSE.VBG_53_OPT4
+        content_tilte?.underline(withTop: true)
+        lbl_title.text = VBG_COURSE.PAGE_53.TITLE
+        
+        lbl_question.text = VBG_COURSE.PAGE_53.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_53.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_53.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_53.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_53.OPT4
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
         
         // set tag for identify correct option
-        VBG_53_BTN1.tag = CORRECT_OPTION
-        VBG_53_BTN2.tag = CORRECT_OPTION
-        VBG_53_BTN3.tag = CORRECT_OPTION
-        VBG_53_BTN4.tag = WRONG_OPTION
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = CORRECT_OPTION
+        btn_opt3.tag = CORRECT_OPTION
+        btn_opt4.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
     func fill_VBG_54() {
-        VBG_54_LBL1.text = VBG_COURSE.VBG_54_T1
-        VBG_54_LBL2.text = VBG_COURSE.VBG_54_T2
-        VBG_54_OPT_1.text = VBG_COURSE.VBG_54_OPT1
-        VBG_54_OPT_2.text = VBG_COURSE.VBG_54_OPT2
-        VBG_54_OPT_3.text = VBG_COURSE.VBG_54_OPT3
-        VBG_54_OPT_4.text = VBG_COURSE.VBG_54_OPT4
+        content_tilte?.underline(withTop: true)
+        lbl_question.text = VBG_COURSE.PAGE_54.QUESTION
+        lbl_option1.text = VBG_COURSE.PAGE_54.OPT1
+        lbl_option2.text = VBG_COURSE.PAGE_54.OPT2
+        lbl_option3.text = VBG_COURSE.PAGE_54.OPT3
+        lbl_option4.text = VBG_COURSE.PAGE_54.OPT4
+        
+        btn_opt1.isSelected = false
+        btn_opt2.isSelected = false
+        btn_opt3.isSelected = false
+        btn_opt4.isSelected = false
         
         // set tag for identify correct option
-        VBG_54_BTN1.tag = CORRECT_OPTION
-        VBG_54_BTN2.tag = CORRECT_OPTION
-        VBG_54_BTN3.tag = CORRECT_OPTION
-        VBG_54_BTN4.tag = WRONG_OPTION
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = CORRECT_OPTION
+        btn_opt3.tag = CORRECT_OPTION
+        btn_opt4.tag = WRONG_OPTION
+        
+        answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
-    func fill_VBG_55(height: CGFloat) {
-        VBG_55_HEIGHT.constant = height > MIN_GLOBE_HEIGHT ? height : MIN_GLOBE_HEIGHT
-        VBG_55_LBL1.text = VBG_COURSE.VBG_55_T1
-        VBG_55_LBL2.text = VBG_COURSE.VBG_55_T2
-        VBG_55_LBL3.text = VBG_COURSE.VBG_55_T3
+    func fill_VBG_55() {
+        content_tilte?.underline(withTop: true)
+        lbl_review.text = Strings.review_content
+        lbl_title.text = VBG_COURSE.PAGE_55.TITLE
+        lbl_text1.text = VBG_COURSE.PAGE_55.T1
+        lbl_text2.text = String(format: VBG_COURSE.PAGE_55.T2, getInsignia(forModule: .MOD_04))
+        
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
+        img_insignia.image = UIImage(named: BackgroundInsignia.insignia_04)
+        mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_04)
     }
     
     // MARK: - Acciones de navegación
@@ -1028,16 +925,26 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     @IBAction func endCourse(_ sender: UIButton) {
-        vbgDelegate?.goCourses()
+        mainDelegate?.setImageBackground(withName: nullString)
+        mainDelegate?.addToContainer(viewControllerID: .myCourses)
     }
-    
+    // MARK: - update buttons states
+    // change state for checkBox
     @IBAction func changeButtonState(_ sender: UIButton){
         sender.isSelected = !sender.isSelected
     }
+    
+    // Update selected option in radioGroup
+    @IBAction func updateRadioGroup(sender: UIButton) {
+        for button in answersButtons {
+            button.isSelected = (button == sender)
+        }
+    }
+    
     // Cambia el estado del boton que este reproduciendo el audio y actualiza los demás
-    private func updateButtonsState(sender: UIButton, buttons: [UIButton]) {
+    private func updateButtonsState(sender: UIButton) {
         if sender.isSelected {
-            for button in buttons {
+            for button in audioButtons {
                 if button != sender {
                     button.isSelected = false
                 }
@@ -1045,114 +952,17 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         }
     }
     
-    /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
-    private func checkingQuestionary(options: UIButton...) -> Bool {
-        
-        for option in options {
-            
-            if option.tag == CORRECT_OPTION {
-                guard option.isSelected else { return false }
-            }
-            else {
-                guard !option.isSelected else { return false }
-            }
-            
-        }
-        
-        return true
-    }
-    
+    // MARK: - Audio Functions
     @IBAction func playAudio(_ sender: UIButton) {
-        
         sender.isSelected = !sender.isSelected
-        
-        if VBG_13_AUD != nil && VBG_13_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_10, play: sender.isSelected) }
-        
-        if VBG_18_AUD != nil && VBG_18_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_11, play: sender.isSelected) }
-        
-        if VBG_20_AUD != nil && VBG_20_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_12, play: sender.isSelected) }
-            
-        if VBG_22_AUD != nil && VBG_22_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_13, play: sender.isSelected) }
-        
-        if VBG_24_AUD != nil && VBG_24_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_14, play: sender.isSelected) }
-        
-        if VBG_28_AUD != nil && VBG_28_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_15, play: sender.isSelected) }
-        
-        if VBG_38_AUD != nil && VBG_38_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_16, play: sender.isSelected) }
-        
-        if VBG_40_AUD != nil && VBG_40_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_20, play: sender.isSelected) }
-
-        if VBG_44_AUD != nil && VBG_44_AUD == sender { vbgDelegate?.audioManager(audioID: .AUD_21, play: sender.isSelected) }
+        vbgDelegate?.audioManager(audioID: sender.tag, play: sender.isSelected)
+        updateButtonsState(sender: sender)
     }
     
-    // MARK: - Module 1 Functions
-    // Reproduce o pausa los audios de "Ambitos"
-    @IBAction func playPauseAudio(_ sender: UIButton) {
-        
-        switch sender {
-        
-        case M1P2_AUD1:
-            vbgDelegate?.audioManager(audioID: .AUD_01, play: !M1P2_AUD1.isSelected)
-            M1P2_AUD1.isSelected = !M1P2_AUD1.isSelected
-            break
-            
-        case M1P2_AUD2:
-            vbgDelegate?.audioManager(audioID: .AUD_02, play: !M1P2_AUD2.isSelected)
-            M1P2_AUD2.isSelected = !M1P2_AUD2.isSelected
-            break
-            
-        case M1P2_AUD3:
-            vbgDelegate?.audioManager(audioID: .AUD_03, play: !M1P2_AUD3.isSelected)
-            M1P2_AUD3.isSelected = !M1P2_AUD3.isSelected
-            break
-       
-        default:
-            vbgDelegate?.audioManager(audioID: .AUD_04, play: !M1P2_AUD4.isSelected)
-            M1P2_AUD4.isSelected = !M1P2_AUD4.isSelected
-            break
-        }
-        
-        updateButtonsState(sender: sender, buttons: [M1P2_AUD1, M1P2_AUD2, M1P2_AUD3, M1P2_AUD4])
-    }
-    
-    // Reproduce o pausa los audios de "Tipos de Violencia"
-    @IBAction func playViolenceType(_ sender: UIButton) {
-        
-        switch sender {
-            
-        case M1P5_AUD1:
-            vbgDelegate?.audioManager(audioID: .AUD_05, play: !M1P5_AUD1.isSelected)
-            M1P5_AUD1.isSelected = !M1P5_AUD1.isSelected
-            break
-            
-        case M1P5_AUD2:
-            vbgDelegate?.audioManager(audioID: .AUD_06, play: !M1P5_AUD2.isSelected)
-            M1P5_AUD2.isSelected = !M1P5_AUD2.isSelected
-            break
-            
-        case M1P5_AUD3:
-            vbgDelegate?.audioManager(audioID: .AUD_07, play: !M1P5_AUD3.isSelected)
-            M1P5_AUD3.isSelected = !M1P5_AUD3.isSelected
-            break
-            
-        default:
-            vbgDelegate?.audioManager(audioID: .AUD_08, play: !M1P5_AUD4.isSelected)
-            M1P5_AUD4.isSelected = !M1P5_AUD4.isSelected
-            break
-        }
-        
-        updateButtonsState(sender: sender, buttons: [M1P5_AUD1, M1P5_AUD2, M1P5_AUD3, M1P5_AUD4])
-    }
-    
-    // Reproduce o pausa el audio de "Nunca olvides..."
-    @IBAction func playNeverForget(_ sender: UIButton) {
-        vbgDelegate?.audioManager(audioID: .AUD_09, play: !M1P6_AUD1.isSelected)
-        M1P6_AUD1.isSelected = !M1P6_AUD1.isSelected
-    }
-    
-    // MARK: - Crossword functions
+    // MARK: - TextField Delegate
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
+        // Cambia el foco a la siguente celda, cuando hay un caracter
         if textField.text!.count == MAX_LENGTH_CELL {
             if let nextField = getNextTextField(forTextField: textField.tag) {
                 nextField.becomeFirstResponder()
@@ -1165,18 +975,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = nil
-    }
+//    // Limpia la cailla cuando se empieza a editar
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        textField.text = nil
+//    }
     
+    /**
+     Determina cual es la celda siguiente a la que se debe cambiar el foco
+     de acuerdo a la celda actual, si no existe celda siguinete, retorna NIL
+     
+     - Parameter forTexfield: Id del textField actual
+     */
     private func getNextTextField(forTextField tag: Int) -> UITextField! {
         
+        // Cambia los ID de las celdas que comparten "LETRAS" de acuerdo a su predecesos
         M1CW_C_0309.tag = M1CW_C_0308.tag == tag ? 23 : 2
         M1CW_C_0502.tag = M1CW_C_0402.tag == tag ? 32 : 41
         M1CW_C_0509.tag = M1CW_C_0508.tag == tag ? 48 : 4
         M1CW_C_1009.tag = M1CW_C_1008.tag == tag ? 54 : 9
         M1CW_C_1209.tag = M1CW_C_1208.tag == tag ? 64 : 11
         
+        // Listado de los TextField del crugigrama
         let cw_cells = [M1CW_C_0209, M1CW_C_0307, M1CW_C_0308, M1CW_C_0309,
                         M1CW_C_0310, M1CW_C_0311, M1CW_C_0312, M1CW_C_0402,
                         M1CW_C_0409, M1CW_C_0502, M1CW_C_0503, M1CW_C_0504,
@@ -1188,171 +1007,128 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
                         M1CW_C_1012, M1CW_C_1109, M1CW_C_1206, M1CW_C_1207,
                         M1CW_C_1208, M1CW_C_1209, M1CW_C_1210, M1CW_C_1211]
         
+        // Busca en las lista de textFields la celda siguiente y la retorna
         for cell in cw_cells {
             if cell?.tag == (tag + 1) {
                 return cell
             }
         }
         
+        // retorna nulo si no se encuentra la celda siguinete
         return nil
     }
     
-    // Muestra ayuda
+    // MARK: - Ayudas
     @IBAction func showHelp(_ sender: UIButton) {
         
         switch sender {
             
-        case M1_CROSSWORD_BTN1:
-            vbgDelegate?.showPopupHelp(title: (M1_CROSSWORD_BTN1.titleLabel?.text)!, text: VGB_CROSSWORD.HELP_1)
+        case btn_help1:
+            vbgDelegate?.showPopupHelp(title: (btn_help1.titleLabel?.text)!, text: VBG_COURSE.PAGE_11.HELP_1)
             break
             
-        case M1_CROSSWORD_BTN2:
-            vbgDelegate?.showPopupHelp(title: (M1_CROSSWORD_BTN2.titleLabel?.text)!, text: VGB_CROSSWORD.HELP_2)
+        case btn_help2:
+            vbgDelegate?.showPopupHelp(title: (btn_help2.titleLabel?.text)!, text: VBG_COURSE.PAGE_11.HELP_2)
             break
             
-        case M1_CROSSWORD_BTN3:
-            vbgDelegate?.showPopupHelp(title: (M1_CROSSWORD_BTN3.titleLabel?.text)!, text: VGB_CROSSWORD.HELP_3)
+        case btn_help3:
+            vbgDelegate?.showPopupHelp(title: (btn_help3.titleLabel?.text)!, text: VBG_COURSE.PAGE_11.HELP_3)
             break
             
-        case M1_CROSSWORD_BTN4:
-            vbgDelegate?.showPopupHelp(title: (M1_CROSSWORD_BTN4.titleLabel?.text)!, text: VGB_CROSSWORD.HELP_4)
+        case btn_help4:
+            vbgDelegate?.showPopupHelp(title: (btn_help4.titleLabel?.text)!, text: VBG_COURSE.PAGE_11.HELP_4)
             break
             
-        case M1_CROSSWORD_BTN5:
-            vbgDelegate?.showPopupHelp(title: (M1_CROSSWORD_BTN5.titleLabel?.text)!, text: VGB_CROSSWORD.HELP_5)
+        case btn_help5:
+            vbgDelegate?.showPopupHelp(title: (btn_help5.titleLabel?.text)!, text: VBG_COURSE.PAGE_11.HELP_5)
             break
             
         default:
-            vbgDelegate?.showPopupHelp(title: (M1_CROSSWORD_BTN6.titleLabel?.text)!, text: VGB_CROSSWORD.HELP_6)
+            vbgDelegate?.showPopupHelp(title: (btn_help6.titleLabel?.text)!, text: VBG_COURSE.PAGE_11.HELP_6)
             break
         }
     }
     
-    // Valida las respuestas
-    @IBAction func checkCrossword(_ sender: UIButton) {
+    // MARK: - Validaciones
+    /// Verifica que el boton de opcion este seleccionado, si esta marcado como respuesta correcta, o deseleccionado en caso contrario
+    private func checkingQuestionary() -> Bool {
+        
+        for option in answersButtons {
+            if option.tag == CORRECT_OPTION {
+                guard option.isSelected else { return false }
+            }
+            else {
+                guard !option.isSelected else { return false }
+            }
+        }
+        return true
+    }
     
-        guard validateCrossword(word: M1CW_C_0209, M1CW_C_0309, M1CW_C_0409, M1CW_C_0509, M1CW_C_0609, M1CW_C_0709, M1CW_C_0809, M1CW_C_0909, M1CW_C_1009, M1CW_C_1109, M1CW_C_1209, option: .clue_01)
-            else {
-                printDebugMessage(tag: "clue_1")
-                vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
-                return
-        }
+    // Verifica por palabra, si corresponde a la respuesta esperada
+    @IBAction func checking_page_11 (_ sender: UIButton) {
         
-        guard validateCrossword(word: M1CW_C_0307, M1CW_C_0308, M1CW_C_0309, M1CW_C_0310, M1CW_C_0311, M1CW_C_0312, option: .clue_02)
+        guard
+            validateCrossword(word: crossword_word1, correctAnswer: VBG_COURSE.PAGE_11.clue_1),
+            validateCrossword(word: crossword_word2, correctAnswer: VBG_COURSE.PAGE_11.clue_2),
+            validateCrossword(word: crossword_word3, correctAnswer: VBG_COURSE.PAGE_11.clue_3),
+            validateCrossword(word: crossword_word4, correctAnswer: VBG_COURSE.PAGE_11.clue_4),
+            validateCrossword(word: crossword_word5, correctAnswer: VBG_COURSE.PAGE_11.clue_5),
+            validateCrossword(word: crossword_word6, correctAnswer: VBG_COURSE.PAGE_11.clue_6)
             else {
-                printDebugMessage(tag: "clue_2")
-                vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
-                return
-        }
-        
-        guard validateCrossword(word: M1CW_C_0402, M1CW_C_0502, M1CW_C_0602, M1CW_C_0702, M1CW_C_0802, M1CW_C_0902, option: .clue_03)
-            else {
-                printDebugMessage(tag: "clue_3")
-                vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
-                return
-        }
-        
-        guard validateCrossword(word: M1CW_C_0502, M1CW_C_0503, M1CW_C_0504, M1CW_C_0505, M1CW_C_0506, M1CW_C_0507, M1CW_C_0508, M1CW_C_0509, M1CW_C_0510, option: .clue_04)
-            else {
-                printDebugMessage(tag: "clue_4")
-                vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
-                return
-        }
-        
-        guard validateCrossword(word: M1CW_C_1006, M1CW_C_1007, M1CW_C_1008, M1CW_C_1009, M1CW_C_1010, M1CW_C_1011, M1CW_C_1012, option: .clue_05)
-            else {
-                printDebugMessage(tag: "clue_5")
-                vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
-                return
-        }
-        
-        guard validateCrossword(word: M1CW_C_1206, M1CW_C_1207, M1CW_C_1208, M1CW_C_1209, M1CW_C_1210, M1CW_C_1211, option: .clue_06)
-            else {
-                printDebugMessage(tag: "clue_6")
-                vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD1, inbold: nil, type: .failed)
+                vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_11.ERROR, inbold: nil, type: .failed)
                 return
         }
         
         nextPage(nil)
     }
-    
-    // MARK:- Module 2 Functions
-    @IBAction func checkModule2Test(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_15_BTN1, VBG_15_BTN2, VBG_15_BTN3, VBG_15_BTN4, VBG_15_BTN5) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD2, inbold: nil, type: .failed)
+    @IBAction func checking_page_15(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_15.ERROR, inbold: VBG_COURSE.PAGE_15.ERROR_INBOLD, type: .failed)
     }
     
-    // MARK: Module 3 Functions
-    @IBAction func checkModule3Question1(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_31_BTN1, VBG_31_BTN2, VBG_31_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q1, inbold: nil, type: .failed)
+    @IBAction func checking_page_31(_ sender: UIButton) {
+        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_31.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule3Question2(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_32_BTN1, VBG_32_BTN2, VBG_32_BTN3, VBG_32_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q2, inbold: nil, type: .failed)
+    @IBAction func checking_page_32(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule3Question3(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_33_BTN1, VBG_33_BTN2, VBG_33_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q3, inbold: nil, type: .failed)
+    @IBAction func checking_page_33(_ sender: UIButton) {
+        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_33.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule3Question4(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_34_BTN1, VBG_34_BTN2, VBG_34_BTN3, VBG_34_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD3_Q4, inbold: nil, type: .failed)
+    @IBAction func checking_page_34(_ sender: UIButton) {
+        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_34.ERROR, inbold: nil, type: .failed)
+    }
+    @IBAction func checking_page_47(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_47.ERROR, inbold: nil, type: .failed)
     }
     
-    // MARK: Module 4 Functions
-    // Reproduce o pausa los audios de "Conflicto armado, Medias"
-    @IBAction func playAudio_VBG39(_ sender: UIButton) {
-        
-        sender.isSelected = !sender.isSelected
-     
-        switch sender {
-     
-         case VBG_39_AUD1:
-            vbgDelegate?.audioManager(audioID: .AUD_17, play: sender.isSelected)
-            break
-     
-         case VBG_39_AUD2:
-            vbgDelegate?.audioManager(audioID: .AUD_18, play: sender.isSelected)
-            break
-     
-         default:
-            vbgDelegate?.audioManager(audioID: .AUD_19, play: sender.isSelected)
-            break
-         }
-     
-         updateButtonsState(sender: sender, buttons: [VBG_39_AUD1, VBG_39_AUD2, VBG_39_AUD3])
+    @IBAction func checking_page_48(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_48.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule4Question1(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_47_BTN1, VBG_47_BTN2, VBG_47_BTN3, VBG_47_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q1, inbold: nil, type: .failed)
+    @IBAction func checking_page_49(_ sender: UIButton) {
+        textField1.text == Strings.emergency_line_155 ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_49.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule4Question2(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_48_BTN1, VBG_48_BTN2, VBG_48_BTN3, VBG_48_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q2, inbold: nil, type: .failed)
+    @IBAction func checking_page_50(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_50.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule4Question3(_ sender: UIButton) {
-        VBG_49_INPUT.text == Strings.emergency_line_155 ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q3, inbold: nil, type: .failed)
-        nextPage(nil)
+    @IBAction func checking_page_51(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_51.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule4Question4(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_50_BTN1, VBG_50_BTN2, VBG_50_BTN3, VBG_50_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q4, inbold: nil, type: .failed)
+    @IBAction func checking_page_52(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_52.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule4Question5(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_51_BTN1, VBG_51_BTN2, VBG_51_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q5, inbold: nil, type: .failed)
+    @IBAction func checking_page_53(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_53.ERROR, inbold: nil, type: .failed)
     }
     
-    @IBAction func checkModule4Question6(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_52_BTN1, VBG_52_BTN2, VBG_52_BTN3) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q6, inbold: nil, type: .failed)
-    }
-    
-    @IBAction func checkModule4Question7(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_53_BTN1, VBG_53_BTN2, VBG_53_BTN3, VBG_53_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q7, inbold: nil, type: .failed)
-        nextPage(nil)
-    }
-    
-    @IBAction func checkModule4Question8(_ sender: UIButton) {
-        checkingQuestionary(options: VBG_54_BTN1, VBG_54_BTN2, VBG_54_BTN3, VBG_54_BTN4) ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VGB_ERROR_RES.MOD4_Q8, inbold: nil, type: .failed)
+    @IBAction func checking_page_54(_ sender: UIButton) {
+        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_54.ERROR, inbold: nil, type: .failed)
     }
 }

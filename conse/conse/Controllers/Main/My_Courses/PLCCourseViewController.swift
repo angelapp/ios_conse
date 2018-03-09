@@ -11,16 +11,14 @@ import AVFoundation
 
 class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate {
     
-
     // MARK: - Outlets
     @IBOutlet weak var leaders_table: UITableView!
     
     // MARK: - Properties
-    let maxPageIndex: Int = 58
-    
     var ncrAudio: AVAudioPlayer?
     var mainDelegate: MainProtocol?
     var isPlaying = nullString
+    let maxPageIndex: Int = 58
     var currentIndex: Int = 0
     
     // MARK: - Lifecycle
@@ -181,7 +179,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: LeaderTableViewCell
-        printDebugMessage(tag: "current page is LEADERS: \(currentIndex + 1)")
+        printDebugMessage(tag: "LEADERS INDEX: \(currentIndex + 1)")
         
         if currentIndex == LEADERS_INDEX.LEADERS_01.rawValue {
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_01, for: indexPath) as! LeaderTableViewCell

@@ -45,69 +45,69 @@ enum AUDIO_MALE: String {
  - Parameter forAudio: ID del audio
  - Returns: Nombre con el que esta guardado el audio.
  */
-func get_VBGAudioName(forAudio id: VBG_AUDIO_ID) -> String {
+func get_VBGAudioName(forAudio id: Int) -> String {
     let avatar_gender = AplicationRuntime.sharedManager.getAvatarGenderID()
     
     switch id {
         
-    case .AUD_01:
+    case VBG_AUDIO_ID.AUD_01.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_01.rawValue : AUDIO_FEMALE.VBG_female_01.rawValue
         
-    case .AUD_02:
+    case VBG_AUDIO_ID.AUD_02.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_02.rawValue : AUDIO_FEMALE.VBG_female_02.rawValue
         
-    case .AUD_03:
+    case VBG_AUDIO_ID.AUD_03.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_03.rawValue : AUDIO_FEMALE.VBG_female_03.rawValue
         
-    case .AUD_04:
+    case VBG_AUDIO_ID.AUD_04.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_04.rawValue : AUDIO_FEMALE.VBG_female_04.rawValue
         
-    case .AUD_05:
+    case VBG_AUDIO_ID.AUD_05.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_05.rawValue : AUDIO_FEMALE.VBG_female_05.rawValue
         
-    case .AUD_06:
+    case VBG_AUDIO_ID.AUD_06.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_06.rawValue : AUDIO_FEMALE.VBG_female_06.rawValue
         
-    case .AUD_07:
+    case VBG_AUDIO_ID.AUD_07.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_07.rawValue : AUDIO_FEMALE.VBG_female_07.rawValue
         
-    case .AUD_08:
+    case VBG_AUDIO_ID.AUD_08.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_08.rawValue : AUDIO_FEMALE.VBG_female_08.rawValue
         
-    case .AUD_09:
+    case VBG_AUDIO_ID.AUD_09.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_09.rawValue : AUDIO_FEMALE.VBG_female_09.rawValue
         
-    case .AUD_10:
+    case VBG_AUDIO_ID.AUD_10.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_10.rawValue : AUDIO_FEMALE.VBG_female_10.rawValue
         
-    case .AUD_11:
+    case VBG_AUDIO_ID.AUD_11.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_11_1.rawValue : AUDIO_FEMALE.VBG_female_11_1.rawValue
         
-    case .AUD_12:
+    case VBG_AUDIO_ID.AUD_12.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_12.rawValue : AUDIO_FEMALE.VBG_female_12.rawValue
         
-    case .AUD_13:
+    case VBG_AUDIO_ID.AUD_13.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_13.rawValue : AUDIO_FEMALE.VBG_female_13.rawValue
         
-    case .AUD_14:
+    case VBG_AUDIO_ID.AUD_14.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_14.rawValue : AUDIO_FEMALE.VBG_female_14.rawValue
         
-    case .AUD_15:
+    case VBG_AUDIO_ID.AUD_15.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_15.rawValue : AUDIO_FEMALE.VBG_female_15.rawValue
         
-    case .AUD_16:
+    case VBG_AUDIO_ID.AUD_16.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_16.rawValue : AUDIO_FEMALE.VBG_female_16.rawValue
         
-    case .AUD_17:
+    case VBG_AUDIO_ID.AUD_17.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_17.rawValue : AUDIO_FEMALE.VBG_female_17.rawValue
         
-    case .AUD_18:
+    case VBG_AUDIO_ID.AUD_18.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_18.rawValue : AUDIO_FEMALE.VBG_female_18.rawValue
         
-    case .AUD_19:
+    case VBG_AUDIO_ID.AUD_19.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_19.rawValue : AUDIO_FEMALE.VBG_female_19.rawValue
         
-    case .AUD_20:
+    case VBG_AUDIO_ID.AUD_20.rawValue:
         return avatar_gender == AvatarGenderIDs.male.rawValue ? AUDIO_MALE.VBG_male_20.rawValue : AUDIO_FEMALE.VBG_female_20.rawValue
         
     default:

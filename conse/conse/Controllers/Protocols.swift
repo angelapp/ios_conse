@@ -41,8 +41,7 @@ protocol LeadersProtocol: class {
 protocol VBGProtocol: class {
     func nextPage()
     func previusPage()
-    func goCourses()
-    func audioManager(audioID id: VBG_AUDIO_ID, play: Bool)
+    func audioManager(audioID id: Int, play: Bool)
     func showPopupHelp(title: String, text: String)
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
 }
