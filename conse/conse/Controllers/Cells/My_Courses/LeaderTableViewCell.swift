@@ -936,67 +936,67 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     /// Verifica los campos. Valida en casacada (Valida el sigiente sii el primero esta bien)
     @IBAction func checking_page_09() {
-        guard leaders_textField1.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer01.lowercased() else {
+        guard leaders_textField1.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer01.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField1.text = nil
             return
         }
 
-        guard (leaders_textField2.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased() ||
-            leaders_textField2.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased()) else {
+        guard (leaders_textField2.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased() ||
+            leaders_textField2.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField2.text = nil
             return
         }
 
-        guard (leaders_textField3.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased() ||
-            leaders_textField3.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased()) &&
+        guard (leaders_textField3.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased() ||
+            leaders_textField3.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer02.lowercased()) &&
             (leaders_textField3.text?.lowercased() != leaders_textField2.text?.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField3.text = nil
             return
         }
 
-        guard leaders_textField4.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer04.lowercased() else {
+        guard leaders_textField4.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer04.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField4.text = nil
             return
         }
 
-        guard (leaders_textField5.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer05.lowercased() ||
-              leaders_textField5.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer05_2.lowercased()) else {
+        guard (leaders_textField5.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer05.lowercased() ||
+              leaders_textField5.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer05_2.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField5.text = nil
             return
         }
 
-        guard leaders_textField6.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer06.lowercased() else {
+        guard leaders_textField6.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer06.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField6.text = nil
             return
         }
 
-        guard leaders_textField7.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer07.lowercased() else {
+        guard leaders_textField7.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer07.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField7.text = nil
             return
         }
 
-        guard leaders_textField8.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer08.lowercased() else {
+        guard leaders_textField8.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer08.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField8.text = nil
             return
         }
 
-        guard (leaders_textField9.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased() ||
-            leaders_textField9.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased()) else {
+        guard (leaders_textField9.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased() ||
+            leaders_textField9.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField9.text = nil
             return
         }
 
-        guard (leaders_textField10.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased() ||
-                leaders_textField10.text?.lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased()) && (
+        guard (leaders_textField10.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased() ||
+                leaders_textField10.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer09.lowercased()) && (
                 leaders_textField9.text?.lowercased() != leaders_textField10.text?.lowercased()) else {
                     leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                     leaders_textField10.text = nil

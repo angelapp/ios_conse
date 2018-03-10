@@ -31,8 +31,6 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     
     @IBOutlet weak var content_tilte: UIView!
     
-    @IBOutlet weak var img_1: UIImageView!
-    @IBOutlet weak var img_2: UIImageView!
     @IBOutlet weak var img_route: UIImageView!
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var img_insignia: UIImageView!
@@ -67,8 +65,6 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     @IBOutlet weak var lbl_text2: UILabel!
     @IBOutlet weak var lbl_text3: UILabel!
     @IBOutlet weak var lbl_text4: UILabel!
-    @IBOutlet weak var lbl_text5: UILabel!
-    @IBOutlet weak var lbl_text6: UILabel!
     @IBOutlet weak var lbl_title: UILabel!
     
     @IBOutlet weak var textField1: UITextField!
@@ -1109,7 +1105,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     @IBAction func checking_page_49(_ sender: UIButton) {
-        textField1.text == Strings.emergency_line_155 ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_49.ERROR, inbold: nil, type: .failed)
+        textField1.text?.trimmingCharacters(in: .whitespaces) == Strings.emergency_line_155 ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_49.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_50(_ sender: UIButton) {
