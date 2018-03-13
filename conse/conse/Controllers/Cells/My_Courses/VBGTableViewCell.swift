@@ -160,7 +160,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_03() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         
         lbl_title.text = VBG_COURSE.PAGE_03.T1
         lbl_subtitle.text = VBG_COURSE.PAGE_03.T2
@@ -173,7 +173,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_04() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_04.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_04.T1
         lbl_item1.text = VBG_COURSE.PAGE_04.ITEM_1
@@ -184,7 +184,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_05() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         
         btn_Aud1.isSelected = false
         btn_Aud2.isSelected = false
@@ -208,7 +208,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_06() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_06.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_06.T1
         lbl_text2.text = VBG_COURSE.PAGE_06.T2
@@ -226,14 +226,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_07() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_07.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_07.T1
         lbl_item1.text = VBG_COURSE.PAGE_07.ITEM_1
     }
     
     func fill_VBG_08() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud2.isSelected = false
         btn_Aud3.isSelected = false
@@ -255,7 +255,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_09() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_09.rawValue
         
@@ -268,13 +268,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_10() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_10.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_10.T1
     }
 
     // CrossWord
     func fill_VBG_11() {
+        mainDelegate?.setImageBackground(withName: nullString)
         lbl_text1.text = VBG_COURSE.PAGE_11.T1
         
         // Clear crossword
@@ -311,7 +312,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_12(){
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_review.text = Strings.review_content
         lbl_title.text = VBG_COURSE.PAGE_12.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_12.T1
@@ -324,7 +325,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     
     // MARK: MODULE 2
     func fill_VBG_13() {
-        content_tilte?.underline(withTop: true)
+        mainDelegate?.setImageBackground(withName: nullString)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_10.rawValue
         
@@ -337,13 +339,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_14() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_14.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_14.T1
     }
     
     func fill_VBG_15() {
-        content_tilte?.underline(withTop: true)
+        mainDelegate?.setImageBackground(withName: nullString)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_15.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_15.T1
         lbl_text2.text = VBG_COURSE.PAGE_15.T2
@@ -370,7 +373,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_16() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_review.text = Strings.review_content
         lbl_title.text = VBG_COURSE.PAGE_16.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_16.T1
@@ -383,7 +386,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     
     // MARK: MODULE 3
     func fill_VBG_17() {
-        content_tilte?.underline(withTop: true)
+        mainDelegate?.setImageBackground(withName: nullString)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_17.TITLE
         lbl_subtitle.text = VBG_COURSE.PAGE_17.SUBTITLE
         lbl_text1.text = VBG_COURSE.PAGE_17.T1
@@ -392,7 +396,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_18() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_11.rawValue
         
@@ -408,13 +412,13 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_19() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_19.TITLE
         img_route.image = UIImage(named: RoutesImages.route_VBG_19)
     }
     
     func fill_VBG_20() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_12.rawValue
         
@@ -429,13 +433,13 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     func fill_VBG_21() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_21.TITLE
         img_route.image = UIImage(named: RoutesImages.route_VBG_21)
     }
     
     func fill_VBG_22() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_13.rawValue
         
@@ -450,13 +454,13 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_23() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_23.TITLE
         img_route.image = UIImage(named: RoutesImages.route_VBG_23)
     }
 
     func fill_VBG_24() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_14.rawValue
         
@@ -471,25 +475,25 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_25() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_25.TITLE
         img_route.image = UIImage(named: RoutesImages.route_VBG_25)
     }
 
     func fill_VBG_26() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_26.TITLE
         img_route.image = UIImage(named: RoutesImages.route_VBG_26)
     }
 
     func fill_VBG_27() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_27.TITLE
         img_route.image = UIImage(named: RoutesImages.route_VBG_27)
     }
 
     func fill_VBG_28() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_14.rawValue
         
@@ -504,19 +508,19 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_29() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_29.TITLE
         img_route.image = UIImage(named: RoutesImages.route_VBG_29)
     }
 
     func fill_VBG_30() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_30.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_30.T1
     }
 
     func fill_VBG_31() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_31.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_31.T1
         
@@ -537,7 +541,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_32() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_32.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_32.QUESTION
@@ -560,7 +564,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_33() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_33.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_33.QUESTION
@@ -580,7 +584,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_34() {
-        content_tilte?.underline(withTop: true)
+        mainDelegate?.setImageBackground(withName: nullString)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_34.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_34.QUESTION
@@ -603,7 +608,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_35() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_review.text = Strings.review_content
         lbl_title.text = VBG_COURSE.PAGE_35.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_35.T1
@@ -616,14 +621,15 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
 
     // MARK: Modulo 4
     func fill_VBG_36() {
-        content_tilte?.underline(withTop: true)
+        mainDelegate?.setImageBackground(withName: nullString)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_36.TITLE
         lbl_subtitle.text = VBG_COURSE.PAGE_36.SUBTITLE
         lbl_text1.text = VBG_COURSE.PAGE_36.T1
     }
 
     func fill_VBG_37() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_37.TITLE
         lbl_subtitle.text = VBG_COURSE.PAGE_37.SUBTITLE
         lbl_text1.text = VBG_COURSE.PAGE_37.T1
@@ -632,7 +638,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_38() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_16.rawValue
         
@@ -647,7 +653,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_39() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud2.isSelected = false
         btn_Aud3.isSelected = false
@@ -668,20 +674,20 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_40() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_20.rawValue
         
         audioButtons = [btn_Aud1]
         
-        VBG_40_LBL1.text = VBG_COURSE.PAGE_40.TITLE
+        lbl_title.text = VBG_COURSE.PAGE_40.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_40.T1
         lbl_Aud1.text = VBG_COURSE.PAGE_40.AUDIO_1
         img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
 
     func fill_VBG_41() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_41.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_41.T1
         lbl_text2.text = VBG_COURSE.PAGE_41.T2
@@ -694,7 +700,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_42() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_42.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_42.T1
         lbl_text2.text = VBG_COURSE.PAGE_42.T2
@@ -703,7 +709,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_43() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_43.TITLE
         lbl_text1.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_43.T1, toWord: VBG_COURSE.PAGE_43.T1_inBOLD, fontSize: lbl_text1.font.pointSize)
         lbl_text2.attributedText = addBoldWord(forText: VBG_COURSE.PAGE_43.T2, toWord: VBG_COURSE.PAGE_43.T2_inBOLD, fontSize: lbl_text2.font.pointSize)
@@ -712,7 +718,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_44() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         btn_Aud1.isSelected = false
         btn_Aud1.tag = VBG_AUDIO_ID.AUD_20.rawValue
         
@@ -725,19 +731,19 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_45() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_45.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_45.T1
     }
 
     func fill_VBG_46() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_46.TITLE
         videoPlayer.delegate = self
     }
 
     func fill_VBG_47() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_47.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_47.T1
         
@@ -761,7 +767,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_48() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_48.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_48.QUESTION
@@ -785,14 +791,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_49() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_49.TITLE
         lbl_question.text = VBG_COURSE.PAGE_49.QUESTION
         textField1.text = nullString
     }
 
     func fill_VBG_50() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_50.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_50.QUESTION
@@ -807,16 +813,16 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.isSelected = false
         
         // set tag for identify correct option
-        lbl_option1.tag = CORRECT_OPTION
-        lbl_option2.tag = WRONG_OPTION
-        lbl_option3.tag = CORRECT_OPTION
-        lbl_option4.tag = CORRECT_OPTION
+        btn_opt1.tag = CORRECT_OPTION
+        btn_opt2.tag = WRONG_OPTION
+        btn_opt3.tag = CORRECT_OPTION
+        btn_opt4.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
     }
 
     func fill_VBG_51() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_51.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_51.QUESTION
@@ -837,7 +843,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_52() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_52.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_52.QUESTION
@@ -846,15 +852,15 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         lbl_option3.text = VBG_COURSE.PAGE_52.OPT3
         
         // set tag for identify correct option
-        lbl_option1.tag = WRONG_OPTION
-        lbl_option2.tag = CORRECT_OPTION
-        lbl_option3.tag = CORRECT_OPTION
+        btn_opt1.tag = WRONG_OPTION
+        btn_opt2.tag = CORRECT_OPTION
+        btn_opt3.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3]
     }
 
     func fill_VBG_53() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_53.TITLE
         
         lbl_question.text = VBG_COURSE.PAGE_53.QUESTION
@@ -878,7 +884,10 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_54() {
-        content_tilte?.underline(withTop: true)
+        mainDelegate?.setImageBackground(withName: nullString)
+        content_tilte?.topline()
+        
+        lbl_title.text = VBG_COURSE.PAGE_54.TITLE
         lbl_question.text = VBG_COURSE.PAGE_54.QUESTION
         lbl_option1.text = VBG_COURSE.PAGE_54.OPT1
         lbl_option2.text = VBG_COURSE.PAGE_54.OPT2
@@ -900,7 +909,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
 
     func fill_VBG_55() {
-        content_tilte?.underline(withTop: true)
+        content_tilte?.topline()
         lbl_review.text = Strings.review_content
         lbl_title.text = VBG_COURSE.PAGE_55.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_55.T1
@@ -1086,7 +1095,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     }
     
     @IBAction func checking_page_32(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
+        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
     }
     
     @IBAction func checking_page_33(_ sender: UIButton) {

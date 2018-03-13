@@ -535,19 +535,20 @@ enum INSIGNIA: Int {
 func getInsignia(forModule module: INSIGNIA) -> String {
     
     let userGender = AplicationRuntime.sharedManager.getUserProfile().gender.name
+    let maleGender = "masculino"
     
     switch module {
         
     case .MOD_01:
-        return (userGender?.lowercased() == "masculino") ? "Consejero Conocedor" : "Consejera Conocedora"
+        return (userGender?.lowercased() == maleGender) ? "Consejero Conocedor" : "Consejera Conocedora"
         
     case .MOD_02:
-        return (userGender?.lowercased() == "masculino") ? "Consejero Experto" : "Consejera Experta"
+        return (userGender?.lowercased() == maleGender) ? "Consejero Experto" : "Consejera Experta"
         
     case .MOD_03:
-        return (userGender?.lowercased() == "masculino") ? "Consejero Avanzado" : "Consejera Avanzada"
+        return (userGender?.lowercased() == maleGender) ? "Consejero Avanzado" : "Consejera Avanzada"
         
     default:
-        return (userGender?.lowercased() == "masculino") ? "Consejero Estrella" : "Consejera Estrella"
+        return (userGender?.lowercased() == maleGender) ? "Consejero Estrella" : "Consejera Estrella"
     }
 }

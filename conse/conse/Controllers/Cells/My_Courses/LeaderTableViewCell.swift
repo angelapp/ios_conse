@@ -122,7 +122,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader02() {
-        content_tilte.underline(withTop: true)
+        content_tilte.topline()
+        content_tilte.underline()
         
         leaders_title.text = LEADERS_COURSE.PAGE_02.title
         leaders_subtitle.text = LEADERS_COURSE.PAGE_02.subtitle
@@ -141,7 +142,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader03() {
-        content_tilte.underline(withTop: true)
+        content_tilte.topline()
+        content_tilte.underline()
         
         leaders_title.text = LEADERS_COURSE.PAGE_03.title
         leaders_text1.text = LEADERS_COURSE.PAGE_03.t1
@@ -156,7 +158,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader04() {
-        content_tilte.underline(withTop: true)
+        content_tilte.topline()
+        content_tilte.underline()
         
         leaders_title.text = LEADERS_COURSE.PAGE_04.title
         
@@ -179,7 +182,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader05() {
-        content_tilte.underline(withTop: true)
+        content_tilte.topline()
+        content_tilte.underline()
         
         leaders_title.text = LEADERS_COURSE.PAGE_05.title
         

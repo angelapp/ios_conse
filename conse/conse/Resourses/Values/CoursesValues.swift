@@ -9,8 +9,11 @@
 import Foundation
 
 enum CourseIDs: Int {
-    case VBG = 1
-    case PLC = 2
+    case VBG = 1, PLC = 2
+}
+
+enum TopicsIDs: Int {
+    case mod_01, mod_02, mod_03, mod_04
 }
 
 enum AudioAction: Int {

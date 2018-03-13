@@ -64,8 +64,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     // MARK: - private functions
     private func addStyles() {
         setAspectFitToButton(buttons: btn_alert, btn_loggin)
-        tf_email.underline(margin: ConseValues.margin, padding: ConseValues.innerMargin, color: .white)
-        tf_password.underline(margin: ConseValues.margin, padding: ConseValues.innerMargin, color: .white)
+        tf_email.underline(margin: ConseValues.margin, color: .white)
+        tf_password.underline(margin: ConseValues.margin, color: .white)
         
         tf_email.delegate = self
         tf_password.delegate = self

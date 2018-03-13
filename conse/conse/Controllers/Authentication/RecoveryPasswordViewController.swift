@@ -56,7 +56,7 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
     private func addStyles() {
         
         setAspectFitToButton(buttons: btn_alert, btn_send, btn_back)
-        tf_email.underline(margin: ConseValues.margin, padding: ConseValues.innerMargin, color: .white)
+        tf_email.underline(margin: ConseValues.margin, color: .white)
         tf_email.delegate = self
         
         btn_alert.isHidden = !states.wasLoggedAtSomeTime

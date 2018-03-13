@@ -22,14 +22,13 @@ extension UIView {
     }
     
     /**
-     Crea una capa para agregar una linea inferior y una linea top
+     Crea una capa para agregar una linea inferior
      
      - Parameter margin: (Optional) Valor del espacio entre la visa y el borde de pantalla
      - Parameter padding: (Octional) Porcentage de espacio entre el border de la vista y la capa. Su valor por defecto es 0, admite valores entre 0 - 0.25
      - Parameter color: (Opcional) Color de la linea, por defecto es gris
-     - Parameter withTop: (Opcional) Boleano, determina si se debe poner linea top, por defecto esta en FALSO
      */
-    func underline(margin: CGFloat? = nil, padding: CGFloat? = 0.0, color: UIColor? = .gray, withTop: Bool? = false) {
+    func underline(margin: CGFloat? = nil, padding: CGFloat? = 0.0, color: UIColor? = .gray) {
         
         // Verifica que los valores esten dentro de un rango porcentual,
         // es decir, entre (0 - 1)
@@ -60,22 +59,26 @@ extension UIView {
         // Se agrega el grosor del borde
         border.borderWidth = borderWidth
         
-        // Se crea nueva capa para agregar linea top si se requiere
-        if withTop! {
-            let top = CALayer()
-            
-            top.borderColor = color?.cgColor
-            top.frame = CGRect(x: ConseValues.defaultPositionX + borderPadding,
-                                  y: ConseValues.defaultPositionY,
-                                  width:  width - (borderPadding * 2),
-                                  height: borderWidth)
-            
-            top.borderWidth = borderWidth
-            self.layer.addSublayer(top)
-        }
-        
         // Se agrega la nueva capa a la vista
         self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+    }
+    
+    /// Crea una linea y la agrega al top de la vista
+    func topline(color: UIColor? = .lightGray) {
+        
+        let top = CALayer()
+        let borderWidth = CGFloat(1.0)
+        let width = UIScreen.main.bounds.width
+        
+        top.borderColor = color?.cgColor
+        top.frame = CGRect(x: ConseValues.defaultPositionX,
+                           y: ConseValues.defaultPositionY,
+                           width:  width,
+                           height: borderWidth)
+        
+        top.borderWidth = borderWidth
+        self.layer.addSublayer(top)
         self.layer.masksToBounds = true
     }
 }
@@ -97,5 +100,11 @@ extension UIButton {
     
     func rounder(){
         self.addRadius(radius: (self.frame.size.height / 2))
+    }
+    
+    func setImageButton(normal: UIImage, hover: UIImage) {
+        self.setImage(normal, for: .normal)
+        self.setImage(hover, for: .highlighted)
+        self.setImage(hover, for: .selected)
     }
 }

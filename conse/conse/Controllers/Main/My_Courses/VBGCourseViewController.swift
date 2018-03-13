@@ -275,7 +275,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_12, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fill_VBG_12(height: self.vbg_table.bounds.size.height)
+            cell.fill_VBG_12()
             
             return cell
         }
@@ -307,7 +307,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_16, for: indexPath) as! VBGTableViewCell
             
             cell.vbgDelegate = self
-            cell.fill_VBG_16(height: self.vbg_table.bounds.size.height)
+            cell.fill_VBG_16()
             
             return cell
         }
@@ -459,7 +459,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_35, for: indexPath) as! VBGTableViewCell
 
             cell.vbgDelegate = self
-            cell.fill_VBG_35(height: self.vbg_table.bounds.size.height)
+            cell.fill_VBG_35()
 
             return cell
         }
@@ -619,7 +619,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.VBG_55, for: indexPath) as! VBGTableViewCell
 
             cell.vbgDelegate = self
-            cell.fill_VBG_55(height: self.vbg_table.bounds.size.height)
+            cell.fill_VBG_55()
 
             return cell
         }

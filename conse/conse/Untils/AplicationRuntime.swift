@@ -95,6 +95,21 @@ class AplicationRuntime {
         return appConfig.state_Array
     }
     
+    public func getState(fromID id:String) -> String {
+        
+        guard appConfig != nil, appConfig.state_Array != nil else {
+            return Strings.texfiled_placeholder
+        }
+        
+        for state in appConfig.state_Array {
+            if state.id == Int(id) || state.name == id {
+                return state.name
+            }
+        }
+        
+        return Strings.texfiled_placeholder
+    }
+    
     public func getCityList(forState name:String) -> Array<City> {
         
         guard appConfig != nil, appConfig.city_Array != nil else {

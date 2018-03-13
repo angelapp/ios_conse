@@ -101,6 +101,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var constraints_register_height: NSLayoutConstraint!
     @IBOutlet weak var constraints_terms_height: NSLayoutConstraint!
     @IBOutlet weak var constraints_userConse_Height: NSLayoutConstraint!
+    @IBOutlet weak var constraints_scrollBottom: NSLayoutConstraint!
     
     // MARK: - propeties
     
@@ -136,12 +137,12 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     // variables para guardar los id de los elementos seleccionados
     var pickerDate: Date!
-    var actualCityID: Int!
     var conditionID: Int!
     var documentTypeID: Int!
     var ethniGroupID: Int!
     var genderID: Int!
-    var originCityID: Int!
+    var geoCityID: Int!
+    var geoStateID: Int!
     var roleID: Int!
 
      // MARK: - Lifecycle
@@ -188,7 +189,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             scroll.contentSize = CGSize(width: self.scroll.bounds.size.width, height: self.scroll.bounds.size.height + keyboardSize.height)
             
-            if actualViewYPosition >= keyboardSize.height{
+            if actualViewYPosition >= keyboardSize.height {
                 scroll.setContentOffset(CGPoint(x: 0, y: actualViewYPosition - keyboardSize.height), animated: true)
             }
         }
@@ -214,10 +215,15 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         navBar.isHidden = formType == .editProfile
         constraints_navBar.constant = formType == .editProfile ? 0 : 40
+        constraints_scrollBottom.constant = formType == .editProfile ? 58 : 20
         
         setAspectFitToButton(buttons: btn_next, btn_back)
         picker_birthday.maximumDate = Date()
         picker_birthday.date = picker_birthday.minimumDate!
+        
+        /// set de botton image
+        if formType == .editProfile { btn_next.setImageButton(normal: #imageLiteral(resourceName: "btn_actualizar"), hover: #imageLiteral(resourceName: "btn_actualizar_hover")) }
+        else { btn_next.setImageButton(normal: #imageLiteral(resourceName: "btn_siguiente_01"), hover: #imageLiteral(resourceName: "btn_siguientehover_01")) }
         
         // width of under line
         let underlineWidth = (ConseValues.margin + ConseValues.innerMargin)
@@ -277,6 +283,9 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     /// Llena la vista, deacuerdo al tag (Register or EditProfile)
     private func fillView() {
+        
+        enableDisableCity()
+        
         checkTerms.isHidden = formType != .register
         lbl_title.text = formType == .register ? Strings.copy_profileTitle : Strings.copy_profileEdit
         tf_email.isEnabled = formType == .register
@@ -321,10 +330,10 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     ethniGroupID = profile.ethnic_group.id
                     promt_ethnic_group.text = profile.ethnic_group.name
                     
-                    actualCityID = Int(profile.origin_city.name)
+//                    geoStateID = Int(profile.origin_city.state)!
 //                    promt_geo_state.text = profile.origin_city.state
                     
-                    originCityID = profile.origin_city.id
+                    geoCityID = profile.origin_city.id
                     promt_geo_city.text = profile.origin_city.name
                     
                     conditionID = profile.condition.id
@@ -367,6 +376,11 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             profile = AplicationRuntime.sharedManager.getUserProfile()
             user = AplicationRuntime.sharedManager.getUser()
         }
+    }
+    
+    private func enableDisableCity() {
+        btn_geo_city.isEnabled = geoStateID != nil
+        promt_geo_city.textColor = btn_geo_city.isEnabled ? Colors().getColor(from: ConseColors.orange.rawValue) : .darkGray
     }
     
     /// Show picker view
@@ -501,11 +515,11 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         if isBeneficiaryNCR {
             newUSR.document_number = tf_dni_number.text
-            newUSR.actual_city = actualCityID
+            newUSR.actual_city = geoStateID
             newUSR.condition = conditionID
             newUSR.document_type = documentTypeID
             newUSR.ethnic_group = ethniGroupID
-            newUSR.origin_city = originCityID
+            newUSR.origin_city = geoCityID
             newUSR.role = roleID
         }
         
@@ -561,7 +575,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 AplicationRuntime.sharedManager.setUserData(user: user)
                 
                 if self.formType == .editProfile {
-                    self.mainDelegate?.removeOfContainer()
+                    self.mainDelegate?.addToContainer(viewControllerID: .myCourses)
                     self.mainDelegate?.showMessageInMain(withMessage: Strings.message_ok_update)
                 }
                 else {
@@ -684,12 +698,13 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
         case stateTag:
             promt_geo_state.text = stateList[row].name
-            actualCityID = stateList[row].id
+            geoStateID = stateList[row].id
+            enableDisableCity()
             break
             
         case cityTag:
             promt_geo_city.text = cityList[row].name
-            originCityID = cityList[row].id
+            geoCityID = cityList[row].id
             break
             
         case conditionTag:
@@ -741,7 +756,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             break
             
         case btn_geo_city:
-            guard promt_geo_state.text != nil, promt_geo_state.text?.lowercased() != Strings.texfiled_placeholder.lowercased() else { return }
+//            guard promt_geo_state.text != nil, promt_geo_state.text?.lowercased() != Strings.texfiled_placeholder.lowercased() else { return }
             cityList = AplicationRuntime.sharedManager.getCityList(forState: promt_geo_state.text!)
             picker.tag = cityTag
             break

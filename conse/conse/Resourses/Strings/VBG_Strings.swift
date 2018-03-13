@@ -125,7 +125,7 @@ struct VBG_COURSE {
     struct PAGE_12 {
         static let TITLE = VBG_COURSE.PAGE_04.TITLE
         static let T1 = "¡Buen trabajo!"
-        static let T2 = "¡Es un honor concederte el título de %s!"
+        static let T2 = "¡Es un honor concederte el título de %@!"
     }
     
     // MARK: - Module 2
@@ -157,7 +157,7 @@ struct VBG_COURSE {
     struct PAGE_16 {
         static let TITLE = VBG_COURSE.PAGE_13.SUBTITLE
         static let T1 = "¡Excelente!"
-        static let T2 = "Ahora debo llamarte Consejero Experto. ¡Buen trabajo!"
+        static let T2 = "Ahora debo llamarte %@. ¡Buen trabajo!"
     }
     
     // Modulo 3
@@ -281,7 +281,7 @@ struct VBG_COURSE {
     struct PAGE_35 {
         static let TITLE = VBG_COURSE.PAGE_17.SUBTITLE
         static let T1 = "¡Excelente!"
-        static let T2 = "¡Mira que lejos estás del inicio! ¡Felicitaciones ya eres una Consejera Avanzada! ¡Ve por más!"
+        static let T2 = "¡Mira que lejos estás del inicio! ¡Felicitaciones ya eres %@! ¡Ve por más!"
     }
     
     // Module 4
@@ -328,7 +328,8 @@ struct VBG_COURSE {
         static let ITEM_2 = "En lo posible, debes presentar tu declaración por TODOS los hechos de los que has sido víctima."
         static let ITEM_3 = "No deben exigirte documentos que comprueben los hechos de los que fuiste víctima."
         static let ITEM_4 = "No deben negarse bajo ningún motivo a recibir tu declaración."
-        static let ITEM_5 = "Ten en cuenta que con la sola declaración tienes la posibilidad de acceder a medidas de ayuda humanitaria inmediata."
+        static let ITEM_5 = "Ten en cuenta que con la sola declaración tienes la posibilidad de acceder a medidas de ayuda humanitaria inmediata por parte de la Alcaldía."
+        static let ITEM_6 = "Una vez estés inscrita en el RUV, tienes derecho a recibir ayudas humanitarias de emergencia y transición por parte de la Unidad para las Víctimas."
     }
     
     struct PAGE_42 {
@@ -444,7 +445,7 @@ struct VBG_COURSE {
     struct PAGE_55 {
         static let TITLE = VBG_COURSE.PAGE_36.SUBTITLE
         static let T1 = "¡Buen trabajo!"
-        static let T2 = "Te has esforzado al máximo y has logrado cumplir la meta. Finalmente has alcanzado el último nivel ¡Felicitaciones Consejera Estrella!"
+        static let T2 = "Te has esforzado al máximo y has logrado cumplir la meta. Finalmente has alcanzado el último nivel ¡Felicitaciones %@!"
     }
 }
 

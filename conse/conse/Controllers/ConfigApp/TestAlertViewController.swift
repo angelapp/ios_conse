@@ -36,11 +36,10 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     // MARK: - functions
     func startStepTwo(error: Bool) {
         
-        guard !error else {
+        if !error {
             self.view.makeToast(message: Strings.error_message_notAvailableAction,
                                 duration: 5.0,
                                 position: HRToastPositionDefault as AnyObject)
-            return
         }
         
         cnt_step1.isHidden = true
@@ -53,15 +52,6 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     // MARK: - Actions
     @IBAction func sendAlertTest(_ sender: UIButton) {
         self.showEmergencyPopup(senderVC: .testAlert, testDelegate: self)
-//        let sb = UIStoryboard(name: StoryboardsId.popup, bundle: nil)
-//        let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.sendAlertPopup) as! SendAlertPopupViewController
-//
-//        nextVC.alertMessage = Strings.copy_testAlertMessage
-//        nextVC.launchVC = .testAlert
-//        nextVC.testAlertDelegate = self
-//        nextVC.modalPresentationStyle = .overCurrentContext
-//        nextVC.modalTransitionStyle = .crossDissolve
-//        present(nextVC, animated: true, completion: nil)
     }
 
     @IBAction func backAction(_ sender: UIButton) {
