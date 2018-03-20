@@ -42,7 +42,7 @@ struct VBG_COURSE {
     
     struct PAGE_04 {
         static let TITLE = "¿Cómo saber si soy víctima de violencia?"
-        static let T1 = "Según la ley, la violencia contra las mujeres presenta las siguientes características"
+        static let T1 = "Según la ley, la violencia contra las mujeres presenta las siguientes características:"
         static let ITEM_1 = "Te ocurre por ser mujer. Esto significa que ser mujer es lo que te pone en riesgo."
         static let ITEM_2 = "Te puede ocurrir a ti o a cualquier mujer, no hay excepciones."
         static let ITEM_3 = "Es un delito y por lo tanto merece un castigo o pena."
@@ -79,8 +79,8 @@ struct VBG_COURSE {
     
     struct PAGE_07 {
         static let TITLE = VBG_COURSE.PAGE_04.TITLE
-        static let T1 = "Otro aspecto a tener en cuentra es que, aunque no existe un listado de hechos que se consideren violentos contra las mujeres, la ley describe que las siguientes modalidades mediante las cuales se puede manifestar violencia en cualquiera de los espacios mencionados anteriormente"
-        static let ITEM_1 = "Los siguientes son los tipos de violencia a los que están expuestas las mujeres; conocerlos te puede ayudar a identificar si eres víctima. Pulsa sobre el triángulo dentro del círculo para escuchar el audio con su descripción:"
+        static let ITEM_1 = "Otro aspecto a tener en cuentra es que, aunque no existe un listado de hechos que se consideren violentos contra las mujeres, la ley describe que las siguientes modalidades mediante las cuales se puede manifestar violencia en cualquiera de los espacios mencionados anteriormente"
+        static let T1 = "Los siguientes son los tipos de violencia a los que están expuestas las mujeres; conocerlos te puede ayudar a identificar si eres víctima. Pulsa sobre el triángulo dentro del círculo para escuchar el audio con su descripción:"
     }
     
     struct PAGE_08 {
@@ -186,7 +186,7 @@ struct VBG_COURSE {
         static let TITLE = VBG_COURSE.PAGE_17.SUBTITLE
         static let SUBTITLE = "Solicita atención en salud"
         static let T1 = "Tienes el derecho de acudir o ser transladada un centro de salud, hospital o clínica, para que te brinden la atención médica y psicológica"
-        static let AUDIO_1 = "Ten en cuenta..."
+        static let AUDIO_1 = "Ten en cuenta:"
     }
     
     struct PAGE_21 {
@@ -197,7 +197,7 @@ struct VBG_COURSE {
         static let TITLE = VBG_COURSE.PAGE_17.SUBTITLE
         static let SUBTITLE = "Accede a la justicia"
         static let T1 = "Tienes derecho a que los hechos sean investigados y que el agresor sea juzgado y castigado, así tu podrás exigir la reparación de los daños que has sufrido y la no repetición de los hechos."
-        static let AUDIO_1 = "Ten en cuenta..."
+        static let AUDIO_1 = "Ten en cuenta:"
     }
     
     struct PAGE_23 {
@@ -208,7 +208,7 @@ struct VBG_COURSE {
         static let TITLE = VBG_COURSE.PAGE_17.SUBTITLE
         static let SUBTITLE = "Solicita medidas de protección"
         static let T1 = "Tienes derecho a proteger tu integridad y la de tus hijos e hijas y poner fin a la violencia. Para ello, existen medidas específicas e inmediatas conocidas como “medidas de protección” que pueden ser otorgadas por las autoridades competentes."
-        static let AUDIO_1 = "Ten en cuenta..."
+        static let AUDIO_1 = "Ten en cuenta:"
     }
     
     struct PAGE_25 {
@@ -227,7 +227,7 @@ struct VBG_COURSE {
         static let TITLE = VBG_COURSE.PAGE_17.SUBTITLE
         static let SUBTITLE = "Solicita medidas de atención"
         static let T1 = "Tienes derecho, si es necesario, a acceder a servicios temporales de habitación, alimentación y/o transporte para ti y tus hijos e hijas. Estos servicios forman parte de tu derecho fundamental a la salud."
-        static let AUDIO_1 = "Ten en cuenta..."
+        static let AUDIO_1 = "Ten en cuenta:"
     }
     
     struct PAGE_29 {
@@ -301,7 +301,7 @@ struct VBG_COURSE {
         static let TITLE = VBG_COURSE.PAGE_36.SUBTITLE
         static let SUBTITLE = "Solicita medidas de protección especiales"
         static let T1 = "Si eres una lideresa, una defensora de derechos humanos o una mujer víctima del conflicto armado; amenazada y en riesgo, tienes derecho a proteger tu vida, integridad, libertad y seguridad."
-        static let AUDIO_1 = "Ten en cuenta..."
+        static let AUDIO_1 = "Ten en cuenta:"
     }
     
     struct PAGE_39 {
@@ -316,7 +316,7 @@ struct VBG_COURSE {
     struct PAGE_40 {
         static let TITLE = VBG_COURSE.PAGE_36.SUBTITLE
         static let T1 = "Ahora que conoces cuáles son las medidas de protección a las que tienes derecho y a qué entidades debes acudir para obtenerlas, ten presentes las siguientes recomendaciones:"
-        static let AUDIO_1 = "Ten en cuenta..."
+        static let AUDIO_1 = "Ten en cuenta:"
     }
     
     struct PAGE_41 {

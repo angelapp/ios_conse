@@ -123,6 +123,22 @@ extension ProgressPreferences {
     }
 }
 
+// Extensión de ProgressPreferences para agregar los metodos de Archivar o Desarchivar
+extension ProgressActivitiesPreferences {
+    
+    /// Archiva los cursos
+    class func archive(course: [String:Any]) -> Data! {
+        return NSKeyedArchiver.archivedData(withRootObject: course)
+    }
+    
+    /// Desarchiva la lista
+    /// - Returns: diccionario con los indices de los cursos
+    class func unarchive (data: Data) -> [String:Any]! {
+        guard let course = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else {return nil}
+        return course
+    }
+}
+
 // Extensión de AvatarPreferences para agregar los métodos Archivar o Desarchivar
 extension MyAvatarPreferences {
     

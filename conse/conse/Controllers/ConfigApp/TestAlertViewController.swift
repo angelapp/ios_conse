@@ -36,17 +36,17 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     // MARK: - functions
     func startStepTwo(error: Bool) {
         
-        if !error {
-            self.view.makeToast(message: Strings.error_message_notAvailableAction,
-                                duration: 5.0,
-                                position: HRToastPositionDefault as AnyObject)
-        }
-        
         cnt_step1.isHidden = true
         cnt_step2.isHidden = false
         
         img_step1.image = #imageLiteral(resourceName: "circulo_blanco")
         img_step2.image = #imageLiteral(resourceName: "circulo_amarillo")
+        
+        if error {
+            self.view.makeToast(message: Strings.error_message_notAvailableAction,
+                                duration: 5.0,
+                                position: HRToastPositionDefault as AnyObject)
+        }
     }
     
     // MARK: - Actions

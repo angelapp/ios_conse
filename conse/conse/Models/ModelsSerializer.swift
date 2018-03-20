@@ -508,6 +508,7 @@ class Role: Mappable {
     }
 }
 
+// MARK: - CONTÁCTANOS
 class ContactFormType: Mappable {
     
     var  id: Int!
@@ -552,7 +553,7 @@ class ContactForm: Mappable {
         detail <- map[JSONKeys.detail]
     }
 }
-
+// MARK: - CURSOS
 class Course: Mappable {
     
     var  id: Int!
@@ -604,6 +605,8 @@ class Topic: Mappable {
         abreviature <- map[JSONKeys.abreviature]
         description <- map[JSONKeys.description]
         icon <- map[JSONKeys.icon]
+        
+        topic_activity_list <- map[JSONKeys.topic_activity_list]
     }
 }
 
@@ -616,6 +619,7 @@ class TopicActivity: Mappable {
     var  description: String!
     var  icon: String!
     var  ponderation_progress: Int!
+    var  dateCompleted: String!
     
     //inicializador vacio
     init() {
@@ -632,6 +636,7 @@ class TopicActivity: Mappable {
         description <- map[JSONKeys.description]
         icon <- map[JSONKeys.icon]
         ponderation_progress <- map[JSONKeys.ponderation_progress]
+        dateCompleted <- map[JSONKeys.date_completed]
     }
 }
 
@@ -716,7 +721,7 @@ class UserAvatar: Mappable {
     }
 }
 
-// MARK: NEWS MODELS
+// MARK: - NEWS MODELS
 class NewsCategory: Mappable {
     
     var id: Int!

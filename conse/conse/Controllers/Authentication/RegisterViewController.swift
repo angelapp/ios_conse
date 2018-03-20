@@ -756,7 +756,6 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             break
             
         case btn_geo_city:
-//            guard promt_geo_state.text != nil, promt_geo_state.text?.lowercased() != Strings.texfiled_placeholder.lowercased() else { return }
             cityList = AplicationRuntime.sharedManager.getCityList(forState: promt_geo_state.text!)
             picker.tag = cityTag
             break

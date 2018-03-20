@@ -246,3 +246,19 @@ struct segueID {
     static let tutorialResgister = "tutorialResgister"
     static let welcomeResgister = "welcomeResgister"
 }
+
+/// Nombre de las actividades
+enum ActivitiesAbreviature: String {
+    
+    // Violencia Basada en Género
+    case MOD_1_R, MOD_1_CW1
+    case MOD_2_R, MOD_1_Q1
+    case MOD_3_R, MOD_3_Q1, MOD_3_Q2, MOD_3_Q3, MOD_3_Q4
+    case MOD_4_R, MOD_4_Q1
+    
+    // Lideres
+    case L_MOD_1_R, L_MOD_1_COMPLETE
+    case L_MOD_2_R, L_MOD_2_Q1, L_MOD_2_Q2
+    case L_MOD_3_R, L_MOD_3_Q1, L_MOD_3_Q2, L_MOD_3_Q3
+    case L_MOD_4_R, L_MOD_4_VIDEO, L_MOD_4_Q1, L_MOD_4_Q2, L_MOD_4_Q3
+}

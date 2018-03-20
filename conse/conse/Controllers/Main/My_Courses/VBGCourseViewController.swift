@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import ObjectMapper
 
 class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate {
 
@@ -108,6 +109,46 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
     func audioManager(audioID id: Int, play: Bool) {
         let audioName = get_VBGAudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
+    }
+    
+    /// Envia al servidor los datos de la actividad completada
+    func sendRequest(formModel: Array<RequestCompleted>) {
+        
+        let loader = LoadingOverlay(text: Strings.loader_recording)
+        let json = Mapper().toJSONString(formModel, prettyPrint: true)
+        let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
+        let apiURL = NetworkPOST.USER_PROGRESS_LIST
+        let method: NetworkRestMethods = .methodPOST
+        
+        var headers:[[String:String]] = []
+        headers.append([NetworkConfig.headerName: NetworkConfig.headerAuthorization,
+                        NetworkConfig.headerValue: token])
+        
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
+        
+        Network.buildRequest(urlApi: apiURL, json: json, extraHeaders: headers, method: method, completion: { (response) in
+            
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed {
+                    printDebugMessage(tag: message)
+                    self.showErrorMessage(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            default:
+                break
+            }
+        })
     }
     
     // MARK: - Private Functions

@@ -5,6 +5,8 @@
 //  Created by Felipe Zamudio on 10/01/18.
 //  Copyright © 2018 NRC. All rights reserved.
 //
+//  Clase para administrar el registro y lectura de datos en el dispositivo
+//  haciendo uso de una instancia unica StorageConfig.
 
 import Foundation
 import UIKit
@@ -14,9 +16,7 @@ class StorageFunctions: NSObject {
     
     // MARK: - SAVE METHODS
     
-    /** Guarda toda la data del perfil del usuario
-     - Parameter user: Modelo del usuario que contiene todos los datos del mismo
-     */
+    /** Guarda toda la data del perfil del usuario */
     class func saveDataInLocal(user: RegisterUserResponse!) {
         
         // get data to save
@@ -44,7 +44,6 @@ class StorageFunctions: NSObject {
         if let data = AppConfigPreferences.archive(conf: strRepresentation) {
             storage.saveParameterFromKey(key: DicKeys.appConfig, value: data as AnyObject)
         }
-        
     }
     
     /// Guarda los estados de la aplicación
@@ -76,7 +75,22 @@ class StorageFunctions: NSObject {
         let saveDate = ProgressPreferences(indices: progress)
         let strRepresentation = saveDate.dictionary()
         if let data = ProgressPreferences.archive(progress: strRepresentation) {
-            storage.saveParameterFromKey(key: DicKeys.progess, value: data as AnyObject)
+            storage.saveParameterFromKey(key: DicKeys.progress, value: data as AnyObject)
+        }
+    }
+    
+    /** Guarda los el progreso de actividades de los cursos */
+    class func saveActivitiesProgress(courses: CourseListModel!) {
+        
+        // Map App Configuration Model in JSON string
+        let jsonCourse = Mapper().toJSONString(courses, prettyPrint: true)
+        
+        // Save JSON in local
+        let storage = StorageConfig.share
+        let saveData = ProgressActivitiesPreferences(jsonCourse: jsonCourse!)
+        let strRepresentation = saveData.dictionary()
+        if let data = ProgressActivitiesPreferences.archive(course: strRepresentation) {
+            storage.saveParameterFromKey(key: DicKeys.activitiesProgress, value: data as AnyObject)
         }
     }
     
@@ -107,7 +121,7 @@ class StorageFunctions: NSObject {
     /// Get storage progress
     class func getProgress() -> CoursesProgress! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.progess) as! Data! else { return nil}
+        guard let data = storage.getParameterFromKey(key: DicKeys.progress) as! Data! else { return nil}
         guard let dic = ProgressPreferences.unarchive(data: data) else { return nil}
         let progress = ProgressPreferences.initProgress(fromDic: dic)
         return progress
@@ -140,6 +154,16 @@ class StorageFunctions: NSObject {
         let json = ContactPreferences.initContactList(fromDic: dic) as String!
         let contactList = Mapper<ContactListModel>().map(JSON: convertToDictionary(text: json!)!)
         return contactList?.contacList
+    }
+    
+    /** carga los datos de cursos del, local  */
+    class func loadActivitiesProgress() -> Array<Course>! {
+        let storage = StorageConfig.share
+        guard let data = storage.getParameterFromKey(key: DicKeys.activitiesProgress) as! Data! else { return nil }
+        guard let dic = ProgressActivitiesPreferences.unarchive(data: data) else { return nil }
+        let json = ProgressActivitiesPreferences.initCourse(fromDic: dic) as String!
+        let courseList = Mapper<CourseListModel>().map(JSON: convertToDictionary(text: json!)!)
+        return courseList?.courseList
     }
     
     /// Get storage Avatar

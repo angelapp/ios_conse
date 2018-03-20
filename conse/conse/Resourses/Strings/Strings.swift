@@ -71,7 +71,7 @@ struct Strings {
     static let error_message_invalidEmail = "Correo no válido"
     static let error_message_locationDisabled = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
     static let error_message_notAvailable = "El contacto no tiene número telefónico"
-    static let error_message_notAvailableAction = "Este dispositivo no puede realizar esta acción"
+    static let error_message_notAvailableAction = "El dispositivo no puedo realizar esta acción."
     static let error_message_notIntenertConection = "Debes tener una conexión activa a internet"
     static let error_message_notUserValidCredentials = "Credenciales inválidas"
     static let error_message_passNotMatch = "Las contraseñas no coinciden"
@@ -110,6 +110,7 @@ struct Strings {
     static let loader_getShield = "Obteniendo Listado de Escudos de Protección"
     static let loader_loading = "Cargando..."
     static let loader_login = "Autenticando usuario..."
+    static let loader_recording = "Guardando..."
     static let loader_recovery = "Recuperando contraseña..."
     static let loader_sendEmail = "Enviando email ..."
     

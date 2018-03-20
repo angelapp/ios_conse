@@ -1016,7 +1016,7 @@
                             <constraint firstItem="fkA-cf-TZf" firstAttribute="trailing" secondItem="Vyg-cG-DVD" secondAttribute="trailing" constant="16" id="8vG-S8-CfA"/>
                             <constraint firstItem="fkA-cf-TZf" firstAttribute="bottom" secondItem="Vyg-cG-DVD" secondAttribute="bottom" constant="30" id="Cqd-BV-mJu"/>
                             <constraint firstItem="1KY-d8-xyb" firstAttribute="leading" secondItem="fkA-cf-TZf" secondAttribute="leading" constant="24" id="LDM-Fz-sac"/>
-                            <constraint firstItem="kWh-wF-lK6" firstAttribute="top" relation="greaterThanOrEqual" secondItem="e8X-2C-DrQ" secondAttribute="bottom" constant="16" id="QpU-qH-UQz"/>
+                            <constraint firstItem="kWh-wF-lK6" firstAttribute="top" secondItem="e8X-2C-DrQ" secondAttribute="bottom" constant="16" id="QpU-qH-UQz"/>
                             <constraint firstItem="fkA-cf-TZf" firstAttribute="trailing" secondItem="1KY-d8-xyb" secondAttribute="trailing" constant="24" id="UmX-sY-wLy"/>
                             <constraint firstItem="Vyg-cG-DVD" firstAttribute="top" secondItem="1KY-d8-xyb" secondAttribute="bottom" constant="16" id="Y8t-7I-nSr"/>
                             <constraint firstItem="kWh-wF-lK6" firstAttribute="leading" secondItem="fkA-cf-TZf" secondAttribute="leading" constant="24" id="Zfy-TC-5sr"/>

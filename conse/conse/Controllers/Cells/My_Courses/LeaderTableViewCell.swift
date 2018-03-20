@@ -98,6 +98,15 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     let CORRECT_OPTION: Int = 1
     let WRONG_OPTION: Int = 0
     
+    let OPTION_01_TAG = 0
+    let OPTION_02_TAG = 1
+    let OPTION_03_TAG = 2
+    let OPTION_04_TAG = 3
+    let OPTION_05_TAG = 4
+    let OPTION_06_TAG = 5
+    let OPTION_07_TAG = 6
+    let OPTION_08_TAG = 7
+    
     var answersButtons: Array<UIButton> = []
     var audioButtons: Array<UIButton> = []
     
@@ -227,6 +236,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader08() {
         leaders_title.text = LEADERS_COURSE.PAGE_08.title
         leaders_text1.text = LEADERS_COURSE.PAGE_08.t1
+        
+        saveActivity(activity: ActivitiesAbreviature.L_MOD_1_R.rawValue, forModule: TopicsIDs.mod_01.rawValue)
     }
     
     func fillLeader09() {
@@ -391,6 +402,47 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt8.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4, btn_opt5, btn_opt6, btn_opt7, btn_opt8]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        leaders_option3.tag = OPTION_03_TAG
+        leaders_option4.tag = OPTION_04_TAG
+        leaders_option5.tag = OPTION_05_TAG
+        leaders_option6.tag = OPTION_06_TAG
+        leaders_option7.tag = OPTION_07_TAG
+        leaders_option8.tag = OPTION_08_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option3.isUserInteractionEnabled = true
+        leaders_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option4.isUserInteractionEnabled = true
+        leaders_option4.addGestureRecognizer(tapOption04)
+        
+        let tapOption05 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option5.isUserInteractionEnabled = true
+        leaders_option5.addGestureRecognizer(tapOption05)
+        
+        let tapOption06 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option6.isUserInteractionEnabled = true
+        leaders_option6.addGestureRecognizer(tapOption06)
+        
+        let tapOption07 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option7.isUserInteractionEnabled = true
+        leaders_option7.addGestureRecognizer(tapOption07)
+        
+        let tapOption08 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option8.isUserInteractionEnabled = true
+        leaders_option8.addGestureRecognizer(tapOption08)
     }
     
     func fillLeader19() {
@@ -454,6 +506,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader25() {
         leaders_title.text = LEADERS_COURSE.PAGE_25.title
         leaders_text1.text = LEADERS_COURSE.PAGE_25.t1
+        
+        saveActivity(activity: ActivitiesAbreviature.L_MOD_2_R.rawValue, forModule: TopicsIDs.mod_02.rawValue)
     }
     
     func fillLeader26() {
@@ -490,6 +544,47 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt8.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4, btn_opt5, btn_opt6, btn_opt7, btn_opt8]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        leaders_option3.tag = OPTION_03_TAG
+        leaders_option4.tag = OPTION_04_TAG
+        leaders_option5.tag = OPTION_05_TAG
+        leaders_option6.tag = OPTION_06_TAG
+        leaders_option7.tag = OPTION_07_TAG
+        leaders_option8.tag = OPTION_08_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option3.isUserInteractionEnabled = true
+        leaders_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option4.isUserInteractionEnabled = true
+        leaders_option4.addGestureRecognizer(tapOption04)
+        
+        let tapOption05 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option5.isUserInteractionEnabled = true
+        leaders_option5.addGestureRecognizer(tapOption05)
+        
+        let tapOption06 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option6.isUserInteractionEnabled = true
+        leaders_option6.addGestureRecognizer(tapOption06)
+        
+        let tapOption07 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option7.isUserInteractionEnabled = true
+        leaders_option7.addGestureRecognizer(tapOption07)
+        
+        let tapOption08 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option8.isUserInteractionEnabled = true
+        leaders_option8.addGestureRecognizer(tapOption08)
     }
     
     func fillLeader27() {
@@ -663,6 +758,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader41() {
         leaders_title.text = LEADERS_COURSE.PAGE_41.title
         leaders_text1.text = LEADERS_COURSE.PAGE_41.t1
+        
+        saveActivity(activity: ActivitiesAbreviature.L_MOD_3_R.rawValue, forModule: TopicsIDs.mod_03.rawValue)
     }
     
     func fillLeader42() {
@@ -680,6 +777,17 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt2.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
     }
     
     func fillLeader43() {
@@ -696,6 +804,17 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt2.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
     }
     
     func fillLeader44() {
@@ -713,6 +832,17 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt2.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
     }
     
     func fillLeader45() {
@@ -793,6 +923,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader53() {
         leaders_title.text = LEADERS_COURSE.PAGE_53.title
         leaders_text1.text = LEADERS_COURSE.PAGE_53.t1
+        
+        saveActivity(activity: ActivitiesAbreviature.L_MOD_4_R.rawValue, forModule: TopicsIDs.mod_04.rawValue)
     }
     
     func fillLeader54() {
@@ -801,6 +933,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     }
     
     func fillLeader55() {
+        saveActivity(activity: ActivitiesAbreviature.L_MOD_4_VIDEO.rawValue, forModule: TopicsIDs.mod_04.rawValue)
+        
         leaders_title.text = LEADERS_COURSE.PAGE_55.title
         leaders_text1.text = LEADERS_COURSE.PAGE_55.t1
         
@@ -815,6 +949,17 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt2.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
     }
     
     func fillLeader56() {
@@ -831,6 +976,17 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt2.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
     }
     
     func fillLeader57() {
@@ -848,6 +1004,17 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         btn_opt2.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2]
+        
+        leaders_option1.tag = OPTION_01_TAG
+        leaders_option2.tag = OPTION_02_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option1.isUserInteractionEnabled = true
+        leaders_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        leaders_option2.isUserInteractionEnabled = true
+        leaders_option2.addGestureRecognizer(tapOption02)
     }
     
     func fillLeader58() {
@@ -859,6 +1026,29 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: BackgroundInsignia.insignia_04)
         mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_04)
+    }
+    
+    // MARK: - Save Activities completed
+    private func saveActivity(activity name: String, forModule id: Int) {
+        
+        //Obtiene la fecha actual
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateTimeFormat.formatInMillis
+        
+        // save Activity complete
+        let actCompleted:ActityCompleted = ActityCompleted()
+        actCompleted.courseID = CourseIDs.PLC.rawValue
+        actCompleted.topicID = id
+        actCompleted.activity = name
+        actCompleted.dateCompleted = formatter.string(from: date)
+        
+        // se envia post a servidor Si la respuesta es VERDADERA
+        guard let requestModel = saveProgress(forActivity: actCompleted) else {
+            return
+        }
+        
+        leadersDelegate?.sendRequest(formModel: requestModel)
     }
     
     // MARK: - TextField Delegate
@@ -903,6 +1093,14 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     // change state for checkBox
     @IBAction func changeButtonState(_ sender: UIButton){
         sender.isSelected = !sender.isSelected
+    }
+    
+    @objc func tapLabel(sender: UITapGestureRecognizer) {
+        
+        let labelTapped = sender.view!
+        let labelTag = labelTapped.tag
+        
+        changeButtonState(answersButtons[labelTag])
     }
     
     // Update selected option in radioGroup
@@ -1007,39 +1205,88 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             return
         }
         
+        saveActivity(activity: ActivitiesAbreviature.L_MOD_1_COMPLETE.rawValue, forModule: TopicsIDs.mod_01.rawValue)
         nextPage(nil)
     }
     
     @IBAction func checking_page_18() {
-        checkingQuestionary() ? leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.correct_answer, inbold: nil, type: .success) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_18.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_2_Q1.rawValue, forModule: TopicsIDs.mod_02.rawValue)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.correct_answer, inbold: nil, type: .success)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_18.error, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_26() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_26.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_2_Q2.rawValue, forModule: TopicsIDs.mod_02.rawValue)
+            nextPage(nil)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_26.error, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_42() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_42.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_3_Q1.rawValue, forModule: TopicsIDs.mod_03.rawValue)
+            nextPage(nil)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_42.error, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_43() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_43.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_3_Q2.rawValue, forModule: TopicsIDs.mod_03.rawValue)
+            nextPage(nil)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_43.error, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_44() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_44.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_3_Q3.rawValue, forModule: TopicsIDs.mod_03.rawValue)
+            nextPage(nil)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_44.error, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_55() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_42.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_4_Q1.rawValue, forModule: TopicsIDs.mod_04.rawValue)
+            nextPage(nil)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_42.error, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_56() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_43.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_4_Q2.rawValue, forModule: TopicsIDs.mod_04.rawValue)
+            nextPage(nil)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_43.error, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_57() {
-        checkingQuestionary() ? nextPage(nil) : leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_44.error, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.L_MOD_4_Q3.rawValue, forModule: TopicsIDs.mod_04.rawValue)
+            nextPage(nil)
+        }
+        else {
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_44.error, inbold: nil, type: .failed)
+        }
     }
     
     // MARK: - Audio Functions

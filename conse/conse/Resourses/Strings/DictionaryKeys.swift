@@ -11,6 +11,7 @@ import Foundation
 /// Claves para los diccionarios
 struct DicKeys{
     static let accesories = "accesories"
+    static let activitiesProgress = "activitiesProgress"
     static let appConfig = "AppConfig"
     static let avatarImg = "AvatarImage"
     static let avaterPieces = "AvatarPieces"
@@ -25,8 +26,8 @@ struct DicKeys{
     static let name = "name"
     static let mounth = "mounth"
     static let phone = "phone"
-    static let plcProgess = "plcProgess"
-    static let progess = "progess"
+    static let plcProgress = "plcProgess"
+    static let progress = "progess"
     static let skin = "skin"
     static let states = "states"
     static let time = "time"
@@ -35,7 +36,7 @@ struct DicKeys{
     static let user = "user"
     static let userJSON = "userJSON"
     static let username = "username"
-    static let vbgProgess = "vbgProgess"
+    static let vbgProgress = "vbgProgess"
     static let wasLoggedAtSomeTime = "wasLoggedAtSomeTime"
 }
 

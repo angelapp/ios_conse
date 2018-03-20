@@ -415,19 +415,78 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jZI-Ds-IsS">
-                                <rect key="frame" x="16" y="184" width="288" height="29"/>
-                                <segments>
-                                    <segment title="Violencia Basada en Género"/>
-                                    <segment title="Protección lideres y lideresas"/>
-                                </segments>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <collectionView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rCe-WW-cOG">
+                                <rect key="frame" x="0.0" y="184" width="320" height="40"/>
+                                <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="edb-sw-gKZ"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WX1-wu-Qi9">
+                                    <size key="itemSize" width="120" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="progressTabButtonsCell" reuseIdentifier="progressTabButtonsCell" id="bDx-Kq-895" customClass="TabButtonsCollectionViewCell" customModule="conse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="40"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bTU-xb-Hz4">
+                                                    <rect key="frame" x="8" y="0.0" width="104" height="37"/>
+                                                    <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="37" id="1AV-ia-0LS"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                    </state>
+                                                    <state key="selected">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="actionButton:" destination="bDx-Kq-895" eventType="touchUpInside" id="I55-9C-n9h"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FiN-Lh-ajt">
+                                                    <rect key="frame" x="0.0" y="37" width="120" height="3"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="3" id="YMa-2e-f09"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="FiN-Lh-ajt" secondAttribute="bottom" id="00A-Lp-PEw"/>
+                                            <constraint firstItem="bTU-xb-Hz4" firstAttribute="top" secondItem="bDx-Kq-895" secondAttribute="top" id="6N6-hh-GBC"/>
+                                            <constraint firstItem="bTU-xb-Hz4" firstAttribute="leading" secondItem="bDx-Kq-895" secondAttribute="leading" constant="8" id="9Jw-Di-wSA"/>
+                                            <constraint firstItem="FiN-Lh-ajt" firstAttribute="leading" secondItem="bDx-Kq-895" secondAttribute="leading" id="Zmp-kB-aEd"/>
+                                            <constraint firstAttribute="trailing" secondItem="bTU-xb-Hz4" secondAttribute="trailing" constant="8" id="fBp-Ca-5Qu"/>
+                                            <constraint firstItem="FiN-Lh-ajt" firstAttribute="top" secondItem="bTU-xb-Hz4" secondAttribute="bottom" id="iGH-Fk-LpN"/>
+                                            <constraint firstAttribute="trailing" secondItem="FiN-Lh-ajt" secondAttribute="trailing" id="yga-GB-iQ8"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="tab_button" destination="bTU-xb-Hz4" id="8Gk-oA-hFB"/>
+                                            <outlet property="underline" destination="FiN-Lh-ajt" id="YHb-Me-oN1"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <action selector="segmemtedChange:" destination="SyM-Ra-CA4" eventType="valueChanged" id="1v0-th-iIp"/>
+                                    <outlet property="dataSource" destination="SyM-Ra-CA4" id="8Ae-Qf-8Ix"/>
+                                    <outlet property="delegate" destination="SyM-Ra-CA4" id="1At-Eq-BJl"/>
                                 </connections>
-                            </segmentedControl>
+                            </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wb4-5P-J4K">
-                                <rect key="frame" x="0.0" y="220" width="320" height="260"/>
+                                <rect key="frame" x="0.0" y="232" width="320" height="248"/>
                                 <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="progressCell" rowHeight="66" id="As3-0g-qeD" customClass="ProgressTableViewCell" customModule="conse" customModuleProvider="target">
@@ -484,26 +543,26 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="kYy-uU-J6L" firstAttribute="trailing" secondItem="jZI-Ds-IsS" secondAttribute="trailing" constant="16" id="49s-GY-YkC"/>
-                            <constraint firstItem="jZI-Ds-IsS" firstAttribute="leading" secondItem="kYy-uU-J6L" secondAttribute="leading" constant="16" id="53N-Oo-x9C"/>
                             <constraint firstItem="kYy-uU-J6L" firstAttribute="trailing" secondItem="hij-AK-dzf" secondAttribute="trailing" constant="24" id="Ewy-nk-Q8b"/>
                             <constraint firstItem="p2d-44-gME" firstAttribute="trailing" secondItem="kYy-uU-J6L" secondAttribute="trailing" id="G7c-f5-DHg"/>
                             <constraint firstItem="Wb4-5P-J4K" firstAttribute="bottom" secondItem="kYy-uU-J6L" secondAttribute="bottom" id="Gnv-ab-aGF"/>
+                            <constraint firstItem="rCe-WW-cOG" firstAttribute="trailing" secondItem="kYy-uU-J6L" secondAttribute="trailing" id="GvQ-Lf-M9x"/>
                             <constraint firstItem="Wb4-5P-J4K" firstAttribute="leading" secondItem="kYy-uU-J6L" secondAttribute="leading" id="Hym-Zl-58S"/>
-                            <constraint firstItem="Wb4-5P-J4K" firstAttribute="top" secondItem="jZI-Ds-IsS" secondAttribute="bottom" constant="8" id="KfU-1J-sok"/>
+                            <constraint firstItem="rCe-WW-cOG" firstAttribute="leading" secondItem="kYy-uU-J6L" secondAttribute="leading" id="QJK-Ed-eFf"/>
                             <constraint firstItem="p2d-44-gME" firstAttribute="top" secondItem="kYy-uU-J6L" secondAttribute="top" constant="8" id="Ss3-pv-2gI"/>
+                            <constraint firstItem="rCe-WW-cOG" firstAttribute="top" secondItem="hij-AK-dzf" secondAttribute="bottom" constant="16" id="TXj-51-whh"/>
                             <constraint firstItem="hij-AK-dzf" firstAttribute="top" secondItem="MWR-sc-ujr" secondAttribute="bottom" constant="8" id="bBB-GX-dv7"/>
+                            <constraint firstItem="Wb4-5P-J4K" firstAttribute="top" secondItem="rCe-WW-cOG" secondAttribute="bottom" constant="8" id="dwS-lr-Ze6"/>
                             <constraint firstItem="MWR-sc-ujr" firstAttribute="top" secondItem="kYy-uU-J6L" secondAttribute="top" constant="46" id="nqQ-ub-TPR"/>
                             <constraint firstItem="Wb4-5P-J4K" firstAttribute="trailing" secondItem="kYy-uU-J6L" secondAttribute="trailing" id="ogt-9C-TuM"/>
                             <constraint firstItem="MWR-sc-ujr" firstAttribute="centerX" secondItem="lQh-CP-QKl" secondAttribute="centerX" id="q6A-uM-W3O"/>
-                            <constraint firstItem="jZI-Ds-IsS" firstAttribute="top" secondItem="hij-AK-dzf" secondAttribute="bottom" constant="16" id="t1p-AY-KGi"/>
                             <constraint firstItem="hij-AK-dzf" firstAttribute="leading" secondItem="kYy-uU-J6L" secondAttribute="leading" constant="24" id="u8T-ma-Dr6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kYy-uU-J6L"/>
                     </view>
                     <connections>
+                        <outlet property="button_collection" destination="rCe-WW-cOG" id="1bZ-EB-ILI"/>
                         <outlet property="levelProgress" destination="Wb4-5P-J4K" id="evl-LW-OfE"/>
-                        <outlet property="progressSegment" destination="jZI-Ds-IsS" id="7Nj-qp-OHN"/>
                         <outlet property="progressTitle" destination="hij-AK-dzf" id="zKn-Ga-zmX"/>
                     </connections>
                 </viewController>

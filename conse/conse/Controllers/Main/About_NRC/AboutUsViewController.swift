@@ -91,6 +91,9 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
             break
             
         default:
+            let indexPath = IndexPath(row: currentTab, section: 0)
+            button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
+            
             showTab(tab: tab3)
             break
         }

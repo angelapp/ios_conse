@@ -35,6 +35,7 @@ protocol LeadersProtocol: class {
     func nextPage()
     func previusPage()
     func audioManager(audioID id: Int, play: Bool)
+    func sendRequest(formModel: Array<RequestCompleted>)
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
 }
 
@@ -43,6 +44,7 @@ protocol VBGProtocol: class {
     func previusPage()
     func audioManager(audioID id: Int, play: Bool)
     func showPopupHelp(title: String, text: String)
+    func sendRequest(formModel: Array<RequestCompleted>)
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
 }
 
@@ -86,6 +88,11 @@ protocol LeadersRouteOneProtocol: class {
 protocol LeadersRouteTwoProtocol: class {
     func nextPage()
     func previusPage()
+}
+
+// Protocolos para la vista de progreso
+protocol ProgressTabProtocol: class {
+    func changeTabSelected(toPosition position: Int, animated: Bool)
 }
 
 // Protocolos para Noticias

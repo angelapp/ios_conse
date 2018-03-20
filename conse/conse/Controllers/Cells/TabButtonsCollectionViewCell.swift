@@ -26,7 +26,7 @@ class TabButtonsCollectionViewCell: UICollectionViewCell {
     var aboutNRCTabDelegate: AboutNRCTabProtocol? // Protocolo para las pestañas de "Sobre NRC"
     var documentsTabDelegate: DocumentsTabProtocol? // Protocolo para las pestañas de "Documentos"
     var leadersRoutesTabDelegate: LeadersRouteTabProtocol? // Protocolo para las pestañas de "Rutas de protecion para líderes"
-//    var progressTabDelegate: ProgressTabProtocol? // Protocolo para las pestañas de "Progreso Cursos"
+    var progressTabDelegate: ProgressTabProtocol? // Protocolo para las pestañas de "Progreso Cursos"
     var vbgRoutesTabDelegate: VBGRouteTabProtocol? // Protocolo para las pestañas de "Rutas de protecion Violencia Basada en Genero"
     var titleButton: String = nullString
     
@@ -48,7 +48,7 @@ class TabButtonsCollectionViewCell: UICollectionViewCell {
         aboutNRCTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
         documentsTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
         leadersRoutesTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
-//        progressTabDelegate?.changeTabSelected(toPosition: tab_button.tag, animated: true)
+        progressTabDelegate?.changeTabSelected(toPosition: tab_button.tag, animated: true)
         vbgRoutesTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
     }
 }

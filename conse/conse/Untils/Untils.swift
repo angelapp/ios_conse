@@ -146,14 +146,83 @@ func arrayTransform(from tempArray: Array<Any>) -> Array<NewsCategory> {
     return arrayModel
 }
 
-func getProgress(forCourse index: Int) -> Array<ModuleProgressItem>{
+/// Guarda en local la fecha de finalización de una actividad.
+/// - Parameter activity: Modelo con los datos de la actividad a guardar (id_curso, id_modulo, abreviatura, fecha)
+/// - Returns: Verdadero, si puede guardar la fecha, False si ya se ha completado o no se puede realizar la acción
+func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestCompleted>! {
     
+    let courses = StorageFunctions.loadActivitiesProgress() ?? AplicationRuntime.sharedManager.getAppConfig()?.course_Array
+    
+    // Busca el curso al que pertenece la actividad
+    for course in courses! {
+        if course.id == activity.courseID {
+            
+            // Obtiene la lista de actividades, para un determinado modulo
+            if let activies = course.course_topics[activity.topicID].topic_activity_list {
+                
+                // Busca la actividad que se desa guardar el progreso
+                for act in activies {
+                    
+                    printDebugMessage(tag: "has activities \(act.abreviature) \(activity.activity)")
+                    if act.abreviature == activity.activity {
+                        
+                        // Guarda la fecha de finalización de a actividad si esta no existe
+                        if act.dateCompleted == nil || act.dateCompleted == nullString {
+                            act.dateCompleted = activity.dateCompleted
+                            StorageFunctions.saveActivitiesProgress(courses: CourseListModel(courseList: courses!))
+                            
+                            return [RequestCompleted(user: AplicationRuntime.sharedManager.getUser().id,
+                                                                                                 activity: act.id,
+                                                                                                 date: activity.dateCompleted)]
+                        }
+                        else {
+                            return nil
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Retorno por defecto
+    return nil
+}
+
+func getProgress(forCourse index: Int) -> Array<ModuleProgressItem> {
+    
+    let imageComplet = [Strings.image_begginer, Strings.image_expert, Strings.image_advanced, Strings.image_star]
+    let imageIncomplet = [Strings.image_begginer_off, Strings.image_expert_off, Strings.image_advanced_off, Strings.image_star_off]
+    let titles = [Strings.level_begginer, Strings.level_expert, Strings.level_advanced, Strings.level_star]
+    
+    let courses = StorageFunctions.loadActivitiesProgress() ?? AplicationRuntime.sharedManager.getAppConfig()?.course_Array
     var progress: Array<ModuleProgressItem> = []
     
-    progress.append(ModuleProgressItem(image: Strings.image_begginer_off, title: Strings.level_begginer, progress: 0.0))
-    progress.append(ModuleProgressItem(image: Strings.image_expert_off, title: Strings.level_expert, progress: 0.0))
-    progress.append(ModuleProgressItem(image: Strings.image_advanced_off, title: Strings.level_advanced, progress: 0.0))
-    progress.append(ModuleProgressItem(image: Strings.image_star_off, title: Strings.level_star, progress: 0.0))
+    // Busca el curso al que pertenece la actividad
+    for course in courses! {
+        
+        if course.id == index {
+            // Obtiene la lista de actividades, para un determinado modulo
+            if let topics = course.course_topics {
+                
+                // Avanza por los modulos del
+                var topicPos = 0
+                for topic in topics {
+                    
+                    var activitiesCompleted: Float = 0.0
+                    for activity in topic.topic_activity_list {
+                        if activity.dateCompleted != nil && activity.dateCompleted != nullString {
+                            activitiesCompleted += 1
+                        }
+                    }
+                    
+                    let progressValue: Float = activitiesCompleted / Float(topic.topic_activity_list.count)
+                    let imgTrophy = (progressValue == 1) ? imageComplet[topicPos] : imageIncomplet[topicPos]
+                    progress.append(ModuleProgressItem(image: imgTrophy, title: titles[topicPos], progress: progressValue))
+                    topicPos += 1
+                }
+            }
+        }
+    }
     
     return progress
 }

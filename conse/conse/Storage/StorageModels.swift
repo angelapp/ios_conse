@@ -161,6 +161,41 @@ class AppConfigPreferences: NSObject {
     }
 }
 
+/** Modelo de datos para almacenar en local el progreso de las actividades */
+class ProgressActivitiesPreferences: NSObject {
+    
+    var jsonCourseActivities: String!
+    
+    /** Recibe JSON el contenido de los cursos (Topics - Topics' Activities */
+    convenience init(jsonCourse: String) {
+        self.init()
+        self.jsonCourseActivities = jsonCourse
+    }
+    
+    ///Codifica los datos del modelo y lo asocia a una clave
+    /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
+    func encodeData(aCoder: NSCoder){
+        aCoder.encode(self.jsonCourseActivities as String, forKey: DicKeys.activitiesProgress)
+    }
+    
+    /// Crea un diccionario con los datos del modelo
+    /// - Returns: EL diccionario de datos del modelo
+    func dictionary() -> [String:Any] {
+        var myDic = [String:Any]()
+        
+        myDic[DicKeys.activitiesProgress] = self.jsonCourseActivities
+        
+        return myDic
+    }
+    
+    /// Crea un modelo de datos a aprtir de un diccionario de datos
+    /// - Parameter dic: Diccionario de datos
+    /// - Returns: Modelo de datos
+    class func initCourse(fromDic dic: [String: Any]) -> String {
+        let json = dic[DicKeys.activitiesProgress] as! String
+        return json
+    }
+}
 
 /** Modelo de datos para tener en local los indices del avance de los cursos */
 class ProgressPreferences: NSObject {
@@ -179,8 +214,8 @@ class ProgressPreferences: NSObject {
     ///Codifica los datos del modelo y lo asocia a una clave
     /// - Parameter aCoder: Interfaz para transferir objetos y otros valores entre la memoria y algún otro formato.
     func encodeData(aCoder: NSCoder){
-        aCoder.encode(self.vbg_index as Int, forKey: DicKeys.vbgProgess)
-        aCoder.encode(self.plc_index as Int, forKey: DicKeys.plcProgess)
+        aCoder.encode(self.vbg_index as Int, forKey: DicKeys.vbgProgress)
+        aCoder.encode(self.plc_index as Int, forKey: DicKeys.plcProgress)
     }
     
     /// Crea un diccionario con los datos del modelo
@@ -188,8 +223,8 @@ class ProgressPreferences: NSObject {
     func dictionary() -> [String:Any] {
         var myDic = [String:Any]()
         
-        myDic[DicKeys.vbgProgess] = self.vbg_index
-        myDic[DicKeys.plcProgess] = self.plc_index
+        myDic[DicKeys.vbgProgress] = self.vbg_index
+        myDic[DicKeys.plcProgress] = self.plc_index
         
         return myDic
     }
@@ -200,8 +235,8 @@ class ProgressPreferences: NSObject {
     class func initProgress(fromDic dic: [String: Any]) -> CoursesProgress {
         let progress = CoursesProgress()
         
-        progress.VBG_INDEX = dic[DicKeys.vbgProgess] as? Int ?? 0
-        progress.PLC_INDEX = dic[DicKeys.plcProgess] as? Int ?? 0
+        progress.VBG_INDEX = dic[DicKeys.vbgProgress] as? Int ?? 0
+        progress.PLC_INDEX = dic[DicKeys.plcProgress] as? Int ?? 0
         
         return progress
     }

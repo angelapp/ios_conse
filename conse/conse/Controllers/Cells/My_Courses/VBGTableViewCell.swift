@@ -120,6 +120,11 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     let CORRECT_OPTION: Int = 1
     let WRONG_OPTION: Int = 0
     let MAX_LENGTH_CELL = 1
+    let OPTION_01_TAG = 0
+    let OPTION_02_TAG = 1
+    let OPTION_03_TAG = 2
+    let OPTION_04_TAG = 3
+    let OPTION_05_TAG = 4
     
     var crossword_word1: Array<UITextField> = []
     var crossword_word2: Array<UITextField> = []
@@ -271,6 +276,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_10.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_10.T1
+        
+        saveActivity(activity: ActivitiesAbreviature.MOD_1_R.rawValue, forModule: TopicsIDs.mod_01.rawValue)
     }
 
     // CrossWord
@@ -342,6 +349,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_14.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_14.T1
+        
+        saveActivity(activity: ActivitiesAbreviature.MOD_2_R.rawValue, forModule: TopicsIDs.mod_02.rawValue)
     }
     
     func fill_VBG_15() {
@@ -370,6 +379,32 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt5.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4, btn_opt5]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        lbl_option5.tag = OPTION_05_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
+        
+        let tapOption05 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option5.isUserInteractionEnabled = true
+        lbl_option5.addGestureRecognizer(tapOption05)
     }
     
     func fill_VBG_16() {
@@ -517,6 +552,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_30.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_30.T1
+        
+        saveActivity(activity: ActivitiesAbreviature.MOD_3_R.rawValue, forModule: TopicsIDs.mod_03.rawValue)
     }
 
     func fill_VBG_31() {
@@ -528,6 +565,10 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         lbl_option1.text = VBG_COURSE.PAGE_31.OPT1
         lbl_option2.text = VBG_COURSE.PAGE_31.OPT2
         lbl_option3.text = VBG_COURSE.PAGE_31.OPT3
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
 
         btn_opt1.isSelected = false
         btn_opt2.isSelected = false
@@ -538,6 +579,18 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt3.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3]
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
     }
 
     func fill_VBG_32() {
@@ -550,6 +603,11 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         lbl_option3.text = VBG_COURSE.PAGE_32.OPT3
         lbl_option4.text = VBG_COURSE.PAGE_32.OPT4
         
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        
         btn_opt1.isSelected = false
         btn_opt2.isSelected = false
         btn_opt3.isSelected = false
@@ -561,6 +619,22 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
     }
 
     func fill_VBG_33() {
@@ -572,6 +646,10 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         lbl_option2.text = VBG_COURSE.PAGE_33.OPT2
         lbl_option3.text = VBG_COURSE.PAGE_33.OPT3
         
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        
         btn_opt1.isSelected = false
         btn_opt2.isSelected = false
         btn_opt3.isSelected = false
@@ -581,6 +659,18 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt3.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3]
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
     }
 
     func fill_VBG_34() {
@@ -594,6 +684,11 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         lbl_option3.text = VBG_COURSE.PAGE_34.OPT3
         lbl_option4.text = VBG_COURSE.PAGE_34.OPT4
         
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        
         btn_opt1.isSelected = false
         btn_opt2.isSelected = false
         btn_opt3.isSelected = false
@@ -605,6 +700,22 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
     }
 
     func fill_VBG_35() {
@@ -697,6 +808,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         lbl_item3.text = VBG_COURSE.PAGE_41.ITEM_3
         lbl_item4.text = VBG_COURSE.PAGE_41.ITEM_4
         lbl_item5.text = VBG_COURSE.PAGE_41.ITEM_5
+        lbl_item6.text = VBG_COURSE.PAGE_41.ITEM_6
     }
 
     func fill_VBG_42() {
@@ -734,6 +846,8 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_45.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_45.T1
+        
+        saveActivity(activity: ActivitiesAbreviature.MOD_4_R.rawValue, forModule: TopicsIDs.mod_04.rawValue)
     }
 
     func fill_VBG_46() {
@@ -764,6 +878,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
     }
 
     func fill_VBG_48() {
@@ -788,6 +923,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
     }
 
     func fill_VBG_49() {
@@ -819,6 +975,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
     }
 
     func fill_VBG_51() {
@@ -840,6 +1017,22 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt3.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
     }
 
     func fill_VBG_52() {
@@ -857,6 +1050,22 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt3.tag = CORRECT_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
     }
 
     func fill_VBG_53() {
@@ -881,6 +1090,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
     }
 
     func fill_VBG_54() {
@@ -906,6 +1136,27 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         btn_opt4.tag = WRONG_OPTION
         
         answersButtons = [btn_opt1, btn_opt2, btn_opt3, btn_opt4]
+        
+        lbl_option1.tag = OPTION_01_TAG
+        lbl_option2.tag = OPTION_02_TAG
+        lbl_option3.tag = OPTION_03_TAG
+        lbl_option4.tag = OPTION_04_TAG
+        
+        let tapOption01 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option1.isUserInteractionEnabled = true
+        lbl_option1.addGestureRecognizer(tapOption01)
+        
+        let tapOption02 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option2.isUserInteractionEnabled = true
+        lbl_option2.addGestureRecognizer(tapOption02)
+        
+        let tapOption03 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option3.isUserInteractionEnabled = true
+        lbl_option3.addGestureRecognizer(tapOption03)
+        
+        let tapOption04 = UITapGestureRecognizer(target: self, action: #selector(self.tapLabel))
+        lbl_option4.isUserInteractionEnabled = true
+        lbl_option4.addGestureRecognizer(tapOption04)
     }
 
     func fill_VBG_55() {
@@ -918,6 +1169,29 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: BackgroundInsignia.insignia_04)
         mainDelegate?.setImageBackground(withName: BackgroundInsignia.bg_04)
+    }
+    
+    // MARK: - Save Activities completed
+    private func saveActivity(activity name: String, forModule id: Int) {
+        
+        //Obtiene la fecha actual
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = DateTimeFormat.formatInMillis
+        
+        // save Activity complete
+        let actCompleted:ActityCompleted = ActityCompleted()
+        actCompleted.courseID = CourseIDs.VBG.rawValue
+        actCompleted.topicID = id
+        actCompleted.activity = name
+        actCompleted.dateCompleted = formatter.string(from: date)
+        
+        // se envia post a servidor Si la respuesta es VERDADERA
+        guard let requestModel = saveProgress(forActivity: actCompleted) else {
+            return
+        }
+        
+        vbgDelegate?.sendRequest(formModel: requestModel)
     }
     
     // MARK: - Acciones de navegación
@@ -937,6 +1211,14 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     // change state for checkBox
     @IBAction func changeButtonState(_ sender: UIButton){
         sender.isSelected = !sender.isSelected
+    }
+    
+    @objc func tapLabel(sender: UITapGestureRecognizer) {
+        
+        let labelTapped = sender.view!
+        let labelTag = labelTapped.tag
+        
+        changeButtonState(answersButtons[labelTag])
     }
     
     // Update selected option in radioGroup
@@ -1084,29 +1366,66 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
                 return
         }
         
+        saveActivity(activity: ActivitiesAbreviature.MOD_1_CW1.rawValue, forModule: TopicsIDs.mod_01.rawValue)
         nextPage(nil)
     }
     @IBAction func checking_page_15(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_15.ERROR, inbold: VBG_COURSE.PAGE_15.ERROR_INBOLD, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.MOD_1_Q1.rawValue, forModule: TopicsIDs.mod_02.rawValue)
+            nextPage(nil)
+        }
+        else {
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_15.ERROR, inbold: VBG_COURSE.PAGE_15.ERROR_INBOLD, type: .failed)
+        }
     }
     
     @IBAction func checking_page_31(_ sender: UIButton) {
-        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_31.ERROR, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q1.rawValue, forModule: TopicsIDs.mod_03.rawValue)
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success)
+        }
+        else {
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_31.ERROR, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_32(_ sender: UIButton) {
-        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q2.rawValue, forModule: TopicsIDs.mod_03.rawValue)
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success)
+        }
+        else {
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_32.ERROR, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_33(_ sender: UIButton) {
-        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_33.ERROR, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q3.rawValue, forModule: TopicsIDs.mod_03.rawValue)
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success)
+        }
+        else {
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_33.ERROR, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_34(_ sender: UIButton) {
-        checkingQuestionary() ? vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_34.ERROR, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.MOD_3_Q4.rawValue, forModule: TopicsIDs.mod_03.rawValue)
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.correct_answer, inbold: nil, type: .success)
+        }
+        else {
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_34.ERROR, inbold: nil, type: .failed)
+        }
     }
     @IBAction func checking_page_47(_ sender: UIButton) {
-        checkingQuestionary() ? nextPage(nil) : vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_47.ERROR, inbold: nil, type: .failed)
+        if checkingQuestionary() {
+            saveActivity(activity: ActivitiesAbreviature.MOD_4_Q1.rawValue, forModule: TopicsIDs.mod_04.rawValue)
+            nextPage(nil)
+        }
+        else {
+            vbgDelegate?.showMessagePopup(message: VBG_COURSE.PAGE_47.ERROR, inbold: nil, type: .failed)
+        }
     }
     
     @IBAction func checking_page_48(_ sender: UIButton) {

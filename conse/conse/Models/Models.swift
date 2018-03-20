@@ -13,11 +13,9 @@ class ContactModel: Mappable {
     var fullName: String!
     var number: String!
     
-    init() {
-    }
+    init() {}
     
-    required init?(map: Map) {
-    }
+    required init?(map: Map) {}
     
     func mapping(map: Map) {
         fullName <- map[JSONKeys.full_name]
@@ -29,14 +27,55 @@ class ContactListModel: Mappable {
     
     var contacList: Array<ContactModel>!
     
-    init() {
-    }
+    init() {}
     
-    required init?(map: Map) {
-    }
+    required init?(map: Map) {}
     
     func mapping(map: Map) {
         contacList <- map[JSONKeys.contact_emergency_List]
+    }
+}
+
+class CourseListModel: Mappable {
+    
+    var courseList: Array<Course>!
+    
+    init(courseList: Array<Course>!) {
+        self.courseList = courseList
+    }
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        courseList <- map[JSONKeys.course_list]
+    }
+}
+
+// Modelo con los datos basicos para guardar una actividad completada
+class ActityCompleted {
+    var courseID: Int!
+    var topicID: Int!
+    var activity: String!
+    var dateCompleted: String!
+}
+
+class RequestCompleted: Mappable {
+    var user: Int!
+    var topic_activity: Int!
+    var date_completed: String!
+    
+    init(user: Int, activity: Int, date: String) {
+        self.user = user
+        self.topic_activity = activity
+        self.date_completed = date
+    }
+    
+    required init?(map: Map) {}
+    
+    func mapping(map: Map) {
+        user <- map[JSONKeys.user]
+        topic_activity <- map[JSONKeys.topic_activity]
+        date_completed <- map[JSONKeys.date_completed]
     }
 }
 
