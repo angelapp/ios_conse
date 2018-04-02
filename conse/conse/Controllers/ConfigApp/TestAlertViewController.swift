@@ -17,6 +17,9 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     @IBOutlet weak var img_step1: UIImageView!
     @IBOutlet weak var img_step2: UIImageView!
     
+    // MARK: Properties
+    var isEdit = false
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,7 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
         img_step2.image = #imageLiteral(resourceName: "circulo_amarillo")
         
         if error {
-            self.view.makeToast(message: Strings.error_message_notAvailableAction,
+            self.view.makeToast(message: ErrorStrings.disabledAction,
                                 duration: 5.0,
                                 position: HRToastPositionDefault as AnyObject)
         }
@@ -53,7 +56,18 @@ class TestAlertViewController: UIViewController, TestAlertProtocol {
     @IBAction func sendAlertTest(_ sender: UIButton) {
         self.showEmergencyPopup(senderVC: .testAlert, testDelegate: self)
     }
-
+    
+    @IBAction func startMakeAvatar(_ sender: UIButton) {
+        // check if is editing
+        if isEdit {
+            let sb = UIStoryboard(name: StoryboardsId.main, bundle: nil)
+            self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+        }
+        else {
+            performSegue(withIdentifier: segueID.makeYourAvatar, sender: self)
+        }
+    }
+    
     @IBAction func backAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }

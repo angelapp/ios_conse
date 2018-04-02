@@ -13,9 +13,13 @@ class ChoiceAvatarGenderViewController: UIViewController {
     // MARK: - Outlet
     @IBOutlet weak var btn_man: UIButton!
     @IBOutlet weak var btn_woman: UIButton!
+    @IBOutlet weak var btn_dismiss: UIButton!
     
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var lbl_message: UILabel!
+    
+    // MARK: - Properties
+    var isEdit: Bool = false
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -27,7 +31,9 @@ class ChoiceAvatarGenderViewController: UIViewController {
         // Fill labels
         lbl_title.text = AvatarStrings.makeYourAvatarTitle
         lbl_message.text = AvatarStrings.makeYourAvatarMessage
-        
+
+        // Muestra u oculta el botón de volver
+        btn_dismiss.isHidden = !isEdit
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,10 +44,14 @@ class ChoiceAvatarGenderViewController: UIViewController {
     // MARK: - Actions
     @IBAction func actionButtons(_ sender: UIButton) {
         
-        let avatar = MyAvatarPieces()
-        avatar.genderID = sender == btn_man ? AvatarGenderIDs.male.rawValue : AvatarGenderIDs.female.rawValue
-        AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: avatar)
-        
-        performSegue(withIdentifier: segueID.makeYourAvatar, sender: self)
+        if sender == btn_dismiss {
+            self.dismiss(animated: true, completion: nil)
+        }
+        else {
+            let avatar = MyAvatarPieces()
+            avatar.genderID = sender == btn_man ? AvatarGenderIDs.male.rawValue : AvatarGenderIDs.female.rawValue
+            AplicationRuntime.sharedManager.setAvatarPieces(avatarPieces: avatar)
+            performSegue(withIdentifier: segueID.makeYourAvatar, sender: self)
+        }
     }
 }

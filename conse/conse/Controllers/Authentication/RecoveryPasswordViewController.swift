@@ -89,14 +89,14 @@ class RecoveryPasswordViewController: UIViewController, UITextFieldDelegate {
     
     //Obeserver for move frame to origin when keyboard is hiden
     @objc func keyboardWillHide(notification: NSNotification) {
-        scroll.contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: self.view.bounds.size.height)
     }
     
     // MARK: - Request function
     /// Se envia correo del usuario para recuperar la contraseña
     func sendRecoveryPost(email: RegisterUserProfileModel) {
         
-        let loader = LoadingOverlay(text: Strings.loader_recovery)
+        let loader = LoadingOverlay(text: LoaderStrings.recovery)
         let json = Mapper().toJSONString(email, prettyPrint: true)
         let headers:[[String:String]] = []
         

@@ -208,7 +208,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader06() {
         leaders_title.text = LEADERS_COURSE.PAGE_06.title
         
-        leaders_text1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_06.t1, toWord: LEADERS_COURSE.PAGE_06.t1_inBold_1, LEADERS_COURSE.PAGE_06.t1_inBold_2, fontSize: leaders_text1.font.pointSize)
+        //Reeplace with Asset
+//        leaders_text1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_06.t1, toWord: LEADERS_COURSE.PAGE_06.t1_inBold_1, LEADERS_COURSE.PAGE_06.t1_inBold_2, fontSize: leaders_text1.font.pointSize)
         leaders_text2.text = LEADERS_COURSE.PAGE_06.t2
         leaders_text3.text = LEADERS_COURSE.PAGE_06.t3
         
@@ -464,6 +465,8 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_item4.text = LEADERS_COURSE.PAGE_20.item_04
         leaders_item5.text = LEADERS_COURSE.PAGE_20.item_05
         leaders_item6.text = LEADERS_COURSE.PAGE_20.item_06
+        
+        img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
     }
     
     func fillLeader21() {
@@ -472,10 +475,22 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         
         leaders_item1.text = LEADERS_COURSE.PAGE_21.item_01
         leaders_item2.text = LEADERS_COURSE.PAGE_21.item_02
-        leaders_item3.text = LEADERS_COURSE.PAGE_21.item_03
-        leaders_item4.text = LEADERS_COURSE.PAGE_21.item_04
-        leaders_item5.text = LEADERS_COURSE.PAGE_21.item_05
-        leaders_item6.text = LEADERS_COURSE.PAGE_21.item_06
+        leaders_item3.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_21.item_03,
+                                                   toWord: LEADERS_COURSE.PAGE_21.inBold_Item_03,
+                                                   fontSize: leaders_item3.font.pointSize)
+    }
+    
+    func fillLeader21_2() {
+        leaders_title.text = LEADERS_COURSE.PAGE_21_2.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_21_2.subtitle
+        
+        leaders_item1.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_21_2.item_01,
+                                                   toWord: LEADERS_COURSE.PAGE_21_2.inBold_Item_01,
+                                                   fontSize: leaders_item1.font.pointSize)
+        leaders_item2.attributedText = addBoldWord(forText: LEADERS_COURSE.PAGE_21_2.item_02,
+                                                   toWord: LEADERS_COURSE.PAGE_21_2.inBold_Item_02,
+                                                   fontSize: leaders_item2.font.pointSize)
+        leaders_item3.text = LEADERS_COURSE.PAGE_21_2.item_03
     }
     
     func fillLeader22() {
@@ -868,6 +883,22 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         leaders_subtitle.text = LEADERS_COURSE.PAGE_47.subtitle
         
         leaders_item1.text = LEADERS_COURSE.PAGE_47.item_01
+        img_avatar.image = AplicationRuntime.sharedManager.avatarImage
+    }
+    
+    func fillLeader47_2() {
+        leaders_title.text = LEADERS_COURSE.PAGE_47_2.title
+        leaders_subtitle.text = LEADERS_COURSE.PAGE_47_2.subtitle
+        
+        leaders_item1.text = LEADERS_COURSE.PAGE_47_2.item_01
+        leaders_item2.text = LEADERS_COURSE.PAGE_47_2.item_02
+        leaders_item3.text = LEADERS_COURSE.PAGE_47_2.item_03
+        leaders_item4.text = LEADERS_COURSE.PAGE_47_2.item_04
+        leaders_item5.text = LEADERS_COURSE.PAGE_47_2.item_05
+        leaders_item6.text = LEADERS_COURSE.PAGE_47_2.item_06
+        leaders_item7.text = LEADERS_COURSE.PAGE_47_2.item_07
+        leaders_item8.text = LEADERS_COURSE.PAGE_47_2.item_08
+        leaders_item9.text = LEADERS_COURSE.PAGE_47_2.item_09
     }
     
     func fillLeader48() {
@@ -1141,6 +1172,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         guard leaders_textField1.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer01.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField1.text = nil
+            leaders_textField1.resignFirstResponder()
             return
         }
 
@@ -1148,6 +1180,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             leaders_textField2.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer03.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField2.text = nil
+                leaders_textField2.resignFirstResponder()
             return
         }
 
@@ -1156,12 +1189,14 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             (leaders_textField3.text?.lowercased() != leaders_textField2.text?.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField3.text = nil
+                leaders_textField3.resignFirstResponder()
             return
         }
 
         guard leaders_textField4.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer04.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField4.text = nil
+            leaders_textField4.resignFirstResponder()
             return
         }
 
@@ -1169,24 +1204,28 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
               leaders_textField5.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer05_2.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField5.text = nil
+                leaders_textField5.resignFirstResponder()
             return
         }
 
         guard leaders_textField6.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer06.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField6.text = nil
+            leaders_textField6.resignFirstResponder()
             return
         }
 
         guard leaders_textField7.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer07.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField7.text = nil
+            leaders_textField7.resignFirstResponder()
             return
         }
 
         guard leaders_textField8.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer08.lowercased() else {
             leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
             leaders_textField8.text = nil
+            leaders_textField8.resignFirstResponder()
             return
         }
 
@@ -1194,6 +1233,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             leaders_textField9.text?.trimmingCharacters(in: .whitespaces).lowercased() == LEADERS_COURSE.PAGE_09.answer10.lowercased()) else {
                 leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                 leaders_textField9.text = nil
+                leaders_textField9.resignFirstResponder()
             return
         }
 
@@ -1202,6 +1242,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
                 leaders_textField9.text?.lowercased() != leaders_textField10.text?.lowercased()) else {
                     leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_09.error, inbold: nil, type: .failed)
                     leaders_textField10.text = nil
+                    leaders_textField10.resignFirstResponder()
             return
         }
         
@@ -1265,7 +1306,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             nextPage(nil)
         }
         else {
-            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_42.error, inbold: nil, type: .failed)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_55.error, inbold: nil, type: .failed)
         }
     }
     
@@ -1275,7 +1316,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             nextPage(nil)
         }
         else {
-            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_43.error, inbold: nil, type: .failed)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_56.error, inbold: nil, type: .failed)
         }
     }
     
@@ -1285,7 +1326,7 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
             nextPage(nil)
         }
         else {
-            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_44.error, inbold: nil, type: .failed)
+            leadersDelegate?.showMessagePopup(message: LEADERS_COURSE.PAGE_57.error, inbold: nil, type: .failed)
         }
     }
     

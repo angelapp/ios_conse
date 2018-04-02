@@ -20,27 +20,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgW-3i-SFy">
-                                <rect key="frame" x="20" y="32" width="280" height="417.5"/>
+                                <rect key="frame" x="8" y="4.5" width="304" height="472.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgD-To-iuz">
-                                        <rect key="frame" x="77.5" y="18" width="125" height="125"/>
+                                        <rect key="frame" x="94.5" y="12" width="115" height="115"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="125" id="KbO-uv-HYz"/>
-                                            <constraint firstAttribute="width" constant="125" id="eSj-oa-b3F"/>
+                                            <constraint firstAttribute="height" constant="115" id="KbO-uv-HYz"/>
+                                            <constraint firstAttribute="width" constant="115" id="eSj-oa-b3F"/>
                                         </constraints>
                                         <state key="normal" image="icon_enviaralerta"/>
                                         <connections>
                                             <action selector="actionButtons:" destination="0Dt-Cy-54k" eventType="touchUpInside" id="iGB-9G-Ybv"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="También puedes llamar gratis, todos los días y a cualquier hora, a las siguientes líneas telefónicas:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDs-XW-hTs">
-                                        <rect key="frame" x="16" y="167" width="248" height="47"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puedes llamar gratis, todos los días y a cualquier hora, a las siguientes líneas telefónicas:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DDs-XW-hTs">
+                                        <rect key="frame" x="8" y="135" width="288" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De lunes a viernes de 8:00am a 4:30pm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKm-7X-Tap">
+                                        <rect key="frame" x="8" y="334.5" width="288" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-hq-hGd">
-                                        <rect key="frame" x="0.0" y="388.5" width="280" height="29"/>
+                                        <rect key="frame" x="0.0" y="443.5" width="304" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <state key="normal" title="Cancelar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -50,10 +56,10 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-Rm-2rm" userLabel="Call 123">
-                                        <rect key="frame" x="16" y="222" width="248" height="40.5"/>
+                                        <rect key="frame" x="16" y="186" width="272" height="41"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9V-LS-cM8">
-                                                <rect key="frame" x="216" y="4.5" width="32" height="32"/>
+                                                <rect key="frame" x="240" y="5" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="N9n-eZ-P0d"/>
                                                     <constraint firstAttribute="width" constant="32" id="twz-eP-yZE"/>
@@ -64,8 +70,8 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Línea nacional de atención a emergencias 123" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fE9-ck-u6q">
-                                                <rect key="frame" x="8" y="4" width="200" height="32.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <rect key="frame" x="8" y="4" width="224" height="33"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -82,10 +88,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-Ia-rwi" userLabel="Call 141">
-                                        <rect key="frame" x="16" y="266.5" width="248" height="55"/>
+                                        <rect key="frame" x="16" y="231" width="272" height="51"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-zu-yik">
-                                                <rect key="frame" x="216" y="11.5" width="32" height="32"/>
+                                                <rect key="frame" x="240" y="9.5" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="YHw-ak-Wu8"/>
                                                     <constraint firstAttribute="height" constant="32" id="dK1-k5-RC2"/>
@@ -96,8 +102,8 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Línea de orientación del ICBF si la violencia es contra niños, niñas y adolescentes 141" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgK-q5-U8z">
-                                                <rect key="frame" x="8" y="4.5" width="200" height="47"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <rect key="frame" x="8" y="4.5" width="224" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -114,10 +120,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yN0-xG-KOB" userLabel="Call 155">
-                                        <rect key="frame" x="16" y="325.5" width="248" height="55"/>
+                                        <rect key="frame" x="16" y="286" width="272" height="40.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FT-CS-COh">
-                                                <rect key="frame" x="216" y="11.5" width="32" height="32"/>
+                                                <rect key="frame" x="240" y="4.5" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="n7r-i9-KG9"/>
                                                     <constraint firstAttribute="height" constant="32" id="nrD-0q-JxC"/>
@@ -128,8 +134,8 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Línea de orientación a las mujeres víctimas de la violencia 155" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEs-FL-yag">
-                                                <rect key="frame" x="8" y="4.5" width="200" height="47"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <rect key="frame" x="8" y="4.5" width="224" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -145,27 +151,100 @@
                                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2FT-CS-COh" secondAttribute="bottom" constant="4" id="yu4-5E-3ev"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7m-3g-QPf" userLabel="UNP NAL">
+                                        <rect key="frame" x="16" y="357" width="272" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3i-Uc-KsJ">
+                                                <rect key="frame" x="240" y="4" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="25d-5c-wv5"/>
+                                                    <constraint firstAttribute="width" constant="32" id="5ki-4u-mvC"/>
+                                                </constraints>
+                                                <state key="normal" image="icon_telefono"/>
+                                                <connections>
+                                                    <action selector="actionButtons:" destination="0Dt-Cy-54k" eventType="touchUpInside" id="Tcx-mX-ghK"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unidad Nacional de Protección línea nacional 018000118228" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4T-pX-D1d">
+                                                <rect key="frame" x="8" y="4.5" width="224" height="32"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="g3i-Uc-KsJ" firstAttribute="centerY" secondItem="N7m-3g-QPf" secondAttribute="centerY" id="9OD-b2-aV9"/>
+                                            <constraint firstAttribute="trailing" secondItem="g3i-Uc-KsJ" secondAttribute="trailing" id="FwU-5k-Gej"/>
+                                            <constraint firstAttribute="bottom" secondItem="c4T-pX-D1d" secondAttribute="bottom" constant="4" id="Jyg-DQ-Nke"/>
+                                            <constraint firstItem="g3i-Uc-KsJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="N7m-3g-QPf" secondAttribute="top" constant="4" id="Lrc-Wo-TNc"/>
+                                            <constraint firstItem="c4T-pX-D1d" firstAttribute="top" secondItem="N7m-3g-QPf" secondAttribute="top" constant="4" id="O21-0x-zxq"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="g3i-Uc-KsJ" secondAttribute="bottom" constant="4" id="oXY-dc-Rfm"/>
+                                            <constraint firstItem="c4T-pX-D1d" firstAttribute="leading" secondItem="N7m-3g-QPf" secondAttribute="leading" constant="8" id="vyk-We-d2w"/>
+                                            <constraint firstItem="g3i-Uc-KsJ" firstAttribute="leading" secondItem="c4T-pX-D1d" secondAttribute="trailing" constant="8" id="x3a-07-wAV"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhu-jv-TpE" userLabel="UNP BOG">
+                                        <rect key="frame" x="16" y="401" width="272" height="40.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dp-zs-izC">
+                                                <rect key="frame" x="240" y="4.5" width="32" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="3Ld-H1-gdu"/>
+                                                    <constraint firstAttribute="width" constant="32" id="4xg-Kn-hLg"/>
+                                                </constraints>
+                                                <state key="normal" image="icon_telefono"/>
+                                                <connections>
+                                                    <action selector="actionButtons:" destination="0Dt-Cy-54k" eventType="touchUpInside" id="GyU-XG-vlT"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unidad Nacional de Protección  en Bogotá (1) 4269800" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuq-ne-VOj">
+                                                <rect key="frame" x="8" y="4.5" width="224" height="32.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="fuq-ne-VOj" secondAttribute="bottom" constant="4" id="5Qj-qi-QrM"/>
+                                            <constraint firstItem="7dp-zs-izC" firstAttribute="leading" secondItem="fuq-ne-VOj" secondAttribute="trailing" constant="8" id="Tbz-Im-JW5"/>
+                                            <constraint firstItem="7dp-zs-izC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jhu-jv-TpE" secondAttribute="top" constant="4" id="X6w-VK-09y"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="7dp-zs-izC" secondAttribute="bottom" constant="4" id="afM-rO-p9j"/>
+                                            <constraint firstItem="7dp-zs-izC" firstAttribute="centerY" secondItem="jhu-jv-TpE" secondAttribute="centerY" id="hhB-6Z-PUi"/>
+                                            <constraint firstItem="fuq-ne-VOj" firstAttribute="top" secondItem="jhu-jv-TpE" secondAttribute="top" constant="4" id="qUT-5Q-jz0"/>
+                                            <constraint firstAttribute="trailing" secondItem="7dp-zs-izC" secondAttribute="trailing" id="qbA-wZ-cRP"/>
+                                            <constraint firstItem="fuq-ne-VOj" firstAttribute="leading" secondItem="jhu-jv-TpE" secondAttribute="leading" constant="8" id="rVZ-qz-Fpv"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.7725490196" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="280" id="3Ol-P8-p6q"/>
+                                    <constraint firstItem="jhu-jv-TpE" firstAttribute="top" secondItem="N7m-3g-QPf" secondAttribute="bottom" constant="4" id="0jj-AQ-crN"/>
+                                    <constraint firstAttribute="width" constant="304" id="3Ol-P8-p6q"/>
                                     <constraint firstAttribute="trailing" secondItem="pSa-Ia-rwi" secondAttribute="trailing" constant="16" id="3tO-Pd-wNR"/>
+                                    <constraint firstItem="N7m-3g-QPf" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="16" id="685-NY-k31"/>
+                                    <constraint firstItem="jhu-jv-TpE" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="16" id="8p0-qt-BHR"/>
+                                    <constraint firstItem="IdV-hq-hGd" firstAttribute="top" secondItem="jhu-jv-TpE" secondAttribute="bottom" constant="2" id="9Ru-Qv-RHJ"/>
                                     <constraint firstItem="yN0-xG-KOB" firstAttribute="top" secondItem="pSa-Ia-rwi" secondAttribute="bottom" constant="4" id="AVU-MI-1PK"/>
+                                    <constraint firstAttribute="trailing" secondItem="N7m-3g-QPf" secondAttribute="trailing" constant="16" id="EAv-3U-I6j"/>
+                                    <constraint firstItem="HKm-7X-Tap" firstAttribute="top" secondItem="yN0-xG-KOB" secondAttribute="bottom" constant="8" id="Ges-yK-fWq"/>
+                                    <constraint firstItem="N7m-3g-QPf" firstAttribute="top" secondItem="HKm-7X-Tap" secondAttribute="bottom" constant="8" id="KCY-bm-w9d"/>
+                                    <constraint firstAttribute="trailing" secondItem="jhu-jv-TpE" secondAttribute="trailing" constant="16" id="NYh-LV-vQZ"/>
                                     <constraint firstItem="IgD-To-iuz" firstAttribute="centerX" secondItem="kgW-3i-SFy" secondAttribute="centerX" id="Oeg-Lx-MXD"/>
                                     <constraint firstItem="yN0-xG-KOB" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="16" id="P5O-uf-v1y"/>
+                                    <constraint firstAttribute="trailing" secondItem="HKm-7X-Tap" secondAttribute="trailing" constant="8" id="Ro0-DB-6yZ"/>
                                     <constraint firstItem="xHT-Rm-2rm" firstAttribute="top" secondItem="DDs-XW-hTs" secondAttribute="bottom" constant="8" id="YyO-FJ-CXm"/>
                                     <constraint firstAttribute="trailing" secondItem="yN0-xG-KOB" secondAttribute="trailing" constant="16" id="Zaq-5E-Tg9"/>
+                                    <constraint firstItem="HKm-7X-Tap" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="8" id="btR-eL-iE0"/>
                                     <constraint firstItem="pSa-Ia-rwi" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="16" id="dH6-4C-LP0"/>
-                                    <constraint firstItem="DDs-XW-hTs" firstAttribute="top" secondItem="IgD-To-iuz" secondAttribute="bottom" constant="24" id="fAm-MG-gM8"/>
-                                    <constraint firstAttribute="trailing" secondItem="DDs-XW-hTs" secondAttribute="trailing" constant="16" id="fjG-Ca-7it"/>
+                                    <constraint firstItem="DDs-XW-hTs" firstAttribute="top" secondItem="IgD-To-iuz" secondAttribute="bottom" constant="8" id="fAm-MG-gM8"/>
+                                    <constraint firstAttribute="trailing" secondItem="DDs-XW-hTs" secondAttribute="trailing" constant="8" id="fjG-Ca-7it"/>
                                     <constraint firstItem="IdV-hq-hGd" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" id="g8r-3M-xgi"/>
-                                    <constraint firstItem="IgD-To-iuz" firstAttribute="top" secondItem="kgW-3i-SFy" secondAttribute="top" constant="18" id="jga-JO-Djy"/>
+                                    <constraint firstItem="IgD-To-iuz" firstAttribute="top" secondItem="kgW-3i-SFy" secondAttribute="top" constant="12" id="jga-JO-Djy"/>
                                     <constraint firstAttribute="trailing" secondItem="IdV-hq-hGd" secondAttribute="trailing" id="org-Gj-afb"/>
                                     <constraint firstAttribute="bottom" secondItem="IdV-hq-hGd" secondAttribute="bottom" id="sCL-yn-Wh1"/>
-                                    <constraint firstItem="IdV-hq-hGd" firstAttribute="top" secondItem="yN0-xG-KOB" secondAttribute="bottom" constant="8" id="uwR-P4-EW5"/>
                                     <constraint firstItem="xHT-Rm-2rm" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="16" id="vnV-lU-Nkr"/>
                                     <constraint firstItem="pSa-Ia-rwi" firstAttribute="top" secondItem="xHT-Rm-2rm" secondAttribute="bottom" constant="4" id="xIs-PW-CH5"/>
-                                    <constraint firstItem="DDs-XW-hTs" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="16" id="xsh-XK-MIA"/>
+                                    <constraint firstItem="DDs-XW-hTs" firstAttribute="leading" secondItem="kgW-3i-SFy" secondAttribute="leading" constant="8" id="xsh-XK-MIA"/>
                                     <constraint firstAttribute="trailing" secondItem="xHT-Rm-2rm" secondAttribute="trailing" constant="16" id="yrn-42-Dds"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -175,7 +254,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-fM-1FS">
-                                <rect key="frame" x="16" y="48.5" width="288" height="382.5"/>
+                                <rect key="frame" x="16" y="48" width="288" height="382.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_campana" translatesAutoresizingMaskIntoConstraints="NO" id="ufL-91-sHc">
                                         <rect key="frame" x="16" y="20" width="256" height="50"/>
@@ -253,7 +332,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
-                                        <integer key="value" value="5"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -273,6 +352,8 @@
                         <outlet property="btn_155" destination="2FT-CS-COh" id="aOq-BT-vrX"/>
                         <outlet property="btn_Cancel" destination="IdV-hq-hGd" id="dnm-NF-wVw"/>
                         <outlet property="btn_SMS" destination="IgD-To-iuz" id="wnQ-qM-LcM"/>
+                        <outlet property="btn_UNP_BOG" destination="7dp-zs-izC" id="Fmn-bG-l8i"/>
+                        <outlet property="btn_UNP_NAL" destination="g3i-Uc-KsJ" id="cwi-Te-Xyn"/>
                         <outlet property="btn_cancelAlert" destination="7ag-JA-tEx" id="gxv-1c-bMa"/>
                         <outlet property="btn_sendAlert" destination="jB9-Kz-Hcg" id="16P-8r-Cyi"/>
                         <outlet property="cancelButton_heigthConstraint" destination="XPS-fJ-BP3" id="P0Y-wc-mu8"/>
@@ -280,14 +361,17 @@
                         <outlet property="lbl_line_123" destination="fE9-ck-u6q" id="qQk-X1-5AB"/>
                         <outlet property="lbl_line_141" destination="bgK-q5-U8z" id="frr-hu-HNq"/>
                         <outlet property="lbl_line_155" destination="eEs-FL-yag" id="pyn-n5-2sD"/>
+                        <outlet property="lbl_line_UPN_BOG" destination="fuq-ne-VOj" id="lXV-Ok-QeA"/>
+                        <outlet property="lbl_line_UPN_NAL" destination="c4T-pX-D1d" id="Jaj-E8-hf1"/>
                         <outlet property="lbl_message" destination="DDs-XW-hTs" id="gLf-z7-w4g"/>
+                        <outlet property="lbl_message_02" destination="HKm-7X-Tap" id="LXk-6f-q9v"/>
                         <outlet property="message_Content" destination="tXz-fM-1FS" id="p5U-6f-jY4"/>
                         <outlet property="numbers_Content" destination="kgW-3i-SFy" id="OUn-Zz-nPK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UUh-47-d0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2528" y="1419"/>
+            <point key="canvasLocation" x="2527.5" y="1418.75"/>
         </scene>
         <!--Crossword Help View Controller-->
         <scene sceneID="fN1-YZ-BRu">
@@ -415,8 +499,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93B-kF-Rd9">
+                                <rect key="frame" x="24" y="176" width="272" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <collectionView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rCe-WW-cOG">
-                                <rect key="frame" x="0.0" y="184" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="213.5" width="320" height="40"/>
                                 <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -486,7 +576,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wb4-5P-J4K">
-                                <rect key="frame" x="0.0" y="232" width="320" height="248"/>
+                                <rect key="frame" x="0.0" y="261.5" width="320" height="218.5"/>
                                 <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="progressCell" rowHeight="66" id="As3-0g-qeD" customClass="ProgressTableViewCell" customModule="conse" customModuleProvider="target">
@@ -543,16 +633,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="93B-kF-Rd9" firstAttribute="top" secondItem="hij-AK-dzf" secondAttribute="bottom" constant="8" id="5Hc-0x-vwh"/>
                             <constraint firstItem="kYy-uU-J6L" firstAttribute="trailing" secondItem="hij-AK-dzf" secondAttribute="trailing" constant="24" id="Ewy-nk-Q8b"/>
                             <constraint firstItem="p2d-44-gME" firstAttribute="trailing" secondItem="kYy-uU-J6L" secondAttribute="trailing" id="G7c-f5-DHg"/>
                             <constraint firstItem="Wb4-5P-J4K" firstAttribute="bottom" secondItem="kYy-uU-J6L" secondAttribute="bottom" id="Gnv-ab-aGF"/>
                             <constraint firstItem="rCe-WW-cOG" firstAttribute="trailing" secondItem="kYy-uU-J6L" secondAttribute="trailing" id="GvQ-Lf-M9x"/>
                             <constraint firstItem="Wb4-5P-J4K" firstAttribute="leading" secondItem="kYy-uU-J6L" secondAttribute="leading" id="Hym-Zl-58S"/>
+                            <constraint firstItem="rCe-WW-cOG" firstAttribute="top" secondItem="93B-kF-Rd9" secondAttribute="bottom" constant="16" id="IgF-QM-YJq"/>
                             <constraint firstItem="rCe-WW-cOG" firstAttribute="leading" secondItem="kYy-uU-J6L" secondAttribute="leading" id="QJK-Ed-eFf"/>
                             <constraint firstItem="p2d-44-gME" firstAttribute="top" secondItem="kYy-uU-J6L" secondAttribute="top" constant="8" id="Ss3-pv-2gI"/>
-                            <constraint firstItem="rCe-WW-cOG" firstAttribute="top" secondItem="hij-AK-dzf" secondAttribute="bottom" constant="16" id="TXj-51-whh"/>
+                            <constraint firstItem="93B-kF-Rd9" firstAttribute="trailing" secondItem="hij-AK-dzf" secondAttribute="trailing" id="aRO-ik-IR2"/>
                             <constraint firstItem="hij-AK-dzf" firstAttribute="top" secondItem="MWR-sc-ujr" secondAttribute="bottom" constant="8" id="bBB-GX-dv7"/>
                             <constraint firstItem="Wb4-5P-J4K" firstAttribute="top" secondItem="rCe-WW-cOG" secondAttribute="bottom" constant="8" id="dwS-lr-Ze6"/>
+                            <constraint firstItem="93B-kF-Rd9" firstAttribute="leading" secondItem="hij-AK-dzf" secondAttribute="leading" id="mic-YP-qvW"/>
                             <constraint firstItem="MWR-sc-ujr" firstAttribute="top" secondItem="kYy-uU-J6L" secondAttribute="top" constant="46" id="nqQ-ub-TPR"/>
                             <constraint firstItem="Wb4-5P-J4K" firstAttribute="trailing" secondItem="kYy-uU-J6L" secondAttribute="trailing" id="ogt-9C-TuM"/>
                             <constraint firstItem="MWR-sc-ujr" firstAttribute="centerX" secondItem="lQh-CP-QKl" secondAttribute="centerX" id="q6A-uM-W3O"/>
@@ -563,6 +656,7 @@
                     <connections>
                         <outlet property="button_collection" destination="rCe-WW-cOG" id="1bZ-EB-ILI"/>
                         <outlet property="levelProgress" destination="Wb4-5P-J4K" id="evl-LW-OfE"/>
+                        <outlet property="progressMessage" destination="93B-kF-Rd9" id="5Tf-Jd-87Z"/>
                         <outlet property="progressTitle" destination="hij-AK-dzf" id="zKn-Ga-zmX"/>
                     </connections>
                 </viewController>

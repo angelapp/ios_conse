@@ -13,10 +13,12 @@ class FormatBankTableViewCell: UITableViewCell {
     var item: FormatsBankItem!
     var parent: UIViewController!
     var formatBankDelegate: FormatBankProtocol?
+    var marginBottom: CGFloat = ConseValues.defaultMargin
 
     @IBOutlet weak var btn_download: UIButton!
     @IBOutlet weak var btn_share: UIButton!
     @IBOutlet weak var lbl_title: UILabel!
+    @IBOutlet weak var margin_bottom: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +33,7 @@ class FormatBankTableViewCell: UITableViewCell {
     
     func fillCell() {
         lbl_title.text = item.name
+        margin_bottom.constant = marginBottom
     }
     
     @IBAction func actionButtons(_ sender: UIButton) {

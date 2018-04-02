@@ -57,7 +57,7 @@ class LegalViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         guard !isDownload else { return }
         
-        let loader = LoadingOverlay(text: Strings.loader_getLegal)
+        let loader = LoadingOverlay(text: LoaderStrings.getLegal)
         let json = nullString
         let url = NetworkGET.LIBRARY_DOCS
         let headers:[[String:String]] = []

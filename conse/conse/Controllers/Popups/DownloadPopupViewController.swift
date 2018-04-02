@@ -45,7 +45,7 @@ class DownloadPopupViewController: UIViewController {
         
         lbl_title.text = document.name
         lbl_description.text = document.description
-        lbl_download.text = Strings.copy_download
+        lbl_download.text = Strings.download
     }
     
     private func downloadDoc() {

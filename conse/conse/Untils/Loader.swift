@@ -18,7 +18,7 @@ public class LoadingOverlay {
     
     class var shared: LoadingOverlay {
         struct Static {
-            static let instance: LoadingOverlay = LoadingOverlay(text: Strings.loader_loading)
+            static let instance: LoadingOverlay = LoadingOverlay(text: LoaderStrings.loading)
         }
         return Static.instance
     }

@@ -23,77 +23,51 @@ let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
 let URL_LOCATION_SERVICES = "App-Prefs:root=LOCATION_SERVICES"
 let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 
+// MARK: - AVATAR, Config
 struct AvatarStrings {
     static let makeYourAvatarTitle = "Arma tu Conse"
     static let makeYourAvatarMessage = "Inicia por escoger el género, depués, podrás definir las características físicas que más te gusten para tu Consejero o Consejera ¡Será quien te acompañe mientras usas la aplicación!"
 }
 
+struct ConfigStrings {
+    static let alertConfig = "Ingresa de 1 a 3 contactos"
+    
+    static let letStartMessage = "Hola soy tu Conse y voy a estar acompañándote en este recorrido. Traigo mucha información y herramientas que me gustaría compartir contigo"
+    static let letStartTitle = "¡Iniciemos!"
+    
+    static let testAlerthelp = "MANTÉN PULSADO EL BOTÓN PARA ENVIAR"
+    static let testAlertMessage = "Ahora eres mi contacto de emergencia. \nEsta es una prueba"
+    static let testAlertTitle = "¿Estás seguro de enviar esta alerta?"
+    static let title_AlertConfig = "Configura el botón de alerta"
+    static let title_EditAlertConfig = "Editar el botón de alerta"
+    static let title_AlertTest = "Haz una prueba de funcionamiento"
+}
+
 struct Strings {
+    static let aboutNRC_title = ""
+    static let aboutNRC_tab1 = "QUIENES SOMOS"
+    static let aboutNRC_tab2 = "QUE HACEMOS"
+    static let aboutNRC_tab3 = "DONDE TRABAJAMOS"
     
     static let birthday_placeholder = "DÍA/MES/AÑO"
-    static let body_AlertConfig = "Ingresa de 1 a 3 contactos"
-    static let body_Checkbox_Beneficiary = "Soy beneficiario de los programas NRC"
-    static let body_Checkbox_AcceptTerms = "Acepto los %@ del NRC"
+    
     static let button_accept = "Aceptar"
     static let button_cancel = "CANCELAR"
     static let button_settings = "CONFIGURACIÓN"
     
-    static let copy_aboutusTitle = ""
-    static let copy_aboutusTitle_tab1 = "QUIENES SOMOS"
-    static let copy_aboutusTitle_tab2 = "QUE HACEMOS"
-    static let copy_aboutusTitle_tab3 = "DONDE TRABAJAMOS"
-    static let copy_contactusMessageType = "Tipo de mensaje"
-    static let copy_contactusMessage = "Tu mensaje"
-    static let copy_contactusTitle = "CONTÁCTENOS"
-    static let copy_download = "Descargar"
-    static let copy_downloading = "Descargando..."
-    static let copy_letStartMessage = "Hola soy tu Conse y voy a estar acompañándote en este recorrido. Traigo mucha información y herramientas que me gustaría compartir contigo"
-    static let copy_letStartTitle = "¡Iniciemos!"
-    static let copy_profileEdit = "Actualiza tu perfil"
-    static let copy_profileTitle = "Completa tu perfil"
-    static let copy_progressTitle = "MI PROGRESO"
-    static let copy_progressTab_VBG = "Violencia Basada en Género"
-    static let copy_progressTab_LEADERS = "Protección de lideres y lideresas"
-    static let copy_testAlerthelp = "MANTÉN PULSADO EL BOTÓN PARA ENVIAR"
-    static let copy_testAlertMessage = "Ahora eres mi contacto de emergencia. \nEsta es una prueba"
-    static let copy_testAlertTitle = "¿Estás seguro de enviar esta alerta?"
+    static let checkbox_AcceptTerms = "Acepto los %@ del NRC"
+    static let checkbox_Beneficiary = "Soy beneficiario de los programas NRC"
     
-    static let image_advanced = "icon_progress_experto"
-    static let image_advanced_off = "icon_progress_expertoapagado"
-    static let image_begginer = "icon_progress_principiante"
-    static let image_begginer_off = "icon_progress_principianteapagado"
-    static let image_expert = "icon_progress_conocedor"
-    static let image_expert_off = "icon_progress_conocedorapagado"
-    static let image_star = "icon_progress_avanzado"
-    static let image_star_off = "icon_progress_avanzadoapagado"
+    static let contact_kindOfMessage = "Tipo de mensaje"
+    static let contact_messagePlaceholder = "Escribe aquí tu mensaje"
+    static let contact_messageTitle = "Tu mensaje"
+    static let contact_telephonePlaceholder = "Tú Teléfono"
+    static let contact_title = "DÉJANOS TU MENSAJE"
     
-    static let error_message_avatarIncomplete = "¡Falta seleccionar una parte del ávatar!"
-    static let error_message_invalidEmail = "Correo no válido"
-    static let error_message_locationDisabled = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
-    static let error_message_notAvailable = "El contacto no tiene número telefónico"
-    static let error_message_notAvailableAction = "El dispositivo no puedo realizar esta acción."
-    static let error_message_notIntenertConection = "Debes tener una conexión activa a internet"
-    static let error_message_notUserValidCredentials = "Credenciales inválidas"
-    static let error_message_passNotMatch = "Las contraseñas no coinciden"
-    static let error_message_requieredField = "Debes diligenciar este campo"
-    static let error_message_requieredData = "Debes completar información"
-    static let error_message_terms = "Debes diligenciar este campo"
-    
-    static let error_no_audio = "No se encuentra el archivo"
-    static let error_play_audio = "No se pudo cargar el Audio"
-
-    static let error_title_locationDisabled = "Geolocalización desactivada"
-    static let error_title_notInternetConection = "No hay conexión a internet"
-    
-    static let emergency_label = "También puedes llamar gratis, todos los días y a cualquier hora, a las siguientes líneas telefónicas:"
-    static let emergency_line_123 = "123"
-    static let emergency_line_123_message = "Línea nacional de atención de emergencias " + emergency_line_123
-    static let emergency_line_141 = "141"
-    static let emergency_line_141_message = "Línea de orientación del ICBF si la violencia es contra niños, niñas y adolescentes " + emergency_line_141
-    static let emergency_line_155 = "155"
-    static let emergency_line_155_message = "Línea de orientación a las mujeres vícitmas de violencia " + emergency_line_155
-    static let emergency_SMS = "Estoy en PELIGRO, necesito ayuda URGENTE"
-    static let emergency_SMS_test = "Ahora eres mi contacto de emergencia. Esta es una prueba. Estoy ubicado en "
+    static let download = "Descargar"
+    static let downloading = "Descargando..."
+    static let profileEdit = "Actualiza tu perfil"
+    static let profileTitle = "Completa tu perfil"
     
     static let fullname_format = "%@ %@"
     
@@ -104,42 +78,107 @@ struct Strings {
     static let level_begginer = "Conocedor"
     static let level_expert = "Experto"
     static let level_star = "Estrella"
-    static let loader_configApp = "Obteniendo configuración de la aplicación"
-    static let loader_getLegal = "Obteniendo biblioteca ..."
-    static let loader_getNews = "Obteniendo listado de noticias..."
-    static let loader_getShield = "Obteniendo Listado de Escudos de Protección"
-    static let loader_loading = "Cargando..."
-    static let loader_login = "Autenticando usuario..."
-    static let loader_recording = "Guardando..."
-    static let loader_recovery = "Recuperando contraseña..."
-    static let loader_sendEmail = "Enviando email ..."
     
     static let message_ok_contact = "Se ha enviado tu mensaje"
     static let message_ok_update = "Información actualizada"
     
-    static let news_message = "Pulse sobre cada enlace para acceder a la información actualizada en temas de protección y seguridad. Debes estar conectado a internet para poder ver los contenidos."
-    
-    static let placeholder_yourMessage = "Escribe aquí tu mensaje"
+    static let news_message = "Pulsa sobre cada enlace para acceder a la información actualizada en temas de protección y seguridad. Debes estar conectado a internet para poder ver los contenidos."
     
     static let review_content = "¿Quieres revisar nuevamente los contenidos de este módulo?"
     
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
     static let texfiled_placeholder = "Selecciona"
-    static let title_AlertConfig = "Configura el botón de alerta"
-    static let title_AlertTest = "Haz una prueba de funcionamiento"
     static let title_for_share = "Plantilla compartida desde Conse"
     
     static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }
 
-struct ImageName {
-    static let next = "btn_siguiente"
-    static let nextHover = "btn_siguiente_hover"
-    static let tryAgain = "btn_intentar"
-    static let tryAgainHover = "btn_intentar_hover"
+// MARK: - Emergency
+struct EmergencyStrings {
+    static let label_01 = "Puedes llamar gratis, todos los días y a cualquier hora, a las siguientes líneas telefónicas:"
+    
+    static let line_123 = "123"
+    static let line_141 = "141"
+    static let line_155 = "155"
+    static let line_123_message = "Línea nacional de atención de emergencias " + line_123
+    static let line_141_message = "Línea de orientación del ICBF si la violencia es contra niños, niñas y adolescentes " + line_141
+    static let line_155_message = "Línea de orientación a las mujeres vícitmas de violencia " + line_155
+    
+    static let label_02 = "De lunes a viernes de 8:00am a 4:30pm"
+    
+    static let UNP_BOG = "0314269800"
+    static let line_nal = "018000118228"
+    static let line_bog = "(1) 4269800"
+    static let line_nal_label = "Unidad Nacional de Protección línea nacional 018000118228"
+    static let line_bog_label = "Unidad Nacional de Protección en Bogotá (1) 4269800"
+    
+    static let SMS = "Estoy en PELIGRO, necesito ayuda URGENTE"
+    static let SMS_test = "Ahora eres mi contacto de emergencia. Esta es una prueba. Estoy ubicado en "
 }
 
-// MARK: - Images names
+struct ErrorStrings {
+    static let audioNotFound = "No se encuentra el archivo"
+    static let audioDontLoad = "No se pudo cargar el Audio"
+    static let avatarIncomplete = "¡Falta seleccionar una parte del ávatar!"
+    static let invalidCredentials = "Credenciales inválidas"
+    static let invalidEmail = "Correo no válido"
+    static let disabledAction = "El dispositivo no puedo realizar esta acción."
+    static let disabledIntenert = "Debes tener una conexión activa a internet"
+    static let disabledLocation = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
+    static let passNotMatch = "Las contraseñas no coinciden"
+    static let requiredData = "Debes completar información"
+    static let requiredField = "Debes diligenciar este campo"
+    static let requiredterms = "Debes diligenciar este campo"
+    static let withoutNumber = "El contacto no tiene número telefónico"
+    
+    static let title_disabledLocation = "Geolocalización desactivada"
+    static let title_disabledInternet = "No hay conexión a internet"
+}
+
+struct LoaderStrings {
+    static let configApp = "Obteniendo configuración de la aplicación"
+    static let getLegal = "Obteniendo biblioteca ..."
+    static let getNews = "Obteniendo listado de noticias..."
+    static let getShield = "Obteniendo Listado de Escudos de Protección"
+    static let loading = "Cargando..."
+    static let login = "Autenticando usuario..."
+    static let recording = "Guardando..."
+    static let recovery = "Recuperando contraseña..."
+    static let sendEmail = "Enviando email ..."
+}
+
+struct ProgressStrings {
+    static let message = "Puedes volver al incio de cada módulo pulsando sobre el ícono correspondiente"
+    static let title = "MI PROGRESO"
+    static let tab_VBG = "Violencia Basada en Género"
+    static let tab_LEADERS = "Protección de lideres y lideresas"
+    
+    static let image_advanced = "icon_progress_experto"
+    static let image_advanced_off = "icon_progress_expertoapagado"
+    static let image_begginer = "icon_progress_principiante"
+    static let image_begginer_off = "icon_progress_principianteapagado"
+    static let image_expert = "icon_progress_conocedor"
+    static let image_expert_off = "icon_progress_conocedorapagado"
+    static let image_star = "icon_progress_avanzado"
+    static let image_star_off = "icon_progress_avanzadoapagado"
+}
+
+// MARK: - Images
+struct ImageName {
+    static let addOther = "btn_addOther"
+    static let addOtherHover = "btn_addOther_hover"
+    static let endUpdate = "btn_endUpdate"
+    static let endUpdateHover = "btn_endUpdate_hover"
+    static let next = "btn_siguiente"
+    static let nextHover = "btn_siguiente_hover"
+    static let next_1 = "btn_siguiente_01"
+    static let nextHover_1 = "btn_siguientehover_01"
+    static let tryAgain = "btn_intentar"
+    static let tryAgainHover = "btn_intentar_hover"
+    static let upateProfile = "btn_actualizar"
+    static let upateProfileHover = "btn_actualizar_hover"
+}
+
 struct RoutesImages {
     
     // Protection route
@@ -215,6 +254,7 @@ struct Formats {
     static let matchesFormat = "SELF MATCHES %@"
     
     static let callFormat = "tel://%@"
+    static let contactMessage = "Teléfono: %@ \n\n Mensaje: %@ \n\n Nombres: %@ \n\n Email: %@"
     static let legalHeaderFormat = "%@ - %@"
     static let shieldURLComplement = "?latitude=%@&longitude=%@"
     static let successDownload = "El archivo: %@ fue descragado exitosamente"

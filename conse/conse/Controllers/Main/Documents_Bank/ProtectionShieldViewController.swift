@@ -89,7 +89,7 @@ class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegat
         var urlComplement = nullString
         if lat != 0, lng != 0 { urlComplement = String(format: Formats.shieldURLComplement, String(lat), String(lng)) }
         
-        let loader = LoadingOverlay(text: Strings.loader_getShield)
+        let loader = LoadingOverlay(text: LoaderStrings.getShield)
         let json = nullString
         let url = NetworkGET.SHIELDS + urlComplement
         let headers:[[String:String]] = []
@@ -156,8 +156,8 @@ class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegat
     // If we have been deined access give the user the option to change it
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if(status == CLAuthorizationStatus.denied) {
-            mainDelegate?.openSettingsPopup(title: Strings.error_title_locationDisabled,
-                                            message: Strings.error_message_locationDisabled, settings: UIApplicationOpenSettingsURLString)
+            mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledLocation,
+                                            message: ErrorStrings.disabledLocation, settings: UIApplicationOpenSettingsURLString)
         }
     }
     

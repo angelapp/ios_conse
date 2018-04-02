@@ -414,7 +414,7 @@ class City: Mappable {
     var name: String!
     var code: String!
     var abreviature: String!
-    var state: String!
+    var state: Any!
     var description: String!
     var icon: String!
     

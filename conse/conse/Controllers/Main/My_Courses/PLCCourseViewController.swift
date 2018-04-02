@@ -19,7 +19,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
     var ncrAudio: AVAudioPlayer?
     var mainDelegate: MainProtocol?
     var isPlaying = nullString
-    let maxPageIndex: Int = 58
+    let maxPageIndex: Int = 60
     var currentIndex: Int = 0
     
     // MARK: - Lifecycle
@@ -104,7 +104,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
     /// Envia al servidor los datos de la actividad completada
     func sendRequest(formModel: Array<RequestCompleted>) {
         
-        let loader = LoadingOverlay(text: Strings.loader_recording)
+        let loader = LoadingOverlay(text: LoaderStrings.recording)
         let json = Mapper().toJSONString(formModel, prettyPrint: true)
         let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
         let apiURL = NetworkPOST.USER_PROGRESS_LIST
@@ -157,11 +157,11 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
                 ncrAudio?.delegate = self
                 isPlaying = name
             } catch {
-                mainDelegate?.showMessageInMain(withMessage: Strings.error_play_audio)
+                mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioDontLoad)
             }
         }
         else {
-            mainDelegate?.showMessageInMain(withMessage: Strings.error_no_audio)
+            mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioNotFound)
         }
     }
     
@@ -175,11 +175,11 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
                 ncrAudio?.delegate = self
                 isPlaying = nullString
             } catch {
-                mainDelegate?.showMessageInMain(withMessage: Strings.error_play_audio)
+                mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioDontLoad)
             }
         }
         else {
-            mainDelegate?.showMessageInMain(withMessage: Strings.error_no_audio)
+            mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioNotFound)
         }
     }
     
@@ -370,6 +370,13 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             cell.fillLeader21()
             return cell
         }
+        else if currentIndex == LEADERS_INDEX.LEADERS_21_2.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_21_2, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader21_2()
+            return cell
+        }
         else if currentIndex == LEADERS_INDEX.LEADERS_22.rawValue {
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_22, for: indexPath) as! LeaderTableViewCell
             
@@ -550,6 +557,13 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
             
             cell.leadersDelegate = self
             cell.fillLeader47()
+            return cell
+        }
+        else if currentIndex == LEADERS_INDEX.LEADERS_47_2.rawValue {
+            cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_47_2, for: indexPath) as! LeaderTableViewCell
+            
+            cell.leadersDelegate = self
+            cell.fillLeader47_2()
             return cell
         }
         else if currentIndex == LEADERS_INDEX.LEADERS_48.rawValue {

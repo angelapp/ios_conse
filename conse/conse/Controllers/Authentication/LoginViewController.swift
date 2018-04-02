@@ -93,7 +93,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     //Obeserver for move frame to origin when keyboard is hiden
      @objc func keyboardWillHide(notification: NSNotification) {
-        scroll.contentSize = CGSize(width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: self.view.bounds.size.height)
     }
     
     //Get the actual position of the TextView
@@ -105,7 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     /// Se envia los datos del usuario para login
     func sendLogginPost(userToAuth: RegisterUserProfileModel) {
         
-        let loader = LoadingOverlay(text: Strings.loader_login)
+        let loader = LoadingOverlay(text: LoaderStrings.login)
         let json = Mapper().toJSONString(userToAuth, prettyPrint: true)
         let headers:[[String:String]] = []
         
@@ -163,8 +163,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 Validations.isValidEmail(email: tf_email.text!, errorView: lbl_error_email)
                 else { return }
             
-            if user != nil && tf_email.text?.lowercased() == user?.email.lowercased() {
-                showErrorMessage(withMessage: Strings.error_message_notUserValidCredentials)
+            guard user != nil, tf_email.text?.lowercased() == user?.email.lowercased() else {
+                showErrorMessage(withMessage: ErrorStrings.invalidCredentials)
                 return
             }
             
@@ -184,5 +184,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             break
         }
     }
-
 }

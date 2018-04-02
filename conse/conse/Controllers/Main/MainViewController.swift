@@ -122,7 +122,7 @@ class MainViewController: UIViewController, MainProtocol {
             return videoPlayerVC
             
         case .editProfile:
-            editProfileVC.formType = .editProfile
+            editProfileVC.isRegister = false
             editProfileVC.mainDelegate = self
             return editProfileVC
             

@@ -16,6 +16,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // Buttons
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
+    @IBOutlet weak var btn_edtAvatar: UIButton!
+    @IBOutlet weak var btn_edtContacts: UIButton!
     @IBOutlet weak var btn_pickerCancel: UIButton!
     @IBOutlet weak var btn_pickerConfirm: UIButton!
     
@@ -36,8 +38,12 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var checkTerms: UIView!
     
     // Conteiners
+    @IBOutlet weak var cnt_editButtons: UIView!
     @IBOutlet weak var cnt_beneficiaryData: UIView!
     @IBOutlet weak var cnt_pickers: UIView!
+    
+    // Images
+    @IBOutlet weak var img_avatar: UIImageView!
     
     // labels
     @IBOutlet weak var lbl_title: UILabel!
@@ -58,6 +64,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var lbl_error_condition: UILabel!
     @IBOutlet weak var lbl_error_role: UILabel!
     @IBOutlet weak var lbl_error_terms: UILabel!
+    @IBOutlet weak var lbl_error_telephone: UILabel!
     
     // Scroll
     @IBOutlet weak var scroll: UIScrollView!
@@ -94,8 +101,10 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var tf_lastname: UITextField!
     @IBOutlet weak var tf_password: UITextField!
     @IBOutlet weak var tf_confirmPassword: UITextField!
+    @IBOutlet weak var tf_telephone: UITextField!
     
     // Constraits
+    @IBOutlet weak var constraints_editBtns_height: NSLayoutConstraint!
     @IBOutlet weak var constraints_navBar: NSLayoutConstraint!
     @IBOutlet weak var constraints_NRC_Height: NSLayoutConstraint!
     @IBOutlet weak var constraints_register_height: NSLayoutConstraint!
@@ -106,6 +115,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // MARK: - propeties
     
     // tags para cargar información en el picker
+    private let birthdayTag: Int = 0
     private let genderTag: Int = 1
     private let documentTag: Int = 2
     private let ethnicTag: Int = 3
@@ -115,16 +125,16 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     private let profileTag: Int = 7
     
     weak var mainDelegate: MainProtocol?
-    var actualViewYPosition: CGFloat = 0.0
+    var actualViewYPosition: CGFloat = ConseValues.defaultPositionY
     
     // flag (Register profile or Edit profile) default Register
-    var formType: ViewControllerTag = .register
     var profile: ProfileSerializer!
     var user: UserSerializer!
     
     // booleanos para determinar estado de los checkbox
+    var isRegister: Bool = true
     var isBeneficiaryNCR: Bool = false
-    var acceptedTerms: Bool = false
+    var isTermsAccepted: Bool = false
     
     // listas para los spinners
     var genderList: Array<Gender> = []
@@ -190,7 +200,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             scroll.contentSize = CGSize(width: self.scroll.bounds.size.width, height: self.scroll.bounds.size.height + keyboardSize.height)
             
             if actualViewYPosition >= keyboardSize.height {
-                scroll.setContentOffset(CGPoint(x: 0, y: actualViewYPosition - keyboardSize.height), animated: true)
+                scroll.setContentOffset(CGPoint(x: ConseValues.defaultPositionX, y: actualViewYPosition - keyboardSize.height), animated: true)
             }
         }
     }
@@ -201,6 +211,25 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     // MARK: - TextFields
+    /// Se agrega boton de retorno o confirmacion al teclado numerico
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 50))
+        doneToolbar.barStyle = UIBarStyle.default
+        doneToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: Strings.button_accept, style: UIBarButtonItemStyle.done, target: self, action: #selector(self.doneButtonAction))
+        ]
+        
+        doneToolbar.sizeToFit()
+        
+        self.tf_telephone.inputAccessoryView = doneToolbar
+    }
+    
+    /// Se agrega el funcionalidad de *Return* a la barra del teclado
+    @objc func doneButtonAction() -> Bool {
+        return self.textFieldShouldReturn(tf_telephone)
+    }
+    
     //Get the actual position of the TextView
     func textFieldDidBeginEditing(_ textField: UITextField) {
         actualViewYPosition = textField.convert(CGPoint.zero, to: self.view).y
@@ -213,17 +242,25 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     // MARK: - private functions
     private func addStyles(){
         
-        navBar.isHidden = formType == .editProfile
-        constraints_navBar.constant = formType == .editProfile ? 0 : 40
-        constraints_scrollBottom.constant = formType == .editProfile ? 58 : 20
+        // Se oculta la barra de Navegación si se esta en editar perfil
+        navBar.isHidden = !isRegister
+        constraints_navBar.constant = isRegister ? ConseValues.navbarHeight_register : ConseValues.defaultHeight
+        constraints_scrollBottom.constant = isRegister ? ConseValues.marginBotton_register : ConseValues.marginBotton_edit
         
+        // se ocultan los botones de editar (avatar y contactos)
+        cnt_editButtons.isHidden = isRegister
+        constraints_editBtns_height.constant = isRegister ? ConseValues.defaultHeight : ConseValues.avatarContactsHeight
+        
+        // Se agregan los estilos al botón
         setAspectFitToButton(buttons: btn_next, btn_back)
+        
+        // Se configura los limites de fechas del datePicker
         picker_birthday.maximumDate = Date()
         picker_birthday.date = picker_birthday.minimumDate!
         
         /// set de botton image
-        if formType == .editProfile { btn_next.setImageButton(normal: #imageLiteral(resourceName: "btn_actualizar"), hover: #imageLiteral(resourceName: "btn_actualizar_hover")) }
-        else { btn_next.setImageButton(normal: #imageLiteral(resourceName: "btn_siguiente_01"), hover: #imageLiteral(resourceName: "btn_siguientehover_01")) }
+        if isRegister { btn_next.setImageButton(normal: ImageName.next_1, hover: ImageName.nextHover_1) }
+        else { btn_next.setImageButton(normal: ImageName.upateProfile, hover: ImageName.upateProfileHover) }
         
         // width of under line
         let underlineWidth = (ConseValues.margin + ConseValues.innerMargin)
@@ -242,29 +279,44 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         tf_email.underline(margin: underlineWidth)
         tf_name.underline(margin: underlineWidth)
         tf_lastname.underline(margin: underlineWidth)
+        tf_telephone.underline(margin: underlineWidth)
         tf_password.underline(margin: underlineWidth)
         tf_confirmPassword.underline(margin: underlineWidth)
         
+        // Config TextField
         tf_name.tag = 0
         tf_name.delegate = self
         
         tf_lastname.tag = 1
         tf_lastname.delegate = self
         
-        tf_email.tag = 2
+        tf_telephone.tag = 2
+        tf_telephone.delegate = self
+        
+        tf_email.tag = 3
         tf_email.delegate = self
         
-        tf_password.tag = 3
+        tf_password.tag = 4
         tf_password.delegate = self
         
-        tf_confirmPassword.tag = 4
+        tf_confirmPassword.tag = 5
         tf_confirmPassword.delegate = self
         
-        tf_dni_number.tag = 5
+        tf_dni_number.tag = 6
         tf_dni_number.delegate = self
         
+        // Set Buttons tags
+        btn_birthday.tag = birthdayTag
+        btn_gender.tag = genderTag
+        btn_dni_type.tag = documentTag
+        btn_ethnic_group.tag = ethnicTag
+        btn_geo_state.tag = stateTag
+        btn_geo_city.tag = cityTag
+        btn_condition.tag = conditionTag
+        btn_profile.tag = profileTag
+        
         // Set styles to terms and conditions copy
-        let termsLabel = String(format: Strings.body_Checkbox_AcceptTerms, Strings.terms_Copy)
+        let termsLabel = String(format: Strings.checkbox_AcceptTerms, Strings.terms_Copy)
         let termsRange = (termsLabel as NSString).range(of: Strings.terms_Copy)
         let termsAttributed = NSMutableAttributedString(string: termsLabel)
         let underlineAttribute = [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
@@ -274,30 +326,28 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         termsAttributed.addAttributes(colorAttribute, range: termsRange)
         
         lbl_terms.attributedText = termsAttributed
-        
-        // Add tapGesture for make terms link
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction))
-        lbl_terms.isUserInteractionEnabled = true
-        lbl_terms.addGestureRecognizer(tap)
     }
     
     /// Llena la vista, deacuerdo al tag (Register or EditProfile)
     private func fillView() {
         
         enableDisableCity()
+        addDoneButtonOnKeyboard()
         
-        checkTerms.isHidden = formType != .register
-        lbl_title.text = formType == .register ? Strings.copy_profileTitle : Strings.copy_profileEdit
-        tf_email.isEnabled = formType == .register
-        tf_password.isHidden = formType != .register
-        tf_confirmPassword.isHidden = formType != .register
+        checkTerms.isHidden = !isRegister
+        lbl_title.text = isRegister ? Strings.profileTitle : Strings.profileEdit
+        tf_email.isEnabled = isRegister
+        tf_password.isHidden = !isRegister
+        tf_confirmPassword.isHidden = !isRegister
         
-        constraints_register_height.constant = formType == .register ? 120.0 : 68.0
-        constraints_terms_height.constant = formType == .register ? 52.0 : 0.0
-        constraints_userConse_Height.constant = formType == .register ? ConseValues.conseUser_Height : ConseValues.conseUserProfile_Heigth
+        constraints_register_height.constant = isRegister ? ConseValues.termsHeigth_register : ConseValues.termsHeigth_profile
+        constraints_terms_height.constant = isRegister ? ConseValues.checkboxHeight_register : ConseValues.defaultHeight
+        constraints_userConse_Height.constant = isRegister ? ConseValues.conseUser_Height : ConseValues.conseUserProfile_Heigth
         
         // Se llenan los campos si el formulario es de editar perfil
-        if formType == .editProfile {
+        if !isRegister {
+            
+            img_avatar.image = AplicationRuntime.sharedManager.getAvatarImage()
             
             if user != nil {
                 tf_email.text = user.email
@@ -320,6 +370,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 
                 genderID = profile.gender.id
                 promt_gender.text = profile.gender.name
+                tf_telephone.text = profile.contact_phone
                 isBeneficiaryNCR = profile.isNRCBeneficiary
             
                 if isBeneficiaryNCR {
@@ -330,8 +381,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                     ethniGroupID = profile.ethnic_group.id
                     promt_ethnic_group.text = profile.ethnic_group.name
                     
-//                    geoStateID = Int(profile.origin_city.state)!
-//                    promt_geo_state.text = profile.origin_city.state
+                    geoStateID = AplicationRuntime.sharedManager.getStateID(fromValue: profile.origin_city.state)
+                    promt_geo_state.text = AplicationRuntime.sharedManager.getStateName(fromValue: profile.origin_city.state)
                     
                     geoCityID = profile.origin_city.id
                     promt_geo_city.text = profile.origin_city.name
@@ -348,16 +399,19 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     /// Change state of beneficiaryNRC and update form for show or hidden fields
     private func setBeneficiaryState() {
+        // Oculta la vista
         cnt_beneficiaryData.isHidden = !isBeneficiaryNCR
+        // Actualiza las constraints
         constraints_NRC_Height.constant = hiddenView(view: .NCR_DATA, state: !isBeneficiaryNCR)
+        // Actualiza las el estado del check
         check_beneficiary.image = isBeneficiaryNCR ? #imageLiteral(resourceName: "checkboxselec") : #imageLiteral(resourceName: "checkbox")
         
-        // Show NCR data form
+        // Muestra el formulario NRC
         if isBeneficiaryNCR && scroll.contentSize.height <= 510 {
             scroll.contentSize.height += ConseValues.dataNCRHeight
         }
         
-        // Hidden NCR data form
+        // Oculta el formulario NRC
         if !isBeneficiaryNCR && scroll.contentSize.height > 800 {
             scroll.contentSize.height -= ConseValues.dataNCRHeight
         }
@@ -372,7 +426,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         conditionList = AplicationRuntime.sharedManager.getConditionList()
         profileList = AplicationRuntime.sharedManager.getRoleList()
         
-        if formType == .editProfile {
+        if !isRegister {
             profile = AplicationRuntime.sharedManager.getUserProfile()
             user = AplicationRuntime.sharedManager.getUser()
         }
@@ -380,7 +434,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     private func enableDisableCity() {
         btn_geo_city.isEnabled = geoStateID != nil
-        promt_geo_city.textColor = btn_geo_city.isEnabled ? Colors().getColor(from: ConseColors.orange.rawValue) : .darkGray
+        selector_geo_city.alpha = btn_geo_city.isEnabled ? 1.0 : 0.3
     }
     
     /// Show picker view
@@ -409,6 +463,11 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         let tapTerms = UITapGestureRecognizer(target: self, action: #selector(self.tappedTerms))
         checkTerms.addGestureRecognizer(tapTerms)
+        
+        // Add tapGesture for make terms link
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapFunction))
+        lbl_terms.isUserInteractionEnabled = true
+        lbl_terms.addGestureRecognizer(tap)
     }
     
     //MARK: - Gesture actions
@@ -418,8 +477,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     @objc func tappedTerms (gestureRecognizer: UITapGestureRecognizer){
-        acceptedTerms = !acceptedTerms
-        check_terms.image = acceptedTerms ? #imageLiteral(resourceName: "checkboxselec") : #imageLiteral(resourceName: "checkbox")
+        isTermsAccepted = !isTermsAccepted
+        check_terms.image = isTermsAccepted ? #imageLiteral(resourceName: "checkboxselec") : #imageLiteral(resourceName: "checkbox")
     }
     
     // Lanza navegador con los términos y condiciones
@@ -445,23 +504,24 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     // MARK: - Request function
     /// Realiza las validaciones de acuerdo al tipo de formulario (Registro o edición de perfil )
-    private func prepareRequest(forViewController id: ViewControllerTag) {
+    private func prepareRequest() {
         
         // Se valida que todos los campos esten completos
         guard Validations.isValidData(fromField: tf_name, errorView: lbl_error_name),
             Validations.isValidData(fromField: tf_lastname, errorView: lbl_error_lastName),
+            Validations.isValidData(fromField: tf_telephone, errorView: lbl_error_telephone),
             Validations.isValidDate(birthDate: promt_birthday.text, errorView: lbl_error_birthday),
             Validations.isValidData(fromPromt: promt_gender, errorView: lbl_error_gender) else {
-                self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+                self.showErrorMessage(withMessage: ErrorStrings.requiredData)
                 return
         }
         
         // Campos que solo se validan si el usuario se esta registrando
-        if id == .register {
+        if isRegister {
             guard Validations.isValidData(fromField: tf_email, errorView: lbl_error_email),
                 Validations.isValidData(fromField: tf_password, errorView: lbl_error_pass),
                 Validations.isValidData(fromField: tf_confirmPassword, errorView: lbl_error_confirmPass) else {
-                    self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+                    self.showErrorMessage(withMessage: ErrorStrings.requiredData)
                     return
             }
             
@@ -473,7 +533,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             
             // Se validan las contraseñas
             guard  tf_password.text! == tf_confirmPassword.text else {
-                self.showErrorMessage(withMessage: Strings.error_message_passNotMatch)
+                self.showErrorMessage(withMessage: ErrorStrings.passNotMatch)
                 return
             }
         }
@@ -489,16 +549,16 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 Validations.isValidData(fromPromt: promt_condition, errorView: lbl_error_condition),
                 Validations.isValidData(fromPromt: promt_profile, errorView: lbl_error_role)
                 else {
-                    self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+                    self.showErrorMessage(withMessage: ErrorStrings.requiredData)
                     return
             }
         }
         
         // Se verifica que accepte los terminos
-        if id == .register {
-            lbl_error_terms.text = acceptedTerms ? nullString : Strings.error_message_terms
-            guard acceptedTerms else {
-                self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+        if isRegister {
+            lbl_error_terms.text = isTermsAccepted ? nullString : ErrorStrings.requiredterms
+            guard isTermsAccepted else {
+                self.showErrorMessage(withMessage: ErrorStrings.requiredData)
                 return
             }
         }
@@ -507,11 +567,12 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         let newUSR = RegisterUserProfileModel()
         newUSR.first_name = tf_name.text
         newUSR.last_name = tf_lastname.text
-        newUSR.email =  tf_email.text
-        newUSR.password = tf_password.text
+        newUSR.email = tf_email.text
+        newUSR.contact_phone = tf_telephone.text
         newUSR.birthdate = getBirthdateString(inFormat: DateTimeFormat.sendDateFormat, fromDate: promt_birthday.text!, withFormat: DateTimeFormat.commonDateFormat)
         newUSR.isNRCBeneficiary = isBeneficiaryNCR
         newUSR.gender = genderID
+        if isRegister { newUSR.password = tf_password.text }
         
         if isBeneficiaryNCR {
             newUSR.document_number = tf_dni_number.text
@@ -537,7 +598,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         var apiURL = NetworkPOST.CREATE_USER
         var method: NetworkRestMethods = .methodPOST
         
-        if (formType == .editProfile){
+        if (!isRegister) {
             let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
             
             apiURL = NetworkPUT.USER_PROFILE_EDIT + String(format: NetworkURLComplement.update_profile, profile.id)
@@ -574,13 +635,20 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 StorageFunctions.saveStates(states: stateModel)
                 AplicationRuntime.sharedManager.setUserData(user: user)
                 
-                if self.formType == .editProfile {
-                    self.mainDelegate?.addToContainer(viewControllerID: .myCourses)
-                    self.mainDelegate?.showMessageInMain(withMessage: Strings.message_ok_update)
-                }
-                else {
+                if self.isRegister {
+                    //Se limpian los datos almacenados en el local
+                    let storage = StorageConfig.share
+                    storage.clearParameterFromKey(key: DicKeys.progress)
+                    storage.clearParameterFromKey(key: DicKeys.contactList)
+                    storage.clearParameterFromKey(key: DicKeys.activitiesProgress)
+                    
+                    // Inicía configuración
                     let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
                     self.present(sb.instantiateInitialViewController()!, animated: true, completion: nil)
+                }
+                else {
+                    self.mainDelegate?.addToContainer(viewControllerID: .myCourses)
+                    self.mainDelegate?.showMessageInMain(withMessage: Strings.message_ok_update)
                 }
                 
                 break
@@ -739,39 +807,15 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             showPicker(isDatePicker: true)
             return
             
-        case btn_gender:
-            picker.tag = genderTag
-            break
-            
-        case btn_dni_type:
-            picker.tag = documentTag
-            break
-            
-        case btn_ethnic_group:
-            picker.tag = ethnicTag
-            break
-            
-        case btn_geo_state:
-            picker.tag = stateTag
-            break
-            
         case btn_geo_city:
             cityList = AplicationRuntime.sharedManager.getCityList(forState: promt_geo_state.text!)
-            picker.tag = cityTag
-            break
-            
-        case btn_condition:
-            picker.tag = conditionTag
-            break
-            
-        case btn_profile:
-            picker.tag = profileTag
             break
             
         default:
             break
         }
         
+        picker.tag = sender.tag
         picker.reloadAllComponents()
         showPicker(isDatePicker: false)
     }
@@ -792,11 +836,37 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     /// Realiza las validaciones y contruye el modelo de datos para enviar al servidor
     @IBAction func next (_ sender: UIButton) {
-        prepareRequest(forViewController: formType)
+        prepareRequest()
     }
     
     /// Vuelve a la pantalla anterior
     @IBAction func backAction(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    /// Acciones de loa botones de edición
+    @IBAction func editAction(_ sender: UIButton) {
+        
+        // Instancia del Storyboard de Configuraciones
+        let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
+        
+        // Carga vista para cambiar el avatar
+        if sender == btn_edtAvatar {
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.choiceAvatarGender) as! ChoiceAvatarGenderViewController
+            
+            nextVC.modalPresentationStyle = .overCurrentContext
+            nextVC.modalTransitionStyle = .crossDissolve
+            nextVC.isEdit = true
+            present(nextVC, animated: true, completion: nil)
+        }
+        // Carga vista para cambiar contactos
+        else {
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.configAlert) as! ConfigAlertButtonViewController
+            
+            nextVC.modalPresentationStyle = .overCurrentContext
+            nextVC.modalTransitionStyle = .crossDissolve
+            nextVC.isEdit = true
+            present(nextVC, animated: true, completion: nil)
+        }
     }
 }

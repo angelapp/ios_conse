@@ -17,6 +17,9 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
     @IBOutlet weak var videoPlayer: UIWebView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
+    // MARK: - Properties
+    var backToHome = false
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,18 +56,24 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
         switch sender {
             
         case btn_next:
+            // Check if next buttonreturn to home
+            guard !backToHome else {
+                dismiss(animated: true, completion: nil)
+                return
+            }
+            
             // Check Intenet Conexión
             guard ConnectionCheck.isConnectedToNetwork() else {
-                self.showSettingsPopup(title: Strings.error_title_notInternetConection,
-                                       message: Strings.error_message_notIntenertConection,
+                self.showSettingsPopup(title: ErrorStrings.title_disabledInternet,
+                                       message: ErrorStrings.disabledIntenert,
                                        settings: URL_GENERAL_SETTINGS)
                 return
             }
             
             // Check if GPS is Enable
             guard CLLocationManager.locationServicesEnabled() else {
-                self.showSettingsPopup(title: Strings.error_title_locationDisabled,
-                                       message: Strings.error_message_locationDisabled,
+                self.showSettingsPopup(title: ErrorStrings.title_disabledLocation,
+                                       message: ErrorStrings.disabledLocation,
                                        settings: URL_LOCATION_SERVICES)
                 return
             }

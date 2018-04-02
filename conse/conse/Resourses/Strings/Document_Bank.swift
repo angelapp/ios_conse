@@ -39,7 +39,7 @@ struct MyCommunityStrings {
     
     static let note = "Nota: Esta herramineta está basada en la observación. Puede ser o no relevante en deterinados contexts. En áreas de inseguridad, no debe completar este cuestionario caminando por la comunidad; se recomienda observar y retener la información mentalamnete, para posteriormente completar el formato en un lugar seguro."
     
-    static let downloadCopy = "Descargue o comparta la auditoría"
+    static let downloadCopy = "Descarga y comparte la auditoría"
 }
 
 struct FileExtensions {

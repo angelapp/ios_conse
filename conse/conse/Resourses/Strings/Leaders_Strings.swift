@@ -233,9 +233,19 @@ struct  LEADERS_COURSE {
         static let item_01 = "Elaborar y actualizar mapas de riesgo y participar en el programa de protección."
         static let item_02 = "Implementar las medidas de prevención y protección, a través de:"
         static let item_03 = "Curso de autoprotección: a través de este curso se pretende brindar a las personas, grupos o comunidades en situación de riesgo, elementos prácticos que permitan disminuir vulnerabilidades e incrementar capacidades a fin de realizar una mejor gestión del riesgo."
-        static let item_04 = "Patrullaje: actividad dirigida a la población en general con el fin de identificar, contrarrestar y neutralizar la amenaza."
-        static let item_05 = "Revista Policial: actividad con un enfoque particular para prevenir y disuadir, encaminada a tener una comunicación periódica con el solicitante de la medida."
-        static let item_06 = "Esquemas de protección, en lo relacionado con las personas encargadas de protegerte."
+        static let inBold_Item_03 = "Curso de autoprotección:"
+    }
+    
+    struct PAGE_21_2 {
+        static let title = LEADERS_COURSE.PAGE_12.title
+        static let subtitle = "¿Cuáles son las Responsabilidades de la Policía Nacional?"
+        
+        static let item_01 = "Patrullaje: actividad dirigida a la población en general con el fin de identificar, contrarrestar y neutralizar la amenaza."
+        static let item_02 = "Revista Policial: actividad con un enfoque particular para prevenir y disuadir, encaminada a tener una comunicación periódica con el solicitante de la medida."
+        static let item_03 = "Esquemas de protección, en lo relacionado con las personas encargadas de protegerte."
+        
+        static let inBold_Item_01 = "Patrullaje:"
+        static let inBold_Item_02 = "Revista Policial:"
     }
     
     struct PAGE_22 {
@@ -447,7 +457,22 @@ struct  LEADERS_COURSE {
     struct PAGE_47 {
         static let title = LEADERS_COURSE.PAGE_46.subtitle
         static let subtitle = "La población objeto del programa de protección colectiva será:"
-        static let item_01 = "Grupos, comunidades, organizaciones sociales o políticas de las poblaciones objeto para el Programa del Ministerio del Interior y de la Unidad Nacional de Protección, es decir:\n\nGrupos políticos; grupos que suscribieron acuerdos de paz con el Gobierno Nacional; organizaciones de Derechos Humanos, de víctimas, sindicales, sociales, cívicas, gremiales, comunales o campesinas; comunidades étnicas; misión médica, periodistas, comunicadores sociales, docentes; testigos y víctimas de violaciones a los Derechos Humanos y al Derecho Humanitario; población desplazada, reclamantes de tierras; servidores o ex servidores públicos con responsabilidad en Derechos Humanos; apoderados de procesos judiciales por violaciones a los Derechos Humanos y al Derecho Humanitario."
+        static let item_01 = "Grupos, comunidades, organizaciones sociales o políticas de las poblaciones objeto para el Programa del Ministerio del Interior y de la Unidad Nacional de Protección. Continúa leyendo, en la siguiente pantalla encontrarás información detallada."
+    }
+    
+    struct PAGE_47_2 {
+        static let title = LEADERS_COURSE.PAGE_46.subtitle
+        static let subtitle = "Esta es la población que se beneficia con el programa de protección colectiva:"
+        
+        static let item_01 = "Grupos políticos"
+        static let item_02 = "Grupos que suscribieron acuerdos de paz con el Gobierno Nacional"
+        static let item_03 = "Organizaciones de Derechos Humanos, de víctimas, sindicales, sociales, cívicas, gremiales, comunales o campesinas"
+        static let item_04 = "Comunidades étnicas"
+        static let item_05 = "Misión médica, periodistas, comunicadores sociales, docentes"
+        static let item_06 = "Testigos y víctimas de violaciones a los Derechos Humanos y al Derecho Humanitario"
+        static let item_07 = "Población desplazada, reclamantes de tierras"
+        static let item_08 = "Servidores o ex servidores públicos con responsabilidad en Derechos Humanos"
+        static let item_09 = "Apoderados de procesos judiciales por violaciones a los Derechos Humanos y al Derecho Humanitario."
     }
     
     struct PAGE_48 {

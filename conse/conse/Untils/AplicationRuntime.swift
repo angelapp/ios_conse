@@ -59,6 +59,7 @@ class AplicationRuntime {
         self.progress = progress
     }
     
+    /// Guarda el indice del curso
     public func setProgress(forCourse id: CourseIDs, progress: Int) {
         if self.progress == nil { self.progress = CoursesProgress() }
         
@@ -95,19 +96,50 @@ class AplicationRuntime {
         return appConfig.state_Array
     }
     
-    public func getState(fromID id:String) -> String {
+    /// Retorna el nombre de estado
+    public func getStateName(fromValue value: Any) -> String {
         
-        guard appConfig != nil, appConfig.state_Array != nil else {
-            return Strings.texfiled_placeholder
+        if let name = value as? String {
+            if !name.isEmpty {
+                return name
+            }
         }
-        
-        for state in appConfig.state_Array {
-            if state.id == Int(id) || state.name == id {
-                return state.name
+        else if let id = value as? Int {
+            
+            guard appConfig != nil, appConfig.state_Array != nil else {
+                return Strings.texfiled_placeholder
+            }
+            
+            for state in appConfig.state_Array {
+                if state.id == id {
+                    return state.name
+                }
             }
         }
         
         return Strings.texfiled_placeholder
+    }
+    
+    /// Retorna el id del estado
+    public func getStateID(fromValue value: Any) -> Int {
+        
+        if let id = value as? Int {
+            return id
+        }
+        else if let name = value as? String {
+            
+            guard appConfig != nil, appConfig.state_Array != nil else {
+                return 0
+            }
+            
+            for state in appConfig.state_Array {
+                if state.name.uppercased() == name.uppercased() {
+                    return state.id
+                }
+            }
+        }
+        
+        return 0
     }
     
     public func getCityList(forState name:String) -> Array<City> {
@@ -119,8 +151,10 @@ class AplicationRuntime {
         var cityForState: Array<City> = []
         
         for city in appConfig.city_Array {
-            if city.state.uppercased() == name.uppercased() {
-                cityForState.append(city)
+            if let cityName = city.state as? String {
+                if cityName.uppercased() == name.uppercased() {
+                    cityForState.append(city)
+                }
             }
         }
         

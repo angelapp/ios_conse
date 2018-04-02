@@ -92,7 +92,7 @@ protocol LeadersRouteTwoProtocol: class {
 
 // Protocolos para la vista de progreso
 protocol ProgressTabProtocol: class {
-    func changeTabSelected(toPosition position: Int, animated: Bool)
+    func changeTabSelected(toPosition position: Int)
 }
 
 // Protocolos para Noticias

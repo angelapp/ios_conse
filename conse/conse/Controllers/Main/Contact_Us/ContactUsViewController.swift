@@ -9,7 +9,7 @@
 import UIKit
 import ObjectMapper
 
-class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ContactUsViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
 
     // MARK: - Outlets
     @IBOutlet weak var btn_cancel: UIButton!
@@ -21,6 +21,7 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     @IBOutlet weak var lbl_messageType: UILabel!
     @IBOutlet weak var lbl_message: UILabel!
+    @IBOutlet weak var lbl_telephone: UILabel!
     @IBOutlet weak var lbl_promtMesaggeType: UILabel!
     @IBOutlet weak var lbl_title: UILabel!
     
@@ -28,6 +29,7 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
     
     @IBOutlet weak var scroll: UIScrollView!
     
+    @IBOutlet weak var tf_telephone: UITextField!
     @IBOutlet weak var tv_message: UITextView!
     
     // MARK: - Properties
@@ -52,6 +54,7 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
         picker.delegate = self
         picker.dataSource = self
         tv_message.delegate = self
+        tf_telephone.delegate = self
         
         //Se agrega observable para desplazar vista cuando se muestra/oculta el teclado
         NotificationCenter.default.removeObserver(Any.self)
@@ -91,23 +94,28 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
     private func fillView() {
         
         // Set labels text
-        lbl_message.text = Strings.copy_contactusMessage
-        lbl_messageType.text = Strings.copy_contactusMessageType
+        lbl_message.text = Strings.contact_messagePlaceholder
+        lbl_messageType.text = Strings.contact_kindOfMessage
         lbl_promtMesaggeType.text = Strings.texfiled_placeholder
-        lbl_title.text = Strings.copy_contactusTitle
+        lbl_telephone.text = Strings.contact_telephonePlaceholder
+        lbl_title.text = Strings.contact_title
+        
+        tf_telephone.placeholder = Strings.contact_telephonePlaceholder
         
         // Hidden content Picker
         cnt_picker.isHidden = true
         
         //Set placeholder to textView if message is Empty
         if message == nullString {
-            tv_message.text = Strings.placeholder_yourMessage
+            tv_message.text = Strings.contact_messagePlaceholder
             tv_message.textColor = .lightGray
         }
         else {
             tv_message.text = message
             tv_message.textColor = .black
         }
+        
+        addDoneButtonOnKeyboard()
     }
     
     private func showHiddenPicker() {
@@ -134,6 +142,24 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
 
     
     // MARK: - TextView Delegate
+    /// Se agrega boton de retorno o confirmacion al teclado numerico
+    func addDoneButtonOnKeyboard() {
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 50))
+        doneToolbar.barStyle = UIBarStyle.default
+        doneToolbar.items = [
+            UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil),
+            UIBarButtonItem(title: Strings.button_accept, style: UIBarButtonItemStyle.done, target: self, action: #selector(self.doneButtonAction))
+        ]
+        
+        doneToolbar.sizeToFit()
+        
+        self.tf_telephone.inputAccessoryView = doneToolbar
+    }
+    
+    /// Se agrega el funcionalidad de *Return* a la barra del teclado
+    @objc func doneButtonAction() -> Bool {
+        return self.textFieldShouldReturn(tf_telephone)
+    }
     
     // TextView resing keyboard
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -152,7 +178,7 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
         //obtiene la posicion del textview
         currentViewYPosition = textView.convert(CGPoint.zero, to: self.view).y
         
-        if textView.text == Strings.placeholder_yourMessage {
+        if textView.text == Strings.contact_messagePlaceholder {
             textView.text = nullString
             textView.textColor = .black
         }
@@ -164,12 +190,12 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
         
         //If text is empty, put Placeholder
         if textView.text == nullString {
-            textView.text = Strings.placeholder_yourMessage
+            textView.text = Strings.contact_messagePlaceholder
             textView.textColor = .lightGray
         }
         
         //If text is diferent to placeholder, set text to message
-        if textView.text != Strings.placeholder_yourMessage {
+        if textView.text != Strings.contact_messagePlaceholder {
             message = textView.text!
         }
         
@@ -213,9 +239,20 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
     private func prepareRequest() {
         
         guard messageTypeID != nil, !message.isEmpty else {
-            self.showErrorMessage(withMessage: Strings.error_message_requieredData)
+            self.showErrorMessage(withMessage: ErrorStrings.requiredData)
             return
         }
+        
+        guard tf_telephone.text != nil else {
+            self.showErrorMessage(withMessage: ErrorStrings.requiredData)
+            return
+        }
+        
+        //Se agregan datos adiciones al mesage con el formato siguiente
+        // Teléfono: #; Mensaje: str; Nombres: str;  Email: str.
+        let user: UserSerializer = AplicationRuntime.sharedManager.getUser()
+        let name = String(format: Strings.fullname_format, user.first_name, user.last_name)
+        message = String(format: Formats.contactMessage, tf_telephone.text!, message, name, user.email)
         
         let form = ContactForm()
         form.detail = message
@@ -254,7 +291,8 @@ class ContactUsViewController: UIViewController, UITextViewDelegate, UIPickerVie
                 _ = Mapper<ContactForm>().map(JSON: objReceiver as! [String: Any])
                 
                 self.lbl_promtMesaggeType.text = Strings.texfiled_placeholder
-                self.tv_message.text = Strings.placeholder_yourMessage
+                self.tf_telephone.text = nil
+                self.tv_message.text = Strings.contact_messagePlaceholder
                 self.tv_message.textColor = .lightGray
                 
                 self.mainDelegate?.showMessageInMain(withMessage: Strings.message_ok_contact)

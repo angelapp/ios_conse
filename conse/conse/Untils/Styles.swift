@@ -102,9 +102,12 @@ extension UIButton {
         self.addRadius(radius: (self.frame.size.height / 2))
     }
     
-    func setImageButton(normal: UIImage, hover: UIImage) {
-        self.setImage(normal, for: .normal)
-        self.setImage(hover, for: .highlighted)
-        self.setImage(hover, for: .selected)
+    /// Agrega una imagen al boton
+    /// - Parameter normal: nombre de la imagen para el estado por defecto
+    /// - Parameter hover: nombre de la imagen para el estado por seleccionado y resaltado
+    func setImageButton(normal: String, hover: String) {
+        self.setImage(UIImage(named: normal), for: .normal)
+        self.setImage(UIImage(named: hover),  for: .highlighted)
+        self.setImage(UIImage(named: hover),  for: .selected)
     }
 }

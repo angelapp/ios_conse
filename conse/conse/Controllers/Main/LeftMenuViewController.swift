@@ -118,7 +118,13 @@ class LeftMenuViewController: UIViewController {
             break
             
         case btn_videoTutorial:
-            mainDelegate?.addToContainer(viewControllerID: .videoPlayer)
+            let sb = UIStoryboard(name: StoryboardsId.auth, bundle: nil)
+            let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.videoTutorial) as! VideoTutorialViewController
+            
+            nextVC.modalPresentationStyle = .overCurrentContext
+            nextVC.modalTransitionStyle = .crossDissolve
+            nextVC.backToHome = true
+            present(nextVC, animated: true, completion: nil)
             self.revealViewController().revealToggle(animated: true)
             break
             

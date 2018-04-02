@@ -25,10 +25,31 @@ struct ConseValues {
     static let margin: CGFloat = 16.0
     static let innerMargin: CGFloat = 8.0
     
-    static let notHeight: CGFloat = 0.0
-    static let dataNCRHeight: CGFloat = 480.0 //Altura de la vista "Beneficiario NCR"
+    /// Altura por defecto para una vista que esta oculta
+    static let defaultHeight: CGFloat = 0.0
+    /// Altura máxima del checkbox
+    static let checkboxHeight_register: CGFloat = 52
+    /// Margen inferior con boton de panico visible
+    static let marginBotton_edit: CGFloat = 58
+    /// Margen inferior con boton de panico oculto
+    static let marginBotton_register: CGFloat = 20
+    /// Altura de la barra de navegación
+    static let navbarHeight_register: CGFloat = 40
+    
+    /// Margin Value *0.0*
+    static let defaultMargin: CGFloat = 0.0
+    /// Valor de la altura para la sección *"Beneficiario progragama NRC"*
+    static let dataNCRHeight: CGFloat = 480.0
+    /// Valor de la altura para la sección *"Usuario Conse"* en la pantalla registro
     static let conseUser_Height: CGFloat = 170.0
+    /// Valor de la altura para la sección *"Usuario Conse"* en la pantalla editar perfil
     static let conseUserProfile_Heigth: CGFloat = 74.0
+    /// Valor de la altura para la sección *"Terminos y Condiciones"* **Registro**
+    static let termsHeigth_register: CGFloat = 142.0
+    /// Valor de la altura para la sección *"Terminos y Condiciones"* **Perfil**
+    static let termsHeigth_profile: CGFloat = 90.0
+    /// Valor de la altura para la sección *"Avatar y Contactos"* **Perfil**
+    static let avatarContactsHeight: CGFloat = 140.0
 }
 
 // MARK: - Índices usados para crear el avatar

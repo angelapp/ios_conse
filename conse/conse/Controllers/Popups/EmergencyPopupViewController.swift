@@ -20,12 +20,17 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     @IBOutlet weak var btn_Cancel: UIButton!
     @IBOutlet weak var btn_sendAlert: UIButton!
     @IBOutlet weak var btn_cancelAlert: UIButton!
+    @IBOutlet weak var btn_UNP_NAL: UIButton!
+    @IBOutlet weak var btn_UNP_BOG: UIButton!
     
     @IBOutlet weak var lbl_alertMessage: UILabel!
     @IBOutlet weak var lbl_message: UILabel!
+    @IBOutlet weak var lbl_message_02: UILabel!
     @IBOutlet weak var lbl_line_123: UILabel!
     @IBOutlet weak var lbl_line_141: UILabel!
     @IBOutlet weak var lbl_line_155: UILabel!
+    @IBOutlet weak var lbl_line_UPN_NAL: UILabel!
+    @IBOutlet weak var lbl_line_UPN_BOG: UILabel!
     
     @IBOutlet weak var numbers_Content: UIView!
     @IBOutlet weak var message_Content: UIView!
@@ -61,16 +66,19 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
         
         setAspectFitToButton(buttons: btn_123, btn_141, btn_155, btn_SMS, btn_sendAlert)
         
-        lbl_line_123.attributedText = addBoldWord(forText: Strings.emergency_line_123_message, toWord: Strings.emergency_line_123, fontSize: lbl_line_123.font.pointSize)
-        lbl_line_141.attributedText = addBoldWord(forText: Strings.emergency_line_141_message, toWord: Strings.emergency_line_141, fontSize: lbl_line_141.font.pointSize)
-        lbl_line_155.attributedText = addBoldWord(forText: Strings.emergency_line_155_message, toWord: Strings.emergency_line_155, fontSize: lbl_line_155.font.pointSize)
+        lbl_line_123.attributedText = addBoldWord(forText: EmergencyStrings.line_123_message, toWord: EmergencyStrings.line_123, fontSize: lbl_line_123.font.pointSize)
+        lbl_line_141.attributedText = addBoldWord(forText: EmergencyStrings.line_141_message, toWord: EmergencyStrings.line_141, fontSize: lbl_line_141.font.pointSize)
+        lbl_line_155.attributedText = addBoldWord(forText: EmergencyStrings.line_155_message, toWord: EmergencyStrings.line_155, fontSize: lbl_line_155.font.pointSize)
+        lbl_line_UPN_BOG.attributedText = addBoldWord(forText: EmergencyStrings.line_bog_label, toWord: EmergencyStrings.line_bog, fontSize: lbl_line_UPN_BOG.font.pointSize)
+        lbl_line_UPN_NAL.attributedText = addBoldWord(forText: EmergencyStrings.line_nal_label, toWord: EmergencyStrings.line_nal, fontSize: lbl_line_UPN_NAL.font.pointSize)
     }
     
     private func loadCallView() {
         
         message_Content.isHidden = true
         numbers_Content.isHidden = false
-        lbl_message.text = Strings.emergency_label
+        lbl_message.text = EmergencyStrings.label_01
+        lbl_message_02.text = EmergencyStrings.label_02
     }
     
     private func loadSMSView() {
@@ -82,7 +90,7 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
         contacts = AplicationRuntime.sharedManager.getContactsNumber()
         
         // Set Message depend on sender controller
-        lbl_alertMessage.text = senderVC == .testAlert ? Strings.emergency_SMS_test : Strings.emergency_SMS
+        lbl_alertMessage.text = senderVC == .testAlert ? EmergencyStrings.SMS_test : EmergencyStrings.SMS
         
         // Hide or show cancelAlert button depend on sender controller
         btn_cancelAlert.isHidden = (senderVC == .testAlert)
@@ -115,7 +123,7 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
             actionButtons(btn_Cancel)
         }
         else {
-            self.showErrorMessage(withMessage: Strings.error_message_notAvailableAction)
+            self.showErrorMessage(withMessage: ErrorStrings.disabledAction)
         }
     }
     
@@ -132,8 +140,8 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         
         if(status == CLAuthorizationStatus.denied) {
-            self.showSettingsPopup(title: Strings.error_title_locationDisabled,
-                                   message: Strings.error_message_locationDisabled,
+            self.showSettingsPopup(title: ErrorStrings.title_disabledLocation,
+                                   message: ErrorStrings.disabledLocation,
                                    settings: UIApplicationOpenSettingsURLString)
         }
     }
@@ -167,15 +175,23 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
         switch sender {
             
         case btn_123:
-            self.makeCall(forNumber: Strings.emergency_line_123)
+            self.makeCall(forNumber: EmergencyStrings.line_123)
             break
             
         case btn_141:
-            self.makeCall(forNumber : Strings.emergency_line_141)
+            self.makeCall(forNumber : EmergencyStrings.line_141)
             break
             
         case btn_155:
-            self.makeCall(forNumber: Strings.emergency_line_155)
+            self.makeCall(forNumber: EmergencyStrings.line_155)
+            break
+            
+        case btn_UNP_BOG:
+            self.makeCall(forNumber: EmergencyStrings.UNP_BOG)
+            break
+            
+        case btn_UNP_NAL:
+            self.makeCall(forNumber: EmergencyStrings.line_nal)
             break
             
         case btn_SMS:

@@ -20,7 +20,7 @@ class CommunityBodyTableViewCell: UITableViewCell {
     @IBOutlet weak var lbl_objective: UILabel!
     @IBOutlet weak var lbl_note: UILabel!
     @IBOutlet weak var lbl_download: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

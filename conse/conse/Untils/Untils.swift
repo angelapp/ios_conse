@@ -28,10 +28,10 @@ func hiddenView(view id: IdView, state: Bool) -> CGFloat {
     switch id {
         
     case .NCR_DATA:
-        return state ? ConseValues.notHeight : ConseValues.dataNCRHeight
+        return state ? ConseValues.defaultHeight : ConseValues.dataNCRHeight
         
     default:
-        return ConseValues.notHeight
+        return ConseValues.defaultHeight
     }
 }
 
@@ -190,9 +190,11 @@ func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestComplet
 
 func getProgress(forCourse index: Int) -> Array<ModuleProgressItem> {
     
-    let imageComplet = [Strings.image_begginer, Strings.image_expert, Strings.image_advanced, Strings.image_star]
-    let imageIncomplet = [Strings.image_begginer_off, Strings.image_expert_off, Strings.image_advanced_off, Strings.image_star_off]
-    let titles = [Strings.level_begginer, Strings.level_expert, Strings.level_advanced, Strings.level_star]
+    let imageComplet = [ProgressStrings.image_begginer, ProgressStrings.image_expert, ProgressStrings.image_advanced, ProgressStrings.image_star]
+    let imageIncomplet = [ProgressStrings.image_begginer_off, ProgressStrings.image_expert_off, ProgressStrings.image_advanced_off, ProgressStrings.image_star_off]
+    
+    // Carga los titulos de acuerdo al genero del usuario
+    let titles = [getInsignia(forModule: .MOD_01), getInsignia(forModule: .MOD_02), getInsignia(forModule: .MOD_03), getInsignia(forModule: .MOD_04)]
     
     let courses = StorageFunctions.loadActivitiesProgress() ?? AplicationRuntime.sharedManager.getAppConfig()?.course_Array
     var progress: Array<ModuleProgressItem> = []
@@ -240,7 +242,7 @@ class Validations {
     // Valida que se halla escrito alguna fecha
     class func isValidDate(birthDate: String!, errorView: UILabel? = nil) -> Bool {
         guard !birthDate.isEmpty, birthDate.uppercased() != Strings.birthday_placeholder.uppercased() else {
-            errorView?.text = Strings.error_message_requieredField
+            errorView?.text = ErrorStrings.requiredField
             return false
         }
         
@@ -251,7 +253,7 @@ class Validations {
     // Valida que el label no este lleno y no tenga la informacion por defecto
     class func isValidData(fromPromt lbl: UILabel, errorView: UILabel? = nil) -> Bool {
         guard !(lbl.text?.isEmpty)!, lbl.text?.uppercased() != Strings.texfiled_placeholder.uppercased() else {
-            errorView?.text = Strings.error_message_requieredField
+            errorView?.text = ErrorStrings.requiredField
             return false
         }
         
@@ -262,7 +264,7 @@ class Validations {
     // Valida que los campos de texto no esten vacios
     class func isValidData(fromField textField: UITextField, errorView: UILabel? = nil) -> Bool {
         guard !(textField.text?.isEmpty)!, textField.text != blankSpace else {
-            errorView?.text = Strings.error_message_requieredField
+            errorView?.text = ErrorStrings.requiredField
             return false
         }
         
@@ -274,7 +276,7 @@ class Validations {
     class func isValidEmail(email:String, errorView: UILabel? = nil) -> Bool {
         let emailTest = NSPredicate(format: Formats.matchesFormat, Formats.emailRegEx)
         guard emailTest.evaluate(with: email) else {
-            errorView?.text =  Strings.error_message_invalidEmail
+            errorView?.text =  ErrorStrings.invalidEmail
             return false
         }
         
@@ -371,7 +373,7 @@ extension UIViewController {
             }
         }
         else {
-            showErrorMessage(withMessage: Strings.error_message_notAvailableAction)
+            showErrorMessage(withMessage: ErrorStrings.disabledAction)
         }
     }
 }

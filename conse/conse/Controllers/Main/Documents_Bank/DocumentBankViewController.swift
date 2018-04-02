@@ -93,8 +93,8 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
             
             // Check if GPS is Enable
             guard CLLocationManager.locationServicesEnabled() else {
-                self.mainDelegate?.openSettingsPopup(title: Strings.error_title_locationDisabled,
-                                                     message: Strings.error_message_locationDisabled,
+                self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledLocation,
+                                                     message: ErrorStrings.disabledLocation,
                                                      settings: URL_LOCATION_SERVICES)
                 
                 currentTab = formatsIndex
@@ -104,8 +104,8 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
             
             // Check Intenet Conexión
             guard ConnectionCheck.isConnectedToNetwork() else {
-                self.mainDelegate?.openSettingsPopup(title: Strings.error_title_notInternetConection,
-                                                     message: Strings.error_message_notIntenertConection,
+                self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledInternet,
+                                                     message: ErrorStrings.disabledIntenert,
                                                      settings: URL_GENERAL_SETTINGS)
                 
                 currentTab = formatsIndex
@@ -124,8 +124,8 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
             
             // Check Intenet Conexión
             guard ConnectionCheck.isConnectedToNetwork() else {
-                self.mainDelegate?.openSettingsPopup(title: Strings.error_title_notInternetConection,
-                                                     message: Strings.error_message_notIntenertConection,
+                self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledInternet,
+                                                     message: ErrorStrings.disabledIntenert,
                                                      settings: URL_GENERAL_SETTINGS)
                 
                 currentTab = formatsIndex

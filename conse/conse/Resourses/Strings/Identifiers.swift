@@ -77,6 +77,7 @@ struct CellsId {
     static let LEADERS_19 = "LEADERS_19_CELL"
     static let LEADERS_20 = "LEADERS_20_CELL"
     static let LEADERS_21 = "LEADERS_21_CELL"
+    static let LEADERS_21_2 = "LEADERS_21_2_CELL"
     static let LEADERS_22 = "LEADERS_22_CELL"
     static let LEADERS_23 = "LEADERS_23_CELL"
     static let LEADERS_24 = "LEADERS_24_CELL"
@@ -103,6 +104,7 @@ struct CellsId {
     static let LEADERS_45 = "LEADERS_45_CELL"
     static let LEADERS_46 = "LEADERS_46_CELL"
     static let LEADERS_47 = "LEADERS_47_CELL"
+    static let LEADERS_47_2 = "LEADERS_47_2_CELL"
     static let LEADERS_48 = "LEADERS_48_CELL"
     static let LEADERS_49 = "LEADERS_49_CELL"
     static let LEADERS_50 = "LEADERS_50_CELL"
@@ -225,6 +227,7 @@ struct ViewControllersId {
     static let vbgRoute = "vbgRouteVC"
     static let vbgRouteOne = "vbgRouteOneVC"
     static let videoPLayer = "videoPlayerVC"
+    static let videoTutorial = "videoTutorialVC"
     static let welcome = "welcomeVC"
 }
 

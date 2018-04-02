@@ -27,8 +27,8 @@ class LetStartViewController: UIViewController {
         img_avatar.image = StorageFunctions.loadAvatarImage()
         
         // fill lables
-        lbl_title.text = Strings.copy_letStartTitle
-        lbl_mesasage.text = Strings.copy_letStartMessage
+        lbl_title.text = ConfigStrings.letStartTitle
+        lbl_mesasage.text = ConfigStrings.letStartMessage
     }
 
     override func didReceiveMemoryWarning() {

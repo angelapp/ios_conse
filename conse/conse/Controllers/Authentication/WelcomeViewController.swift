@@ -112,7 +112,7 @@ class WelcomeViewController: UIViewController {
     
     private func getConfiguration() {
         
-        let loader = LoadingOverlay(text: Strings.loader_configApp)
+        let loader = LoadingOverlay(text: LoaderStrings.configApp)
         let headers: [[String:String]] = []
         
         loader.showOverlay(view: self.view)
@@ -166,16 +166,16 @@ class WelcomeViewController: UIViewController {
             
             // Check Intenet Conexión
             guard ConnectionCheck.isConnectedToNetwork() else {
-                self.showSettingsPopup(title: Strings.error_title_notInternetConection,
-                                       message: Strings.error_message_notIntenertConection,
+                self.showSettingsPopup(title: ErrorStrings.title_disabledInternet,
+                                       message: ErrorStrings.disabledIntenert,
                                        settings: URL_GENERAL_SETTINGS)
                 return
             }
             
             // Check if GPS is Enable
             guard CLLocationManager.locationServicesEnabled() else {
-                self.showSettingsPopup(title: Strings.error_title_locationDisabled,
-                                       message: Strings.error_message_locationDisabled,
+                self.showSettingsPopup(title: ErrorStrings.title_disabledLocation,
+                                       message: ErrorStrings.disabledLocation,
                                        settings: URL_LOCATION_SERVICES)
                 return
             }

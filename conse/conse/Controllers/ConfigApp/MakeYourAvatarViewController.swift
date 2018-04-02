@@ -210,7 +210,7 @@ class MakeYourAvatarViewController: UIViewController {
         // Verifica que se hayan seleccionado todas las partes del avatar
         guard myAvatar?.skinID != nil, myAvatar?.hairID != nil, myAvatar?.eyesID != nil,
             myAvatar?.mouthID != nil, myAvatar?.accID != nil else {
-            self.showErrorMessage(withMessage: Strings.error_message_avatarIncomplete)
+            self.showErrorMessage(withMessage: ErrorStrings.avatarIncomplete)
             return
         }
         

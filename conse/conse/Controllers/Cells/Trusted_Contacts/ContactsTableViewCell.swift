@@ -11,6 +11,7 @@ import UIKit
 class ContactsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var btn_edit_contact: UIButton!
+    @IBOutlet weak var btn_delete_contact: UIButton!
     @IBOutlet weak var lbl_contact_name: UILabel!
     @IBOutlet weak var lbl_contact_number: UILabel!
     

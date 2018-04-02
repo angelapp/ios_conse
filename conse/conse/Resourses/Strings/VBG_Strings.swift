@@ -105,10 +105,10 @@ struct VBG_COURSE {
     struct PAGE_11 {
         static let T1 = "Completa el crucigrama. Pulsa sobre el número para ver la pista."
         
-        static let HELP_1 = "Se manifiesta mediante insultos, ataques verbales, chantajes, celos extremos:"
-        static let HELP_2 = "Se manifiesta a través del uso de la fuerza, como golpes, ahogamientos, empujones:"
-        static let HELP_3 = "Cuando te obligan a tener algún tipo de comportamiento sexual no deseado, es:"
-        static let HELP_4 = "Se manifiesta a través del control del dinero e inasistencia alimentaria:"
+        static let HELP_1 = "Cuando la violencia se manifiesta mediante insultos, ataques verbales, chantajes o celos extremos, es:"
+        static let HELP_2 = "Cuando la violencia se manifiesta a través del uso de la fuerza, como golpes, ahogamientos o empujones, es violencia:"
+        static let HELP_3 = "Que te obliguen a tener algún tipo de comportamiento sexual no deseado, es violencia:"
+        static let HELP_4 = "La violencia que se manifiesta a través del control del dinero e inasistencia alimentaria, es:"
         static let HELP_5 = "Cuando la violencia proviene del esposo, compañero permanente, padre, madre, abuelos o nietos; se le llama violencia en la:"
         static let HELP_6 = "Cuando la violencia la realiza algún integrante de un grupo armado, se denomina violencia en el Conflicto:"
         
@@ -132,7 +132,7 @@ struct VBG_COURSE {
     struct PAGE_13 {
         static let TITLE = "Módulo 2"
         static let SUBTITLE = "¿Qué derechos tengo?"
-        static let T1 = "Ahora que sabes qué es la víolencia de género, dónde se puede presentar y por parte de quién, es hora de que sepas cómo puedes protegerte. Si te reconoces como una mujer víctima de cualquier tipo de violencia, incluidas las cometidas en el conflicto armado, y decides acudir a una entidad de tu minicipio en busca de ayuda, primero ten presente cuáles son tus derechos según la ley:"
+        static let T1 = "Ahora que sabes qué es la violencia de género, dónde se puede presentar y por parte de quién, es hora de que sepas cómo puedes protegerte. Si te reconoces como una mujer víctima de cualquier tipo de violencia, incluidas las cometidas en el conflicto armado, y decides acudir a una entidad de tu municipio en busca de ayuda, primero ten presente cuáles son tus derechos según la ley:"
         static let AUDIO_1 = "Como mujer víctima de violencia, tienes derecho a:"
     }
     
@@ -150,7 +150,7 @@ struct VBG_COURSE {
         static let OPT3 = "A un trato humano, respetuoso y digno."
         static let OPT4 = "A que se te comuniquen todas las decisiones que puedan afectar tus derechos."
         static let OPT5 = "A que la comunidad se entere de lo ocurrido para que puedan identificarte a ti y a tu familia como víctimas."
-        static let ERROR = "Nunca olvides que tienes derecho a decidir voluntariamente si quieres ser confrontada con el agresor o agresores y a manifestar tu intención de conciliar. \n\nRecuerda que tienes el derecho a la reserva de tu intimidad, de tus datos personales, y los de tus familiares y personas allegadas. \n\nAunque te equivoques sigues aprendiendo"
+        static let ERROR = "Nunca olvides que tienes derecho a decidir voluntariamente si quieres ser confrontada con el agresor o agresores y a manifestar tu intención de conciliar. \n\n Recuerda que tienes el derecho a la reserva de tu intimidad, de tus datos personales, y los de tus familiares y personas allegadas. \n\n Aunque te equivoques sigues aprendiendo ¡Inténtalo de nuevo!"
         static let ERROR_INBOLD = "Aunque te equivoques sigues aprendiendo"
     }
     
@@ -464,7 +464,7 @@ func validateCrossword(word: Array<UITextField>, correctAnswer: String) -> Bool 
     for letter in word {
         resp = resp + letter.text!
     }
-    printDebugMessage(tag: "Validando: \(resp)")
+    printDebugMessage(tag: "Validando: \(resp) =? \(correctAnswer)")
     
     return resp.uppercased() == correctAnswer.uppercased()
 }

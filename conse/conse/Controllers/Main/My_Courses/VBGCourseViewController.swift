@@ -114,7 +114,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
     /// Envia al servidor los datos de la actividad completada
     func sendRequest(formModel: Array<RequestCompleted>) {
         
-        let loader = LoadingOverlay(text: Strings.loader_recording)
+        let loader = LoadingOverlay(text: LoaderStrings.recording)
         let json = Mapper().toJSONString(formModel, prettyPrint: true)
         let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
         let apiURL = NetworkPOST.USER_PROGRESS_LIST
@@ -167,11 +167,11 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
                 ncrAudio?.delegate = self
                 isPlaying = name
             } catch {
-                mainDelegate?.showMessageInMain(withMessage: Strings.error_play_audio)
+                mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioDontLoad)
             }
         }
         else {
-            mainDelegate?.showMessageInMain(withMessage: Strings.error_no_audio)
+            mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioNotFound)
         }
     }
     
@@ -185,11 +185,11 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
                 ncrAudio?.delegate = self
                 isPlaying = nullString
             } catch {
-                mainDelegate?.showMessageInMain(withMessage: Strings.error_play_audio)
+                mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioDontLoad)
             }
         }
         else {
-            mainDelegate?.showMessageInMain(withMessage: Strings.error_no_audio)
+            mainDelegate?.showMessageInMain(withMessage: ErrorStrings.audioNotFound)
         }
     }
     

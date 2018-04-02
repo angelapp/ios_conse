@@ -52,7 +52,7 @@ class FormatBankViewController: UIViewController, UITableViewDelegate, UITableVi
             let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
             activityVC.setValue(Strings.title_for_share, forKey: subject)
             
-            let loader = LoadingOverlay(text: Strings.loader_loading)
+            let loader = LoadingOverlay(text: LoaderStrings.loading)
             loader.showOverlay(view: self.view)
             self.present(activityVC, animated: true, completion: {
                 loader.hideOverlayView()
@@ -89,6 +89,7 @@ class FormatBankViewController: UIViewController, UITableViewDelegate, UITableVi
         
         cell.item = listFormats[indexPath.row]
         cell.formatBankDelegate = self
+        cell.marginBottom = indexPath.row == (listFormats.count - 1) ? ConseValues.marginBotton_edit : ConseValues.defaultMargin
         cell.fillCell()
         
         return cell

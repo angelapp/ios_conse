@@ -48,7 +48,7 @@ class TabButtonsCollectionViewCell: UICollectionViewCell {
         aboutNRCTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
         documentsTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
         leadersRoutesTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
-        progressTabDelegate?.changeTabSelected(toPosition: tab_button.tag, animated: true)
+        progressTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
         vbgRoutesTabDelegate?.changeTabSelected(toPosition: tab_button.tag)
     }
 }
