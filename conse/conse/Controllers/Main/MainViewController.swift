@@ -42,10 +42,8 @@ class MainViewController: UIViewController, MainProtocol {
         AplicationRuntime.sharedManager.mainDelegate = self
         
         // Load Course Progress
-        if let progress = StorageFunctions.getProgress() {
-            AplicationRuntime.sharedManager.setProgress(progress: progress)
-        }
-
+        AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
+        
         //Add Geture for open/close menu
         if self.revealViewController() != nil {
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())

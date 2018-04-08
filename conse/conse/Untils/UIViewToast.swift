@@ -39,10 +39,10 @@ let HRToastMaxMessageLines            = 0
 
 // shadow appearance
 let HRToastShadowOpacity  : CGFloat   = 0.8
-let HRToastShadowRadius   : CGFloat   = 6.0
+let HRToastShadowRadius   : CGFloat   = 10.0
 let HRToastShadowOffset   : CGSize    = CGSize(width: 4.0, height: 4.0)
 
-let HRToastOpacity        : CGFloat   = 0.8
+let HRToastOpacity        : CGFloat   = 0.6
 let HRToastCornerRadius   : CGFloat   = 10.0
 
 var HRToastActivityView: UnsafePointer<UIView>?
@@ -51,7 +51,7 @@ var HRToastView: UnsafePointer<UIView>?
 
 
 // Color Scheme
-let HRAppColor:UIColor = UIColor.black//UIappViewController().appUIColor
+let HRAppColor:UIColor = UIColor.lightGray//UIappViewController().appUIColor
 let HRAppColor_2:UIColor = UIColor.white
 
 
@@ -142,8 +142,8 @@ extension UIView {
     func makeToastActivityWithMessage(message msg: String){
         self.makeToastActivity(position: HRToastActivityPositionDefault as AnyObject, message: msg)
     }
+    
     func makeToastActivityWithMessage(message msg: String,addOverlay: Bool){
-        
         self.makeToastActivity(position: HRToastActivityPositionDefault as AnyObject, message: msg,addOverlay: true)
     }
     

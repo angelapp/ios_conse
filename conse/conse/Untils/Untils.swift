@@ -171,9 +171,7 @@ func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestComplet
                             act.dateCompleted = activity.dateCompleted
                             StorageFunctions.saveActivitiesProgress(courses: CourseListModel(courseList: courses!))
                             
-                            return [RequestCompleted(user: AplicationRuntime.sharedManager.getUser().id,
-                                                                                                 activity: act.id,
-                                                                                                 date: activity.dateCompleted)]
+                            return [RequestCompleted(user: AplicationRuntime.sharedManager.getUser().id, activity: act.id, date: activity.dateCompleted)]
                         }
                         else {
                             return nil

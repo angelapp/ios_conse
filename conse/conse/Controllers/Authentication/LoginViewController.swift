@@ -83,17 +83,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillShow(notification: NSNotification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            scroll.contentSize = CGSize(width: self.scroll.bounds.size.width, height: self.scroll.bounds.size.height + keyboardSize.height)
+            let keyboardFrame:CGRect = self.view.convert(keyboardSize, from: nil)
             
-            if actualViewYPosition >= keyboardSize.height{
-                scroll.setContentOffset(CGPoint(x: 0, y: actualViewYPosition - keyboardSize.height), animated: true)
-            }
+            var contentInset:UIEdgeInsets = self.scroll.contentInset
+            contentInset.bottom = keyboardFrame.size.height
+            self.scroll.contentInset = contentInset
         }
     }
     
     //Obeserver for move frame to origin when keyboard is hiden
      @objc func keyboardWillHide(notification: NSNotification) {
-        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: self.view.bounds.size.height)
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scroll.contentInset = contentInset
     }
     
     //Get the actual position of the TextView

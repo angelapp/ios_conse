@@ -119,10 +119,10 @@ class StorageFunctions: NSObject {
     }
     
     /// Get storage progress
-    class func getProgress() -> CoursesProgress! {
+    class func getProgress() -> CoursesProgress {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.progress) as! Data! else { return nil}
-        guard let dic = ProgressPreferences.unarchive(data: data) else { return nil}
+        guard let data = storage.getParameterFromKey(key: DicKeys.progress) as! Data! else { return CoursesProgress() }
+        guard let dic = ProgressPreferences.unarchive(data: data) else { return CoursesProgress() }
         let progress = ProgressPreferences.initProgress(fromDic: dic)
         return progress
     }

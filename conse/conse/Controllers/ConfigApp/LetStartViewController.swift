@@ -19,6 +19,11 @@ class LetStartViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Show upload avatar message
+        self.view.makeToast(message: AvatarStrings.uploadSuccess,
+                            duration: HRToastDefaultDuration,
+                            position: HRToastPositionCenter as AnyObject)
 
         // set scale to button image
         btn_next.imageView?.contentMode = .scaleAspectFit

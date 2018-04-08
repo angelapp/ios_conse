@@ -79,6 +79,25 @@ class RequestCompleted: Mappable {
     }
 }
 
+class RequestAvatar: Mappable {
+    var user: Int!
+    var piece: Int!
+    
+    init(pieceID: Int) {
+        self.user = AplicationRuntime.sharedManager.getUser().id
+        self.piece = pieceID
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        user <- map[JSONKeys.user]
+        piece <- map[JSONKeys.avatar_piece]
+    }
+}
+
 class MyAvatarPieces {
     
     var skinID: Int!
@@ -160,5 +179,7 @@ class CoursesProgress {
     var PLC_INDEX: Int! // Indice de pág para el curso Protección Lideres Comunitarios
     
     init() {
+        self.VBG_INDEX = 0
+        self.PLC_INDEX = 0
     }
 }

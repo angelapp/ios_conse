@@ -27,6 +27,8 @@ let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 struct AvatarStrings {
     static let makeYourAvatarTitle = "Arma tu Conse"
     static let makeYourAvatarMessage = "Inicia por escoger el género, depués, podrás definir las características físicas que más te gusten para tu Consejero o Consejera ¡Será quien te acompañe mientras usas la aplicación!"
+    
+    static let uploadSuccess = "Avatar guardado satisfactoriamente!"
 }
 
 struct ConfigStrings {
@@ -136,6 +138,7 @@ struct ErrorStrings {
 }
 
 struct LoaderStrings {
+    static let avatarUpload = "Guardando avatar..."
     static let configApp = "Obteniendo configuración de la aplicación"
     static let getLegal = "Obteniendo biblioteca ..."
     static let getNews = "Obteniendo listado de noticias..."

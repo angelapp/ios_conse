@@ -355,7 +355,7 @@ struct VBG_COURSE {
     struct PAGE_44 {
         static let TITLE = VBG_COURSE.PAGE_36.SUBTITLE
         static let SUBTITLE = "¿Qué puedo hacer en caso que las entidades no cumplan sus funciones o no garanticen mis derechos?"
-        static let T1 = "Si te eres víctima de violencia de género y las entidades encargadas de orientarte, atenderte o protegerte no han cumplido con sus funciones según lo establece la ley, toma nota de las siguientes recomendaciones:"
+        static let T1 = "Si eres víctima de violencia de género y las entidades encargadas de orientarte, atenderte o protegerte no han cumplido con sus funciones según lo establece la ley, toma nota de las siguientes recomendaciones:"
     }
     
     struct PAGE_45 {

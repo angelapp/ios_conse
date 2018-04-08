@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ObjectMapper
 
 class MakeYourAvatarViewController: UIViewController {
 
@@ -220,7 +221,7 @@ class MakeYourAvatarViewController: UIViewController {
                 return
         }
         
-        // Crea una imagen combinado todas las partes y la guarda en el dispositivo y enel runtime
+        // Crea una imagen combinado todas las partes y la guarda en el dispositivo y en el runtime
         let avatar = UIImage.combine(images: img_avatarSkin.image!, img_avatarEyes.image!, img_avatarMouth.image!, img_avatarHair.image!, img_avatarAcc.image!)
         
         AplicationRuntime.sharedManager.setAvatarImage(img: avatar)
@@ -229,6 +230,60 @@ class MakeYourAvatarViewController: UIViewController {
         StorageFunctions.saveAvatarImage(image: avatar)
         StorageFunctions.saveAvatarInLocal(avatarPieces: myAvatar!)
         
-        performSegue(withIdentifier: segueID.showAvatar, sender: self)
+        // Crea el arreglo para guardar el avatar en el servidor
+        var avatarPiece: Array<RequestAvatar> = [];
+        avatarPiece.append(RequestAvatar(pieceID: (myAvatar?.skinID)!))
+        avatarPiece.append(RequestAvatar(pieceID: (myAvatar?.eyesID)!))
+        avatarPiece.append(RequestAvatar(pieceID: (myAvatar?.mouthID)!))
+        avatarPiece.append(RequestAvatar(pieceID: (myAvatar?.hairID)!))
+        avatarPiece.append(RequestAvatar(pieceID: (myAvatar?.accID)!))
+        
+        sendRequest(formModel: avatarPiece)
+//        performSegue(withIdentifier: segueID.showAvatar, sender: self)
+    }
+    
+    /// Envia al servidor los datos de la actividad completada
+    func sendRequest(formModel: Array<RequestAvatar>) {
+        
+        let loader = LoadingOverlay(text: LoaderStrings.recording)
+        let json = Mapper().toJSONString(formModel, prettyPrint: true)
+        let token = NetworkConfig.token + AplicationRuntime.sharedManager.getUserToken()
+        let apiURL = NetworkPOST.AVATAR_LIST
+        let method: NetworkRestMethods = .methodPOST
+        
+        var headers:[[String:String]] = []
+        headers.append([NetworkConfig.headerName: NetworkConfig.headerAuthorization,
+                        NetworkConfig.headerValue: token])
+        
+        loader.showOverlay(view: self.view)
+        self.view.isUserInteractionEnabled = false
+        
+        Network.buildRequest(urlApi: apiURL, json: json, extraHeaders: headers, method: method, completion: { (response) in
+            
+            loader.hideOverlayView()
+            self.view.isUserInteractionEnabled = true
+            
+            switch response {
+                
+            case .succeeded(let succeed, let message):
+                if !succeed {
+                    printDebugMessage(tag: message)
+                    self.showErrorMessage(withMessage: message)
+                }
+                break
+                
+            case .error(let error):
+                print(error.debugDescription)
+                break
+                
+            case .succeededObject(_):
+                
+                self.performSegue(withIdentifier: segueID.showAvatar, sender: self)
+                break
+                
+            default:
+                break
+            }
+        })
     }
 }

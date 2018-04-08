@@ -195,7 +195,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     //MARK: - Métodos para el control de eventos del teclado
     //Observer for increment contentSize of the scroll
     @objc func keyboardWillShow(notification: NSNotification) {
-    
+        
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             scroll.contentSize = CGSize(width: self.scroll.bounds.size.width, height: self.scroll.bounds.size.height + keyboardSize.height)
             
@@ -368,30 +368,32 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 promt_birthday.text = getBirthdateString(inFormat: DateTimeFormat.commonDateFormat, fromDate: profile.birthdate, withFormat: DateTimeFormat.sendDateFormat)
                 promt_birthday.textColor = UIColor.black
                 
-                genderID = profile.gender.id
-                promt_gender.text = profile.gender.name
+                genderID = profile.gender?.id
+                promt_gender.text = profile.gender?.name ?? Strings.texfiled_placeholder
                 tf_telephone.text = profile.contact_phone
                 isBeneficiaryNCR = profile.isNRCBeneficiary
             
                 if isBeneficiaryNCR {
-                    documentTypeID = profile.document_type.id
-                    promt_dni_type.text = profile.document_type.name
+                    documentTypeID = profile.document_type?.id
+                    promt_dni_type.text = profile.document_type?.name ?? Strings.texfiled_placeholder
                     tf_dni_number.text = profile.document_number
                     
-                    ethniGroupID = profile.ethnic_group.id
-                    promt_ethnic_group.text = profile.ethnic_group.name
+                    ethniGroupID = profile.ethnic_group?.id
+                    promt_ethnic_group.text = profile.ethnic_group?.name ?? Strings.texfiled_placeholder
                     
-                    geoStateID = AplicationRuntime.sharedManager.getStateID(fromValue: profile.origin_city.state)
-                    promt_geo_state.text = AplicationRuntime.sharedManager.getStateName(fromValue: profile.origin_city.state)
+                    if profile.origin_city != nil && profile.origin_city.state != nil {
+                        geoStateID = AplicationRuntime.sharedManager.getStateID(fromValue: profile.origin_city.state)
+                        promt_geo_state.text = AplicationRuntime.sharedManager.getStateName(fromValue: profile.origin_city.state)
+                    }
                     
-                    geoCityID = profile.origin_city.id
-                    promt_geo_city.text = profile.origin_city.name
+                    geoCityID = profile.origin_city?.id
+                    promt_geo_city.text = profile.origin_city?.name ?? Strings.texfiled_placeholder
                     
-                    conditionID = profile.condition.id
-                    promt_condition.text = profile.condition.name
+                    conditionID = profile.condition?.id
+                    promt_condition.text = profile.condition?.name ?? Strings.texfiled_placeholder
                     
-                    roleID = profile.role.id
-                    promt_profile.text = profile.role.name
+                    roleID = profile.role?.id
+                    promt_profile.text = profile.role?.name ?? Strings.texfiled_placeholder
                 }
             }
         }
@@ -636,11 +638,15 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
                 AplicationRuntime.sharedManager.setUserData(user: user)
                 
                 if self.isRegister {
+                    
                     //Se limpian los datos almacenados en el local
                     let storage = StorageConfig.share
                     storage.clearParameterFromKey(key: DicKeys.progress)
                     storage.clearParameterFromKey(key: DicKeys.contactList)
                     storage.clearParameterFromKey(key: DicKeys.activitiesProgress)
+                    
+                    // Actualiza valores en runtime
+                    AplicationRuntime.sharedManager.setProgress(progress: StorageFunctions.getProgress())
                     
                     // Inicía configuración
                     let sb = UIStoryboard(name: StoryboardsId.configAlert, bundle: nil)
@@ -661,12 +667,12 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     //MARK: - UIPicker DataSource and Delegate
     
-    //Set number of columms section for the picker
+    // Set number of columms section for the picker
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    //Set number of componets for genderPicker and localityPicker
+    // Set number of componets for genderPicker and localityPicker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         
         switch pickerView.tag {
@@ -697,7 +703,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
     }
     
-    //Set font to the label and set content
+    // Set font to the label and set content
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         
         //custom label
@@ -859,6 +865,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             nextVC.isEdit = true
             present(nextVC, animated: true, completion: nil)
         }
+            
         // Carga vista para cambiar contactos
         else {
             let nextVC = sb.instantiateViewController(withIdentifier: ViewControllersId.configAlert) as! ConfigAlertButtonViewController
