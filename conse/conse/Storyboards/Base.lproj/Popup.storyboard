@@ -274,13 +274,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB9-Kz-Hcg">
+                                    <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB9-Kz-Hcg">
                                         <rect key="frame" x="44" y="211" width="201" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="201" id="N0d-8j-AQF"/>
                                             <constraint firstAttribute="height" constant="70" id="uQu-EW-lds"/>
                                         </constraints>
-                                        <state key="normal" image="btn_siestoyseguro"/>
+                                        <state key="normal" image="btn_siestoysegurohover"/>
                                         <state key="selected" image="btn_siestoysegurohover"/>
                                         <state key="highlighted" image="btn_siestoysegurohover"/>
                                     </button>
@@ -859,7 +859,6 @@
         <image name="IMG_VBGM0P2" width="952" height="952"/>
         <image name="btn_intentar" width="293" height="80"/>
         <image name="btn_regresar" width="167" height="130"/>
-        <image name="btn_siestoyseguro" width="284" height="120"/>
         <image name="btn_siestoysegurohover" width="284" height="120"/>
         <image name="descargar" width="120" height="120"/>
         <image name="descargar_hover" width="120" height="120"/>

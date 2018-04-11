@@ -42,9 +42,10 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     
     var contacts: Array<String> = []
     var messageBody = nullString
-    let messageComposer = MessageComposer()
     var senderVC: ViewControllerTag = .main
+    var isAnimationCancelled = false
     
+    let messageComposer = MessageComposer()
     // Used to start getting the users location
     let locationManager = CLLocationManager()
     
@@ -97,8 +98,8 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
         cancelButton_heigthConstraint.constant = btn_cancelAlert.isHidden ? 0 : 30
         
         // make recognizer gesture and add to alert button
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector (sendAlert(press:)))
-        longPress.minimumPressDuration = 3.0
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector (longPressGesture(press:)))
+        longPress.minimumPressDuration = 0.5
         btn_sendAlert.addGestureRecognizer(longPress)
         
         // For use when the app is open & in the background
@@ -112,6 +113,49 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
             locationManager.startUpdatingLocation()
+        }
+    }
+    
+    /**
+     Send alert message to trusted contacts
+     if the **longpress** is completed and
+     the device can perform this action
+     */
+    private func sendAlert() {
+        
+        // set default state to btn_sent Alert
+        self.btn_sendAlert.alpha = 0.5
+        // check if longPress is compled
+        guard !isAnimationCancelled else {
+            return
+        }
+        
+        // Vibrate Device
+        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+        
+        // Add message body and recipients list
+        messageComposer.messageRecipientes(message: messageBody, contactList: contacts, sendDelegate: self)
+        
+        // Make sure the device can send text messages
+        if (messageComposer.canSendText()) {
+            // Obtain a configured MFMessageComposeViewController
+            let messageComposeVC = messageComposer.configuredMessageComposeViewController()
+            
+            // Present the configured MFMessageComposeViewController instance
+            present(messageComposeVC, animated: true, completion: nil)
+        } else {
+            dismissPopup(error: true)
+        }
+    }
+    
+    /// Add animation alpha to send Alert button
+    private func animateButton(){
+        isAnimationCancelled = false
+        UIView.animate(withDuration: 3, animations: {
+            self.btn_sendAlert.alpha = 1
+        }) { _ in
+            // Animation completion (completed or cancel LongPress)
+            self.sendAlert()
         }
     }
     
@@ -147,26 +191,21 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     }
 
     // MARK: - Actions
-    @objc func sendAlert(press: UILongPressGestureRecognizer){
+    @objc func longPressGesture(press: UILongPressGestureRecognizer){
         
         if press.state == .began {
-            // Vibrate Device
-            AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-            
-            // Add message body and recipients list
-            messageComposer.messageRecipientes(message: messageBody, contactList: contacts, sendDelegate: self)
-            
-            // Make sure the device can send text messages
-            if (messageComposer.canSendText()) {
-                // Obtain a configured MFMessageComposeViewController
-                let messageComposeVC = messageComposer.configuredMessageComposeViewController()
-                
-                // Present the configured MFMessageComposeViewController instance
-                present(messageComposeVC, animated: true, completion: nil)
-            } else {
-                dismissPopup(error: true)
-            }
+            animateButton()
         }
+        // cancelled animation if user touch down send alert button.
+        if press.state == .ended {
+            isAnimationCancelled = true
+            btn_sendAlert.layer.removeAllAnimations()
+        }
+    }
+    
+    @IBAction func touchDown(_ sender: UIButton) {
+        printDebugMessage(tag: "touch down")
+        self.view.layer.removeAllAnimations()
     }
     
     // Action for call to emergency numbers or show view for send SMS to a trueted contacts
