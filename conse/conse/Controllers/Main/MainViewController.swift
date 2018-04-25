@@ -200,6 +200,7 @@ class MainViewController: UIViewController, MainProtocol {
     }
     
     @IBAction func showMenu(_ sender: UIButton) {
+        self.dismissKeyboard()
         self.revealViewController().revealToggle(self)
     }
     

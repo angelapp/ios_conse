@@ -164,9 +164,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 Validations.isValidEmail(email: tf_email.text!, errorView: lbl_error_email)
                 else { return }
             
-            guard user != nil, tf_email.text?.lowercased() == user?.email.lowercased() else {
-                showErrorMessage(withMessage: ErrorStrings.invalidCredentials)
-                return
+            if user != nil {
+                guard tf_email.text?.lowercased() == user?.email.lowercased() else {
+                    showErrorMessage(withMessage: ErrorStrings.invalidCredentials)
+                    return
+                }
             }
             
             let userRequest = RegisterUserProfileModel()

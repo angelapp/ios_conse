@@ -32,7 +32,7 @@ class StorageConfig: NSObject {
     /// - Returns: un Objeto con la data obtenida
     func getParameterFromKey(key: String) -> AnyObject! {
         let result = dataStorage.object(forKey: key)
-        return result as AnyObject!
+        return result as AnyObject?
     }
     
     /// Elimina toda la data asociada a una clave
@@ -54,7 +54,7 @@ extension UserPreferences {
     /// Desarchiva la data de un usuario
     /// - Returns: diccionario con la data del usuario
     class func unarchive (data: Data) -> [String:Any]! {
-        guard let user = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else { return nil }
+        guard let user = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else { return nil }
         return user
     }
 }
@@ -70,7 +70,7 @@ extension AppConfigPreferences {
     /// Desarchiva la data de un usuario
     /// - Returns: diccionario con la data del usuario
     class func unarchive (data: Data) -> [String:Any]! {
-        guard let conf = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else { return nil }
+        guard let conf = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else { return nil }
         return conf
     }
 }
@@ -86,7 +86,7 @@ extension StatesPreferences {
     /// Desarchiva los estados
     /// - Returns: diccionario con los estados
     class func unarchive (data: Data) -> [String:Any]! {
-        guard let states = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else {return nil}
+        guard let states = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else {return nil}
         return states
     }
 }
@@ -102,7 +102,7 @@ extension ContactPreferences {
     /// Desarchiva la lista
     /// - Returns: diccionario con lista de contactos
     class func unarchive (data: Data) -> [String:Any]! {
-        guard let list = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else {return nil}
+        guard let list = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else {return nil}
         return list
     }
 }
@@ -118,7 +118,7 @@ extension ProgressPreferences {
     /// Desarchiva la lista
     /// - Returns: diccionario con los indices de los cursos
     class func unarchive (data: Data) -> [String:Any]! {
-        guard let progress = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else {return nil}
+        guard let progress = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else {return nil}
         return progress
     }
 }
@@ -134,7 +134,7 @@ extension ProgressActivitiesPreferences {
     /// Desarchiva la lista
     /// - Returns: diccionario con los indices de los cursos
     class func unarchive (data: Data) -> [String:Any]! {
-        guard let course = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else {return nil}
+        guard let course = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else {return nil}
         return course
     }
 }
@@ -150,7 +150,7 @@ extension MyAvatarPreferences {
     /// Desarchiva la data de un usuario
     /// - Returns: diccionario con la data del usuario
     class func unarchive (data: Data) -> [String:Any]! {
-        guard let avatar = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]! else { return nil }
+        guard let avatar = NSKeyedUnarchiver.unarchiveObject(with: data) as! [String:Any]? else { return nil }
         return avatar
     }
 }

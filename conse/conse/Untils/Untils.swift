@@ -310,6 +310,17 @@ extension UIViewController {
         return false
     }
     
+    //Method for dismis keyboard when tapp around
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    //Hide Keyboard
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     /// Show Alert with message
     func showErrorMessage(withMessage msn:String, title:String? = nullString) {
         

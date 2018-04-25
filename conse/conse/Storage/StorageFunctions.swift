@@ -18,7 +18,6 @@ class StorageFunctions: NSObject {
     
     /** Guarda toda la data del perfil del usuario */
     class func saveDataInLocal(user: RegisterUserResponse!) {
-        
         // get data to save
         let jsonUserData = Mapper().toJSONString(user, prettyPrint: true)
         
@@ -111,9 +110,9 @@ class StorageFunctions: NSObject {
     /// Get local storage data
     class func getAppConfig() -> ApplicationConfiguration! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.appConfig) as! Data! else { return nil}
+        guard let data = storage.getParameterFromKey(key: DicKeys.appConfig) as! Data? else { return nil}
         guard let dic = AppConfigPreferences.unarchive(data: data) else { return nil}
-        let strConf = AppConfigPreferences.initConfig(fromDic: dic) as String!
+        let strConf = AppConfigPreferences.initConfig(fromDic: dic) as String?
         let appConf = Mapper<ApplicationConfiguration>().map(JSON: convertToDictionary(text: strConf!)!)
         return appConf
     }
@@ -121,7 +120,7 @@ class StorageFunctions: NSObject {
     /// Get storage progress
     class func getProgress() -> CoursesProgress {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.progress) as! Data! else { return CoursesProgress() }
+        guard let data = storage.getParameterFromKey(key: DicKeys.progress) as! Data? else { return CoursesProgress() }
         guard let dic = ProgressPreferences.unarchive(data: data) else { return CoursesProgress() }
         let progress = ProgressPreferences.initProgress(fromDic: dic)
         return progress
@@ -130,7 +129,7 @@ class StorageFunctions: NSObject {
     /// Get storage states
     class func getStates() -> StatesModel {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.states) as! Data! else { return StatesModel() }
+        guard let data = storage.getParameterFromKey(key: DicKeys.states) as! Data? else { return StatesModel() }
         guard let dic = StatesPreferences.unarchive(data: data) else { return StatesModel()}
         let states = StatesPreferences.initState(fromDic: dic)
         return states
@@ -139,9 +138,9 @@ class StorageFunctions: NSObject {
     /// Get local storage data
     class func getUser() -> RegisterUserResponse! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.user) as! Data! else { return nil}
-        guard let dic = UserPreferences.unarchive(data: data) else { return nil}
-        let userJSON = UserPreferences.initUser(fromDic: dic) as String!
+        guard let data = storage.getParameterFromKey(key: DicKeys.user) as! Data? else { return nil }
+        guard let dic = UserPreferences.unarchive(data: data) else { return nil }
+        let userJSON = UserPreferences.initUser(fromDic: dic) as String?
         let user = Mapper<RegisterUserResponse>().map(JSON: convertToDictionary(text: userJSON!)!)
         return user
     }
@@ -149,9 +148,9 @@ class StorageFunctions: NSObject {
     /// Get local list data
     class func getContactList() -> Array<ContactModel>! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.contactList) as! Data! else { return nil }
+        guard let data = storage.getParameterFromKey(key: DicKeys.contactList) as! Data? else { return nil }
         guard let dic = ContactPreferences.unarchive(data: data) else { return nil }
-        let json = ContactPreferences.initContactList(fromDic: dic) as String!
+        let json = ContactPreferences.initContactList(fromDic: dic) as String?
         let contactList = Mapper<ContactListModel>().map(JSON: convertToDictionary(text: json!)!)
         return contactList?.contacList
     }
@@ -159,9 +158,9 @@ class StorageFunctions: NSObject {
     /** carga los datos de cursos del, local  */
     class func loadActivitiesProgress() -> Array<Course>! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.activitiesProgress) as! Data! else { return nil }
+        guard let data = storage.getParameterFromKey(key: DicKeys.activitiesProgress) as! Data? else { return nil }
         guard let dic = ProgressActivitiesPreferences.unarchive(data: data) else { return nil }
-        let json = ProgressActivitiesPreferences.initCourse(fromDic: dic) as String!
+        let json = ProgressActivitiesPreferences.initCourse(fromDic: dic) as String?
         let courseList = Mapper<CourseListModel>().map(JSON: convertToDictionary(text: json!)!)
         return courseList?.courseList
     }
@@ -169,8 +168,8 @@ class StorageFunctions: NSObject {
     /// Get storage Avatar
     class func getAvatarPieces() -> MyAvatarPieces! {
         let storage = StorageConfig.share
-        guard let data = storage.getParameterFromKey(key: DicKeys.avaterPieces) as! Data! else { return nil}
-        guard let dic = MyAvatarPreferences.unarchive(data: data) else { return nil}
+        guard let data = storage.getParameterFromKey(key: DicKeys.avaterPieces) as! Data? else { return nil}
+        guard let dic = MyAvatarPreferences.unarchive(data: data) else { return nil }
         let avatar = MyAvatarPreferences.initAvatar(fromDic: dic)
         return avatar
     }
@@ -183,7 +182,7 @@ class StorageFunctions: NSObject {
     
     /// Load data and return image
     class func loadAvatarImage() -> UIImage! {
-        if let data = UserDefaults.standard.object(forKey: DicKeys.avatarImg) as! NSData! {
+        if let data = UserDefaults.standard.object(forKey: DicKeys.avatarImg) as! NSData? {
             return UIImage(data: data as Data)
         }
         else {

@@ -59,7 +59,7 @@ class Network: NSObject {
      */
     class func buildRequest (urlApi: String, json: String!, extraHeaders: [[String: String]], method: NetworkRestMethods, completion: @escaping (ResponseCallback) -> ()) {
         
-        let url = [NetworkConfig.urlAccess, urlApi].flatMap{$0}.joined(separator: "")
+        let url = [NetworkConfig.urlAccess, urlApi].compactMap{$0}.joined(separator: "")
         
         guard let request = setupRequest(url, json: json!, extraHeaders: extraHeaders, method: method) else {
             completion(ResponseCallback.error(error: CustomError.NoData(description: NetworkErrorMessage.createRequestError)))

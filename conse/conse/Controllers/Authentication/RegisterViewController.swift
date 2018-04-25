@@ -125,6 +125,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     private let profileTag: Int = 7
     
     weak var mainDelegate: MainProtocol?
+    var currentTextfield: UITextField!
+    var constraintBottom: CGFloat = 0.0
     var actualViewYPosition: CGFloat = ConseValues.defaultPositionY
     
     // flag (Register profile or Edit profile) default Register
@@ -169,6 +171,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         picker.delegate = self
         picker.dataSource = self
         
+        self.hideKeyboardWhenTappedAround()
+        
         //Se agrega observable para desplazar vista cuando se muestra/oculta el teclado
         NotificationCenter.default.removeObserver(Any.self)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
@@ -197,17 +201,23 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @objc func keyboardWillShow(notification: NSNotification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            scroll.contentSize = CGSize(width: self.scroll.bounds.size.width, height: self.scroll.bounds.size.height + keyboardSize.height)
+            
+            constraints_scrollBottom.constant = keyboardSize.height
             
             if actualViewYPosition >= keyboardSize.height {
-                scroll.setContentOffset(CGPoint(x: ConseValues.defaultPositionX, y: actualViewYPosition - keyboardSize.height), animated: true)
+                var forceBottomY: CGFloat = 0
+                if (currentTextfield != nil && currentTextfield == tf_dni_number){
+                    forceBottomY = 210
+                }
+                let centerOffsetY = (scroll.frame.size.height / 2) + forceBottomY
+                scroll.setContentOffset(CGPoint(x: ConseValues.defaultPositionX, y: centerOffsetY), animated: true)
             }
         }
     }
     
     //Obeserver for move frame to origin when keyboard is hiden
     @objc func keyboardWillHide(notification: NSNotification) {
-        scroll.contentSize = CGSize(width: self.accessibilityFrame.width, height: self.view.bounds.size.height)
+        constraints_scrollBottom.constant = constraintBottom
     }
     
     // MARK: - TextFields
@@ -232,6 +242,7 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     //Get the actual position of the TextView
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        currentTextfield = textField
         actualViewYPosition = textField.convert(CGPoint.zero, to: self.view).y
         
         if textField == tf_password {
@@ -245,7 +256,8 @@ class RegisterViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         // Se oculta la barra de Navegación si se esta en editar perfil
         navBar.isHidden = !isRegister
         constraints_navBar.constant = isRegister ? ConseValues.navbarHeight_register : ConseValues.defaultHeight
-        constraints_scrollBottom.constant = isRegister ? ConseValues.marginBotton_register : ConseValues.marginBotton_edit
+        constraintBottom = isRegister ? ConseValues.marginBotton_register : ConseValues.marginBotton_edit
+        constraints_scrollBottom.constant = constraintBottom
         
         // se ocultan los botones de editar (avatar y contactos)
         cnt_editButtons.isHidden = isRegister
