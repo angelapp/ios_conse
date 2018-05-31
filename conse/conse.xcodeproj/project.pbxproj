@@ -17,6 +17,7 @@
 		6B0E04BD2034E46A00564A72 /* NewsHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E04BC2034E46A00564A72 /* NewsHeaderTableViewCell.swift */; };
 		6B0E04BF2034E48500564A72 /* NewsBodyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E04BE2034E48500564A72 /* NewsBodyTableViewCell.swift */; };
 		6B0E04C12034E4A600564A72 /* NewsButtonsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E04C02034E4A600564A72 /* NewsButtonsCollectionViewCell.swift */; };
+		6B1AF73220BF9CFC006FB882 /* tutorial.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 6B1AF73120BF9CFC006FB882 /* tutorial.mp4 */; };
 		6B1D34C420239AE9006BB9C2 /* LeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */; };
 		6B1D34C62023B252006BB9C2 /* Leaders_Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1D34C52023B252006BB9C2 /* Leaders_Strings.swift */; };
 		6B1E7598202101640078F0B5 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1E7597202101640078F0B5 /* ProgressViewController.swift */; };
@@ -260,6 +261,7 @@
 		6B0E04BC2034E46A00564A72 /* NewsHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		6B0E04BE2034E48500564A72 /* NewsBodyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsBodyTableViewCell.swift; sourceTree = "<group>"; };
 		6B0E04C02034E4A600564A72 /* NewsButtonsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsButtonsCollectionViewCell.swift; sourceTree = "<group>"; };
+		6B1AF73120BF9CFC006FB882 /* tutorial.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = tutorial.mp4; sourceTree = "<group>"; };
 		6B1D34C320239AE9006BB9C2 /* LeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderTableViewCell.swift; sourceTree = "<group>"; };
 		6B1D34C52023B252006BB9C2 /* Leaders_Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaders_Strings.swift; sourceTree = "<group>"; };
 		6B1E7597202101640078F0B5 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
@@ -572,6 +574,7 @@
 				6B33A38C200D920800971A1E /* Documents */,
 				6BF8A79A1FFD3CF80094764D /* Strings */,
 				6B1F5AA81FFC467000DA650D /* Values */,
+				6B1AF73020BF9CFC006FB882 /* Videos */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -635,6 +638,14 @@
 				B1262978F0A73B3EE5A48BBA /* Pods_conseUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6B1AF73020BF9CFC006FB882 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				6B1AF73120BF9CFC006FB882 /* tutorial.mp4 */,
+			);
+			path = Videos;
 			sourceTree = "<group>";
 		};
 		6B1F5A9B1FFBF07500DA650D /* Authentication */ = {
@@ -1295,6 +1306,7 @@
 				6B2E438F20471C6C0006F38B /* Leader_female_24.mp3 in Resources */,
 				6B2E43D020471C6C0006F38B /* VBG_male_08.mp3 in Resources */,
 				6B2E43AB20471C6C0006F38B /* Leader_male_22.mp3 in Resources */,
+				6B1AF73220BF9CFC006FB882 /* tutorial.mp4 in Resources */,
 				6B2E43C720471C6C0006F38B /* VBG_female_20.mp3 in Resources */,
 				6B2E43DE20471C6C0006F38B /* VBG_male_21.mp3 in Resources */,
 				6B2E438320471C6C0006F38B /* Leader_female_13.mp3 in Resources */,
@@ -1730,10 +1742,10 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 6DX6UMAY8Y;
+				DEVELOPMENT_TEAM = 9BW657YPDR;
 				INFOPLIST_FILE = conse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = conse.dev2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.org.nrc.conse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1752,10 +1764,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6DX6UMAY8Y;
+				DEVELOPMENT_TEAM = 9BW657YPDR;
 				INFOPLIST_FILE = conse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = conse.dev2;
+				PRODUCT_BUNDLE_IDENTIFIER = co.org.nrc.conse;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

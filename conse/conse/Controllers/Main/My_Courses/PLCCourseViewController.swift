@@ -220,7 +220,7 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: LeaderTableViewCell
-        printDebugMessage(tag: "LEADERS INDEX: \(currentIndex + 1)")
+//        printDebugMessage(tag: "LEADERS INDEX: \(currentIndex + 1)")
         
         if currentIndex == LEADERS_INDEX.LEADERS_01.rawValue {
             cell = tableView.dequeueReusableCell(withIdentifier: CellsId.LEADERS_01, for: indexPath) as! LeaderTableViewCell

@@ -12,15 +12,18 @@ class ViedoPlayerViewController: UIViewController, UIWebViewDelegate {
 
     // MARK: - Otlets
     @IBOutlet weak var videoPlayer: UIWebView!
+    @IBOutlet weak var lbl_videoTitle: UILabel!
     @IBOutlet weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
     var videoID: String!
+    var videoTitle: String?
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lbl_videoTitle.text = videoTitle
         videoPlayer.delegate = self
         getVideo(forID: videoID)
     }
@@ -32,7 +35,7 @@ class ViedoPlayerViewController: UIViewController, UIWebViewDelegate {
     
     // MARK: - Private function
     func getVideo(forID id: String) -> Void {
-        let url = URL(string: String(format: Strings.youtubeEmbedFormat, id))
+        let url = URL(string: String(format: Formats.youtubeEmbedFormat, id))
         videoPlayer.loadRequest(URLRequest(url: url!))
     }
     

@@ -18,7 +18,8 @@ class LeadersRouteViewController: UIViewController, UICollectionViewDataSource, 
     private let tabs = getTabs(forViewID: .leadersRoute)
     private let leadersRouteOneIndex: Int = 0
     private let leadersRouteTwoIndex: Int = 1
-    private let videoIndex: Int = 2
+    private let videoOneIndex: Int = 2
+    private let videoTwoIndex: Int = 3
     
     var currentTab: Int = 0
     var leadersRouteOne_tab: LeadersRouteOneViewController!
@@ -32,7 +33,6 @@ class LeadersRouteViewController: UIViewController, UICollectionViewDataSource, 
         instanciateTabs()
         
         currentTab = leadersRouteOneIndex
-        changeTab()
         
         button_collection.delegate = self
         button_collection.dataSource = self
@@ -40,6 +40,7 @@ class LeadersRouteViewController: UIViewController, UICollectionViewDataSource, 
         if let flowLayout = button_collection.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.estimatedItemSize = CGSize(width: 150, height: 40)
         }
+        changeTab()
     }
     
     override func didReceiveMemoryWarning() {
@@ -78,14 +79,28 @@ class LeadersRouteViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: - Actions
     func changeTab() {
         
+        
         switch currentTab {
             
-        case videoIndex:
-            video_tab.videoID = AplicationRuntime.sharedManager.getvideoID()
+        case videoOneIndex:
+            video_tab.videoID = VideosID.leaders_video
+            video_tab.videoTitle = VideosTitles.leaders_video
+            
+            showTab(tab: video_tab)
+            break
+            
+        case videoTwoIndex:
+            video_tab.videoID = VideosID.media_video
+            video_tab.videoTitle = VideosTitles.media_video
+            
             showTab(tab: video_tab)
             break
             
         case leadersRouteTwoIndex:
+            
+            let indexPath = IndexPath(row: currentTab, section: 0)
+            button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
+            
             showTab(tab: leadersRouteTwo_tab)
             
         default:

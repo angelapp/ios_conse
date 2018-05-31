@@ -78,7 +78,8 @@ class VBGRouteViewController: UIViewController, UICollectionViewDataSource, UICo
         switch currentTab {
             
         case videoIndex:
-            video_tab.videoID = AplicationRuntime.sharedManager.getvideoID()
+            video_tab.videoID = VideosID.vbg_video
+            video_tab.videoTitle = VideosTitles.vbg_video
             showTab(tab: video_tab)
             break
             

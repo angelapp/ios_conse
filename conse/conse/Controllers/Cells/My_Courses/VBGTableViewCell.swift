@@ -854,6 +854,9 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_46.TITLE
         videoPlayer.delegate = self
+        
+        let url = URL(string: String(format: Formats.youtubeEmbedFormat, VideosID.vbg_video))
+        videoPlayer.loadRequest(URLRequest(url: url!))
     }
 
     func fill_VBG_47() {
@@ -1334,6 +1337,15 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
             vbgDelegate?.showPopupHelp(title: (btn_help6.titleLabel?.text)!, text: VBG_COURSE.PAGE_11.HELP_6)
             break
         }
+    }
+    
+    // MARK: - WebView Delegate
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        videoLoader.startAnimating()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        videoLoader.stopAnimating()
     }
     
     // MARK: - Validaciones

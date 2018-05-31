@@ -961,6 +961,9 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     func fillLeader54() {
         leaders_title.text = LEADERS_COURSE.PAGE_54.title
         leader_videoPlayer.delegate =  self
+        
+        let url = URL(string: String(format: Formats.youtubeEmbedFormat, VideosID.leaders_video))
+        leader_videoPlayer.loadRequest(URLRequest(url: url!))
     }
     
     func fillLeader55() {
@@ -1335,5 +1338,14 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         sender.isSelected = !sender.isSelected
         leadersDelegate?.audioManager(audioID: sender.tag, play: sender.isSelected)
         updateButtonsState(sender: sender)
+    }
+    
+    // MARK: - WebView Delegate
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        leader_videoLoader.startAnimating()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        leader_videoLoader.stopAnimating()
     }
 }

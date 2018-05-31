@@ -445,17 +445,28 @@
                                     <action selector="next:" destination="ve1-nI-8oL" eventType="touchUpInside" id="I8M-Sz-arp"/>
                                 </connections>
                             </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAs-bP-U6R">
+                            <webView alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAs-bP-U6R">
                                 <rect key="frame" x="20" y="190" width="280" height="160"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hAs-bP-U6R" secondAttribute="height" multiplier="7:4" id="FLe-bt-Dpa"/>
                                 </constraints>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-cH-Reg">
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Xwe-cH-Reg">
                                 <rect key="frame" x="150" y="260" width="20" height="20"/>
                                 <color key="color" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBr-I1-u8t">
+                                <rect key="frame" x="135" y="245" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="w5U-k7-a9l"/>
+                                    <constraint firstAttribute="height" constant="50" id="xO1-Ip-wIY"/>
+                                </constraints>
+                                <state key="normal" image="play"/>
+                                <connections>
+                                    <action selector="backAction:" destination="3Og-Fc-fcI" eventType="touchUpInside" id="Jdw-yW-zRi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99215686270000003" green="0.7725490196" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -471,8 +482,10 @@
                             <constraint firstItem="MR1-Yk-P9r" firstAttribute="top" secondItem="9xg-uQ-9WX" secondAttribute="top" id="M09-ha-oSp"/>
                             <constraint firstItem="hAs-bP-U6R" firstAttribute="top" secondItem="PBD-nr-lXu" secondAttribute="bottom" constant="20" id="NOI-Vq-Oic"/>
                             <constraint firstItem="hAs-bP-U6R" firstAttribute="leading" secondItem="9xg-uQ-9WX" secondAttribute="leading" constant="20" id="Rr6-Fu-AyN"/>
+                            <constraint firstItem="UBr-I1-u8t" firstAttribute="centerX" secondItem="hAs-bP-U6R" secondAttribute="centerX" id="k0s-Kr-n71"/>
                             <constraint firstItem="MR1-Yk-P9r" firstAttribute="trailing" secondItem="9xg-uQ-9WX" secondAttribute="trailing" id="mS0-gc-I6H"/>
                             <constraint firstItem="9xg-uQ-9WX" firstAttribute="trailing" secondItem="YOK-lE-Dkj" secondAttribute="trailing" constant="24" id="tFa-BR-lCC"/>
+                            <constraint firstItem="UBr-I1-u8t" firstAttribute="centerY" secondItem="hAs-bP-U6R" secondAttribute="centerY" id="uGv-ry-nuY"/>
                             <constraint firstItem="hAs-bP-U6R" firstAttribute="centerX" secondItem="Vdu-Xr-BHX" secondAttribute="centerX" id="xKo-UF-4TL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9xg-uQ-9WX"/>
@@ -480,8 +493,7 @@
                     <connections>
                         <outlet property="btn_back" destination="LrW-Ra-h1O" id="FtF-Xq-41H"/>
                         <outlet property="btn_next" destination="YOK-lE-Dkj" id="TDu-Cp-WLQ"/>
-                        <outlet property="loader" destination="Xwe-cH-Reg" id="K5u-he-Hf0"/>
-                        <outlet property="videoPlayer" destination="hAs-bP-U6R" id="06a-I4-YJi"/>
+                        <outlet property="btn_play" destination="UBr-I1-u8t" id="FrM-9e-i1W"/>
                         <segue destination="ve1-nI-8oL" kind="show" identifier="tutorialResgister" id="Adj-Pq-fxj"/>
                     </connections>
                 </viewController>
@@ -1879,8 +1891,9 @@
         <image name="logo_conse_welcome" width="242" height="214"/>
         <image name="logo_ncr" width="216" height="181"/>
         <image name="logo_nrc_welcome" width="236" height="60"/>
+        <image name="play" width="272" height="272"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WIZ-re-MAD"/>
+        <segue reference="Adj-Pq-fxj"/>
     </inferredMetricsTieBreakers>
 </document>

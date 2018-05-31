@@ -16,7 +16,6 @@ let nullString = ""
 let jumpLine = "\n"
 let subject = "Subject"
 let titleTextColor = "titleTextColor"
-let defaultVideoID = "XxSK31L1D9A"
 let resetButtonTitle = "Reiniciar Curso"
 
 let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
@@ -91,8 +90,6 @@ struct Strings {
     static let terms_Copy = "términos, condiciones, políticas de privacidad y de tratamientos de datos"
     static let texfiled_placeholder = "Selecciona"
     static let title_for_share = "Plantilla compartida desde Conse"
-    
-    static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }
 
 // MARK: - Emergency
@@ -233,6 +230,24 @@ struct BackgroundInsignia {
     static let insignia_04 = "insignia_MOD4"
 }
 
+/// Id's de los videos en Youtube!
+struct VideosID {
+    static let default_video = "XxSK31L1D9A"
+    static let leaders_video = "7t0rIdNhayM"
+    static let media_video = "trNPQr6VIsQ"
+    static let vbg_video = "Moz4tszhujU"
+    
+    /// Nombre del archivo de video
+    static let tutorial = "tutorial"
+}
+
+struct VideosTitles {
+    static let default_video = ""
+    static let leaders_video = "Protección para lideresas y líderes comunitarios"
+    static let media_video = "Medios comunitarios de protección"
+    static let vbg_video = "Prevención de Violencia Basada en Género"
+}
+
 // MARK: - Formats
 
 /// Formatos de fecha
@@ -256,11 +271,12 @@ struct Formats {
     static let phoneRegEx = "^\\d{10}$"
     static let matchesFormat = "SELF MATCHES %@"
     
+    static let bodyEmailShare = "Plantilla %@"
     static let callFormat = "tel://%@"
     static let contactMessage = "Teléfono: %@ \n\n Mensaje: %@ \n\n Nombres: %@ \n\n Email: %@"
     static let legalHeaderFormat = "%@ - %@"
     static let shieldURLComplement = "?latitude=%@&longitude=%@"
     static let successDownload = "El archivo: %@ fue descragado exitosamente"
     static let testAlertMessage = "%@ http://maps.google.com/?q=%@,%@" // Message, Latitute, Longitude
-    static let bodyEmailShare = "Plantilla %@"
+    static let youtubeEmbedFormat = "https://www.youtube.com/embed/%@"
 }

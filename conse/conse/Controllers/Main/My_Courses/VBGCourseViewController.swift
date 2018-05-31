@@ -230,7 +230,7 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         var cell: VBGTableViewCell
-        printDebugMessage(tag: "VBG INDEX: \(currentIndex + 1)")
+//        printDebugMessage(tag: "VBG INDEX: \(currentIndex + 1)")
         
         // MODULO 0
         if currentIndex == VBG_INDEX.VBG_01.rawValue {

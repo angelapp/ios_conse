@@ -214,7 +214,7 @@ class AplicationRuntime {
     
     public func getvideoID() -> String {
         guard appConfig != nil, appConfig.video_tutorial_id != nil else {
-            return defaultVideoID
+            return VideosID.default_video
         }
         return appConfig.video_tutorial_id
     }

@@ -7,15 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
+import AVKit
 import CoreLocation
 
-class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
+class VideoTutorialViewController: UIViewController {//, UIWebViewDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
-    @IBOutlet weak var videoPlayer: UIWebView!
-    @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet weak var btn_play: UIButton!
+    //    @IBOutlet weak var videoPlayer: UIWebView!
+//    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
     var backToHome = false
@@ -24,8 +27,8 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        videoPlayer.delegate = self
-        getVideo(forID: AplicationRuntime.sharedManager.getvideoID())
+//        videoPlayer.delegate = self
+//        getVideo(forID: AplicationRuntime.sharedManager.getvideoID())
         
         btn_next.imageView?.contentMode = .scaleAspectFit
     }
@@ -36,24 +39,45 @@ class VideoTutorialViewController: UIViewController, UIWebViewDelegate {
     }
     
     // MARK: - Private function
-    func getVideo(forID id: String) -> Void {
-        let url = URL(string: String(format: Strings.youtubeEmbedFormat, id))
-        videoPlayer.loadRequest(URLRequest(url: url!))
+//    private func getVideo(forID id: String) -> Void {
+//        let url = URL(string: String(format: Formats.youtubeEmbedFormat, id))
+//        videoPlayer.loadRequest(URLRequest(url: url!))
+//    }
+    
+    private func playVideo() {
+        
+        guard let path = Bundle.main.path(forResource: VideosID.tutorial, ofType:"mp4") else {
+            debugPrint("video not found")
+            return
+        }
+        
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        
+        present(playerController, animated: true) {
+            player.play()
+        }
     }
     
     // MARK: - Webview Delegate
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        loader.startAnimating()
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        loader.stopAnimating()
-    }
+//    func webViewDidStartLoad(_ webView: UIWebView) {
+//        loader.startAnimating()
+//    }
+//    
+//    func webViewDidFinishLoad(_ webView: UIWebView) {
+//        loader.stopAnimating()
+//    }
 
     // MARK: - Action
     @IBAction func backAction(_ sender: UIButton) {
         
         switch sender {
+            
+        case btn_play:
+            playVideo()
+            break
             
         case btn_next:
             // Check if next buttonreturn to home

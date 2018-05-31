@@ -26,7 +26,8 @@ struct TabsName {
     struct LeadersRoutesTabs {
         static let tab_01 = "RUTA INDIVIDUAL"
         static let tab_02 = "RUTA COLECTIVA"
-        static let tab_03 = "VIDEO"
+        static let tab_03 = "VIDEO 1"
+        static let tab_04 = "VIDEO 2"
     }
     
     struct ProgressTabs {
@@ -58,7 +59,8 @@ func getTabs(forViewID id: ViewControllerTag) -> [String] {
         return [TabsName.DocumentsTabs.tab_01, TabsName.DocumentsTabs.tab_02, TabsName.DocumentsTabs.tab_03]
         
     case .leadersRoute:
-        return [TabsName.LeadersRoutesTabs.tab_01, TabsName.LeadersRoutesTabs.tab_02, TabsName.LeadersRoutesTabs.tab_03]
+        return [TabsName.LeadersRoutesTabs.tab_01, TabsName.LeadersRoutesTabs.tab_02,
+                TabsName.LeadersRoutesTabs.tab_03, TabsName.LeadersRoutesTabs.tab_04]
         
     case .progress:
         return [TabsName.ProgressTabs.tab_01, TabsName.ProgressTabs.tab_02]
