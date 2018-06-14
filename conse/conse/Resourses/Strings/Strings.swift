@@ -25,7 +25,7 @@ let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 // MARK: - AVATAR, Config
 struct AvatarStrings {
     static let makeYourAvatarTitle = "Arma tu Conse"
-    static let makeYourAvatarMessage = "Inicia por escoger el género, depués, podrás definir las características físicas que más te gusten para tu Consejero o Consejera ¡Será quien te acompañe mientras usas la aplicación!"
+    static let makeYourAvatarMessage = "Inicia por escoger el género, después, podrás definir las características físicas que más te gusten para tu Consejero o Consejera ¡Será quien te acompañe mientras usas la aplicación!"
     
     static let uploadSuccess = "Avatar guardado satisfactoriamente!"
 }
@@ -53,8 +53,8 @@ struct Strings {
     static let birthday_placeholder = "DÍA/MES/AÑO"
     
     static let button_accept = "Aceptar"
-    static let button_cancel = "CANCELAR"
-    static let button_settings = "CONFIGURACIÓN"
+    static let button_cancel = "Cancelar"
+    static let button_settings = "Configuración"
     
     static let checkbox_AcceptTerms = "Acepto los %@ del NRC"
     static let checkbox_Beneficiary = "Soy beneficiario de los programas NRC"
@@ -122,14 +122,20 @@ struct ErrorStrings {
     static let invalidCredentials = "Credenciales inválidas"
     static let invalidEmail = "Correo no válido"
     static let disabledAction = "El dispositivo no puedo realizar esta acción."
+    static let disabledContacs = "Para configurar tus contactos de confiaza Conse necesita acceso a tu lista de contactos ¿Deseas ir a configuración para activarlos?"
     static let disabledIntenert = "Debes tener una conexión activa a internet"
     static let disabledLocation = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
+    static let deniedLocation = "Conse necesita acceso a tu ubicación. ¿Deseas ir a Configuraciones para activarla?"
     static let passNotMatch = "Las contraseñas no coinciden"
     static let requiredData = "Debes completar información"
     static let requiredField = "Debes diligenciar este campo"
     static let requiredterms = "Debes diligenciar este campo"
+    static let sendSMSFailed = "No se ha podido enviar el mensaje"
+    static let sendSMSSucced = "El mensaje ha sido enviado"
+    static let userCancelled = "Se ha cancelado el envío del mensaje"
     static let withoutNumber = "El contacto no tiene número telefónico"
     
+    static let title_disabledContacs = "Conse necesita acceso a tu lista de contactos"
     static let title_disabledLocation = "Geolocalización desactivada"
     static let title_disabledInternet = "No hay conexión a internet"
 }

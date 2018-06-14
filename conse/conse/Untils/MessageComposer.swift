@@ -41,7 +41,17 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: {
-            self.sendAlertDelegate?.dismissPopup(error: false)
+
+            switch result.rawValue {
+            case MessageComposeResult.cancelled.rawValue:
+                self.sendAlertDelegate?.dismissPopup(message: ErrorStrings.userCancelled)
+            case MessageComposeResult.failed.rawValue:
+                self.sendAlertDelegate?.dismissPopup(message: ErrorStrings.sendSMSFailed)
+            case MessageComposeResult.sent.rawValue:
+                self.sendAlertDelegate?.dismissPopup(message: ErrorStrings.sendSMSSucced)
+            default:
+                self.sendAlertDelegate?.dismissPopup(message: nil)
+            }
         })
     }
 }

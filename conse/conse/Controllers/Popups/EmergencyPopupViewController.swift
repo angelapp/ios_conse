@@ -144,7 +144,7 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
             // Present the configured MFMessageComposeViewController instance
             present(messageComposeVC, animated: true, completion: nil)
         } else {
-            dismissPopup(error: true)
+            dismissPopup(message: ErrorStrings.disabledAction)
         }
     }
     
@@ -161,13 +161,16 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     
     // MARK: - Protocol Functions
     // Control the action when device can't send SMS
-    func dismissPopup(error: Bool) {
+    func dismissPopup(message: String?) {
+
         if testAlertDelegate != nil {
-            testAlertDelegate?.startStepTwo(error: error)
+            testAlertDelegate?.startStepTwo(message: message)
             actionButtons(btn_Cancel)
         }
         else {
-            self.showErrorMessage(withMessage: ErrorStrings.disabledAction)
+            if message != nil {
+                self.showErrorMessage(withMessage: message!)
+            }
         }
     }
     
@@ -204,7 +207,6 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     }
     
     @IBAction func touchDown(_ sender: UIButton) {
-        printDebugMessage(tag: "touch down")
         self.view.layer.removeAllAnimations()
     }
     

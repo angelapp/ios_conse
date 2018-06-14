@@ -6,6 +6,7 @@
 //  Copyright © 2018 NRC. All rights reserved.
 //
 
+import AVKit
 import UIKit
 import ObjectMapper
 import CoreLocation
@@ -64,6 +65,15 @@ class WelcomeViewController: UIViewController {
         contacts = StorageFunctions.getContactList()
         avatarPieces = StorageFunctions.getAvatarPieces()
         avatar = StorageFunctions.loadAvatarImage()
+        
+        // Activa una instancia para activar el sonido multimadia de la App cuando
+        // El dispositivo está en mute
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        }
+        catch {
+            // report for an error
+        }
     }
     
     private func startCose() {
@@ -177,6 +187,11 @@ class WelcomeViewController: UIViewController {
                 self.showSettingsPopup(title: ErrorStrings.title_disabledLocation,
                                        message: ErrorStrings.disabledLocation,
                                        settings: URL_LOCATION_SERVICES)
+                return
+            }
+            
+            guard DocumentBankViewController.isLocationPermissionGranted() else {
+                self.showConseSettings(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
                 return
             }
             

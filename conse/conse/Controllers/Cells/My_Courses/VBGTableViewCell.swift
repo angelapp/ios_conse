@@ -412,7 +412,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         lbl_review.text = Strings.review_content
         lbl_title.text = VBG_COURSE.PAGE_16.TITLE
         lbl_text1.text = VBG_COURSE.PAGE_16.T1
-        lbl_text2.text = String(format: VBG_COURSE.PAGE_16.T2, getInsignia(forModule: .MOD_01))
+        lbl_text2.text = String(format: VBG_COURSE.PAGE_16.T2, getInsignia(forModule: .MOD_02))
         
         img_avatar.image = AplicationRuntime.sharedManager.avatarImage
         img_insignia.image = UIImage(named: BackgroundInsignia.insignia_02)

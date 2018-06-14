@@ -102,6 +102,11 @@ class VideoTutorialViewController: UIViewController {//, UIWebViewDelegate {
                 return
             }
             
+            guard DocumentBankViewController.isLocationPermissionGranted() else {
+                self.showConseSettings(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
+                return
+            }
+            
             performSegue(withIdentifier: segueID.tutorialResgister, sender: self)
             break
             

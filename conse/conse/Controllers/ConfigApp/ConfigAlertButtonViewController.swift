@@ -125,6 +125,9 @@ class ConfigAlertButtonViewController: UIViewController, UITableViewDelegate, UI
         else if authStatus == CNAuthorizationStatus.authorized {
             self.openContact()
         }
+        else if authStatus == CNAuthorizationStatus.denied {
+            self.showConseSettings(title: ErrorStrings.title_disabledContacs, message: ErrorStrings.disabledContacs)
+        }
     }
     
     private func openContact() {

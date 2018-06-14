@@ -10,11 +10,11 @@ import Foundation
 
 /// Protocol de la parte de configuración para enviar un mensaje de prueba
 protocol TestAlertProtocol: class {
-    func startStepTwo(error: Bool)
+    func startStepTwo(message: String?)
 }
 
 protocol SendAlertProtocol: class {
-    func dismissPopup(error: Bool)
+    func dismissPopup(message: String?)
 }
 
 protocol MainProtocol: class {
@@ -22,6 +22,7 @@ protocol MainProtocol: class {
     func removeOfContainer()
     func showMessageInMain(withMessage msn: String)
     func setImageBackground(withName name: String)
+    func openConseSetting(title: String, message: String)
     func openSettingsPopup(title: String, message: String, settings: String)
 }
 

@@ -188,6 +188,10 @@ class MainViewController: UIViewController, MainProtocol {
         self.showSettingsPopup(title: title, message: message, settings: settings)
     }
     
+    func openConseSetting(title: String, message: String) {
+        self.showConseSettings(title: title, message: message)
+    }
+    
     /** Pone una imagen de fondo
      - Parameter withName: Nombre de la imagen que se desea usar como fondo */
     func setImageBackground(withName name: String) {

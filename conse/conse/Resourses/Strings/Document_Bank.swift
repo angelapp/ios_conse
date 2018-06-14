@@ -21,7 +21,7 @@ struct DocBank_Formats {
     static let label_DP_UNP = "Derecho de petición UNP" // derecho de petición   UNP
     static let label_UNP_rutaPC = "Formulario inscripción UNP para Ruta Protección Colectiva"
     static let label_UNP_PI = "Formulario inscripción UNP Protección Individual"
-    static let label_recursoRepApe = "Recurso de Reposición y Apelacion"
+    static let label_recursoRepApe = "Recurso de Reposición y Apelación"
 }
 
 struct MyCommunityStrings {

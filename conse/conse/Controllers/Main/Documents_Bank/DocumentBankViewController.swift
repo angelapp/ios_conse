@@ -77,6 +77,11 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
         tab.didMove(toParentViewController: self)
     }
     
+    // Retorna el estado de los permisos de localización
+    static func isLocationPermissionGranted() -> Bool {
+        return [.authorizedAlways, .authorizedWhenInUse].contains(CLLocationManager.authorizationStatus())
+    }
+    
     // MARK: - Public Functions (Access by protocols)
     func changeTabSelected(toPosition position: Int) {
         currentTab = position
@@ -97,6 +102,13 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
                                                      message: ErrorStrings.disabledLocation,
                                                      settings: URL_LOCATION_SERVICES)
                 
+                currentTab = formatsIndex
+                updateTabs()
+                return
+            }
+            
+            guard DocumentBankViewController.isLocationPermissionGranted() else {
+                self.mainDelegate?.openConseSetting(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
                 currentTab = formatsIndex
                 updateTabs()
                 return

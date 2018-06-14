@@ -334,12 +334,34 @@ extension UIViewController {
     }
     
     /// Show Alert for open settings
-    /// - Paramenter seting: string with setting path
+    /// - Paramenter setting: string with setting path
     func showSettingsPopup(title: String, message: String, settings: String) {
         let alertController = UIAlertController (title: title, message: message, preferredStyle: .alert)
         
         let settingsAction = UIAlertAction(title: Strings.button_settings, style: .default) { (_) -> Void in
             guard let settingsUrl = URL(string: settings) else { return }
+            
+            if UIApplication.shared.canOpenURL(settingsUrl) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(settingsUrl, completionHandler: nil)
+                } else {
+                    UIApplication.shared.openURL(settingsUrl)
+                }
+            }
+        }
+        let cancelAction = UIAlertAction(title: Strings.button_cancel, style: .cancel, handler: nil)
+        
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showConseSettings (title: String, message: String) {
+        let alertController = UIAlertController (title: title, message: message, preferredStyle: .alert)
+        
+        let settingsAction = UIAlertAction(title: Strings.button_settings, style: .default) { (_) -> Void in
+            guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else { return }
             
             if UIApplication.shared.canOpenURL(settingsUrl) {
                 if #available(iOS 10, *) {

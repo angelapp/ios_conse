@@ -119,7 +119,7 @@ struct  LEADERS_COURSE {
     struct PAGE_10 {
         static let title = LEADERS_COURSE.PAGE_03.title
         static let t1 = "¡Felicitaciones!"
-        static let t2 = "Has finalizado el primer módulo de formación, ya puedes ver como tus esfuerzos están dando resultados. Recibe con gusto tu primera insignia, ahora eres: %@!."
+        static let t2 = "Has finalizado el primer módulo de formación, ya puedes ver como tus esfuerzos están dando resultados. Recibe con gusto tu primera insignia, ahora eres: ¡%@!."
     }
     
     struct PAGE_11 {
@@ -518,7 +518,7 @@ struct  LEADERS_COURSE {
         static let title = LEADERS_COURSE.PAGE_47.title
         static let t1 = "Lee atentamente las siguientes situaciones y contesta sí o no a la pregunta."
         
-        static let question = "1. María es la representante de una organización que trabaja por los derechos de mujeres víctimas de violencia. Ella inició su trabajo como defensora después de una agresión que sufrió y que quedo en la impunidad; recientemente su agresor ha regresado y amenaza con atentar contra ella ¿Es la Ruta de Protección Colectiva la adecuada para María?"
+        static let question = "1. María es la representante de una organización que trabaja por los derechos de mujeres víctimas de violencia. Ella inició su trabajo como defensora después de una agresión que sufrió y que quedó en la impunidad; recientemente su agresor ha regresado y amenaza con atentar contra ella ¿Es la Ruta de Protección Colectiva la adecuada para María?"
         static let option_01 = LEADERS_COURSE.PAGE_42.option_01
         static let option_02 = LEADERS_COURSE.PAGE_42.option_02
         

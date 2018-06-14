@@ -47,7 +47,7 @@ struct VBG_COURSE {
         static let ITEM_2 = "Te puede ocurrir a ti o a cualquier mujer, no hay excepciones."
         static let ITEM_3 = "Es un delito y por lo tanto merece un castigo o pena."
         static let ITEM_4 = "Puede ocasionarte un daño, sufrimiento o muerte. También incluye las amenazas de cometer esos hechos."
-        static let ITEM_5 = "Se puede presentar en cualquier tipo de espacio público o privado dónde desarrolles tus actividades."
+        static let ITEM_5 = "Se puede presentar en cualquier tipo de espacio público o privado donde desarrolles tus actividades."
     }
     
     struct PAGE_05 {
