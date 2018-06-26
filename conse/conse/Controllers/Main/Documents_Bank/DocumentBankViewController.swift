@@ -92,6 +92,9 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: - Actions
     func updateTabs() {
         
+        let indexPath = IndexPath(row: currentTab, section: 0)
+        button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
+        
         switch currentTab {
             
         case shieldIndex:
@@ -114,7 +117,7 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
                 return
             }
             
-            // Check Intenet Conexión
+            // Check Internet connection
             guard ConnectionCheck.isConnectedToNetwork() else {
                 self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledInternet,
                                                      message: ErrorStrings.disabledIntenert,
@@ -124,9 +127,6 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
                 updateTabs()
                 return
             }
-            
-            let indexPath = IndexPath(row: currentTab, section: 0)
-            button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
             
             tab_shield.parentView = self.view
             showTab(tab: tab_shield)

@@ -80,6 +80,9 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
     // MARK: - Actions
     func changeTab() {
         
+        let indexPath = IndexPath(row: currentTab, section: 0)
+        button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
+        
         switch currentTab {
             
         case tab1Index:
@@ -90,11 +93,7 @@ class AboutUsViewController: UIViewController, UICollectionViewDataSource, UICol
             showTab(tab: tab2)
             break
             
-        default:
-            let indexPath = IndexPath(row: currentTab, section: 0)
-            button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
-            
-            showTab(tab: tab3)
+        default:showTab(tab: tab3)
             break
         }
     }

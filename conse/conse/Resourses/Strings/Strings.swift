@@ -116,33 +116,40 @@ struct EmergencyStrings {
 }
 
 struct ErrorStrings {
+    static let alreadyExisted = "Ya has descragado este video"
     static let audioNotFound = "No se encuentra el archivo"
     static let audioDontLoad = "No se pudo cargar el Audio"
     static let avatarIncomplete = "¡Falta seleccionar una parte del ávatar!"
+    static let contactsNotFound = "Debes configurar primero tus contactos"
     static let invalidCredentials = "Credenciales inválidas"
     static let invalidEmail = "Correo no válido"
     static let disabledAction = "El dispositivo no puedo realizar esta acción."
     static let disabledContacs = "Para configurar tus contactos de confiaza Conse necesita acceso a tu lista de contactos ¿Deseas ir a configuración para activarlos?"
     static let disabledIntenert = "Debes tener una conexión activa a internet"
     static let disabledLocation = "Conse necesita acceso a tu ubicación. Activa los servicios de geolocalización"
-    static let deniedLocation = "Conse necesita acceso a tu ubicación. ¿Deseas ir a Configuraciones para activarla?"
+    static let deniedLocation = "Conse necesita acceso a tu ubicación. ¿Deseas ir a Configuración para activarla?"
+    static let deniedPhotos = "Conse necesita acceso a tu álbum de fotos para poder guardar este video. ¿Deseas ir a Configuración para permitirlo?"
+    static let failedDownload = "No ha sido posible descargar el archivo. ¡Inténtalo mas tarde!"
     static let passNotMatch = "Las contraseñas no coinciden"
     static let requiredData = "Debes completar información"
     static let requiredField = "Debes diligenciar este campo"
     static let requiredterms = "Debes diligenciar este campo"
     static let sendSMSFailed = "No se ha podido enviar el mensaje"
     static let sendSMSSucced = "El mensaje ha sido enviado"
+    static let succedDownload = "Se ha descargado el archivo satisfactoriamente."
     static let userCancelled = "Se ha cancelado el envío del mensaje"
     static let withoutNumber = "El contacto no tiene número telefónico"
     
     static let title_disabledContacs = "Conse necesita acceso a tu lista de contactos"
     static let title_disabledLocation = "Geolocalización desactivada"
     static let title_disabledInternet = "No hay conexión a internet"
+    static let title_disabledPhotos = "Conse necesita acceso a tu Álbum de fotos"
 }
 
 struct LoaderStrings {
     static let avatarUpload = "Guardando avatar..."
     static let configApp = "Obteniendo configuración de la aplicación"
+    static let download = "Descargando..."
     static let getLegal = "Obteniendo biblioteca ..."
     static let getNews = "Obteniendo listado de noticias..."
     static let getShield = "Obteniendo Listado de Escudos de Protección"
@@ -242,6 +249,16 @@ struct VideosID {
     static let leaders_video = "7t0rIdNhayM"
     static let media_video = "trNPQr6VIsQ"
     static let vbg_video = "Moz4tszhujU"
+    
+    /// Nombre del archivo de video
+    static let tutorial = "tutorial"
+}
+
+/// URL'S para los videos del servidor
+struct VideosURL {
+    static let leaders_url = "http://nrc.org.co/conse/Lideres_Lideresas.mp4"
+    static let media_url = "http://nrc.org.co/conse/Medios_Comunitarios.mp4"
+    static let vbg_url = "http://nrc.org.co/conse/Violecia_Basada_genero.mp4"
     
     /// Nombre del archivo de video
     static let tutorial = "tutorial"

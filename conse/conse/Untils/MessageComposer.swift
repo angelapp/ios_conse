@@ -47,8 +47,6 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
                 self.sendAlertDelegate?.dismissPopup(message: ErrorStrings.userCancelled)
             case MessageComposeResult.failed.rawValue:
                 self.sendAlertDelegate?.dismissPopup(message: ErrorStrings.sendSMSFailed)
-            case MessageComposeResult.sent.rawValue:
-                self.sendAlertDelegate?.dismissPopup(message: ErrorStrings.sendSMSSucced)
             default:
                 self.sendAlertDelegate?.dismissPopup(message: nil)
             }

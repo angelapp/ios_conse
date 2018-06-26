@@ -53,7 +53,7 @@ class VideoTutorialViewController: UIViewController {//, UIWebViewDelegate {
         
         let player = AVPlayer(url: URL(fileURLWithPath: path))
         
-        let playerController = AVPlayerViewController()
+        let playerController = LandscapeAVPlayerController()
         playerController.player = player
         
         present(playerController, animated: true) {

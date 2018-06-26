@@ -34,7 +34,7 @@ struct VBG_COURSE {
     struct PAGE_03 {
         static let T1 = "Módulo 1"
         static let T2 = "¿Cómo saber si soy víctima de violencia?"
-        static let T3 = "El primer paso para identificar si eres vícitma de violencia es tener claro ¿qué se entiende por violencia contra las mujeres?"
+        static let T3 = "El primer paso para identificar si eres víctima de violencia es tener claro ¿qué se entiende por violencia contra las mujeres?"
         static let T4 = "La ley define la violencia contra las mujeres como:"
         static let T5 = "\"Cualquier acción u omisión, que le cause muerte, daño o sufrimiento físico, sexual, psicológico, económico o patrimonial por su condición de mujer, así como las amenazas de tales actos, la coacción o la privación arbitraria de la libertad, bien sea que se presente en el ámbito público o privado\"."
         static let T6 = "(Ley 1257/08, art.2)"

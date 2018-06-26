@@ -133,6 +133,16 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
         // Vibrate Device
         AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         
+        guard contacts.count > 0 else {
+            dismissPopup(message: ErrorStrings.contactsNotFound)
+            return
+        }
+        
+        guard DocumentBankViewController.isLocationPermissionGranted() else {
+            self.showConseSettings(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
+            return
+        }
+        
         // Add message body and recipients list
         messageComposer.messageRecipientes(message: messageBody, contactList: contacts, sendDelegate: self)
         

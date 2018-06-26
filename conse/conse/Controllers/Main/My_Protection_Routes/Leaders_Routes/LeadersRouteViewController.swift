@@ -79,29 +79,28 @@ class LeadersRouteViewController: UIViewController, UICollectionViewDataSource, 
     // MARK: - Actions
     func changeTab() {
         
+        let indexPath = IndexPath(row: currentTab, section: 0)
+        button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
         
         switch currentTab {
             
         case videoOneIndex:
-            video_tab.videoID = VideosID.leaders_video
+            video_tab.videoSTR = VideosURL.leaders_url
             video_tab.videoTitle = VideosTitles.leaders_video
             
             showTab(tab: video_tab)
             break
             
         case videoTwoIndex:
-            video_tab.videoID = VideosID.media_video
+            video_tab.videoSTR = VideosURL.media_url
             video_tab.videoTitle = VideosTitles.media_video
             
             showTab(tab: video_tab)
             break
             
         case leadersRouteTwoIndex:
-            
-            let indexPath = IndexPath(row: currentTab, section: 0)
-            button_collection.scrollToItem(at: indexPath, at: UICollectionViewScrollPosition.right, animated: true)
-            
             showTab(tab: leadersRouteTwo_tab)
+            break
             
         default:
             showTab(tab: leadersRouteOne_tab)

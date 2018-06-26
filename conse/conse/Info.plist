@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.3</string>
 	<key>CFBundleVersion</key>
-	<string>19</string>
+	<string>20</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -47,6 +47,8 @@
 	<string>Conse necesita acceso a tu Ubicación, para notificar a tus contactos donde te encuentras en caso de una emergencia, o ubicar los centros de protección mas cercanos</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Conse necesita acceso a tu Ubicación, para notificar a tus contactos donde te encuentras en caso de una emergencia, o ubicar los centros de protección mas cercanos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Conse necesita acceso a tu Galleria de fotos, para poder guardar este video</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

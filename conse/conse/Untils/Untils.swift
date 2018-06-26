@@ -7,6 +7,7 @@
 //
 
 import AlamofireImage
+import AVKit
 import Foundation
 import UIKit
 import ObjectMapper
@@ -233,6 +234,15 @@ func printDebugMessage(tag: String) {
     #else
         return
     #endif
+}
+
+
+/// Se establece orientación del video
+class LandscapeAVPlayerController: AVPlayerViewController {
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .landscape
+    }
 }
 
 class Validations {

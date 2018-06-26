@@ -116,7 +116,7 @@ class MainViewController: UIViewController, MainProtocol {
             return newsVC
             
         case .videoPlayer:
-            videoPlayerVC.videoID = AplicationRuntime.sharedManager.getvideoID()
+//            videoPlayerVC.videoSTR = AplicationRuntime.sharedManager.getvideoID()
             return videoPlayerVC
             
         case .editProfile:
