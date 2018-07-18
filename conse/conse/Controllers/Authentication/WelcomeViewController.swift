@@ -11,8 +11,8 @@ import UIKit
 import ObjectMapper
 import CoreLocation
 
-class WelcomeViewController: UIViewController {
-
+class WelcomeViewController: UIViewController, CLLocationManagerDelegate {
+    
     // MARK: - Outlets
     @IBOutlet weak var btn_alet: UIButton!
     @IBOutlet weak var btn_login: UIButton!
@@ -31,7 +31,9 @@ class WelcomeViewController: UIViewController {
     var contacts: Array<ContactModel>!
     var states: StatesModel!
     var userData: RegisterUserResponse!
-
+    
+    let locationManager = CLLocationManager()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,7 @@ class WelcomeViewController: UIViewController {
         addStyles()
         getConfiguration()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -183,6 +185,7 @@ class WelcomeViewController: UIViewController {
             }
             
             // Check if GPS is Enable
+            // Valida si los servicios de localización estan activos
             guard CLLocationManager.locationServicesEnabled() else {
                 self.showSettingsPopup(title: ErrorStrings.title_disabledLocation,
                                        message: ErrorStrings.disabledLocation,
@@ -190,6 +193,13 @@ class WelcomeViewController: UIViewController {
                 return
             }
             
+            // Valida si se han solicitado permisos para usar la localización
+            guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.notDetermined else {
+                locationManager.requestWhenInUseAuthorization()
+                return
+            }
+            
+            // Valida si esta permitido el uso de la localización
             guard DocumentBankViewController.isLocationPermissionGranted() else {
                 self.showConseSettings(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
                 return

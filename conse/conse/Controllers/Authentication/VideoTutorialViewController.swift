@@ -11,38 +11,40 @@ import AVFoundation
 import AVKit
 import CoreLocation
 
-class VideoTutorialViewController: UIViewController {//, UIWebViewDelegate {
+class VideoTutorialViewController: UIViewController, CLLocationManagerDelegate {//, UIWebViewDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_back: UIButton!
     @IBOutlet weak var btn_next: UIButton!
     @IBOutlet weak var btn_play: UIButton!
     //    @IBOutlet weak var videoPlayer: UIWebView!
-//    @IBOutlet weak var loader: UIActivityIndicatorView!
+    //    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     // MARK: - Properties
     var backToHome = false
     
+    let locationManager = CLLocationManager()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        videoPlayer.delegate = self
-//        getVideo(forID: AplicationRuntime.sharedManager.getvideoID())
+        
+        //        videoPlayer.delegate = self
+        //        getVideo(forID: AplicationRuntime.sharedManager.getvideoID())
         
         btn_next.imageView?.contentMode = .scaleAspectFit
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Private function
-//    private func getVideo(forID id: String) -> Void {
-//        let url = URL(string: String(format: Formats.youtubeEmbedFormat, id))
-//        videoPlayer.loadRequest(URLRequest(url: url!))
-//    }
+    //    private func getVideo(forID id: String) -> Void {
+    //        let url = URL(string: String(format: Formats.youtubeEmbedFormat, id))
+    //        videoPlayer.loadRequest(URLRequest(url: url!))
+    //    }
     
     private func playVideo() {
         
@@ -62,14 +64,14 @@ class VideoTutorialViewController: UIViewController {//, UIWebViewDelegate {
     }
     
     // MARK: - Webview Delegate
-//    func webViewDidStartLoad(_ webView: UIWebView) {
-//        loader.startAnimating()
-//    }
-//    
-//    func webViewDidFinishLoad(_ webView: UIWebView) {
-//        loader.stopAnimating()
-//    }
-
+    //    func webViewDidStartLoad(_ webView: UIWebView) {
+    //        loader.startAnimating()
+    //    }
+    //
+    //    func webViewDidFinishLoad(_ webView: UIWebView) {
+    //        loader.stopAnimating()
+    //    }
+    
     // MARK: - Action
     @IBAction func backAction(_ sender: UIButton) {
         
@@ -95,6 +97,7 @@ class VideoTutorialViewController: UIViewController {//, UIWebViewDelegate {
             }
             
             // Check if GPS is Enable
+            // Valida si los servicios de localización estan activos
             guard CLLocationManager.locationServicesEnabled() else {
                 self.showSettingsPopup(title: ErrorStrings.title_disabledLocation,
                                        message: ErrorStrings.disabledLocation,
@@ -102,6 +105,13 @@ class VideoTutorialViewController: UIViewController {//, UIWebViewDelegate {
                 return
             }
             
+            // Valida si se han solicitado permisos para usar la localización
+            guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.notDetermined else {
+                locationManager.requestWhenInUseAuthorization()
+                return
+            }
+            
+            // Valida si esta permitido el uso de la localización
             guard DocumentBankViewController.isLocationPermissionGranted() else {
                 self.showConseSettings(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
                 return

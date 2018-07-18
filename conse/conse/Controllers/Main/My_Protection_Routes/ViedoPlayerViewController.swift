@@ -12,10 +12,10 @@ import AVKit
 import Photos
 
 class ViedoPlayerViewController: UIViewController{ //, UIWebViewDelegate {
-
+    
     // MARK: - Otlets
-//    @IBOutlet weak var videoPlayer: UIWebView!
-//    @IBOutlet weak var loader: UIActivityIndicatorView!
+    //    @IBOutlet weak var videoPlayer: UIWebView!
+    //    @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var btn_play: UIButton!
     @IBOutlet weak var btn_download: UIButton!
     @IBOutlet weak var lbl_videoTitle: UILabel!
@@ -28,13 +28,13 @@ class ViedoPlayerViewController: UIViewController{ //, UIWebViewDelegate {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         lbl_videoTitle.text = videoTitle
         
-//        videoPlayer.delegate = self
-//        getVideo(forID: videoID)
+        //        videoPlayer.delegate = self
+        //        getVideo(forID: videoID)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -42,10 +42,10 @@ class ViedoPlayerViewController: UIViewController{ //, UIWebViewDelegate {
     
     // MARK: - Private function
     // Show embed youtube video in a webview
-//    func getVideo(forID id: String) -> Void {
-//        let url = URL(string: String(format: Formats.youtubeEmbedFormat, id))
-//        videoPlayer.loadRequest(URLRequest(url: url!))
-//    }
+    //    func getVideo(forID id: String) -> Void {
+    //        let url = URL(string: String(format: Formats.youtubeEmbedFormat, id))
+    //        videoPlayer.loadRequest(URLRequest(url: url!))
+    //    }
     
     /// Show video in AVPlayer
     func playVideo() {
@@ -63,7 +63,7 @@ class ViedoPlayerViewController: UIViewController{ //, UIWebViewDelegate {
     func downloadVideo() {
         
         // Si aún no se han dado permisos para usra "FOTOS", se solicitan
-        if PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.notDetermined {
+        guard PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.notDetermined else {
             
             PHPhotoLibrary.requestAuthorization({ (newStatus) in
                 if (newStatus == PHAuthorizationStatus.denied) {
@@ -71,6 +71,7 @@ class ViedoPlayerViewController: UIViewController{ //, UIWebViewDelegate {
                     return
                 }
             })
+            return
         }
         
         // Se verifica que los permisos de "FOTOS" esten activos
@@ -125,11 +126,11 @@ class ViedoPlayerViewController: UIViewController{ //, UIWebViewDelegate {
     }
     
     // MARK: - WebView Delegate
-//    func webViewDidStartLoad(_ webView: UIWebView) {
-//        loader.startAnimating()
-//    }
-//
-//    func webViewDidFinishLoad(_ webView: UIWebView) {
-//        loader.stopAnimating()
-//    }
+    //    func webViewDidStartLoad(_ webView: UIWebView) {
+    //        loader.startAnimating()
+    //    }
+    //
+    //    func webViewDidFinishLoad(_ webView: UIWebView) {
+    //        loader.stopAnimating()
+    //    }
 }

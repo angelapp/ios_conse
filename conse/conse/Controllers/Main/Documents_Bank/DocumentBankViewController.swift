@@ -9,8 +9,8 @@
 import UIKit
 import CoreLocation
 
-class DocumentBankViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, DocumentsTabProtocol {
-
+class DocumentBankViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, DocumentsTabProtocol {
+    
     // MARK: - Outlets
     @IBOutlet weak var lbl_title: UILabel!
     @IBOutlet weak var container: UIView!
@@ -21,6 +21,8 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
     private let formatsIndex: Int = 0
     private let legalIndex: Int = 1
     private let shieldIndex: Int = 2
+    
+    let locationManager = CLLocationManager()
     
     var currentTab: Int = 0
     var tab_formats: FormatBankViewController!
@@ -100,6 +102,7 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
         case shieldIndex:
             
             // Check if GPS is Enable
+            // Valida si los servicios de localización estan activos
             guard CLLocationManager.locationServicesEnabled() else {
                 self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledLocation,
                                                      message: ErrorStrings.disabledLocation,
@@ -110,6 +113,15 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
                 return
             }
             
+            // Valida si se han solicitado permisos para usar la localización
+            guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.notDetermined else {
+                locationManager.requestWhenInUseAuthorization()
+                currentTab = formatsIndex
+                updateTabs()
+                return
+            }
+            
+            // Valida si esta permitido el uso de la localización
             guard DocumentBankViewController.isLocationPermissionGranted() else {
                 self.mainDelegate?.openConseSetting(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
                 currentTab = formatsIndex

@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var lbl_location: UILabel!
     @IBOutlet weak var table_shield: UITableView!
@@ -35,10 +35,10 @@ class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegat
         self.table_shield.dataSource = self
         
         // For use when the app is open & in the background
-        locationManager.requestAlwaysAuthorization()
+        //locationManager.requestAlwaysAuthorization()
         
         // For use when the app is open
-        //locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
         // If location services is enabled get the users location
         if CLLocationManager.locationServicesEnabled() {
@@ -223,5 +223,5 @@ class ProtectionShieldViewController: UIViewController, CLLocationManagerDelegat
     }
     
     // MARK: - Actions
-
+    
 }

@@ -11,7 +11,7 @@ import AudioToolbox
 import CoreLocation
 
 class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate, SendAlertProtocol {
-
+    
     // MARK: - Outlets
     @IBOutlet weak var btn_123: UIButton!
     @IBOutlet weak var btn_141: UIButton!
@@ -46,17 +46,16 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     var isAnimationCancelled = false
     
     let messageComposer = MessageComposer()
-    // Used to start getting the users location
     let locationManager = CLLocationManager()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         addStyles()
         senderVC == .testAlert ? loadSMSView() : loadCallView()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -103,13 +102,18 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
         btn_sendAlert.addGestureRecognizer(longPress)
         
         // For use when the app is open & in the background
-        locationManager.requestAlwaysAuthorization()
+        //locationManager.requestAlwaysAuthorization()
         
         // For use when the app is open
-        //locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
         // If location services is enabled get the users location
         if CLLocationManager.locationServicesEnabled() {
+            
+            if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.notDetermined {
+                locationManager.requestWhenInUseAuthorization()
+            }
+            
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyBest // You can change the locaiton accuary here.
             locationManager.startUpdatingLocation()
@@ -138,6 +142,13 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
             return
         }
         
+        // Valida si se han solicitado permisos para usar la localización
+        guard CLLocationManager.authorizationStatus() != CLAuthorizationStatus.notDetermined else {
+            locationManager.requestWhenInUseAuthorization()
+            return
+        }
+        
+        // Valida si esta permitido el uso de la localización
         guard DocumentBankViewController.isLocationPermissionGranted() else {
             self.showConseSettings(title: ErrorStrings.title_disabledLocation, message: ErrorStrings.deniedLocation)
             return
@@ -172,7 +183,7 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
     // MARK: - Protocol Functions
     // Control the action when device can't send SMS
     func dismissPopup(message: String?) {
-
+        
         if testAlertDelegate != nil {
             testAlertDelegate?.startStepTwo(message: message)
             actionButtons(btn_Cancel)
@@ -202,7 +213,7 @@ class EmergencyPopupViewController: UIViewController, CLLocationManagerDelegate,
                                    settings: UIApplicationOpenSettingsURLString)
         }
     }
-
+    
     // MARK: - Actions
     @objc func longPressGesture(press: UILongPressGestureRecognizer){
         
