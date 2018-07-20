@@ -95,9 +95,16 @@ class PLCCourseViewController: UIViewController, LeadersProtocol, UITableViewDel
         reloadTable()
     }
     
+    func downloadMV(title: String, urlStr: String) {
+        self.downloadVideo(videoSTR: urlStr, videoTitle: title)
+    }
+    
+    func playMV(urlStr: String){
+        self.playVideo(videoSTR: urlStr)
+    }
+    
     func audioManager(audioID id: Int, play: Bool) {
         let audioName = get_LeadersAudioName(forAudio: id)
-        printDebugMessage(tag: audioName)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate {
+class VBGTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var btn_Aud1: UIButton!
@@ -28,6 +28,9 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     @IBOutlet weak var btn_opt3: UIButton!
     @IBOutlet weak var btn_opt4: UIButton!
     @IBOutlet weak var btn_opt5: UIButton!
+    
+    @IBOutlet weak var btn_playMV: UIButton!
+    @IBOutlet weak var btn_downloadMV: UIButton!
     
     @IBOutlet weak var content_tilte: UIView!
     
@@ -68,9 +71,6 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     @IBOutlet weak var lbl_title: UILabel!
     
     @IBOutlet weak var textField1: UITextField!
-    
-    @IBOutlet weak var videoLoader: UIActivityIndicatorView!
-    @IBOutlet weak var videoPlayer: UIWebView!
     
     // Name of textField cell for Crossword
     //(M1CW)Module 1 Crossword
@@ -853,10 +853,6 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
     func fill_VBG_46() {
         content_tilte?.topline()
         lbl_title.text = VBG_COURSE.PAGE_46.TITLE
-        videoPlayer.delegate = self
-        
-        let url = URL(string: String(format: Formats.youtubeEmbedFormat, VideosID.vbg_video))
-        videoPlayer.loadRequest(URLRequest(url: url!))
     }
 
     func fill_VBG_47() {
@@ -1339,13 +1335,20 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         }
     }
     
-    // MARK: - WebView Delegate
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        videoLoader.startAnimating()
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        videoLoader.stopAnimating()
+    // MARK: - Video Manager
+    @IBAction func videoActionManage (_ sender: UIButton) {
+        
+        switch sender {
+            
+        case btn_downloadMV:
+            vbgDelegate?.downloadMV(title: VideosTitles.vbg_video, urlStr: VideosURL.vbg_url)
+            break
+            
+        default:
+            vbgDelegate?.playMV(urlStr: VideosURL.vbg_url)
+            break
+        }
+        
     }
     
     // MARK: - Validaciones
@@ -1381,6 +1384,7 @@ class VBGTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelegate 
         saveActivity(activity: ActivitiesAbreviature.MOD_1_CW1.rawValue, forModule: TopicsIDs.mod_01.rawValue)
         nextPage(nil)
     }
+    
     @IBAction func checking_page_15(_ sender: UIButton) {
         if checkingQuestionary() {
             saveActivity(activity: ActivitiesAbreviature.MOD_1_Q1.rawValue, forModule: TopicsIDs.mod_02.rawValue)

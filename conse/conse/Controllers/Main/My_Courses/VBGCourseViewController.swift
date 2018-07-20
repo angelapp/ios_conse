@@ -106,6 +106,14 @@ class VBGCourseViewController: UIViewController, VBGProtocol, UITableViewDelegat
         reloadTable()
     }
     
+    func downloadMV(title: String, urlStr: String) {
+        self.downloadVideo(videoSTR: urlStr, videoTitle: title)
+    }
+    
+    func playMV(urlStr: String){
+        self.playVideo(videoSTR: urlStr)
+    }
+    
     func audioManager(audioID id: Int, play: Bool) {
         let audioName = get_VBGAudioName(forAudio: id)
         play ? playAudio(audio: audioName) : stopAudio(audio: audioName)

@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.5</string>
 	<key>CFBundleVersion</key>
-	<string>22</string>
+	<string>24</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -45,9 +45,9 @@
 	<string>Conse necesita acceso a tu Agenda, para configurar tus contactos de confianza</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Conse necesita acceso a tu Ubicación, para notificar a tus contactos donde te encuentras en caso de una emergencia, o ubicar los centros de protección mas cercanos</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Conse necesita acceso a tu Ubicación, para notificar a tus contactos donde te encuentras en caso de una emergencia, o ubicar los centros de protección mas cercanos</string>
 	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Conse necesita acceso a tu Ubicación, para notificar a tus contactos donde te encuentras en caso de una emergencia, o ubicar los centros de protección mas cercanos</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Conse necesita acceso a tu Ubicación, para notificar a tus contactos donde te encuentras en caso de una emergencia, o ubicar los centros de protección mas cercanos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Conse necesita acceso a tu álbum de fotos, para poder guardar este video</string>

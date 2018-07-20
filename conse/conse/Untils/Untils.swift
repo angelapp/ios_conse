@@ -7,7 +7,9 @@
 //
 
 import AlamofireImage
+import AVFoundation
 import AVKit
+import Photos
 import Foundation
 import UIKit
 import ObjectMapper
@@ -164,7 +166,6 @@ func saveProgress(forActivity activity: ActityCompleted) -> Array<RequestComplet
                 // Busca la actividad que se desa guardar el progreso
                 for act in activies {
                     
-                    printDebugMessage(tag: "has activities \(act.abreviature) \(activity.activity)")
                     if act.abreviature == activity.activity {
                         
                         // Guarda la fecha de finalización de a actividad si esta no existe
@@ -415,6 +416,72 @@ extension UIViewController {
         }
         else {
             showErrorMessage(withMessage: ErrorStrings.disabledAction)
+        }
+    }
+    
+    /// Show video in AVPlayer
+    func playVideo(videoSTR: String) {
+        let videoURL = NSURL(string: videoSTR)
+        let player = AVPlayer(url: videoURL! as URL)
+        
+        let playerController = LandscapeAVPlayerController()
+        playerController.player = player
+        
+        self.present(playerController, animated: true) {
+            player.play()
+        }
+    }
+    
+    func downloadVideo(videoSTR: String, videoTitle: String? = nil) {
+        
+        // Si aún no se han dado permisos para usra "FOTOS", se solicitan
+        guard PHPhotoLibrary.authorizationStatus() != PHAuthorizationStatus.notDetermined else {
+            
+            PHPhotoLibrary.requestAuthorization({ (newStatus) in
+                if (newStatus == PHAuthorizationStatus.denied) {
+                    self.showConseSettings(title: ErrorStrings.title_disabledPhotos, message: ErrorStrings.deniedPhotos)
+                    return
+                }
+            })
+            return
+        }
+        
+        // Se verifica que los permisos de "FOTOS" esten activos
+        guard PHPhotoLibrary.authorizationStatus() == PHAuthorizationStatus.authorized else {
+            showConseSettings(title: ErrorStrings.title_disabledPhotos, message: ErrorStrings.deniedPhotos)
+            return
+        }
+        
+        // Cast de URL (Es necesario poner loader)
+        guard let url = URL(string: videoSTR), let urlData = NSData(contentsOf: url) else {
+            showErrorMessage(withMessage: ErrorStrings.failedDownload)
+            return
+        }
+        
+        // Se crea la ruta donde será almacenado el video. (Carrete)
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
+        let fileName = videoTitle?.replacingOccurrences(of: " ", with: "_")
+        let filePath="\(documentsPath)/\(fileName ?? "Video_Conse").mp4"
+        
+        // Valida que el archivo no exista
+        guard !FileManager.default.fileExists(atPath: filePath) else {
+            showErrorMessage(withMessage: ErrorStrings.alreadyExisted)
+            return
+        }
+        
+        // Se descarga el archivo desde la url Asincronamente (PONER LOADER)
+        DispatchQueue.main.async {
+            urlData.write(toFile: filePath, atomically: true)
+            PHPhotoLibrary.shared().performChanges({
+                PHAssetChangeRequest.creationRequestForAssetFromVideo(atFileURL: URL(fileURLWithPath: filePath))
+            }) { completed, error in
+                if completed {
+                    self.showErrorMessage(withMessage: ErrorStrings.succedDownload)
+                }
+                else {
+                    self.showErrorMessage(withMessage: ErrorStrings.failedDownload)
+                }
+            }
         }
     }
 }

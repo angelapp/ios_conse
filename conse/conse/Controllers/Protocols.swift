@@ -35,6 +35,8 @@ protocol AboutNRCTabProtocol: class {
 protocol LeadersProtocol: class {
     func nextPage()
     func previusPage()
+    func playMV(urlStr: String)
+    func downloadMV(title: String, urlStr: String)
     func audioManager(audioID id: Int, play: Bool)
     func sendRequest(formModel: Array<RequestCompleted>)
     func showMessagePopup(message: String, inbold: String?, type: TypeMessage)
@@ -43,6 +45,8 @@ protocol LeadersProtocol: class {
 protocol VBGProtocol: class {
     func nextPage()
     func previusPage()
+    func playMV(urlStr: String)
+    func downloadMV(title: String, urlStr: String)
     func audioManager(audioID id: Int, play: Bool)
     func showPopupHelp(title: String, text: String)
     func sendRequest(formModel: Array<RequestCompleted>)

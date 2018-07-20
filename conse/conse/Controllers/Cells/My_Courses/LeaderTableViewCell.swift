@@ -28,6 +28,9 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     @IBOutlet weak var btn_opt7: UIButton!
     @IBOutlet weak var btn_opt8: UIButton!
     
+    @IBOutlet weak var btn_playMV: UIButton!
+    @IBOutlet weak var btn_downloadMV: UIButton!
+    
     @IBOutlet weak var img_route: UIImageView!
     @IBOutlet weak var img_avatar: UIImageView!
     @IBOutlet weak var img_insignia: UIImageView!
@@ -89,10 +92,6 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     @IBOutlet weak var leaders_textField8: UITextField!
     @IBOutlet weak var leaders_textField9: UITextField!
     @IBOutlet weak var leaders_textField10: UITextField!
-    
-    @IBOutlet weak var leader_videoLoader: UIActivityIndicatorView!
-    @IBOutlet weak var leader_videoPlayer: UIWebView!
-    
     
     // MARK: - Properties
     let CORRECT_OPTION: Int = 1
@@ -960,10 +959,6 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
     
     func fillLeader54() {
         leaders_title.text = LEADERS_COURSE.PAGE_54.title
-        leader_videoPlayer.delegate =  self
-        
-        let url = URL(string: String(format: Formats.youtubeEmbedFormat, VideosID.leaders_video))
-        leader_videoPlayer.loadRequest(URLRequest(url: url!))
     }
     
     func fillLeader55() {
@@ -1340,12 +1335,18 @@ class LeaderTableViewCell: UITableViewCell, UITextFieldDelegate, UIWebViewDelega
         updateButtonsState(sender: sender)
     }
     
-    // MARK: - WebView Delegate
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        leader_videoLoader.startAnimating()
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        leader_videoLoader.stopAnimating()
+    // MARK: - Video Manager
+    @IBAction func videoActionManage (_ sender: UIButton) {
+        
+        switch sender {
+            
+        case btn_downloadMV:
+            leadersDelegate?.downloadMV(title: VideosTitles.leaders_video, urlStr: VideosURL.leaders_url)
+            break
+            
+        default:
+            leadersDelegate?.playMV(urlStr: VideosURL.leaders_url)
+            break
+        }
     }
 }
