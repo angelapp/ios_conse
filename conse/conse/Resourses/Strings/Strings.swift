@@ -18,9 +18,9 @@ let subject = "Subject"
 let titleTextColor = "titleTextColor"
 let resetButtonTitle = "Reiniciar Curso"
 
-let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
-let URL_LOCATION_SERVICES = "App-Prefs:root=LOCATION_SERVICES"
-let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
+//let URL_GENERAL_SETTINGS = "App-Prefs:root=General"
+//let URL_LOCATION_SERVICES = "App-Prefs:root=LOCATION_SERVICES"
+//let URL_WIFI_SETTINGS = "App-Prefs:root=WIFI"
 
 // MARK: - AVATAR, Config
 struct AvatarStrings {
@@ -158,6 +158,7 @@ struct LoaderStrings {
     static let recording = "Guardando..."
     static let recovery = "Recuperando contraseña..."
     static let sendEmail = "Enviando email ..."
+    static let registering = "Registrando ..."
 }
 
 struct ProgressStrings {

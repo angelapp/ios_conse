@@ -37,9 +37,9 @@ struct NetworkCodes {
 struct NetworkConfig {
     //Root Api url
     #if DEBUG
-        static let urlAccess = "https://consejo.nrc.org.co/api/"
+        static let urlAccess = "https://www.conse.co/api/"
     #else
-        static let urlAccess = "https://consejo.nrc.org.co/api/"
+        static let urlAccess = "https://www.conse.co/api/"
     #endif
     
     //Header
@@ -54,6 +54,8 @@ struct NetworkConfig {
     
     #if DEBUG
         static let apiKey = "3036c87d7f906cc2b8155b7a70428eb008de81aa"
+      //static let apiKey = "8e58a69822482b4e922c1617c5d007b0ef2fbe4e"
+    
     #else
         static let apiKey = "3036c87d7f906cc2b8155b7a70428eb008de81aa"
     #endif

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kgW-3i-SFy">
-                                <rect key="frame" x="8" y="4.5" width="304" height="472.5"/>
+                                <rect key="frame" x="8" y="5" width="304" height="470.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgD-To-iuz">
                                         <rect key="frame" x="94.5" y="12" width="115" height="115"/>
@@ -40,13 +37,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="De lunes a viernes de 8:00am a 4:30pm" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HKm-7X-Tap">
-                                        <rect key="frame" x="8" y="334.5" width="288" height="14.5"/>
+                                        <rect key="frame" x="8" y="333" width="288" height="14.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdV-hq-hGd">
-                                        <rect key="frame" x="0.0" y="443.5" width="304" height="29"/>
+                                        <rect key="frame" x="0.0" y="441.5" width="304" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <state key="normal" title="Cancelar">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -56,10 +53,10 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHT-Rm-2rm" userLabel="Call 123">
-                                        <rect key="frame" x="16" y="186" width="272" height="41"/>
+                                        <rect key="frame" x="16" y="186" width="272" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9V-LS-cM8">
-                                                <rect key="frame" x="240" y="5" width="32" height="32"/>
+                                                <rect key="frame" x="240" y="4" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="N9n-eZ-P0d"/>
                                                     <constraint firstAttribute="width" constant="32" id="twz-eP-yZE"/>
@@ -70,7 +67,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Línea nacional de atención a emergencias 123" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fE9-ck-u6q">
-                                                <rect key="frame" x="8" y="4" width="224" height="33"/>
+                                                <rect key="frame" x="8" y="4" width="224" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -88,7 +85,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSa-Ia-rwi" userLabel="Call 141">
-                                        <rect key="frame" x="16" y="231" width="272" height="51"/>
+                                        <rect key="frame" x="16" y="230" width="272" height="51"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VgD-zu-yik">
                                                 <rect key="frame" x="240" y="9.5" width="32" height="32"/>
@@ -102,7 +99,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Línea de orientación del ICBF si la violencia es contra niños, niñas y adolescentes 141" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgK-q5-U8z">
-                                                <rect key="frame" x="8" y="4.5" width="224" height="43"/>
+                                                <rect key="frame" x="8" y="4" width="224" height="43"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -120,10 +117,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yN0-xG-KOB" userLabel="Call 155">
-                                        <rect key="frame" x="16" y="286" width="272" height="40.5"/>
+                                        <rect key="frame" x="16" y="285" width="272" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2FT-CS-COh">
-                                                <rect key="frame" x="240" y="4.5" width="32" height="32"/>
+                                                <rect key="frame" x="240" y="4" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="32" id="n7r-i9-KG9"/>
                                                     <constraint firstAttribute="height" constant="32" id="nrD-0q-JxC"/>
@@ -134,7 +131,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Línea de orientación a las mujeres víctimas de la violencia 155" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEs-FL-yag">
-                                                <rect key="frame" x="8" y="4.5" width="224" height="32.5"/>
+                                                <rect key="frame" x="8" y="4" width="224" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -152,7 +149,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7m-3g-QPf" userLabel="UNP NAL">
-                                        <rect key="frame" x="16" y="357" width="272" height="40"/>
+                                        <rect key="frame" x="16" y="355.5" width="272" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3i-Uc-KsJ">
                                                 <rect key="frame" x="240" y="4" width="32" height="32"/>
@@ -166,7 +163,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unidad Nacional de Protección línea nacional 018000118228" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4T-pX-D1d">
-                                                <rect key="frame" x="8" y="4.5" width="224" height="32"/>
+                                                <rect key="frame" x="8" y="4" width="224" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -184,10 +181,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhu-jv-TpE" userLabel="UNP BOG">
-                                        <rect key="frame" x="16" y="401" width="272" height="40.5"/>
+                                        <rect key="frame" x="16" y="399.5" width="272" height="40"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dp-zs-izC">
-                                                <rect key="frame" x="240" y="4.5" width="32" height="32"/>
+                                                <rect key="frame" x="240" y="4" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="32" id="3Ld-H1-gdu"/>
                                                     <constraint firstAttribute="width" constant="32" id="4xg-Kn-hLg"/>
@@ -198,7 +195,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unidad Nacional de Protección  en Bogotá (1) 4269800" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuq-ne-VOj">
-                                                <rect key="frame" x="8" y="4.5" width="224" height="32.5"/>
+                                                <rect key="frame" x="8" y="4" width="224" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -254,7 +251,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXz-fM-1FS">
-                                <rect key="frame" x="16" y="48" width="288" height="382.5"/>
+                                <rect key="frame" x="16" y="49" width="288" height="382.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_campana" translatesAutoresizingMaskIntoConstraints="NO" id="ufL-91-sHc">
                                         <rect key="frame" x="16" y="20" width="256" height="50"/>
@@ -275,7 +272,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB9-Kz-Hcg">
-                                        <rect key="frame" x="44" y="211" width="201" height="70"/>
+                                        <rect key="frame" x="43.5" y="211" width="201" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="201" id="N0d-8j-AQF"/>
                                             <constraint firstAttribute="height" constant="70" id="uQu-EW-lds"/>
@@ -285,7 +282,7 @@
                                         <state key="highlighted" image="btn_siestoysegurohover"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MANTÉN PULSADO EL BOTÓN PARA ENVIAR" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGi-k5-cCs">
-                                        <rect key="frame" x="16" y="312.5" width="256" height="31.5"/>
+                                        <rect key="frame" x="16" y="313" width="256" height="31.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" red="0.93093174700000003" green="0.3578087687" blue="0.21745023129999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -424,7 +421,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPI-1Z-91E">
-                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <navigationItem title="Title" id="maX-aI-VuD">
@@ -442,7 +439,7 @@
                                 </items>
                             </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Df-w2-7dk">
-                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="436"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -476,7 +473,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p2d-44-gME">
-                                <rect key="frame" x="282" y="28" width="38" height="30"/>
+                                <rect key="frame" x="282" y="8" width="38" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="38" id="CW3-br-Lw9"/>
                                     <constraint firstAttribute="height" constant="30" id="OMp-TM-ULo"/>
@@ -487,26 +484,26 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insignia" translatesAutoresizingMaskIntoConstraints="NO" id="MWR-sc-ujr">
-                                <rect key="frame" x="115" y="66" width="90" height="70"/>
+                                <rect key="frame" x="115" y="46" width="90" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="Qet-A5-B3t"/>
                                     <constraint firstAttribute="width" constant="90" id="bRm-HJ-3TZ"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hij-AK-dzf">
-                                <rect key="frame" x="24" y="144" width="272" height="24"/>
+                                <rect key="frame" x="24" y="124" width="272" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="93B-kF-Rd9">
-                                <rect key="frame" x="24" y="176" width="272" height="21.5"/>
+                                <rect key="frame" x="24" y="156" width="272" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rCe-WW-cOG">
-                                <rect key="frame" x="0.0" y="213.5" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="193.5" width="320" height="40"/>
                                 <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -576,7 +573,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wb4-5P-J4K">
-                                <rect key="frame" x="0.0" y="261.5" width="320" height="218.5"/>
+                                <rect key="frame" x="0.0" y="241.5" width="320" height="238.5"/>
                                 <color key="backgroundColor" red="0.92294549940000004" green="0.36166822910000002" blue="0.24558448790000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="progressCell" rowHeight="66" id="As3-0g-qeD" customClass="ProgressTableViewCell" customModule="conse" customModuleProvider="target">
@@ -673,7 +670,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A18-Mb-a5R">
-                                <rect key="frame" x="16" y="138.5" width="288" height="203.5"/>
+                                <rect key="frame" x="16" y="139" width="288" height="202.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opo-Rg-vhO">
                                         <rect key="frame" x="16" y="16" width="256" height="21.5"/>
@@ -688,13 +685,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iaO-MT-KjL">
-                                        <rect key="frame" x="24" y="95.5" width="240" height="59"/>
+                                        <rect key="frame" x="24" y="95.5" width="240" height="58"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qrc-Wp-wKG">
-                                                <rect key="frame" x="0.0" y="1" width="240" height="57"/>
+                                                <rect key="frame" x="0.0" y="1" width="240" height="56"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcP-nh-0FS">
-                                                        <rect key="frame" x="192" y="9" width="40" height="40"/>
+                                                        <rect key="frame" x="192" y="8" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="40" id="5e8-Ia-6tu"/>
                                                             <constraint firstAttribute="height" constant="40" id="lfp-Gz-zxc"/>
@@ -707,7 +704,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Descargar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLP-kv-8oa">
-                                                        <rect key="frame" x="16" y="14" width="163" height="29"/>
+                                                        <rect key="frame" x="16" y="14" width="163" height="28"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -735,7 +732,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTa-Pn-1pb">
-                                        <rect key="frame" x="0.0" y="174.5" width="288" height="29"/>
+                                        <rect key="frame" x="0.0" y="173.5" width="288" height="29"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                         <state key="normal" title="Cancelar"/>
                                         <userDefinedRuntimeAttributes>
@@ -801,20 +798,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VH-dh-aIN">
-                                <rect key="frame" x="24.5" y="253" width="271.5" height="19.5"/>
+                                <rect key="frame" x="24" y="252.5" width="272" height="19.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_admiracion" translatesAutoresizingMaskIntoConstraints="NO" id="WUF-0y-w4a">
-                                <rect key="frame" x="115" y="147" width="90" height="90"/>
+                                <rect key="frame" x="115" y="146.5" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="DsX-B2-6nm"/>
                                     <constraint firstAttribute="height" constant="90" id="cjy-TQ-99Y"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAg-il-aJD">
-                                <rect key="frame" x="60" y="296.5" width="200" height="50"/>
+                                <rect key="frame" x="60" y="296" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0Md-Bk-LaJ"/>
                                     <constraint firstAttribute="width" constant="200" id="e9s-5b-dsk"/>
@@ -857,15 +854,15 @@
     </scenes>
     <resources>
         <image name="IMG_VBGM0P2" width="952" height="952"/>
-        <image name="btn_intentar" width="293" height="80"/>
+        <image name="btn_intentar" width="293.33334350585938" height="80"/>
         <image name="btn_regresar" width="167" height="130"/>
         <image name="btn_siestoysegurohover" width="284" height="120"/>
         <image name="descargar" width="120" height="120"/>
         <image name="descargar_hover" width="120" height="120"/>
         <image name="icon_admiracion" width="484" height="484"/>
-        <image name="icon_campana" width="107" height="69"/>
+        <image name="icon_campana" width="107.33333587646484" height="69.333335876464844"/>
         <image name="icon_enviaralerta" width="328" height="328"/>
-        <image name="icon_telefono" width="66" height="66"/>
+        <image name="icon_telefono" width="66.666664123535156" height="66.666664123535156"/>
         <image name="insignia" width="214" height="291"/>
     </resources>
 </document>

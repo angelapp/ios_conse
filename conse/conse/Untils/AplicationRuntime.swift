@@ -277,10 +277,11 @@ class AplicationRuntime {
         return id
     }
     
+    /*
     public func getUserProfile() -> ProfileSerializer! {
         guard let profile = userData?.profile else { return nil }
         return profile
-    }
+    }*/
     
     public func getUserToken() -> String {
         guard let token = userData?.token else { return nullString }

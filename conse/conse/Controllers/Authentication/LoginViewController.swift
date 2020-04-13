@@ -113,6 +113,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loader.showOverlay(view: self.view)
         self.view.isUserInteractionEnabled = false
         
+        
+        
         Network.buildRequest(urlApi: NetworkPOST.USER_LOGGIN, json: json, extraHeaders: headers, method: .methodPOST, completion: { (response) in
             
             loader.hideOverlayView()

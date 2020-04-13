@@ -106,7 +106,8 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
             guard CLLocationManager.locationServicesEnabled() else {
                 self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledLocation,
                                                      message: ErrorStrings.disabledLocation,
-                                                     settings: URL_LOCATION_SERVICES)
+                                                     settings: UIApplication.LaunchOptionsKey.location.rawValue
+                )
                 
                 currentTab = formatsIndex
                 updateTabs()
@@ -133,7 +134,8 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
             guard ConnectionCheck.isConnectedToNetwork() else {
                 self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledInternet,
                                                      message: ErrorStrings.disabledIntenert,
-                                                     settings: URL_GENERAL_SETTINGS)
+                                                     settings: UIApplicationOpenSettingsURLString
+                )
                 
                 currentTab = formatsIndex
                 updateTabs()
@@ -150,7 +152,7 @@ class DocumentBankViewController: UIViewController, UICollectionViewDataSource, 
             guard ConnectionCheck.isConnectedToNetwork() else {
                 self.mainDelegate?.openSettingsPopup(title: ErrorStrings.title_disabledInternet,
                                                      message: ErrorStrings.disabledIntenert,
-                                                     settings: URL_GENERAL_SETTINGS)
+                                                     settings: UIApplicationOpenSettingsURLString)
                 
                 currentTab = formatsIndex
                 updateTabs()
